@@ -1,3 +1,8 @@
+<?php
+  require 'Slim/Slim.php';
+  \Slim\Slim::registerAutoloader();
+?>
+
 <html>
 <head></head>
 <body>

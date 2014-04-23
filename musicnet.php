@@ -109,7 +109,7 @@
             It provides user authentication and an interface to browse and query an extensive database of Music data.
             We should write a better introductory blurb here. meow.
           </p>
-          <!--<p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>-->
+          <p><a class="btn btn-primary btn-lg" role="button">Register to Get Started! &raquo;</a></p>
         </div>
       </div>
 
@@ -270,7 +270,7 @@
           $(document).ready(function() {
 
             // load the profile data for the logged in user
-            
+
             $(".please-wait").show();
             $.ajax({
               type: 'GET',

@@ -5,6 +5,8 @@ $(document).ready(function() {
     e.preventDefault();
     var postdata = $("#registration-form").serializeObject();
     postdata.fn = 'register_new_user';
+    $("#register-submit").prop('disabled', true);
+    $("#register-cancel").prop('disabled', true);
     $(".please-wait").show(); // show loading indicator
     $.ajax({
       type: 'POST',

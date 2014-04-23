@@ -110,11 +110,38 @@
             We should write a better introductory blurb here. meow.
           </p>
           <h3>
-            Ready to get started?&nbsp;&nbsp;
-            <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
-              Register an Account
-            </a>
-            &nbsp;or sign in above!
+            <?php
+              if($logged_in) {
+            ?>
+              Ready to get started?&nbsp;&nbsp;
+              <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
+                Register an Account
+              </a>
+              &nbsp;or sign in above!
+            <?php
+              } else {
+            ?>
+                <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
+                <div class="row">
+                  <div class="col-md-4">
+                    <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
+                      Search for Music
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a class="btn btn-block btn-info" href="musicnet.php?page=friends" role="button">
+                      Make Friends
+                    </a>
+                 </div>
+                  <div class="col-md-4">
+                    <a class="btn btn-block btn-default" href="musicnet.php?page=concerts" role="button">
+                      Find Concerts
+                    </a>
+                  </div>
+                </div>
+            <?php
+              }
+            ?>
           </h3>
         </div>
       </div>
@@ -259,6 +286,51 @@
 
     <?php
       } // $page == 'user'
+      if($page == 'search') {
+    ?>
+
+        <div class="jumbotron slim">
+          <div class="container">
+            <h2>Search for Music</h2>
+          </div>
+        </div>
+
+        <div class="container">
+          <h2>TODO: build query features into this page</h2>
+        </div>
+
+    <?php
+      } // $page == 'search'
+      if($page == 'friends') {
+    ?>
+
+        <div class="jumbotron slim">
+          <div class="container">
+            <h2>Find Friends</h2>
+          </div>
+        </div>
+
+        <div class="container">
+          <h2>TODO: build friend-request and communication features into this page</h2>
+        </div>
+
+    <?php
+      } // $page == 'friends'
+      if($page == 'concerts') {
+    ?>
+
+        <div class="jumbotron slim">
+          <div class="container">
+            <h2>Find Concerts</h2>
+          </div>
+        </div>
+
+        <div class="container">
+          <h2>TODO: build concert aggregator features into this page</h2>
+        </div>
+
+    <?php
+      } // $page == 'concerts'
     ?>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

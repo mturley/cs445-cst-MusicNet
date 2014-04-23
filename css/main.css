@@ -1,0 +1,20 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.jumbotron.slim {
+  padding-top: 0;
+  padding-bottom: 10px;
+}
+
+#please-wait h3 {
+  padding: 10px 20px 20px 20px;
+}
+
+.modal-vertical-centered {
+  transform: translate(0, 50%) !important;
+  -ms-transform: translate(0, 50%) !important; /* IE 9 */
+  -webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
+}

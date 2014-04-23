@@ -98,39 +98,11 @@
 
     <?php
       if($page == 'home') {
-    ?>
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="container">
-          <h1>Welcome to MusicNet!</h1>
-          <p>
-            MusicNet is a simple PHP / MySQL WebApp built by Mike Turley, Eric Smith and Xian Chen for CS445 in Spring 2014.
-            It provides user authentication and an interface to browse and query an extensive database of Music data.
-            We should write a better introductory blurb here. meow.
-          </p>
-          <h3>
-            <?php
-              if($logged_in) {
-            ?>
-                <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
-            <?php
-              } else {
-            ?>
-                Ready to get started?&nbsp;&nbsp;
-                <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
-                  Register an Account
-                </a>
-                &nbsp;or sign in above!
-            <?php
-              }
-            ?>
-          </h3>
-        </div>
-      </div>
-      <?php
         if($logged_in) {
-      ?>
+    ?>
+          <div class="jumbotron slim">
+            <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
+          </div>
           <div class="container">
             <div class="row feature-buttons">
               <div class="col-md-4">
@@ -150,9 +122,29 @@
               </div>
             </div>
           </div>
-      <?php
+    <?php
+        } else {
+    ?>
+          <div class="jumbotron">
+            <div class="container">
+              <h1>Welcome to MusicNet!</h1>
+              <p>
+                MusicNet is a simple PHP / MySQL WebApp built by Mike Turley, Eric Smith and Xian Chen for CS445 in Spring 2014.
+                It provides user authentication and an interface to browse and query an extensive database of Music data.
+                We should write a better introductory blurb here. meow.
+              </p>
+              <h3>
+                Ready to get started?&nbsp;&nbsp;
+                <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
+                  Register an Account
+                </a>
+                &nbsp;or sign in above!
+              </h3>
+            </div>
+          </div>
+    <?php
         }
-      ?>
+    ?>
 
       <div class="container">
         <!-- Example row of columns -->

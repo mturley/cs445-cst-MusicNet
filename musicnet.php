@@ -62,7 +62,14 @@
           </div>
         </div>
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
+          <?php
+            if(isset($_SESSION['user_id'])) {
+          ?>
+              <h4>Signed In As: <?php echo $user_id; ?><a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a></h4>
+          <?php
+            } else {
+          ?>
+          <form class="navbar-form navbar-right" role="form" id="login-form">
             <div class="form-group">
               <input type="text" placeholder="User ID" class="form-control" name="user_id">
             </div>
@@ -72,6 +79,9 @@
             <button type="submit" class="btn btn-success">Sign in</button>
             <a href="musicnet.php?page=register" class="btn btn-info">Register</a>
           </form>
+          <?php
+            }
+          ?>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
@@ -210,6 +220,17 @@
 
     <?php
       } // $page == 'register'
+      if($page == 'login') {
+    ?>
+
+      <div class="jumbotron">
+        <div class="container">
+          <h2>Signing In...</h2>
+        </div>
+      </div>
+
+    <?php
+      } // $page == 'login'
       if($page == 'user') {
     ?>
 

@@ -42,7 +42,7 @@
 
   if($fn == 'register_new_user') {
     try {
-      $q = $db->prepare("insert into Users (user_id, username, password, age, gender, location) VALUES (:user_id, :username, :password, :age, :gender, :location)");
+      $q = $db->prepare("insert into Users (user_id, username, password, age, gender, location) values (:user_id, :username, :password, :age, :gender, :location)");
       $q->execute(array(':user_id'  => $_POST['user_id'],
                         ':username' => $_POST['username'],
                         ':password' => $_POST['password'],
@@ -57,6 +57,42 @@
       $response->details = $e->getMessage();
       error(500,"Internal Server Error");
     }
+  }
+
+  if($fn == 'user_login') {
+    session_start();
+    if(isset($_SESSION['user_id'])) {
+      $response->message = "You're already logged in.";
+      break;
+    }
+    if(!isset($_POST['user_id'], $_POST['password'])) {
+      $response->message = "Login failed! Please enter a valid username and password.";
+      error(401,"Unauthorized");
+    }
+    $user_id = filter_var($_POST['user_id'], FILTER_SANITIZE_STRING);
+    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+    try {
+      $q = $db->prepare("select user_id, password from Users where user_id = :user_id and password = :password");
+      $q->execute(array(':user_id' => $user_id,':password' => $password));
+      $user_id = $stmt->fetchColumn();
+      if($user_id == false) {
+        $response->message = "Login failed! Please enter a valid username and password.";
+        error(401,"Unauthorized");
+      } else {
+        $_SESSION['user_id'] = $user_id;
+        $response->message = "Login Successful!";
+      }
+    } catch(PDOException $e) {
+      $response->message = "Login failed due to database error!";
+      $response->details = $e->getMessage();
+      error(500,"Internal Server Error");
+    }
+  }
+
+  if($fn == 'user_logout') {
+    session_start();
+    unset($_SESSION['user_id']);
+    $response->message = "Logout complete";
   }
 
   if($fn == 'get_user_by_id') {

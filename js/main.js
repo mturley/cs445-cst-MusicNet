@@ -36,6 +36,26 @@ $(document).ready(function() {
     document.location = 'musicnet.php'; // go home
   });
 
+  $("#login-form").submit(function(e) {
+    e.preventDefault();
+    var postdata = $("#login-form").serializeObject();
+    postdata.fn = 'user_login';
+    $(".please-wait").show();
+    $.ajax({
+      type: 'POST',
+      url: 'backend.php',
+      data: postdata,
+      success: function(response) {
+        $(".please-wait").hide();
+        document.location = 'musicnet.php'; // reload
+      },
+      error: function(response) {
+        $(".please-wait").hide();
+        bootbox.alert($.parseJSON(response.responseText).message);
+      }
+    })
+  });
+
   if($("body").hasClass('user-page')) {
     $(".please-wait").show();
     $.ajax({
@@ -56,6 +76,24 @@ $(document).ready(function() {
         bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
       }
     })
+  }
+
+  if($("body").hasClass('login-page')) {
+    $(".please-wait").show();
+  }
+
+  if($("body").hasClass('logout-page')) {
+    $.ajax({
+      type: 'POST',
+      url: 'backend.php',
+      data: {
+        fn: 'user_logout'
+      },
+      success: function(response) {
+        $(".please-wait").hide();
+        document.location = 'musicnet.php'; // reload
+      }
+    });
   }
 
 });

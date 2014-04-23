@@ -267,7 +267,7 @@
               url: 'backend.php',
               data: {
                 fn: 'get_user_by_id',
-                user_id: <?php echo $_SESSION['user_id'] ?>
+                user_id: '<?php echo $_SESSION['user_id'] ?>'
               },
               success: function(response) {
                 $(".please-wait").hide();

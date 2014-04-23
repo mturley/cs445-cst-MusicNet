@@ -2,6 +2,10 @@
   define('RES_PATH', '/groups/cst/www');
   $page = 'home';
   if(isset($_GET['page'])) $page = $_GET['page'];
+
+  session_start();
+  $logged_in = false;
+  if(isset($_SESSION['user_id'])) $logged_in = true;
 ?>
 
 <!DOCTYPE html>
@@ -63,12 +67,10 @@
         </div>
         <div class="navbar-collapse collapse">
           <?php
-            session_start();
-            if(isset($_SESSION['user_id'])) {
-              $user_id = $_SESSION['user_id'];
+            if($logged_in) {
           ?>
             <div class="navbar-form navbar-right" style="color: white;">
-              <big><strong>Signed In As:</strong>&nbsp;<?php echo $user_id; ?></big>&nbsp;&nbsp;
+              <big><strong>Signed In As:</strong>&nbsp;<span class="data-username">...</span></big>&nbsp;&nbsp;
               <a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a>
             </div>
           <?php
@@ -253,5 +255,39 @@
 
     <script src="<?php echo RES_PATH; ?>/js/plugins.js"></script>
     <script src="<?php echo RES_PATH; ?>/js/main.js"></script>
+
+    <?php
+      if($logged_in) {
+    ?>
+        <script>
+          $(function() {
+            $(".please-wait").show();
+            $.ajax({
+              type: 'GET',
+              url: 'backend.php',
+              data: {
+                fn: 'get_user_by_id',
+                user_id: <?php echo $_SESSION['user_id'] ?>
+              },
+              success: function(response) {
+                $(".please-wait").hide();
+                var r = $.parseJSON(response);
+                if($("#user-info").is(':visible')) {
+                  $("#user-info").empty();
+                  for(var key in r) $("<h4><strong>"+key+":&nbsp;</strong>&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
+                }
+                $(".data-username").html(r.username);
+              },
+              error: function(response) {
+                $(".please-wait").hide();
+                bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
+              }
+            })
+          });
+        </script>
+    <?php
+      }
+    ?>
+
   </body>
 </html>

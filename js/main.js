@@ -19,6 +19,8 @@ $(document).ready(function() {
       error: function(response) {
         console.log(arguments);
         $(".please-wait").hide(); // hide loading indicator
+        $("#register-submit").prop('disabled', false);
+        $("#register-cancel").prop('disabled', false);
       }
     });
   });

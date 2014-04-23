@@ -19,8 +19,8 @@
   // Establish what function is being requested (designated by the 'fn' parameter).  Error 400 if fn is unspecified.
 
   $fn = NULL;
-  if(isset($_GET['fn'])) $function = $_GET['fn'];
-  if(isset($_POST['fn'])) $function = $_POST['fn'];
+  if(isset($_GET['fn'])) $fn = $_GET['fn'];
+  if(isset($_POST['fn'])) $fn = $_POST['fn'];
   if($fn == NULL) {
     $response->message = "Bad Request";
     $response->details = "No 'fn' value was specified, script has no instructions to follow";

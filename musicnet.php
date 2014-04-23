@@ -114,7 +114,7 @@
             <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
               Register an Account &raquo;
             </a>
-            &nbsp;&nbsp;or sign in above!
+            &nbsp;or sign in above!
           </h3>
         </div>
       </div>

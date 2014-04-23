@@ -210,7 +210,7 @@
 
     <?php
       } // $page == 'register'
-      if($page == 'user') {}
+      if($page == 'user') {
     ?>
 
       <!-- Main jumbotron for a primary marketing message or call to action -->

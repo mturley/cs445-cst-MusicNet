@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     // validate inputs
     if(postdata.password != postdata.password_confirm) {
-      alert("Your passwords don't match.");
+      bootbox.alert("Your passwords don't match.");
       return;
     }
 

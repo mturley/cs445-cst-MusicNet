@@ -10,6 +10,8 @@ $(document).ready(function() {
   if(body.hasClass('register-page')) {
     // on the new user registration page
 
+    console.log("WE'RE ON REGISTER PAGE");
+
     $("#submit").click(function(e) {
       // submit the registration form data via ajax
       e.preventDefault();

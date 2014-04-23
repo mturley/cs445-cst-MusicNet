@@ -19,10 +19,13 @@
   -webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
 }
 
-#floatingBarsG{
-position:relative;
-width:32px;
-height:40px}
+#floatingBarsG {
+  float: right;
+  position:relative;
+  top: 4px;
+  width:32px;
+  height:40px;
+}
 
 .blockG{
 position:absolute;

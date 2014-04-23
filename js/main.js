@@ -47,8 +47,7 @@ $(document).ready(function() {
       data: postdata,
       success: function(response) {
         $(".please-wait").hide();
-        console.log(response);
-        //document.location = 'musicnet.php'; // reload
+        document.location = 'musicnet.php'; // reload
       },
       error: function(response) {
         $(".please-wait").hide();

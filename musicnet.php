@@ -101,7 +101,9 @@
         if($logged_in) {
     ?>
           <div class="jumbotron slim">
-            <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
+            <div class="container">
+              <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
+            </div>
           </div>
           <div class="container">
             <div class="row feature-buttons">

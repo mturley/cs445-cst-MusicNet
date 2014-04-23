@@ -1,16 +1,3 @@
-<?php
-  require 'Slim/Slim.php';
-  \Slim\Slim::registerAutoloader();
-  $app = new \Slim\Slim();
-
-  // TODO all backend, non-HTML-rendering endpoints will go here, before the markup.
-
-  $app->get('/hello/:name', function ($name) {
-    echo "Hello, $name";
-  });
-
-?>
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -165,7 +152,3 @@
         </script>
     </body>
 </html>
-
-<?php
-  $app->run();
-?>

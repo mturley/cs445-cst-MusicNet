@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   $("#register-submit").click(function(e) {
     // submit the registration form data via ajax
-    e.preventDefault();
+    //e.preventDefault();
     var postdata = $("#registration-form").serializeObject();
 
     // validate inputs

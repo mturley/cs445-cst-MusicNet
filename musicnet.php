@@ -42,7 +42,24 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="musicnet.php"><strong>MusicNet&nbsp;&nbsp;|&nbsp;&nbsp;</strong>All the Music. All the Net.</a>
-          <img id="please-wait" src="<?php echo RES_PATH; ?>/img/loading.gif" style="display: none;" />
+          <div class="please-wait" id="floatingBarsG" style="display: none;">
+            <div class="blockG" id="rotateG_01">
+            </div>
+            <div class="blockG" id="rotateG_02">
+            </div>
+            <div class="blockG" id="rotateG_03">
+            </div>
+            <div class="blockG" id="rotateG_04">
+            </div>
+            <div class="blockG" id="rotateG_05">
+            </div>
+            <div class="blockG" id="rotateG_06">
+            </div>
+            <div class="blockG" id="rotateG_07">
+            </div>
+            <div class="blockG" id="rotateG_08">
+            </div>
+          </div>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">

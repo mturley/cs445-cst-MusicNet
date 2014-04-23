@@ -5,18 +5,18 @@ $(document).ready(function() {
     e.preventDefault();
     var postdata = $("#registration-form").serializeObject();
     postdata.fn = 'register_new_user';
-    cl.show(); // show loading indicator
+    $(".please-wait").show(); // show loading indicator
     $.ajax({
       type: 'POST',
       url: 'backend.php',
       data: postdata,
       success: function(response) {
         console.log(arguments);
-         // hide loading indicator
+        $(".please-wait").hide(); // hide loading indicator
       },
       error: function(response) {
         console.log(arguments);
-        cl.show(); // hide loading indicator
+        $(".please-wait").hide(); // hide loading indicator
       }
     });
   });

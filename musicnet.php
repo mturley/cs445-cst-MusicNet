@@ -114,23 +114,6 @@
               if($logged_in) {
             ?>
                 <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
-                <div class="row feature-buttons">
-                  <div class="col-md-4">
-                    <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
-                      Search for Music
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a class="btn btn-block btn-info" href="musicnet.php?page=friends" role="button">
-                      Make Friends
-                    </a>
-                 </div>
-                  <div class="col-md-4">
-                    <a class="btn btn-block btn-default" href="musicnet.php?page=concerts" role="button">
-                      Find Concerts
-                    </a>
-                  </div>
-                </div>
             <?php
               } else {
             ?>
@@ -143,6 +126,26 @@
               }
             ?>
           </h3>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row feature-buttons">
+          <div class="col-md-4">
+            <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
+              Search for Music
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a class="btn btn-block btn-info" href="musicnet.php?page=friends" role="button">
+              Make Friends
+            </a>
+         </div>
+          <div class="col-md-4">
+            <a class="btn btn-block btn-default" href="musicnet.php?page=concerts" role="button">
+              Find Concerts
+            </a>
+          </div>
         </div>
       </div>
 

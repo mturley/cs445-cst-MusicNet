@@ -113,14 +113,6 @@
             <?php
               if($logged_in) {
             ?>
-              Ready to get started?&nbsp;&nbsp;
-              <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
-                Register an Account
-              </a>
-              &nbsp;or sign in above!
-            <?php
-              } else {
-            ?>
                 <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
                 <div class="row">
                   <div class="col-md-4">
@@ -139,6 +131,14 @@
                     </a>
                   </div>
                 </div>
+            <?php
+              } else {
+            ?>
+                Ready to get started?&nbsp;&nbsp;
+                <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
+                  Register an Account
+                </a>
+                &nbsp;or sign in above!
             <?php
               }
             ?>

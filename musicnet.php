@@ -46,6 +46,12 @@
       #please-wait h3 {
         padding: 10px 20px 20px 20px;
       }
+
+      .modal-vertical-centered {
+        transform: translate(0, 50%) !important;
+        -ms-transform: translate(0, 50%) !important; /* IE 9 */
+        -webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
+      }
     </style>
 
     <script>
@@ -314,7 +320,7 @@
     ?>
 
     <div id="please-wait" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
+      <div class="modal-dialog modal-sm modal-vertical-centered">
         <div class="modal-content">
           <h3>Please wait while your request is processed...</h3>
         </div>

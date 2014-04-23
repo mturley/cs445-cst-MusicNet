@@ -26,7 +26,7 @@
     $response->details = "No 'fn' value was specified, script has no instructions to follow";
     error(400,"Bad Request");
   }
-  
+
   // Attempt to connect to the mysql database.  Error 500 if connection fails.
 
   $db = NULL;
@@ -41,8 +41,22 @@
   // Perform whatever operations are necessary for this request
 
   if($fn == 'register_new_user') {
-    $response->message = "TODO: register user! (nothing was actually changed, but the routing works)";
-    $response->user_id = $_POST['user_id'];
+    try {
+      $sql = "insert into Users (user_id, username, password, age, gender, location) VALUES (:user_id, :username, :password, :age, :gender, :location)";
+      $q = $db->prepare($sql);
+      $q->execute(array(':user_id'  => $_POST['user_id'],
+                        ':username' => $_POST['username'],
+                        ':password' => $_POST['password'],
+                        ':age'      => $_POST['age'],
+                        ':gender'   => $_POST['gender'],
+                        ':location' => $_POST['location']));
+
+      $response->message = "User ID ".$_POST['user_id']." has been registered successfully.";
+    } catch(PDOException $e) {
+      $response->message = "Failed to Insert into the Users table!";
+      $response->details = $e->getMessage();
+      error(500,"Internal Server Error");
+    }
   }
 
   // Output the response object as a JSON-encoded string

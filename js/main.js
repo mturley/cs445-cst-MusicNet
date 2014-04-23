@@ -38,6 +38,7 @@ $(document).ready(function() {
 
   $("#login-form").submit(function(e) {
     e.preventDefault();
+    console.log("LOGIN HAPPENING");
     var postdata = $("#login-form").serializeObject();
     postdata.fn = 'user_login';
     $(".please-wait").show();

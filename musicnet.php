@@ -71,7 +71,7 @@
           ?>
             <div class="navbar-form navbar-right" style="color: white;">
               <big>
-                <strong>Signed In As:</strong>&nbsp;
+                Signed In As:&nbsp;
                 <a class="data-username" href="musicnet.php?page=user&user_id=<?php echo $_SESSION['user_id']; ?>">...</a>
               </big>&nbsp;&nbsp;
               <a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a>

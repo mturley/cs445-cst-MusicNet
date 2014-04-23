@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="musicnet.php"><strong>MusicNet&nbsp;&nbsp;|&nbsp;&nbsp;</strong>All the Music. All the Net.</a>
-          &nbsp;&nbsp;<img id="please-wait" src="<?php echo RES_PATH; ?>/img/loading.gif" style="display: none;" />
+          <img id="please-wait" src="<?php echo RES_PATH; ?>/img/loading.gif" style="display: none;" />
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">

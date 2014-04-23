@@ -56,6 +56,30 @@ $(document).ready(function() {
     });
   });
 
+  if($("body").hasClass('user-page')) {
+    $(".please-wait").show();
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_user_by_id',
+        user_id: urlParam('user_id')
+      },
+      success: function(response) {
+        $(".please-wait").hide();
+        var r = $.parseJSON(response);
+        if($("#user-info").is(':visible')) {
+          $("#user-info").empty();
+          for(var key in r) $("<h4><strong>"+key+":&nbsp;</strong>&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
+        }
+      },
+      error: function(response) {
+        $(".please-wait").hide();
+        bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
+      }
+    });
+  }
+
   if($("body").hasClass('logout-page')) {
     $.ajax({
       type: 'POST',

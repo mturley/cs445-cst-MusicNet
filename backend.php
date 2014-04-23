@@ -81,7 +81,7 @@
         $response->message = "Login failed! Please enter a valid username and password.";
         error(401,"Unauthorized");
       } else {
-        $_SESSION['user_id'] = $user_id;
+        $_SESSION['user_id'] = $user_id; // store the user_id as a session token to log in.
         $response->message = "Login Successful!";
       }
     } catch(PDOException $e) {

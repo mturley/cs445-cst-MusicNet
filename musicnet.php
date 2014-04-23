@@ -221,7 +221,10 @@
       </div>
 
       <div class="container">
-        TODO: User Profile Info Here.
+        <h2>User Profile Information:</h2>
+        <div id="user-info">
+          Loading...
+        </div>
       </div>
 
     <?php

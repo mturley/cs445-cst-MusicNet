@@ -36,4 +36,8 @@ $(document).ready(function() {
     document.location = 'musicnet.php'; // go home
   });
 
+  if($(body).hasClass('user-page')) {
+    console.log("USERPAGE");
+  }
+
 });

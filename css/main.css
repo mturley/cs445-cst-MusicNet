@@ -19,6 +19,13 @@
   -webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
 }
 
+.feature-buttons .btn-block {
+  font-size: 24px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 10px;
+}
+
 #floatingBarsG {
   float: right;
   position:relative;

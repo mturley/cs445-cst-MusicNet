@@ -114,7 +114,7 @@
               if($logged_in) {
             ?>
                 <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
-                <div class="row">
+                <div class="row feature-buttons">
                   <div class="col-md-4">
                     <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
                       Search for Music

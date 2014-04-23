@@ -66,8 +66,10 @@
             session_start();
             if(isset($_SESSION['user_id'])) {
           ?>
+            <div class="navbar-right">
               <strong>Signed In As:</strong>&nbsp;<?php echo $user_id; ?>&nbsp;&nbsp;
               <a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a>
+            </div>
           <?php
             } else {
           ?>
@@ -222,17 +224,6 @@
 
     <?php
       } // $page == 'register'
-      if($page == 'login') {
-    ?>
-
-      <div class="jumbotron">
-        <div class="container">
-          <h2>Signing In...</h2>
-        </div>
-      </div>
-
-    <?php
-      } // $page == 'login'
       if($page == 'user') {
     ?>
 

@@ -53,7 +53,7 @@ $(document).ready(function() {
         $(".please-wait").hide();
         bootbox.alert($.parseJSON(response.responseText).message);
       }
-    })
+    });
   });
 
   if($("body").hasClass('user-page')) {
@@ -76,10 +76,6 @@ $(document).ready(function() {
         bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
       }
     })
-  }
-
-  if($("body").hasClass('login-page')) {
-    $(".please-wait").show();
   }
 
   if($("body").hasClass('logout-page')) {

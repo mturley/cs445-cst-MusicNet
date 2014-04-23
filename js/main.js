@@ -37,7 +37,25 @@ $(document).ready(function() {
   });
 
   if($("body").hasClass('user-page')) {
-    console.log("USERPAGE");
+    $(".please-wait").show();
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_user_by_id',
+        user_id = urlParam('user_id')
+      },
+      success: function(response) {
+        $(".please-wait").hide();
+        $("#user-info").empty();
+        var r = $.parseJSON(response);
+        for(var key in r) $("<h3><strong>"+key+"</strong>"+r[key]+"</h3>").appendTo("#user-info");
+      },
+      error: function(response) {
+        $(".please-wait").hide();
+        bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
+      }
+    })
   }
 
 });

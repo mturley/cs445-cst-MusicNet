@@ -36,5 +36,5 @@ $(document).ready(function() {
       document.location = 'musicnet.php'; // go home
     });
 
-  }); // body.hasClass('register')
+  } // body.hasClass('register-page')
 });

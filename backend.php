@@ -76,7 +76,7 @@
     try {
       $q = $db->prepare("select user_id, password from Users where user_id = :user_id and password = :password");
       $q->execute(array(':user_id' => $user_id,':password' => $password));
-      $user_id = $stmt->fetchColumn();
+      $user_id = $q->fetchColumn();
       if($user_id == false) {
         $response->message = "Login failed! Please enter a valid username and password.";
         error(401,"Unauthorized");

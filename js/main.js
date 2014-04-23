@@ -21,7 +21,7 @@ $(document).ready(function() {
         $(".please-wait").hide(); // hide loading indicator
         var r = $.parseJSON(response);
         bootbox.alert(r.message, function() {
-          document.location = 'musicnet.php?page=viewuser&user_id='+r.user_id;
+          document.location = 'musicnet.php?page=user&user_id='+r.user_id;
         });
       },
       error: function(response) {

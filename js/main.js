@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   var body = $(body);
 
-  if(body.hasClass('register-page') {
+  if(body.hasClass('register-page')) {
     // on the new user registration page
 
     $("#submit").click(function(e) {

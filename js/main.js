@@ -4,6 +4,13 @@ $(document).ready(function() {
     // submit the registration form data via ajax
     e.preventDefault();
     var postdata = $("#registration-form").serializeObject();
+
+    // validate inputs
+    if(postdata.password != postdata.password_confirm) {
+      alert("Your passwords don't match.");
+      return;
+    }
+
     postdata.fn = 'register_new_user';
     $(".please-wait").show(); // show loading indicator
     $.ajax({

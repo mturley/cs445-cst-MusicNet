@@ -38,6 +38,11 @@
             padding-top: 50px;
             padding-bottom: 20px;
         }
+
+        .jumbotron.slim {
+          padding-top: 0;
+          padding-bottom: 10px;
+        }
     </style>
 
     <script>
@@ -67,18 +72,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><strong>MusicNet!</strong> All the Music. All the Net.</a>
+          <a class="navbar-brand" href="musicnet.php"><strong>MusicNet&nbsp;&nbsp;|&nbsp;&nbsp;</strong>All the Music. All the Net.</a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" placeholder="User ID" class="form-control" name="user_id">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" class="form-control" name="password">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
-            <button class="btn btn-info">Register</button>
+            <a href="musicnet.php?page=register" class="btn btn-info">Register</a>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -124,18 +129,100 @@
     ?>
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <div class="jumbotron slim">
         <div class="container">
-          <p>User Registration</p>
+          <h2>New User Registration</h2>
         </div>
       </div>
 
       <div class="container">
-        <h1>TODO: Registration Form</h1>
+        <form class="form-horizontal">
+        <fieldset>
+
+        <!-- Form Name -->
+        <legend>Please enter your information below to register a new MusicNet user account.</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="user_id">User ID</label>  
+          <div class="col-md-3">
+          <input id="user_id" name="user_id" type="text" placeholder="john_doe" class="form-control input-md" required="">
+            
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="username">Name</label>  
+          <div class="col-md-3">
+          <input id="username" name="username" type="text" placeholder="John Doe" class="form-control input-md" required="">
+            
+          </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="password">Password</label>
+          <div class="col-md-3">
+            <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">
+            
+          </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="password_confirm">Confirm Password</label>
+          <div class="col-md-3">
+            <input id="password_confirm" name="password_confirm" type="password" placeholder="" class="form-control input-md" required="">
+            
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="age">Age</label>  
+          <div class="col-md-1">
+          <input id="age" name="age" type="text" placeholder="" class="form-control input-md">
+            
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="gender">Gender</label>
+          <div class="col-md-2">
+            <select id="gender" name="gender" class="form-control">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="location">Location</label>  
+          <div class="col-md-3">
+          <input id="location" name="location" type="text" placeholder="" class="form-control input-md">
+            
+          </div>
+        </div>
+
+        <!-- Button (Double) -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="submit"></label>
+          <div class="col-md-8">
+            <button id="submit" name="submit" class="btn btn-success">Complete Registration</button>
+            <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
+          </div>
+        </div>
+
+        </fieldset>
+        </form>
+
       </div> <!-- /container -->
 
     <?php
-      }
+      } // $page == 'register'
     ?>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

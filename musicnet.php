@@ -66,7 +66,8 @@
             session_start();
             if(isset($_SESSION['user_id'])) {
           ?>
-              <h4>Signed In As: <?php echo $user_id; ?><a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a></h4>
+              <strong>Signed In As:</strong>&nbsp;<?php echo $user_id; ?>&nbsp;&nbsp;
+              <a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a>
           <?php
             } else {
           ?>

@@ -49,7 +49,7 @@ $(document).ready(function() {
         $(".please-wait").hide();
         $("#user-info").empty();
         var r = $.parseJSON(response);
-        for(var key in r) $("<h3><strong>"+key+"</strong>"+r[key]+"</h3>").appendTo("#user-info");
+        for(var key in r) $("<h3><strong>"+key+":&nbsp;</strong>&nbsp;"+r[key]+"</h3>").appendTo("#user-info");
       },
       error: function(response) {
         $(".please-wait").hide();

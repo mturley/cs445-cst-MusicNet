@@ -2,6 +2,13 @@
   require 'Slim/Slim.php';
   \Slim\Slim::registerAutoloader();
   $app = new \Slim\Slim();
+
+  // TODO all backend, non-HTML-rendering endpoints will go here, before the markup.
+
+  $app->get('/hello/:name', function ($name) {
+    echo "Hello, $name";
+  });
+
 ?>
 
 <!DOCTYPE html>
@@ -158,3 +165,7 @@
         </script>
     </body>
 </html>
+
+<?php
+  $app->run();
+?>

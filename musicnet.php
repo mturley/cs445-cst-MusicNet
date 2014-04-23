@@ -210,6 +210,22 @@
 
     <?php
       } // $page == 'register'
+      if($page == 'user') {}
+    ?>
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron slim">
+        <div class="container">
+          <h2>View User: <?php echo $_GET['user_id']; ?></h2>
+        </div>
+      </div>
+
+      <div class="container">
+        TODO: User Profile Info Here.
+      </div>
+
+    <?php
+      } // $page == 'user'
     ?>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

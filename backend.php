@@ -52,6 +52,7 @@
                         ':location' => $_POST['location']));
       if($q->rowCount() != 1) throw new PDOException();
       $response->message = "User ID ".$_POST['user_id']." has been registered successfully.";
+      $response->user_id = $_POST['user_id'];
     } catch(PDOException $e) {
       $response->message = "User Registration Failed!  Maybe there was already a user with that user ID?";
       $response->details = $e->getMessage();

@@ -19,7 +19,10 @@ $(document).ready(function() {
       data: postdata,
       success: function(response) {
         $(".please-wait").hide(); // hide loading indicator
-        bootbox.alert($.parseJSON(response).message);
+        var r = $.parseJSON(response);
+        bootbox.alert(r.message, function() {
+          document.location = 'musicnet.php?page=viewuser&user_id='+r.user_id;
+        });
       },
       error: function(response) {
         $(".please-wait").hide(); // hide loading indicator

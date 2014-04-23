@@ -68,7 +68,7 @@
               $user_id = $_SESSION['user_id'];
           ?>
             <div class="navbar-right">
-              <strong>Signed In As:</strong>&nbsp;<?php echo $user_id; ?>&nbsp;&nbsp;
+              <span class="navbar-brand"><strong>Signed In As:</strong>&nbsp;<?php echo $user_id; ?></span>&nbsp;&nbsp;
               <a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a>
             </div>
           <?php

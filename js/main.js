@@ -43,7 +43,7 @@ $(document).ready(function() {
       url: 'backend.php',
       data: {
         fn: 'get_user_by_id',
-        user_id = urlParam('user_id')
+        user_id: urlParam('user_id')
       },
       success: function(response) {
         $(".please-wait").hide();

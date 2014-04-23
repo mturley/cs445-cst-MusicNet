@@ -65,6 +65,7 @@
           <?php
             session_start();
             if(isset($_SESSION['user_id'])) {
+              $user_id = $_SESSION['user_id'];
           ?>
             <div class="navbar-right">
               <strong>Signed In As:</strong>&nbsp;<?php echo $user_id; ?>&nbsp;&nbsp;

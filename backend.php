@@ -42,8 +42,7 @@
 
   if($fn == 'register_new_user') {
     try {
-      $sql = "insert into Users (user_id, username, password, age, gender, location) VALUES (:user_id, :username, :password, :age, :gender, :location)";
-      $q = $db->prepare($sql);
+      $q = $db->prepare("insert into Users (user_id, username, password, age, gender, location) VALUES (:user_id, :username, :password, :age, :gender, :location)");
       $q->execute(array(':user_id'  => $_POST['user_id'],
                         ':username' => $_POST['username'],
                         ':password' => $_POST['password'],
@@ -55,6 +54,18 @@
       $response->user_id = $_POST['user_id'];
     } catch(PDOException $e) {
       $response->message = "User Registration Failed!  Maybe there was already a user with that user ID?";
+      $response->details = $e->getMessage();
+      error(500,"Internal Server Error");
+    }
+  }
+
+  if($fn == 'get_user_by_id') {
+    try {
+      $q = $db->prepare("select * from Users where user_id = :user_id");
+      $q->execute(array(':user_id' => $_GET['user_id']));
+      $response->user = $q->fetchObject();
+    } catch(PDOException $e) {
+      $response->message = "Failed to Select the User with that user_id!";
       $response->details = $e->getMessage();
       error(500,"Internal Server Error");
     }

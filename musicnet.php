@@ -110,11 +110,11 @@
             We should write a better introductory blurb here. meow.
           </p>
           <p>
-            Ready to get started?
+            Ready to get started?&nbsp;&nbsp;
             <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
               Register an Account &raquo;
             </a>
-            or Sign In above!
+            &nbsp;&nbsp;or Sign In above!
           </p>
         </div>
       </div>

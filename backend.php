@@ -40,6 +40,11 @@
 
   // Perform whatever operations are necessary for this request
 
+  if($fn == 'register_new_user') {
+    $response->message = "TODO: register user! (nothing was actually changed, but the routing works)";
+    $response->user_id = $_POST['user_id'];
+  }
+
   // Output the response object as a JSON-encoded string
   echo json_encode($response);
 

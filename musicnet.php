@@ -112,7 +112,7 @@
           <h3>
             Ready to get started?&nbsp;&nbsp;
             <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
-              Register an Account &raquo;
+              Register an Account
             </a>
             &nbsp;or sign in above!
           </h3>

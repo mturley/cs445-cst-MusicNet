@@ -42,6 +42,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="musicnet.php"><strong>MusicNet&nbsp;&nbsp;|&nbsp;&nbsp;</strong>All the Music. All the Net.</a>
+          &nbsp;&nbsp;<img src="<?php echo RES_PATH; ?>/img/loading.gif" style="display: none;" />
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
@@ -180,8 +181,8 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="submit"></label>
           <div class="col-md-8">
-            <button id="submit" name="submit" class="btn btn-success">Complete Registration</button>
-            <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
+            <button id="register-submit" name="submit" class="btn btn-success">Complete Registration</button>
+            <button id="register-cancel" name="cancel" class="btn btn-danger">Cancel</button>
           </div>
         </div>
 
@@ -193,14 +194,6 @@
     <?php
       } // $page == 'register'
     ?>
-
-    <div id="please-wait" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-sm modal-vertical-centered">
-        <div class="modal-content">
-          <h3>Please wait while your request is processed...</h3>
-        </div>
-      </div>
-    </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="<?php echo RES_PATH; ?>/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>

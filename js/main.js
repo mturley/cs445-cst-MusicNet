@@ -18,12 +18,12 @@ $(document).ready(function() {
       url: 'backend.php',
       data: postdata,
       success: function(response) {
-        console.log(arguments);
         $(".please-wait").hide(); // hide loading indicator
+        bootbox.alert($.parseJSON(response).message);
       },
       error: function(response) {
-        console.log(arguments);
         $(".please-wait").hide(); // hide loading indicator
+        bootbox.alert($.parseJSON(response.responseText).message);
       }
     });
   });

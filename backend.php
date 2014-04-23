@@ -53,7 +53,7 @@
       if($q->rowCount() != 1) throw new PDOException();
       $response->message = "User ID ".$_POST['user_id']." has been registered successfully.";
     } catch(PDOException $e) {
-      $response->message = "Failed to Insert into the Users table!";
+      $response->message = "User Registration Failed!  Maybe there was already a user with that user ID?";
       $response->details = $e->getMessage();
       error(500,"Internal Server Error");
     }

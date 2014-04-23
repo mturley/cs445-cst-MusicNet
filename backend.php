@@ -50,6 +50,8 @@
                         ':gender'   => $_POST['gender'],
                         ':location' => $_POST['location']));
       if($q->rowCount() != 1) throw new PDOException();
+      session_start();
+      $_SESSION['user_id'] = $_POST['user_id'];
       $response->message = "User ID ".$_POST['user_id']." has been registered successfully.";
       $response->user_id = $_POST['user_id'];
     } catch(PDOException $e) {

@@ -2,7 +2,7 @@
 
   // backend.php
   // this file should NOT be loaded in the browser.  instead, it should be queried via AJAX from the frontend.
-  // this script will take GET and POST pg_parameter_status()s as input and output strings of JSON for handling by the AJAX callback.
+  // this script will take GET and POST parameters as input and output strings of JSON for handling by the AJAX callback.
 
   define('MYSQL_HOST', 'cs445sql');
   define('MYSQL_DATABASE', 'cst');
@@ -51,7 +51,7 @@
                         ':location' => $_POST['location']));
       if($q->rowCount() != 1) throw new PDOException();
       session_start();
-      $_SESSION['user_id'] = $_POST['user_id'];
+      $_SESSION['user_id'] = $_POST['user_id']; // store the user_id as a session token to log in.
       $response->message = "User ID ".$_POST['user_id']." has been registered successfully.";
       $response->user_id = $_POST['user_id'];
     } catch(PDOException $e) {
@@ -93,7 +93,7 @@
 
   if($fn == 'user_logout') {
     session_start();
-    unset($_SESSION['user_id']);
+    unset($_SESSION['user_id']); // remove the user_id session token to logout.
     $response->message = "Logout complete";
   }
 

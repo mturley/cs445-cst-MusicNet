@@ -103,7 +103,7 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="container">
-          <h1>Welcome to MusicNet</h1>
+          <h1>Welcome to MusicNet!</h1>
           <p>
             MusicNet is a simple PHP / MySQL WebApp built by Mike Turley, Eric Smith and Xian Chen for CS445 in Spring 2014.
             It provides user authentication and an interface to browse and query an extensive database of Music data.

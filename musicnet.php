@@ -109,13 +109,13 @@
             It provides user authentication and an interface to browse and query an extensive database of Music data.
             We should write a better introductory blurb here. meow.
           </p>
-          <p>
+          <h3>
             Ready to get started?&nbsp;&nbsp;
             <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
               Register an Account &raquo;
             </a>
-            &nbsp;&nbsp;or Sign In above!
-          </p>
+            &nbsp;&nbsp;or sign in above!
+          </h3>
         </div>
       </div>
 

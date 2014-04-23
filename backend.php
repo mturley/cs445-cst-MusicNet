@@ -50,7 +50,7 @@
                         ':age'      => $_POST['age'],
                         ':gender'   => $_POST['gender'],
                         ':location' => $_POST['location']));
-
+      if($q->rowCount() != 1) throw new PDOException();
       $response->message = "User ID ".$_POST['user_id']." has been registered successfully.";
     } catch(PDOException $e) {
       $response->message = "Failed to Insert into the Users table!";

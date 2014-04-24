@@ -113,7 +113,7 @@
                 </a>
               </div>
               <div class="col-md-4">
-                <a class="btn btn-block btn-info" href="musicnet.php?page=friends" role="button">
+                <a class="btn btn-block btn-default" href="musicnet.php?page=friends" role="button">
                   <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Make Friends
                 </a>
              </div>

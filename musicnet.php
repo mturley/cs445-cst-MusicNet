@@ -168,7 +168,7 @@
             <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
          </div>
           <div class="col-md-4">
-            <h2>Feature 3</h2>
+            <h2>Find Concerts</h2>
             <p>Is your favorite artist in town? MusicNet has the latest concert information for artists in your area! </p>
             <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
           </div>

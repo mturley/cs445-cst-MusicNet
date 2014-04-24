@@ -309,11 +309,12 @@
         </div>
 
         <div class="container">
-          <h2>TODO: build query features into this page</h2>
-        </div>
-
-        <div class="container">
-
+          <form class="form-search">
+            <div class="input-append">
+              <input type="text" class="span2 search-query">
+              <button type="submit" class="btn"><i class="icon-search"></i></button>
+            </div>
+          </form>
         </div>
 
     <?php

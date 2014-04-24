@@ -158,18 +158,18 @@
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4">
-            <h2>Feature 1</h2>
-            <p>We can talk about individual features of the app here, in these little blurb thingies.  Very cool!</p>
+            <h2>Endless Music</h2>
+            <p>Search of huge library of music by song, artist or album. MusicNet will help to find even the most obscure music using search by terms.</p>
             <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
           </div>
           <div class="col-md-4">
-            <h2>Feature 2</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <h2>Find Friends</h2>
+            <p>MusicNet has thousands of other users like you! Find friends with similar music taste and who go to the same shows you do!  </p>
             <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
          </div>
           <div class="col-md-4">
             <h2>Feature 3</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p>Is your favorite artist in town? MusicNet has the latest concert information for artists in your area! </p>
             <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
           </div>
         </div>

@@ -46,7 +46,14 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="musicnet.php">
-            <strong>MusicNet&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-music"></span><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;</strong>
+            <strong>
+              MusicNet
+            </strong>
+            &nbsp;&nbsp;
+            <span class="glyphicon glyphicon-music"></span>
+            &nbsp;
+            <span class="glyphicon glyphicon-globe"></span>
+            &nbsp;&nbsp;
             All the Music. All the Net.
           </a>
           <div class="please-wait" id="floatingBarsG" style="display: none;">

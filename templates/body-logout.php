@@ -1,5 +1,5 @@
 <div class="jumbotron">
   <div class="container">
-    <h3>Signing Out...</h3>
+    <h2>Signing Out...</h2>
   </div>
 </div>

@@ -109,7 +109,7 @@
             <div class="row feature-buttons">
               <div class="col-md-4">
                 <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
-                  Search for Music
+                  <span class="glyphicon glyphicon-music"></span>&nbsp;Search for Music
                 </a>
               </div>
               <div class="col-md-4">
@@ -299,6 +299,12 @@
 
         <div class="container">
           <h2>TODO: build query features into this page</h2>
+        </div>
+
+        <div class="btn-group btn-group-lg">
+          <button type="button" class="btn btn-default">Search Songs</button>
+          <button type="button" class="btn btn-default">Middle</button>
+          <button type="button" class="btn btn-default">Right</button>
         </div>
 
     <?php

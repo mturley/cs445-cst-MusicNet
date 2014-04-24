@@ -299,7 +299,14 @@
 
         <div class="jumbotron slim">
           <div class="container">
-            <h2>Search for Music</h2>
+            <h2>
+              Search for Music
+              <div class="btn-group btn-group-lg">
+                <button type="button" class="btn btn-primary">Search Songs</button>
+                <button type="button" class="btn btn-default">Search Artists</button>
+                <button type="button" class="btn btn-default">Search Albums</button>
+              </div>
+            </h2>
           </div>
         </div>
 
@@ -308,11 +315,7 @@
         </div>
 
         <div class="container">
-          <div class="btn-group btn-group-lg">
-            <button type="button" class="btn btn-primary">Search Songs</button>
-            <button type="button" class="btn btn-default">Search Artists</button>
-            <button type="button" class="btn btn-default">Search Albums</button>
-          </div>
+
         </div>
 
     <?php

@@ -307,10 +307,12 @@
           <h2>TODO: build query features into this page</h2>
         </div>
 
-        <div class="btn-group btn-group-lg">
-          <button type="button" class="btn btn-default">Search Songs</button>
-          <button type="button" class="btn btn-default">Middle</button>
-          <button type="button" class="btn btn-default">Right</button>
+        <div class="container">
+          <div class="btn-group btn-group-lg">
+            <button type="button" class="btn btn-default">Search Songs</button>
+            <button type="button" class="btn btn-default">Search Artists</button>
+            <button type="button" class="btn btn-default">Search Albums</button>
+          </div>
         </div>
 
     <?php

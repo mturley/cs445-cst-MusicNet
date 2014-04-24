@@ -299,14 +299,12 @@
 
         <div class="jumbotron slim">
           <div class="container">
-            <h2>
-              Search for Music
-              <div class="btn-group btn-group-lg">
-                <button type="button" class="btn btn-primary">Search Songs</button>
-                <button type="button" class="btn btn-default">Search Artists</button>
-                <button type="button" class="btn btn-default">Search Albums</button>
-              </div>
-            </h2>
+            <h2 class="floatleft">Search for Music</h2>
+            <div class="btn-group btn-group-lg floatleft">
+              <button type="button" class="btn btn-primary">Search Songs</button>
+              <button type="button" class="btn btn-default">Search Artists</button>
+              <button type="button" class="btn btn-default">Search Albums</button>
+            </div>
           </div>
         </div>
 

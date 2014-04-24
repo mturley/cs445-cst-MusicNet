@@ -45,7 +45,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="musicnet.php"><strong>MusicNet&nbsp;&nbsp;|&nbsp;&nbsp;</strong>All the Music. All the Net.</a>
+          <a class="navbar-brand" href="musicnet.php">
+            <span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;
+            <strong>MusicNet&nbsp;&nbsp;|&nbsp;&nbsp;</strong>All the Music. All the Net.
+          </a>
           <div class="please-wait" id="floatingBarsG" style="display: none;">
             <div class="blockG" id="rotateG_01">
             </div>
@@ -109,7 +112,7 @@
             <div class="row feature-buttons">
               <div class="col-md-4">
                 <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
-                  <span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Search for Music
+                  <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Search for Music
                 </a>
               </div>
               <div class="col-md-4">

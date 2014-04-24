@@ -46,14 +46,12 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="musicnet.php">
-            <strong>
-              MusicNet
-            </strong>
+            <strong>MusicNet</strong>
             &nbsp;&nbsp;
             <span class="glyphicon glyphicon-music"></span>
+            All the Music.
             <span class="glyphicon glyphicon-globe"></span>
-            &nbsp;&nbsp;
-            All the Music. All the Net.
+            All the Net.
           </a>
           <div class="please-wait" id="floatingBarsG" style="display: none;">
             <div class="blockG" id="rotateG_01">

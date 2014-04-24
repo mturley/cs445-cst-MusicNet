@@ -310,10 +310,8 @@
 
         <div class="container">
           <form class="form-search">
-            <div class="input-append">
-              <input type="text" class="span2 search-query">
-              <button type="submit" class="btn"><i class="icon-search"></i></button>
-            </div>
+            <input type="text" class="input-medium search-query">
+            <button type="submit" class="btn">Search</button>
           </form>
         </div>
 

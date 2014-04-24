@@ -15,6 +15,7 @@
         // load the profile data for the logged in user
 
         $(".please-wait").show();
+
         $.ajax({
           type: 'GET',
           url: 'backend.php',

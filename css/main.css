@@ -27,6 +27,18 @@
   margin-bottom: 15px;
 }
 
+
+
+
+
+
+.navbar-brand strong {
+  font-size: 22px;
+}
+
+/* please-wait animation below */
+
+
 #floatingBarsG {
   float: right;
   position:relative;

@@ -109,17 +109,17 @@
             <div class="row feature-buttons">
               <div class="col-md-4">
                 <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
-                  <span class="glyphicon glyphicon-music"></span>&nbsp;Search for Music
+                  <span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Search for Music
                 </a>
               </div>
               <div class="col-md-4">
                 <a class="btn btn-block btn-info" href="musicnet.php?page=friends" role="button">
-                  Make Friends
+                  <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Make Friends
                 </a>
              </div>
               <div class="col-md-4">
                 <a class="btn btn-block btn-default" href="musicnet.php?page=concerts" role="button">
-                  Find Concerts
+                  <span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;Find Concerts
                 </a>
               </div>
             </div>

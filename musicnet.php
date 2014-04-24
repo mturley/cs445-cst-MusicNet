@@ -309,10 +309,33 @@
         </div>
 
         <div class="container">
-          <form class="form-search">
-            <input type="text" class="input-medium search-query">
-            <button type="submit" class="btn">Search</button>
+          <form class="form-horizontal">
+          <fieldset>
+
+          <!-- Search input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="searchinput">Search</label>
+            <div class="col-md-6">
+              <input id="searchinput" name="searchinput" type="search" placeholder="placeholder" class="form-control input-md">
+
+            </div>
+          </div>
+
+          <!-- Prepended text-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="prependedtext"></label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">prepend</span>
+                <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Search" type="text">
+              </div>
+
+            </div>
+          </div>
+
+          </fieldset>
           </form>
+
         </div>
 
     <?php

@@ -300,10 +300,10 @@
         <div class="jumbotron slim">
           <div class="container">
             <h2 class="floatleft">Search for Music</h2>
-            <div class="btn-group btn-group-lg floatleft">
-              <button type="button" class="btn btn-primary">Search Songs</button>
-              <button type="button" class="btn btn-default">Search Artists</button>
-              <button type="button" class="btn btn-default">Search Albums</button>
+            <div id="search-type" class="btn-group btn-group-lg floatleft">
+              <button type="button" class="btn btn-primary" data-search-type="songs">Search Songs</button>
+              <button type="button" class="btn btn-default" data-search-type="artists">Search Artists</button>
+              <button type="button" class="btn btn-default" data-search-type="albums">Search Albums</button>
             </div>
           </div>
         </div>

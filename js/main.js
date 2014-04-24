@@ -94,4 +94,11 @@ $(document).ready(function() {
     });
   }
 
+  if($("body").hasClass('search-page')) {
+    $("#search-type").find('button').click(function() {
+      $(this).siblings().removeClass('btn-primary').addClass('btn-default');
+      $(this).removeClass('btn-default').addClass('btn-primary');
+    });
+  }
+
 });

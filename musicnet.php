@@ -114,7 +114,7 @@
               </div>
               <div class="col-md-4">
                 <a class="btn btn-block btn-default" href="musicnet.php?page=friends" role="button">
-                  <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Make Friends
+                  <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Make Friends
                 </a>
              </div>
               <div class="col-md-4">

@@ -51,7 +51,6 @@
             </strong>
             &nbsp;&nbsp;
             <span class="glyphicon glyphicon-music"></span>
-            &nbsp;
             <span class="glyphicon glyphicon-globe"></span>
             &nbsp;&nbsp;
             All the Music. All the Net.

@@ -109,7 +109,7 @@ $(document).ready(function() {
             page: page
           },
           success: function(response) {
-            console.log("SEARCH RESULTS", r);
+            console.log("SEARCH RESULTS", response);
             var $results = $("#search-results").find('.results');
             $results.empty();
             if(response.results.length == 0) {

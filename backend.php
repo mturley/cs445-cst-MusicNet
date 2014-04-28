@@ -200,7 +200,8 @@
       $response->message = "No num_ads field specified.  Number of ads to return is a required field.";
     } else {
       $num_ads = $_GET['num_ads'];
-      $q = $db->query("select * from Ads limit $num_ads");
+      $user_id = $_SESSION['user_id'];
+      $q = $db->query("select * from Ads a, Searches s where (a.term_id=s.term_id) and (s.user_id=$user_id) limit $num_ads");
       $response->results = $q->fetchAll();
       $response->message = "Ads returned in results field.";
     }

@@ -276,7 +276,9 @@ $(document).ready(function() {
       console.log(r);
       $.each(r.results, function(ad) {
         console.log(this, arguments);
-        $('<a href="'+ad.ad_link_href+'" target="_blank"><img class="ad" src="'+this.ad_img_src+'" /></a>').appendTo($('#ads'));
+        $('<a href="'+ad.ad_link_href+'" target="_blank">'
+         +'<img class="ad" src="'+this.ad_img_src+'" />'
+         +'</a>').appendTo($('#ads'));
       });
     },
     error: function(error) {

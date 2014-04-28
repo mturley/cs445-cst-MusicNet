@@ -116,24 +116,28 @@ $(document).ready(function() {
             var $results = $("#search-results").find('.results');
             var $th_row = $("<tr>");
             $results.empty();
-            var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
-            if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>';
-            page_row_html += '&nbsp;|&nbsp;<strong>Page '+(page - (-1))+'</strong>&nbsp;|&nbsp;';
-            page_row_html += '<a href="#" class="search-next">&raquo; Next</a>';
-            page_row_html += '</td></tr>';
-            $(page_row_html).appendTo($results);
-            $.each(Object.keys(r.results[0]), function(key) {
-              $("<th>"+key+"</th>").appendTo($th_row);
-            });
-            $th_row.appendTo($results);
-            $.each(r.results, function(result) {
-              var $result_row = $("<tr>");
-              $.each(Object.keys(result), function(key) {
-                $("<td>"+result[key]+"</td>").appendTo($result_row);
+            if(r.results.length == 0) {
+              $(".press-enter").html('No Results Found').show();
+            } else {
+              var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
+              if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>';
+              page_row_html += '&nbsp;|&nbsp;<strong>Page '+(page - (-1))+'</strong>&nbsp;|&nbsp;';
+              page_row_html += '<a href="#" class="search-next">&raquo; Next</a>';
+              page_row_html += '</td></tr>';
+              $(page_row_html).appendTo($results);
+              $.each(Object.keys(r.results[0]), function(key) {
+                $("<th>"+key+"</th>").appendTo($th_row);
               });
-              $result_row.appendTo($results);
-            });
-            $(page_row_html).appendTo($results);
+              $th_row.appendTo($results);
+              $.each(r.results, function(result) {
+                var $result_row = $("<tr>");
+                $.each(Object.keys(result), function(key) {
+                  $("<td>"+result[key]+"</td>").appendTo($result_row);
+                });
+                $result_row.appendTo($results);
+              });
+              $(page_row_html).appendTo($results);
+            }
             $("#search-results").slideDown();
           },
           error: function(response) {

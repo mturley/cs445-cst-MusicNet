@@ -70,7 +70,6 @@ $(document).ready(function() {
             page: page
           },
           success: function(response) {
-            console.log("SEARCH RESULTS", response);
             var r = $.parseJSON(response);
             var $results = $("#search-results").find('.results');
             $results.empty();
@@ -84,14 +83,14 @@ $(document).ready(function() {
               page_row_html += '</td></tr>';
               $(page_row_html).appendTo($results);
               var $th_row = $("<tr>");
-              $.each(Object.keys(r.results[0]), function(key) {
-                $("<th>"+key+"</th>").appendTo($th_row);
+              $.each(Object.keys(r.results[0]), function(idx, key) {
+                if(isNaN(key)) $("<th>"+key+"</th>").appendTo($th_row);
               });
               $th_row.appendTo($results);
-              $.each(r.results, function(result) {
+              $.each(r.results, function(idx, result) {
                 var $result_row = $("<tr>");
-                $.each(Object.keys(result), function(key) {
-                  $("<td>"+result[key]+"</td>").appendTo($result_row);
+                $.each(Object.keys(result), function(idx, key) {
+                  if(isNaN(key)) $("<td>"+result[key]+"</td>").appendTo($result_row);
                 });
                 $result_row.appendTo($results);
               });

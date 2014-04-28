@@ -45,3 +45,16 @@
   </form>
 
 </div>
+
+
+<div class="jumbotron">
+<div class="container">
+    <h2>Music Suggestions</h2>
+    <div id="relsongs">
+    blahblahbalh blahblahbalh  blah<br>
+    blahblahbalh blahblah blah<br>
+    blahblahbalh <br>
+    blahblah blahblahblah blah <br>
+    </div>
+</div>
+</div>

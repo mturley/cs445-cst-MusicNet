@@ -60,7 +60,7 @@ $(document).ready(function() {
 
 
   var Util = {
-      searchAjax: function(type, term, page) {
+      searchAjax: function(type, term, page, resultsElement) {
         $.ajax({
           type: 'GET',
           url: 'backend.php',
@@ -71,7 +71,7 @@ $(document).ready(function() {
           },
           success: function(response) {
             var r = $.parseJSON(response);
-            var $results = $("#search-results").find('.results');
+            var $results = $(resultsElement).find('.results');
             $results.empty();
             if(r.results.length == 0) {
               $(".press-enter").html('No '+type+' found matching "'+term+'"').show();
@@ -87,7 +87,9 @@ $(document).ready(function() {
                 if(isNaN(key)) $("<th>"+key+"</th>").appendTo($th_row);
               });
               $th_row.appendTo($results);
+              console.log(results);
               $.each(r.results, function(idx, result) {
+                console.log(result);
                 var $result_row = $("<tr>");
                 $.each(Object.keys(result), function(idx, key) {
                   if(isNaN(key)) $("<td>"+result[key]+"</td>").appendTo($result_row);
@@ -170,7 +172,7 @@ $(document).ready(function() {
 
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
-      Util.searchAjax(type, term, 0);
+      if(term != "") Util.searchAjax(type, term, 0, '#search-results');
     });
 
     $("body").on('click', '.search-prev', function(e) {
@@ -179,7 +181,7 @@ $(document).ready(function() {
       var term = $("#searchinput").val();
       var page = $("#search-results").data('page');
       page--;
-      Util.searchAjax(type, term, page);
+      if(term != "") Util.searchAjax(type, term, page);
     });
 
     $("body").on('click', '.search-next', function(e) {
@@ -188,7 +190,7 @@ $(document).ready(function() {
       var term = $("#searchinput").val();
       var page = $("#search-results").data('page');
       page++;
-      Util.searchAjax(type, term, page);
+      if(term != "") Util.searchAjax(type, term, page);
     });
 
     setTimeout(function() {

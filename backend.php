@@ -147,7 +147,6 @@
       error(500,"Internal Server Error");
     }
 
-
   } else if($fn == 'search_artists') {
 
     $term = "%".$_GET['term']."%";

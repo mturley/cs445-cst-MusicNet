@@ -59,7 +59,7 @@
 }
 
 .search-margin {
-  height: 300px;
+  height: 125px;
   transition: height 1s;
   -webkit-transition: height 1s;
   -moz-transition: height 1s;

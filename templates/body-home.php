@@ -41,7 +41,7 @@
           <a class="btn btn-primary btn-lg" href="musicnet.php?page=register" role="button">
             Register an Account
           </a>
-          &nsbp;or&nbsp;
+          &nbsp;or&nbsp;
           <a class="btn btn-primary btn-lg" href="musicnet.php?page=search" role="button">
             <span class="glyphicon glyphicon-search"></span> Search for Music
           </a>

@@ -24,7 +24,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </div><br><br>
 <?php
   } else {
 ?>

@@ -28,8 +28,6 @@
 
 <div class="container">
 
-<? include("ads.inc"); ?>
+<? include("ads.php"); ?>
 
 </div>
-
-

@@ -178,7 +178,6 @@
     $results_per_page = 50;
     $offset = $page*$results_per_page;
     try {
-      echo "The term is: ".$term;
       $q = $db->prepare("select * from Albums where album_name = :term");
       $q->execute(array(':term' => $term));
       //$q->bindParam(':rpp', $results_per_page);

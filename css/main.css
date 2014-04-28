@@ -12,7 +12,8 @@
 
 #homeButtons {   
   overflow:auto;
-  max-width: 100%;
+  width: 100%;
+  height:100px;
 }
 
 #left, #right {
@@ -26,14 +27,13 @@
 
 #left {   
   float:left; 
+  background-color: #ccc;
 }
 #right {   
   float:right; 
-}
-
-#left, #right a:hover{
   background-color: #eee;
 }
+
 
 .jumbotron.slim {
   padding-top: 0;

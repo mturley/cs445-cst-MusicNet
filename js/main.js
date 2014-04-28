@@ -205,7 +205,7 @@ $(document).ready(function() {
           type: 'GET',
           url: 'backend.php',
           data: {
-            fn: 'search_'+type,
+            fn: 'concert_'+type,
             term: term,
             page: page
           },

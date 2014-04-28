@@ -48,8 +48,8 @@
     </div>
 
      <div id="homeButtons">  
-      <a class="left" href="musicnet.php?page=search" role="button">Search for Music</a>
-      <a class="right" href="musicnet.php?page=register" role="button"> Register!</a>
+      <a id="left" href="musicnet.php?page=search" role="button">Search for Music</a>
+      <a id="right" href="musicnet.php?page=register" role="button"> Register!</a>
     </div>
 
 <?php

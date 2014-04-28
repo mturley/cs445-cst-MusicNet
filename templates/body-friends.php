@@ -5,5 +5,11 @@
 </div>
 
 <div class="container">
-  <h2>TODO: build friend-request and communication features into this page</h2>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="searchinput">Search</label>
+    <div class="col-md-6">
+      <input id="searchinput" name="searchinput" type="search" placeholder="placeholder" class="form-control input-md">
+
+    </div>
+  </div>
 </div>

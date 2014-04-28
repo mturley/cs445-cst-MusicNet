@@ -87,7 +87,7 @@ $(document).ready(function() {
                 if(isNaN(key)) $("<th>"+key+"</th>").appendTo($th_row);
               });
               $th_row.appendTo($results);
-              console.log(results);
+              console.log(r.results);
               $.each(r.results, function(idx, result) {
                 console.log(result);
                 var $result_row = $("<tr>");

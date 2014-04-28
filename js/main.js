@@ -263,4 +263,22 @@ $(document).ready(function() {
     });
   }
 
+  $.ajax({
+    type: 'GET',
+    url: 'backend.php',
+    data: {
+      fn: 'get_ads',
+      num_ads: 2
+    },
+    success: function(response) {
+      var r = $.parseJSON(response);
+      $.each(r.results, function(ad) {
+        $('<a href="'+ad.ad_link_href+'" target="_blank"><img class="ad" src="'+ad.ad_img_src+'" /></a>').appendTo('#ads');
+      });
+    },
+    error: function(error) {
+      console.log("ERROR: ", error);
+    }
+  });
+
 });

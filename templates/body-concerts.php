@@ -15,7 +15,7 @@
   	<fieldset>
 	  <div class="form-group">
 	    <div class="col-md-6">
-	      <input id="searchinput" name="searchinput" type="search" placeholder="placeholder" class="form-control input-md">
+	      <input id="searchinput" name="searchinput" type="search" placeholder="Search by Artist" class="form-control input-md">
 
 	    </div>
 	  </div>

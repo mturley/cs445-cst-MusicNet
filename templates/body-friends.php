@@ -13,8 +13,8 @@
 	<form class="form-horizontal">
   	<fieldset>
 	  <div class="form-group">
-	    <div class="col-md-6">
-	      <input id="searchinput" name="searchinput" type="search" placeholder="placeholder" class="form-control input-md">
+	    <div class="col-md-8">
+	      <input id="searchinput" name="searchinput" type="search" placeholder="Search by Username" class="form-control input-md">
 	    </div>
 	  </div>
 	</fieldset>

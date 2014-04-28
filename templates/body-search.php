@@ -29,7 +29,7 @@
     <label class="col-md-4 control-label" for="prependedtext"></label>
     <div class="col-md-6">
       <div class="input-group">
-        <span class="input-group-addon">prepend</span>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search bigicon"></span></span>
         <input id="searchinput" name="prependedtext" class="form-control" placeholder="Search" type="text">
       </div>
 

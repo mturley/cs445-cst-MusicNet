@@ -112,13 +112,17 @@ $(document).ready(function() {
       $("#searchinput").focus();
     });
 
+    // SEARCH SUBMIT FUNCTION
     $("#search-form").on('submit', function(e) {
       e.preventDefault();
-      console.log("Search for "+$("#searchinput").val());
+      var term = $("#searchinput").val();
       $(".please-wait").show();
       $(".search-margin").animate({ height: 0 }, { complete: function() {
         $(".search-margin").addClass('hidden');
       } });
+      $("#search-results").find('.term').html(term);
+      $("#search-results").find('.results').html('Results Go Here<br>Results Go Here<br>Results Go Here<br>Results Go Here<br>Results Go Here<br>Results Go Here');
+      $("#search-results").slideDown();
     });
 
     setTimeout(function() {

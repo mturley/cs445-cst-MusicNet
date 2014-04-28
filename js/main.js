@@ -88,11 +88,10 @@ $(document).ready(function() {
                 $("<th>"+key+"</th>").appendTo($th_row);
               });
               $th_row.appendTo($results);
-              $.each(r.results, function(result) {
-                console.log(this, arguments);
+              $.each(r.results, function(idx, result) {
                 var $result_row = $("<tr>");
-                $.each(Object.keys(result), function(key) {
-                  $("<td>"+result[key]+"</td>").appendTo($result_row);
+                $.each(Object.keys(result), function(idx, key) {
+                  if(isNaN(key)) $("<td>"+result[key]+"</td>").appendTo($result_row);
                 });
                 $result_row.appendTo($results);
               });

@@ -46,6 +46,7 @@
 
 #searchinput {
   font-size: 48px;
+  height: 48px;
   border: 2px solid black;
 }
 

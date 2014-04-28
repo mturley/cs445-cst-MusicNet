@@ -1,0 +1,1 @@
+<img src="http://www.oldfirestation.co.uk/logo_brand_lollipop_1.png" class="ad">

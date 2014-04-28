@@ -10,7 +10,7 @@
 </div>
 
 <div class="container">
-  <form class="form-horizontal">
+  <form id="search-form" class="form-horizontal">
   <fieldset>
 
   <!-- Search input-->

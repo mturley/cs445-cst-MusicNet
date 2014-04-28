@@ -114,7 +114,7 @@ $(document).ready(function() {
             var $results = $("#search-results").find('.results');
             $results.empty();
             if(r.results.length == 0) {
-              $(".press-enter").html('No Results Found for "'+term+'"').show();
+              $(".press-enter").html('No '+type+' found matching "'+term+'"').show();
             } else {
               var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
               if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>';

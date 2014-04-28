@@ -60,16 +60,14 @@
 
 .search-margin {
   height: 125px;
-  transition: height 1s;
-  -webkit-transition: height 1s;
-  -moz-transition: height 1s;
 }
 
 .search-margin.hidden {
   height: 0px;
-  transition: height 1s;
-  -webkit-transition: height 1s;
-  -moz-transition: height 1s;
+}
+
+.press-enter {
+  color: gray;
 }
 
 

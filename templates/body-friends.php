@@ -1,6 +1,10 @@
 <div class="jumbotron slim">
   <div class="container">
-    <h2>Find Friends</h2>
+     <h2 class="floatleft">Find Friends</h2>
+    <div id="search-type" class="btn-group btn-group-lg floatleft">
+    <button type="button" class="btn btn-primary" data-search-type="username">Search by Username</button>
+    <button type="button" class="btn btn-default" data-search-type="location">Search by Location</button>
+    </div>
   </div>
 </div>
 
@@ -10,7 +14,7 @@
   	<fieldset>
 	  <div class="form-group">
 	    <div class="col-md-6">
-	      <input id="searchinput" name="searchinput" type="search" placeholder="Find Friends" class="form-control input-md">
+	      <input id="searchinput" name="searchinput" type="search" placeholder="placeholder" class="form-control input-md">
 	    </div>
 	  </div>
 	</fieldset>

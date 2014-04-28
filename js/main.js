@@ -58,53 +58,14 @@ $(document).ready(function() {
     });
   });
 
-  if(page == 'user') {
 
-    $(".please-wait").show();
-    $.ajax({
-      type: 'GET',
-      url: 'backend.php',
-      data: {
-        fn: 'get_user_by_id',
-        user_id: urlParam('user_id')
-      },
-      success: function(response) {
-        $(".please-wait").hide();
-        var r = $.parseJSON(response);
-        if($("#user-info").is(':visible')) {
-          $("#user-info").empty();
-          for(var key in r) $("<h4><strong>"+key+":&nbsp;</strong>&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
-        }
-      },
-      error: function(response) {
-        $(".please-wait").hide();
-        bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
-      }
-    });
-
-  } else if(page == 'logout') {
-
-    $.ajax({
-      type: 'POST',
-      url: 'backend.php',
-      data: {
-        fn: 'user_logout'
-      },
-      success: function(response) {
-        $(".please-wait").hide();
-        document.location = 'musicnet.php'; // reload
-      }
-    });
-
-  } else if(page == 'search') {
-
-    var Util = {
+  var Util = {
       searchAjax: function(type, term, page) {
         $.ajax({
           type: 'GET',
           url: 'backend.php',
           data: {
-            fn: 'search_'+type,
+            fn: 'concert_'+type,
             term: term,
             page: page
           },
@@ -146,6 +107,47 @@ $(document).ready(function() {
         });
       }
     };
+
+
+  if(page == 'user') {
+
+    $(".please-wait").show();
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_user_by_id',
+        user_id: urlParam('user_id')
+      },
+      success: function(response) {
+        $(".please-wait").hide();
+        var r = $.parseJSON(response);
+        if($("#user-info").is(':visible')) {
+          $("#user-info").empty();
+          for(var key in r) $("<h4><strong>"+key+":&nbsp;</strong>&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
+        }
+      },
+      error: function(response) {
+        $(".please-wait").hide();
+        bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
+      }
+    });
+
+  } else if(page == 'logout') {
+
+    $.ajax({
+      type: 'POST',
+      url: 'backend.php',
+      data: {
+        fn: 'user_logout'
+      },
+      success: function(response) {
+        $(".please-wait").hide();
+        document.location = 'musicnet.php'; // reload
+      }
+    });
+
+  } else if(page == 'search') {
 
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
@@ -199,69 +201,36 @@ $(document).ready(function() {
 
   } else if(page == 'concerts') {
 
-    var Util = {
-      searchAjax: function(type, term, page) {
-        $.ajax({
-          type: 'GET',
-          url: 'backend.php',
-          data: {
-            fn: 'concert_'+type,
-            term: term,
-            page: page
-          },
-          success: function(response) {
-            console.log("SEARCH RESULTS", response)
-            var r = $.parseJSON(response);
-            var $results = $("#search-results").find('.results');
-            $results.empty();
-            if(r.results.length == 0) {
-              $(".press-enter").html('No '+type+' found matching "'+term+'"').show();
-            } else {
-              var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
-              if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>';
-              page_row_html += '&nbsp;|&nbsp;<strong>Page '+(page - (-1))+'</strong>&nbsp;|&nbsp;';
-              page_row_html += '<a href="#" class="search-next">&raquo; Next</a>';
-              page_row_html += '</td></tr>';
-              $(page_row_html).appendTo($results);
-              var $th_row = $("<tr>");
-              $.each(Object.keys(r.results[0]), function(key) {
-                $("<th>"+key+"</th>").appendTo($th_row);
-              });
-              $th_row.appendTo($results);
-              $.each(r.results, function(result) {
-                var $result_row = $("<tr>");
-                $.each(Object.keys(result), function(key) {
-                  $("<td>"+result[key]+"</td>").appendTo($result_row);
-                });
-                $result_row.appendTo($results);
-              });
-              $(page_row_html).appendTo($results);
-              $("#search-results").slideDown();
-            }
-            $(".please-wait").hide();
-          },
-          error: function(response) {
-            $(".press-enter").html('Search Failed!  Check PHP error logs...');
-            console.log("AJAX ERROR: ",response);
-          }
-        });
-      }
-    };
+    
 
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');
       var type = $(this).data('searchType');
       if(type == "artist") {
-        $("#searchinput").attr('placeholder','Search for a Artist');
+        $("#searchinput").attr('placeholder','Search by Artist');
       } else if(type == "location") {
-        $("#searchinput").attr('placeholder','Search for an Location');
+        $("#searchinput").attr('placeholder','Search by Location');
       } else if(type == "date") {
-        $("#searchinput").attr('placeholder','Search for an Date');
+        $("#searchinput").attr('placeholder','Search by Date');
       }
       $("#searchinput").val('').focus();
     });
-  }
+
+  } else if(page == 'friends') {
+
+    $("#search-type").find('button').click(function() {
+      $(this).siblings().removeClass('btn-primary').addClass('btn-default');
+      $(this).removeClass('btn-default').addClass('btn-primary');
+      var type = $(this).data('searchType');
+      if(type == "username") {
+        $("#searchinput").attr('placeholder','Search by Username');
+      } else if(type == "location") {
+        $("#searchinput").attr('placeholder','Search by Location');
+      } 
+      $("#searchinput").val('').focus();
+    });
+  } 
 
   $.ajax({
     type: 'GET',

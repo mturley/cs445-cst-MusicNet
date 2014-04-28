@@ -112,6 +112,7 @@ $(document).ready(function() {
       $("#searchinput").focus();
     });
     $("#searchinput").keyup(function(e) {
+      e.preventDefault();
       console.log(e.keyCode);
       //if(e.keyCode)
     });

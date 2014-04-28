@@ -37,6 +37,8 @@
       <div class="search-margin">&nbsp;</div>
       <div id="search-results" style="display: none;">
         <h2>Search results for: "<span class="term"></span>":</h2>
+        <table class="results">
+        </table>
       </div>
     </div>
   </div>

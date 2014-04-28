@@ -41,6 +41,8 @@
   // Perform whatever operations are necessary for this request
 
   if($fn == 'register_new_user') {
+
+
     try {
       $q = $db->prepare("insert into Users (user_id, username, password, age, gender, location) values (:user_id, :username, :password, :age, :gender, :location)");
       $q->execute(array(':user_id'  => $_POST['user_id'],
@@ -59,9 +61,11 @@
       $response->details = $e->getMessage();
       error(500,"Internal Server Error");
     }
-  }
 
-  if($fn == 'user_login') {
+
+  } else if($fn == 'user_login') {
+
+
     session_start();
     if(isset($_SESSION['user_id'])) {
       $response->message = "You're already logged in.";
@@ -89,15 +93,19 @@
       $response->details = $e->getMessage();
       error(500,"Internal Server Error");
     }
-  }
 
-  if($fn == 'user_logout') {
+
+  } else if($fn == 'user_logout') {
+
+
     session_start();
     unset($_SESSION['user_id']); // remove the user_id session token to logout.
     $response->message = "Logout complete";
-  }
 
-  if($fn == 'get_user_by_id') {
+
+  } else if($fn == 'get_user_by_id') {
+
+
     try {
       $q = $db->prepare("select * from Users where user_id = :user_id");
       $q->execute(array(':user_id' => $_GET['user_id']));
@@ -107,6 +115,70 @@
       $response->details = $e->getMessage();
       error(500,"Internal Server Error");
     }
+
+
+  } else if($fn == 'search_songs') {
+
+    $results_per_page = 50;
+    $page = $_GET['page'];
+    $offset = $page*$results_per_page;
+    try {
+      $q = $db->prepare("select * from Songs where title like %:term% limit :rpp offset :offset");
+      $q->execute(array(':term' => $_GET['term'],
+                        ':rpp' => $results_per_page,
+                        ':offset' => $offset));
+      $response->message = "Search Successful";
+      $response->page = $_GET['page'];
+      $response->results = $q->fetchAll();
+    } catch(PDOException $e) {
+      $response->message = "Failed to Select from the Songs table!";
+      $response->details = $e->getMessage();
+      error(500,"Internal Server Error");
+    }
+
+
+  } else if($fn == 'search_artists') {
+
+
+    $results_per_page = 50;
+    $page = $_GET['page'];
+    $offset = $page*$results_per_page;
+    try {
+      $q = $db->prepare("select * from Artists where artist_name like %:term% limit :rpp offset :offset");
+      $q->execute(array(':term' => $_GET['term'],
+                        ':rpp' => $results_per_page,
+                        ':offset' => $offset));
+      $response->message = "Search Successful";
+      $response->page = $_GET['page'];
+      $response->results = $q->fetchAll();
+    } catch(PDOException $e) {
+      $response->message = "Failed to Select from the Artists table!";
+      $response->details = $e->getMessage();
+      error(500,"Internal Server Error");
+    }
+
+
+  } else if($fn == 'search_albums') {
+
+
+    $results_per_page = 50;
+    $page = $_GET['page'];
+    $offset = $page*$results_per_page;
+    try {
+      $q = $db->prepare("select * from Albums where album_name like %:term% limit :rpp offset :offset");
+      $q->execute(array(':term' => $_GET['term'],
+                        ':rpp' => $results_per_page,
+                        ':offset' => $offset));
+      $response->message = "Search Successful";
+      $response->page = $_GET['page'];
+      $response->results = $q->fetchAll();
+    } catch(PDOException $e) {
+      $response->message = "Failed to Select from the Albums table!";
+      $response->details = $e->getMessage();
+      error(500,"Internal Server Error");
+    }
+
+
   }
 
   // Output the response object as a JSON-encoded string

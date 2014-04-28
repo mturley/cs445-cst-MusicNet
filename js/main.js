@@ -98,6 +98,51 @@ $(document).ready(function() {
 
   } else if(page == 'search') {
 
+    var Util = {
+      searchAjax: function(type, term, page) {
+        $.ajax({
+          type: 'GET',
+          url: 'backend.php'
+          data: {
+            fn: 'search_'+type,
+            term: term,
+            page: page
+          },
+          success: function(response) {
+            var r = $.parseJSON(response);
+            $("#search-results").find('.term').html(term);
+            $("#search-results").data('page', page);
+            var $results = $("#search-results").find('.results');
+            var $th_row = $("<tr>");
+            $results.empty();
+            var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
+            if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>';
+            page_row_html += '&nbsp;|&nbsp;<strong>Page '+(page - (-1))+'</strong>&nbsp;|&nbsp;';
+            page_row_html += '<a href="#" class="search-next">&raquo; Next</a>';
+            page_row_html += '</td></tr>';
+            $(page_row_html).appendTo($results);
+            $.each(Object.keys(r.results[0]), function(key) {
+              $("<th>"+key+"</th>").appendTo($th_row);
+            });
+            $th_row.appendTo($results);
+            $.each(r.results, function(result) {
+              var $result_row = $("<tr>");
+              $.each(Object.keys(result), function(key) {
+                $("<td>"+result[key]+"</td>").appendTo($result_row);
+              });
+              $result_row.appendTo($results);
+            });
+            $(page_row_html).appendTo($results);
+            $("#search-results").slideDown();
+          },
+          error: function(response) {
+            $(".press-enter").html('Search Failed!  Check PHP error logs...');
+            console.log("AJAX ERROR: ",response);
+          }
+        });
+      }
+    };
+
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');
@@ -115,15 +160,33 @@ $(document).ready(function() {
     // SEARCH SUBMIT FUNCTION
     $("#search-form").on('submit', function(e) {
       e.preventDefault();
-      var term = $("#searchinput").val();
       $(".please-wait").show();
-      $(".press-enter").slideUp();
+      $(".press-enter").html('Searching...').show();
       $(".search-margin").animate({ height: 0 }, { complete: function() {
         $(".search-margin").addClass('hidden');
       } });
-      $("#search-results").find('.term').html(term);
-      $("#search-results").find('.results').html('Results Go Here<br>Results Go Here<br>Results Go Here<br>Results Go Here<br>Results Go Here<br>Results Go Here');
-      $("#search-results").slideDown();
+
+      var type = $("#search-type").find('.btn-primary').data('searchType');
+      var term = $("#searchinput").val();
+      Util.searchAjax(type, term, 0);
+    });
+
+    $("body").on('click', '.search-prev', function(e) {
+      e.preventDefault();
+      var type = $("#search-type").find('.btn-primary').data('searchType');
+      var term = $("#searchinput").val();
+      var page = $("#search-results").data('page');
+      page--;
+      Util.searchAjax(type, term, page);
+    });
+
+    $("body").on('click', '.search-next', function(e) {
+      e.preventDefault();
+      var type = $("#search-type").find('.btn-primary').data('searchType');
+      var term = $("#searchinput").val();
+      var page = $("#search-results").data('page');
+      page++;
+      Util.searchAjax(type, term, page);
     });
 
     setTimeout(function() {

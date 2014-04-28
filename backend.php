@@ -196,6 +196,7 @@
 
   } else if($fn == 'get_ads') {
 
+    session_start();
     if(!isset($_GET['num_ads'])) {
       $response->message = "No num_ads field specified.  Number of ads to return is a required field.";
     } else {

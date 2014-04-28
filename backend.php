@@ -134,7 +134,6 @@
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->results = $q->fetchAll();
-      print_r($response->results);
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";
       $response->details = $e->getMessage();
@@ -157,7 +156,6 @@
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->results = $q->fetchAll();
-      print_r($response->results);
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Artists table!";
       $response->details = $e->getMessage();
@@ -180,7 +178,6 @@
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->results = $q->fetchAll();
-      print_r($response->results);
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Albums table!";
       $response->details = $e->getMessage();

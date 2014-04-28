@@ -119,14 +119,14 @@
 
   } else if($fn == 'search_songs') {
 
-    $term = '%'.$_GET['term'].'%';
+    $term = "'%".$_GET['term']."%'";
     $results_per_page = 50;
     $page = $_GET['page'];
     $offset = $page*$results_per_page;
     try {
       // WHAT'S THE DEAL HERE?
       // Warning: PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
-      $q = $db->prepare("select song_id, title, year, duration, loudness from Songs where title like ':term' limit :rpp offset :offset");
+      $q = $db->prepare("select song_id, title, year, duration, loudness from Songs where title like :term limit :rpp offset :offset");
       $q->execute(array(':term' => $term,
                         ':rpp' => $results_per_page,
                         ':offset' => $offset));
@@ -142,12 +142,12 @@
 
   } else if($fn == 'search_artists') {
 
-    $term = '%'.$_GET['term'].'%';
+    $term = "'%".$_GET['term']."%'";
     $results_per_page = 50;
     $page = $_GET['page'];
     $offset = $page*$results_per_page;
     try {
-      $q = $db->prepare("select artist_id, artist_name from Artists where artist_name like ':term' limit :rpp offset :offset");
+      $q = $db->prepare("select artist_id, artist_name from Artists where artist_name like :term limit :rpp offset :offset");
       $q->execute(array(':term' => $term,
                         ':rpp' => $results_per_page,
                         ':offset' => $offset));
@@ -163,12 +163,12 @@
 
   } else if($fn == 'search_albums') {
 
-    $term = '%'.$_GET['term'].'%';
+    $term = "'%".$_GET['term']."%'";
     $page = $_GET['page'];
     $results_per_page = 50;
     $offset = $page*$results_per_page;
     try {
-      $q = $db->prepare("select album_id, album_name from Albums where album_name like ':term' limit :rpp offset :offset");
+      $q = $db->prepare("select album_id, album_name from Albums where album_name like :term limit :rpp offset :offset");
       $q->execute(array(':term' => $term,
                         ':rpp' => $results_per_page,
                         ':offset' => $offset));

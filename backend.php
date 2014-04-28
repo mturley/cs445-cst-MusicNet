@@ -133,7 +133,14 @@
       $q->execute();
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
-      $response->results = $q->fetchAll();
+      $response->results = array();
+      $row = -1;
+      $i = 0;
+      while($row != NULL) {
+        $row = $q->fetchObject();
+        $response->results[$i] = $row;
+        $i++;
+      }
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";
       $response->details = $e->getMessage();

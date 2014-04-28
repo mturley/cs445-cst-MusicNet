@@ -110,6 +110,7 @@ $(document).ready(function() {
           },
           success: function(response) {
             var r = $.parseJSON(response);
+            console.log("SEARCH RESULTS", r);
             $("#search-results").find('.term').html(term);
             $("#search-results").data('page', page);
             var $results = $("#search-results").find('.results');

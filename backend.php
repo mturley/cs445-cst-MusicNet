@@ -134,6 +134,7 @@
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->results = array();
+      $response->row = $q->fetchObject();
       $row = -1;
       $i = 0;
       while($row != NULL) {

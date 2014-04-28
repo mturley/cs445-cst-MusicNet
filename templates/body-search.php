@@ -15,7 +15,7 @@
 
   <!-- Search input-->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="searchinput"><span class="glyphicon glyphicon-search"></span></label>
+    <label class="col-md-4 control-label" for="searchinput"><span class="glyphicon glyphicon-search bigicon"></span></label>
     <div class="col-md-6">
       <input id="searchinput" name="searchinput" type="search" placeholder="placeholder" class="form-control input-md">
 

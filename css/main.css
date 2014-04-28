@@ -43,6 +43,10 @@
 }
 
 
+.bigicon {
+  font-size: 48px;
+  height: 78px;
+}
 
 #searchinput {
   font-size: 48px;

@@ -111,13 +111,10 @@ $(document).ready(function() {
           success: function(response) {
             var r = $.parseJSON(response);
             console.log("SEARCH RESULTS", r);
-            $("#search-results").find('.term').html(term);
-            $("#search-results").data('page', page);
             var $results = $("#search-results").find('.results');
-            var $th_row = $("<tr>");
             $results.empty();
             if(r.results.length == 0) {
-              $(".press-enter").html('No Results Found').show();
+              $(".press-enter").html('No Results Found for "'+term+'"').show();
             } else {
               var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
               if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>';
@@ -125,6 +122,7 @@ $(document).ready(function() {
               page_row_html += '<a href="#" class="search-next">&raquo; Next</a>';
               page_row_html += '</td></tr>';
               $(page_row_html).appendTo($results);
+              var $th_row = $("<tr>");
               $.each(Object.keys(r.results[0]), function(key) {
                 $("<th>"+key+"</th>").appendTo($th_row);
               });
@@ -137,8 +135,9 @@ $(document).ready(function() {
                 $result_row.appendTo($results);
               });
               $(page_row_html).appendTo($results);
+              $("#search-results").slideDown();
             }
-            $("#search-results").slideDown();
+            $(".please-wait").hide();
           },
           error: function(response) {
             $(".press-enter").html('Search Failed!  Check PHP error logs...');

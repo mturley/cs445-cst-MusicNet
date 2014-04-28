@@ -119,7 +119,7 @@
 
   } else if($fn == 'search_songs') {
 
-    $term = "'%".$_GET['term']."%'";
+    $term = "%".$_GET['term']."%";
     $results_per_page = 50;
     $page = $_GET['page'];
     $offset = $page*$results_per_page;
@@ -173,15 +173,16 @@
 
   } else if($fn == 'search_albums') {
 
-    $term = $_GET['term'];
+    $term = '%'.$_GET['term'].'%';
     $page = $_GET['page'];
     $results_per_page = 50;
     $offset = $page*$results_per_page;
     try {
-      $q = $db->prepare("select * from Albums where album_name = :term");
-      $q->execute(array(':term' => $term));
-      //$q->bindParam(':rpp', $results_per_page);
-      //$q->bindParam(':offset', $offset);
+      $q = $db->prepare("select album_id, album_name from Albums where album_name like :term limit :rpp offset :offset");
+      $q->bindParam(':term', $term);
+      $q->bindParam(':rpp', $results_per_page);
+      $q->bindParam(':offset', $offset);
+      $q->execute();
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->results = $q->fetchAll();

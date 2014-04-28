@@ -104,6 +104,7 @@ $(document).ready(function() {
       } else if(type == "albums") {
         $("#searchinput").attr('placeholder','Search for an Album');
       }
+      $("#searchinput").focus();
     });
   }
 

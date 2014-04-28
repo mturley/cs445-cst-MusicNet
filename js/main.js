@@ -272,6 +272,7 @@ $(document).ready(function() {
     },
     success: function(response) {
       $("#ads").empty();
+      console.log(response);
       var r = $.parseJSON(response);
       console.log(r);
       $.each(r.results, function(ad) {

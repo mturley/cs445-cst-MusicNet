@@ -168,9 +168,6 @@ $(document).ready(function() {
       e.preventDefault();
       $(".please-wait").show();
       $(".press-enter").html('Searching...').show();
-      $(".search-margin").animate({ height: 0 }, { complete: function() {
-        $(".search-margin").addClass('hidden');
-      } });
 
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
@@ -201,7 +198,7 @@ $(document).ready(function() {
 
   } else if(page == 'concerts') {
 
-    
+
 
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
@@ -227,10 +224,10 @@ $(document).ready(function() {
         $("#searchinput").attr('placeholder','Search by Username');
       } else if(type == "location") {
         $("#searchinput").attr('placeholder','Search by Location');
-      } 
+      }
       $("#searchinput").val('').focus();
     });
-  } 
+  }
 
   $.ajax({
     type: 'GET',

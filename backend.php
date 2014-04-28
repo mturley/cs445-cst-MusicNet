@@ -149,9 +149,9 @@
     $offset = $page*$results_per_page;
     try {
       $q = $db->prepare("select artist_id, artist_name from Artists where artist_name like :term limit :rpp offset :offset");
-      $q->bindParam(':term', $term);
-      $q->bindParam(':rpp', $results_per_page);
-      $q->bindParam(':offset', $offset);
+      $q->bindParam('term', $term);
+      $q->bindParam('rpp', $results_per_page);
+      $q->bindParam('offset', $offset);
       $q->execute();
       $response->message = "Search Successful";
       $response->page = $_GET['page'];

@@ -29,9 +29,3 @@
 	user_name, age, location...<br>
 </div>
 </div>
-
-<div class="container">
-
-<? include("ads.php"); ?>
-
-</div>

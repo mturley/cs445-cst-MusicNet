@@ -91,6 +91,7 @@ $(document).ready(function() {
               $.each(r.results, function(idx, result) {
                 var $result_row = $("<tr>");
                 $.each(Object.keys(result), function(idx, key) {
+                  console.log("This key: ", key, "is NaN? ", isNaN(key));
                   if(isNaN(key)) $("<td>"+result[key]+"</td>").appendTo($result_row);
                 });
                 $result_row.appendTo($results);

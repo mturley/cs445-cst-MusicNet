@@ -123,7 +123,7 @@
     $page = $_GET['page'];
     $offset = $page*$results_per_page;
     try {
-      $q = $db->prepare("select * from Songs where title like %:term% limit :rpp offset :offset");
+      $q = $db->prepare("select * from Songs where title like '%:term%' limit :rpp offset :offset");
       $q->execute(array(':term' => $_GET['term'],
                         ':rpp' => $results_per_page,
                         ':offset' => $offset));
@@ -165,7 +165,7 @@
     $page = $_GET['page'];
     $offset = $page*$results_per_page;
     try {
-      $q = $db->prepare("select * from Albums where album_name like %:term% limit :rpp offset :offset");
+      $q = $db->prepare("select * from Albums where album_name like '%:term%' limit :rpp offset :offset");
       $q->execute(array(':term' => $_GET['term'],
                         ':rpp' => $results_per_page,
                         ':offset' => $offset));

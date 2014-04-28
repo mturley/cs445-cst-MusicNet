@@ -67,6 +67,11 @@
   height: 0px;
 }
 
+.press-enter {
+  color: grey;
+  text-align: center;
+  margin: 50px;
+}
 
 
 /* -------------------------------------------------*/

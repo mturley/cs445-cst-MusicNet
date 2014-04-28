@@ -121,6 +121,10 @@ $(document).ready(function() {
       } });
     });
 
+    setTimeout(function() {
+      $(".press-enter").fadeIn();
+    }, 5000);
+
   }
 
 });

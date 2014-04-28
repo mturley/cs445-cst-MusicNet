@@ -28,6 +28,6 @@
   	</p>
 
  <hr>
- <? php include("ads.inc"); ?>
+ <? include("ads.inc"); ?>
 
 </div>

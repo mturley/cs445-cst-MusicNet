@@ -199,10 +199,7 @@ $(document).ready(function() {
       $(".press-enter").fadeIn();
     }, 5000);
 
-  } else if(page == 'concerts') {
-
-    
-
+  } else if(page == 'concerts') { //concerts
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');
@@ -217,8 +214,7 @@ $(document).ready(function() {
       $("#searchinput").val('').focus();
     });
 
-  } else if(page == 'friends') {
-
+  } else if(page == 'friends') { // friendsss
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');

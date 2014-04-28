@@ -47,9 +47,12 @@
       </div>
     </div>
 
-     <div id="homeButtons">  
-      <a id="left" href="musicnet.php?page=search" role="button">Search for Music</a>
-      <a id="right" href="musicnet.php?page=register" role="button"> Register!</a>
+    <div class="row feature-buttons">
+      <div class="col-md-12">
+        <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
+          <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Search for Music
+        </a>
+      </div>
     </div>
 
 <?php

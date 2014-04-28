@@ -115,6 +115,10 @@ $(document).ready(function() {
     $("#search-form").on('submit', function(e) {
       e.preventDefault();
       console.log("Search for "+$("#searchinput").val());
+      $("#please-wait").show();
+      $(".search-margin").animate({ height: 0; }, { complete: function() {
+        $(".search-margin").addClass('hidden');
+      } });
     });
 
   }

@@ -131,7 +131,6 @@
       $q->bindParam(':rpp', $results_per_page);
       $q->bindParam(':offset', $offset);
       $q->execute();
-      echo "ROWCOUNT: ".$q->rowCount()."\n";
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->results = array();
@@ -174,12 +173,12 @@
 
   } else if($fn == 'search_albums') {
 
-    $term = "'%".$_GET['term']."%'";
+    $term = $_GET['term'];
     $page = $_GET['page'];
     $results_per_page = 50;
     $offset = $page*$results_per_page;
     try {
-      $q = $db->prepare("select album_id, album_name from Albums where album_name like :term limit :rpp offset :offset");
+      $q = $db->prepare("select album_id, album_name from Albums where album_name like '%:term%' limit :rpp offset :offset");
       $q->bindParam(':term', $term);
       $q->bindParam(':rpp', $results_per_page);
       $q->bindParam(':offset', $offset);

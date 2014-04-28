@@ -17,17 +17,19 @@
 	</fieldset>
   </form>
 
-<hr>
-	<p>
-  	<h3>Concerts Near You</h3>
-  	Venue name, location, band playing...<br>
-  	Venue name, location, band playing...<br>
-  	Venue name, location, band playing...<br>
-  	Venue name, location, band playing...<br>
-  	Venue name, location, band playing...<br>
-  	</p>
 
- <hr>
+<div class="container">
+  	<h2>Concerts Near You</h2>
+  	Venue name, location, band playing...<br>
+  	Venue name, location, band playing...<br>
+  	Venue name, location, band playing...<br>
+  	Venue name, location, band playing...<br>
+  	Venue name, location, band playing...<br>
+</div>
+
+
+<div class="container">
+
  <? include("ads.inc"); ?>
 
 </div>

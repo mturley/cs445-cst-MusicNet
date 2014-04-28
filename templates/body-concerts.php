@@ -34,9 +34,3 @@
   	Venue name, location, band playing...<br>
 </div>
 </div>
-
-<div class="container">
-
- <? include("ads.php"); ?>
-
-</div>

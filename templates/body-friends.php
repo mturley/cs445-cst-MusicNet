@@ -15,7 +15,10 @@
 	  <div class="form-group">
       <div class="col-md-2"></div>
 	    <div class="col-md-8">
-	      <input id="searchinput" name="searchinput" type="search" placeholder="Search by Username" class="form-control input-md">
+	    	<div class="input-group search-group">
+	       		 <span class="input-group-addon addonborder"><span class="glyphicon glyphicon-search bigicon"></span></span>
+		      <input id="searchinput" name="searchinput" type="search" placeholder="Search by Username" class="form-control input-md">
+		    </div>
 	    </div>
       <div class="col-md-2"></div>
 	  </div>

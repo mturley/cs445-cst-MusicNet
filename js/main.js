@@ -197,7 +197,7 @@ $(document).ready(function() {
       $(".press-enter").fadeIn();
     }, 5000);
 
-  } else if(page == 'concert') {
+  } else if(page == 'concerts') {
 
     var Util = {
       searchAjax: function(type, term, page) {

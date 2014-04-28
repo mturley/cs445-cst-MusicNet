@@ -20,7 +20,6 @@
   width: 50%; 
   margin:0; 
   padding: 0;
-  vertical-align: center;
   text-align: center;
   cursor: pointer;
 }
@@ -33,7 +32,6 @@
   float:right; 
   background-color: #eee;
 }
-
 
 .jumbotron.slim {
   padding-top: 0;

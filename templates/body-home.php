@@ -48,11 +48,13 @@
     </div>
 
     <div class="row feature-buttons">
-      <div class="col-md-12">
+      <div class="col-md-1">&nbsp;</div>
+      <div class="col-md-10">
         <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
           <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Search for Music
         </a>
       </div>
+      <div class="col-md-1">&nbsp;</div>
     </div>
 
 <?php

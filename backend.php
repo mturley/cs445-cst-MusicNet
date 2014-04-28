@@ -121,7 +121,6 @@
 
     $term = "'%".$_GET['term']."%'";
     $results_per_page = 50;
-    echo "The term is: ".$_GET['term'];
     $page = $_GET['page'];
     $offset = $page*$results_per_page;
     try {
@@ -132,6 +131,7 @@
       $q->bindParam(':rpp', $results_per_page);
       $q->bindParam(':offset', $offset);
       $q->execute();
+      echo "ROWCOUNT: ".$q->rowCount()."\n";
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->results = array();

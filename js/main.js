@@ -96,7 +96,14 @@ $(document).ready(function() {
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');
-      console.log($(this).data('searchType'));
+      var type = $(this).data('searchType');
+      if(type == "songs") {
+        $("#searchinput").attr('placeholder','Search for a Song');
+      } else if(type == "artists") {
+        $("#searchinput").attr('placeholder','Search for an Artist');
+      } else if(type == "albums") {
+        $("#searchinput").attr('placeholder','Search for an Album');
+      }
     });
   }
 

@@ -194,6 +194,18 @@
     }
 
 
+  } else if($fn == 'get_ads') {
+
+    if(!isset($_GET['num_ads'])) {
+      $response->message = "No num_ads field specified.  Number of ads to return is a required field.";
+    } else {
+      $num_ads = $_GET['num_ads'];
+      $q = $db->prepare("select * from Ads limit :num");
+      $q->execute(array(':num' => $num_ads));
+      $response->results = $q->fetchAll();
+      $response->message = "Ads returned in results field.";
+    }
+
   }
 
   // Output the response object as a JSON-encoded string

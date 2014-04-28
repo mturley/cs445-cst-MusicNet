@@ -247,4 +247,24 @@ $(document).ready(function() {
     }
   });
 
+
+  $.ajax({
+    type: 'GET',
+    url: 'backend.php',
+    data: {
+      fn: 'get_songs',
+      num_ads: 5
+    },
+    success: function(response) {
+      $("#relsongs").empty();
+      var r = $.parseJSON(response);
+      $.each(r.results, function(s) {
+        $('s').appendTo($('#relsongs'));
+      });
+    },
+    error: function(error) {
+      console.log("ERROR: ", error);
+    }
+  });
+
 });

@@ -209,6 +209,20 @@
       $response->message = "Ads returned in results field.";
     }
 
+  } else if($fn == 'get Songs') {
+
+    session_start();
+    if(!isset($_GET['num_songs'])) {
+      $response->message = "No num_songs field specified.  Number of ads to return is a required field.";
+    } else {
+      $num_ads = $_GET['num_songs'];
+      $user_id = $_SESSION['user_id'];
+      $q = $db->prepare("select d.song_id from Searches s, Describes d where s.user_id=:user_id and s.term_id=d.term_id");
+      $q->execute(array(':user_id' => $user_id));
+      $response->results = $q->fetchAll();
+      $response->message = "Ads returned in results field.";
+    }
+
   }
 
   // Output the response object as a JSON-encoded string

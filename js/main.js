@@ -102,7 +102,7 @@ $(document).ready(function() {
       searchAjax: function(type, term, page) {
         $.ajax({
           type: 'GET',
-          url: 'backend.php'
+          url: 'backend.php',
           data: {
             fn: 'search_'+type,
             term: term,

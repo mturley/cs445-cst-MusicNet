@@ -117,6 +117,7 @@ $(document).ready(function() {
       e.preventDefault();
       var term = $("#searchinput").val();
       $(".please-wait").show();
+      $(".press-enter").slideUp();
       $(".search-margin").animate({ height: 0 }, { complete: function() {
         $(".search-margin").addClass('hidden');
       } });

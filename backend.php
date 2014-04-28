@@ -201,7 +201,8 @@
     } else {
       $num_ads = $_GET['num_ads'];
       $user_id = $_SESSION['user_id'];
-      $q = $db->query("select * from Ads a, Searches s where (a.term_id=s.term_id) and (s.user_id=$user_id) limit $num_ads");
+      $q = $db->prepare("select * from Ads a, Searches s where (a.term_id=s.term_id) and (s.user_id=:user_id) limit $num_ads");
+      $q->execute(array(':user_id' => $user_id));
       $response->results = $q->fetchAll();
       $response->message = "Ads returned in results field.";
     }

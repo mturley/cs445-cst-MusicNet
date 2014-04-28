@@ -109,24 +109,25 @@ $(document).ready(function() {
             page: page
           },
           success: function(response) {
-            console.log("SEARCH RESULTS", response);
+            console.log("SEARCH RESULTS", response)
+            var r = $.parseJSON(response);
             var $results = $("#search-results").find('.results');
             $results.empty();
-            if(response.results.length == 0) {
+            if(r.results.length == 0) {
               $(".press-enter").html('No Results Found for "'+term+'"').show();
             } else {
-              var page_row_html = '<tr><td colspan="'+Object.keys(response.results[0]).length+'">';
+              var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
               if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>';
               page_row_html += '&nbsp;|&nbsp;<strong>Page '+(page - (-1))+'</strong>&nbsp;|&nbsp;';
               page_row_html += '<a href="#" class="search-next">&raquo; Next</a>';
               page_row_html += '</td></tr>';
               $(page_row_html).appendTo($results);
               var $th_row = $("<tr>");
-              $.each(Object.keys(response.results[0]), function(key) {
+              $.each(Object.keys(r.results[0]), function(key) {
                 $("<th>"+key+"</th>").appendTo($th_row);
               });
               $th_row.appendTo($results);
-              $.each(response.results, function(result) {
+              $.each(r.results, function(result) {
                 var $result_row = $("<tr>");
                 $.each(Object.keys(result), function(key) {
                   $("<td>"+result[key]+"</td>").appendTo($result_row);

@@ -275,7 +275,8 @@ $(document).ready(function() {
       var r = $.parseJSON(response);
       console.log(r);
       $.each(r.results, function(ad) {
-        $('<a href="'+ad.ad_link_href+'" target="_blank"><img class="ad" src="'+ad.ad_img_src+'" /></a>').appendTo($('#ads'));
+        console.log(this, arguments);
+        $('<a href="'+ad.ad_link_href+'" target="_blank"><img class="ad" src="'+this.ad_img_src+'" /></a>').appendTo($('#ads'));
       });
     },
     error: function(error) {

@@ -14,6 +14,7 @@
   <fieldset>
 
   <!-- Search input-->
+  <!--
   <div class="form-group">
     <label class="col-md-4 control-label" for="searchinput"><span class="glyphicon glyphicon-search bigicon"></span></label>
     <div class="col-md-6">
@@ -21,6 +22,7 @@
 
     </div>
   </div>
+-->
 
   <!-- Prepended text-->
   <div class="form-group">
@@ -28,7 +30,7 @@
     <div class="col-md-6">
       <div class="input-group">
         <span class="input-group-addon">prepend</span>
-        <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Search" type="text">
+        <input id="searchinput" name="prependedtext" class="form-control" placeholder="Search" type="text">
       </div>
 
     </div>

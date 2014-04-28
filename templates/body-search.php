@@ -26,7 +26,8 @@
 
   <!-- Prepended text-->
   <div class="form-group">
-    <div class="col-md-12">
+    <label class="col-md-2 control-label" for="prependedtext"></label>
+    <div class="col-md-8">
       <div class="search-margin">&nbsp;</div>
       <div class="input-group">
         <span class="input-group-addon addonborder"><span class="glyphicon glyphicon-search bigicon"></span></span>

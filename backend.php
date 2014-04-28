@@ -32,6 +32,7 @@
   $db = NULL;
   try {
     $db = new PDO('mysql:host='.MYSQL_HOST.';dbname='.MYSQL_DATABASE.';charset='.MYSQL_CHARSET, MYSQL_USERNAME, MYSQL_PASSWORD);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   } catch(PDOException $e) {
     $response->message = "Failed to Connect to the MySQL Database!";
     $response->details = $e->getMessage();

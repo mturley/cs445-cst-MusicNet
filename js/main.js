@@ -197,6 +197,70 @@ $(document).ready(function() {
       $(".press-enter").fadeIn();
     }, 5000);
 
+  } else if(page == 'concert') {
+
+    var Util = {
+      searchAjax: function(type, term, page) {
+        $.ajax({
+          type: 'GET',
+          url: 'backend.php',
+          data: {
+            fn: 'search_'+type,
+            term: term,
+            page: page
+          },
+          success: function(response) {
+            console.log("SEARCH RESULTS", response)
+            var r = $.parseJSON(response);
+            var $results = $("#search-results").find('.results');
+            $results.empty();
+            if(r.results.length == 0) {
+              $(".press-enter").html('No '+type+' found matching "'+term+'"').show();
+            } else {
+              var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
+              if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>';
+              page_row_html += '&nbsp;|&nbsp;<strong>Page '+(page - (-1))+'</strong>&nbsp;|&nbsp;';
+              page_row_html += '<a href="#" class="search-next">&raquo; Next</a>';
+              page_row_html += '</td></tr>';
+              $(page_row_html).appendTo($results);
+              var $th_row = $("<tr>");
+              $.each(Object.keys(r.results[0]), function(key) {
+                $("<th>"+key+"</th>").appendTo($th_row);
+              });
+              $th_row.appendTo($results);
+              $.each(r.results, function(result) {
+                var $result_row = $("<tr>");
+                $.each(Object.keys(result), function(key) {
+                  $("<td>"+result[key]+"</td>").appendTo($result_row);
+                });
+                $result_row.appendTo($results);
+              });
+              $(page_row_html).appendTo($results);
+              $("#search-results").slideDown();
+            }
+            $(".please-wait").hide();
+          },
+          error: function(response) {
+            $(".press-enter").html('Search Failed!  Check PHP error logs...');
+            console.log("AJAX ERROR: ",response);
+          }
+        });
+      }
+    };
+
+    $("#search-type").find('button').click(function() {
+      $(this).siblings().removeClass('btn-primary').addClass('btn-default');
+      $(this).removeClass('btn-default').addClass('btn-primary');
+      var type = $(this).data('searchType');
+      if(type == "artist") {
+        $("#searchinput").attr('placeholder','Search for a Artist');
+      } else if(type == "location") {
+        $("#searchinput").attr('placeholder','Search for an Location');
+      } else if(type == "date") {
+        $("#searchinput").attr('placeholder','Search for an Date');
+      }
+      $("#searchinput").val('').focus();
+    });
   }
 
 });

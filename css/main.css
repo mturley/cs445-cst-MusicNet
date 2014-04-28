@@ -5,9 +5,9 @@
    ========================================================================== */
 
 .ad{
-  border: 5px #ccc solid;
   margin: 10px;
   max-width: 300px;
+  border-radius: 10px;
 }
 
 #homeButtons {   
@@ -21,6 +21,7 @@
   padding: 0;
   vertical-align: center;
   text-align: center;
+  cursor: pointer;
 }
 
 #left {   
@@ -28,6 +29,10 @@
 }
 #right {   
   float:right; 
+}
+
+#left, #right a:hover{
+  background-color: #eee;
 }
 
 .jumbotron.slim {

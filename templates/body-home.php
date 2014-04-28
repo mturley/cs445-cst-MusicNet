@@ -28,7 +28,6 @@
 <?php
   } else {
 ?>
-
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to MusicNet!</h1>
@@ -48,9 +47,9 @@
       </div>
     </div>
 
-    <div id="homeButtons">  
+     <div id="homeButtons">  
       <a class="left" href="musicnet.php?page=search" role="button">Search for Music</a>
-      <a class="right" href="musicnet.php?page=register" role="button"> Register</a>
+      <a class="right" href="musicnet.php?page=register" role="button"> Register!</a>
     </div>
 
 <?php

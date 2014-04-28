@@ -59,6 +59,7 @@ $(document).ready(function() {
   });
 
   if(page == 'user') {
+
     $(".please-wait").show();
     $.ajax({
       type: 'GET',
@@ -80,7 +81,9 @@ $(document).ready(function() {
         bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
       }
     });
+
   } else if(page == 'logout') {
+
     $.ajax({
       type: 'POST',
       url: 'backend.php',
@@ -92,7 +95,9 @@ $(document).ready(function() {
         document.location = 'musicnet.php'; // reload
       }
     });
+
   } else if(page == 'search') {
+
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');
@@ -106,6 +111,11 @@ $(document).ready(function() {
       }
       $("#searchinput").focus();
     });
+    $("#searchinput").keyup(function(e) {
+      console.log(e.keyCode);
+      //if(e.keyCode)
+    });
+
   }
 
 });

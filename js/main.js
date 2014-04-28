@@ -65,12 +65,12 @@ $(document).ready(function() {
           type: 'GET',
           url: 'backend.php',
           data: {
-            fn: 'concert_'+type,
+            fn: 'search_'+type,
             term: term,
             page: page
           },
           success: function(response) {
-            console.log("SEARCH RESULTS", response)
+            console.log("SEARCH RESULTS", response);
             var r = $.parseJSON(response);
             var $results = $("#search-results").find('.results');
             $results.empty();

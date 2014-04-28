@@ -26,7 +26,6 @@
 
   <!-- Prepended text-->
   <div class="form-group">
-    <label class="col-md-2 control-label" for="prependedtext"></label>
     <div class="col-md-10">
       <div class="search-margin">&nbsp;</div>
       <div class="input-group">

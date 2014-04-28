@@ -173,7 +173,7 @@
 
   } else if($fn == 'search_albums') {
 
-    $term = "'".$_GET['term']."'";
+    $term = $_GET['term'];
     $page = $_GET['page'];
     $results_per_page = 50;
     $offset = $page*$results_per_page;

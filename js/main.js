@@ -116,7 +116,7 @@ $(document).ready(function() {
       e.preventDefault();
       console.log("Search for "+$("#searchinput").val());
       $("#please-wait").show();
-      $(".search-margin").animate({ height: 0; }, { complete: function() {
+      $(".search-margin").animate({ height: 0 }, { complete: function() {
         $(".search-margin").addClass('hidden');
       } });
     });

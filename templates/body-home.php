@@ -28,6 +28,7 @@
 <?php
   } else {
 ?>
+
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to MusicNet!</h1>
@@ -47,20 +48,10 @@
       </div>
     </div>
 
-    <div class="container">
-    <div class="row feature-buttons">
-        <div class="col-md-4">
-          <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
-            <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Search for Music
-          </a>
-        </div>
-       <div class="col-md-4">
-          <a class="btn btn-block btn-default" href="musicnet.php?page=register" role="button">
-            <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Register
-          </a>
-       </div>
-     </div>
-   </div>
+    <div id="homeButtons">  
+      <a class="left" href="musicnet.php?page=search" role="button">Search for Music</a>
+      <a class="right" href="musicnet.php?page=register" role="button"> Register</a>
+    </div>
 
 <?php
   }

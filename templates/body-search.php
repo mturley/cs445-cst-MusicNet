@@ -30,7 +30,7 @@
     <div class="col-md-8">
       <div class="input-group">
         <span class="input-group-addon addonborder"><span class="glyphicon glyphicon-search bigicon"></span></span>
-        <input id="searchinput" name="prependedtext" class="form-control" placeholder="Search" type="text">
+        <input id="searchinput" name="prependedtext" class="form-control" placeholder="Search for a Song" type="text">
       </div>
 
     </div>

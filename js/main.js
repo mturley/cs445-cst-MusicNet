@@ -96,6 +96,7 @@ $(document).ready(function() {
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');
+      console.log($(this).data('searchType'));
     });
   }
 

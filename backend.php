@@ -124,6 +124,9 @@
     $page = $_GET['page'];
     $offset = $page*$results_per_page;
     try {
+      // WHAT'S THE DEAL HERE?
+      // Warning: PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+      error_reporting(E_ERROR);
       $q = $db->prepare("select * from Songs where title like ':term' limit :rpp offset :offset");
       $q->execute(array(':term' => $term,
                         ':rpp' => $results_per_page,
@@ -145,6 +148,7 @@
     $page = $_GET['page'];
     $offset = $page*$results_per_page;
     try {
+      error_reporting(E_ERROR);
       $q = $db->prepare("select * from Artists where artist_name like ':term' limit :rpp offset :offset");
       $q->execute(array(':term' => $term,
                         ':rpp' => $results_per_page,
@@ -166,6 +170,7 @@
     $results_per_page = 50;
     $offset = $page*$results_per_page;
     try {
+      error_reporting(E_ERROR);
       $q = $db->prepare("select * from Albums where album_name like ':term' limit :rpp offset :offset");
       $q->execute(array(':term' => $term,
                         ':rpp' => $results_per_page,

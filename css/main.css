@@ -67,6 +67,15 @@
   height: 0px;
 }
 
+.search-group {
+  left: 60px;
+}
+
+.press-enter {
+  color: grey;
+  text-align: center;
+  margin: 50px;
+}
 
 
 /* -------------------------------------------------*/

@@ -89,6 +89,7 @@ $(document).ready(function() {
               });
               $th_row.appendTo($results);
               $.each(r.results, function(result) {
+                console.log(this, arguments);
                 var $result_row = $("<tr>");
                 $.each(Object.keys(result), function(key) {
                   $("<td>"+result[key]+"</td>").appendTo($result_row);

@@ -18,11 +18,18 @@
   </form>
 
 <hr>
-
+	<p>
 	<h1>People you may know</h1>
 	user_name, age, location...<br>
 	user_name, age, location...<br>
 	user_name, age, location...<br>
 	user_name, age, location...<br>
 	user_name, age, location...<br>
+	</p>
+
+<hr>
+<? php include("ads.inc"); ?>
+
 </div>
+
+

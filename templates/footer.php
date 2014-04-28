@@ -1,4 +1,6 @@
-<div id="ads">Loading Ads...</div>
+<div class="container">
+  <div id="ads">Loading Ads...</div>
+</div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="<?php echo RES_PATH; ?>/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 

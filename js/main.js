@@ -272,11 +272,8 @@ $(document).ready(function() {
     },
     success: function(response) {
       $("#ads").empty();
-      console.log(response);
       var r = $.parseJSON(response);
-      console.log(r);
       $.each(r.results, function(ad) {
-        console.log(this, arguments);
         $('<a href="'+ad.ad_link_href+'" target="_blank">'
          +'<img class="ad" src="'+this.ad_img_src+'" />'
          +'</a>').appendTo($('#ads'));

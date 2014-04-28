@@ -121,6 +121,7 @@
 
     $term = "'%".$_GET['term']."%'";
     $results_per_page = 50;
+    echo "The term is: ".$_GET['term'];
     $page = $_GET['page'];
     $offset = $page*$results_per_page;
     try {

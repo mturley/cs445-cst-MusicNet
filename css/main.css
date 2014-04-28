@@ -58,6 +58,16 @@
   border: 3px solid black;
 }
 
+.search-margin {
+  height: 300px;
+  transition: height 1s;
+  -webkit-transition: height 1s;
+  -moz-transition: height 1s;
+}
+
+.search-margin.hidden {
+  height: 0;
+}
 
 
 

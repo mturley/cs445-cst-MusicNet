@@ -8,26 +8,26 @@
 	<form class="form-horizontal">
   	<fieldset>
 	  <div class="form-group">
-	    <label class="col-md-4 control-label" for="searchinput">Search</label>
 	    <div class="col-md-6">
-	      <input id="searchinput" name="searchinput" type="search" placeholder="placeholder" class="form-control input-md">
+	      <input id="searchinput" name="searchinput" type="search" placeholder="Find Friends" class="form-control input-md">
 
 	    </div>
 	  </div>
 	</fieldset>
   </form>
 
-<hr>
-	<p>
-	<h1>People you may know</h1>
-	user_name, age, location...<br>
-	user_name, age, location...<br>
-	user_name, age, location...<br>
-	user_name, age, location...<br>
-	user_name, age, location...<br>
-	</p>
 
-<hr>
+<div class="container">
+	<h2>People you may know</h2>
+	user_name, age, location...<br>
+	user_name, age, location...<br>
+	user_name, age, location...<br>
+	user_name, age, location...<br>
+	user_name, age, location...<br>
+</div>
+
+<div class="container">
+
 <? include("ads.inc"); ?>
 
 </div>

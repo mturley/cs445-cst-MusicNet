@@ -133,7 +133,8 @@
         $sql = "select ar.artist_name, count(ab.album_id) as album_count"
               ." from Artists ar, AlbumBy ab"
               ." where ar.artist_name like :term"
-              ." and ab.artist_id = ar.artist_id";
+              ." and ab.artist_id = ar.artist_id"
+              ." group by ar.artist_id";
       } else if($type == 'albums') {
         $sql = "select al.album_name, ar.artist_name"
               ." from Albums al, AlbumBy ab, Artists ar"

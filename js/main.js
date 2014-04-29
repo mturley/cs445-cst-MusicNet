@@ -108,7 +108,7 @@ $(document).ready(function() {
                   }
                 });
                 $result_row.appendTo($tbody);
-                $result_row.find('td[data-key*=_name]','td[data-key=title]').each(function() {
+                $tbody.find('td[data-key*=_name]','td[data-key*=title]').each(function() {
                   var $td = $(this);
                   var key = $td.data('key');
                   var idkey = key.replace('_name','_id');
@@ -189,7 +189,7 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         if($("#user-info").is(':visible')) {
           $("#user-info").empty();
-          for(var key in r) $("<strong>"+key+":&nbsp;</strong>&nbsp;"+r[key]).appendTo("#user-info");
+          for(var key in r) $("<u>"+key+":&nbsp;</u>&nbsp;"+r[key]+"").appendTo("#user-info");
         }
       },
       error: function(response) {

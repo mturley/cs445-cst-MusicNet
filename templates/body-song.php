@@ -21,7 +21,10 @@
     </div>
     <div class="col-md-6">
       <div id="song-player">
-        Loading Player...
+        <a class="btn btn-large btn-primary play" href="#" style="display: none;">
+          <span class="glyphicon glyphicon-headphones"></span>
+          Listen to this song on YouTube
+        </a>
       </div>
     </div>
   </div>

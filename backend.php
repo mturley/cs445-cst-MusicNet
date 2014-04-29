@@ -147,6 +147,7 @@
       $q->execute(array(':term' => $term));
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
+      $response->rowCount = $q->rowCount();
       $response->results = $q->fetchAll();
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";

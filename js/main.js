@@ -180,7 +180,7 @@ $(document).ready(function() {
       var term = $("#searchinput").val();
       var page = $("#search-results").data('page');
       page--;
-      if(term != "") Util.searchAjax(type, term, page);
+      if(term != "") Util.searchAjax(type, term, page, '#search-results');
     });
 
     $("body").on('click', '.search-next', function(e) {
@@ -189,7 +189,7 @@ $(document).ready(function() {
       var term = $("#searchinput").val();
       var page = $("#search-results").data('page');
       page++;
-      if(term != "") Util.searchAjax(type, term, page);
+      if(term != "") Util.searchAjax(type, term, page, '#search-results');
     });
 
     setTimeout(function() {

@@ -73,6 +73,11 @@
   padding: 0 5px;
 }
 
+.obj-icon-lg {
+  height: 32px;
+  padding: 0 10px;
+}
+
 #searchinput {
   font-size: 48px;
   height: 78px;

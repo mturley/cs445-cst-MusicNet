@@ -290,7 +290,7 @@
                          ." where se.user_id=:user_id and se.term_id=d.term_id"
                          ." and d.song_id = so.song_id and sf.song_id = so.song_id"
                          ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
-                         ." and ab.artist_id = ar.artist_id limit $num_songs");
+                         ." and ab.artist_id = ar.artist_id order by rand() limit $num_songs");
         $q->execute(array(':user_id' => $user_id));
         $response->results = $q->fetchAll();
         $response->message = "Songs returned in results field.";
@@ -311,7 +311,7 @@
       $user_id = $_SESSION['user_id'];
       // get a list of terms from current user
       try {
-        $q = $db->prepare("select distinct u.user_id, u.username, u.age, u.gender, u.location from Searches se, Users u where se.user_id=u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id)");
+        $q = $db->prepare("select distinct u.user_id, u.username, u.age, u.gender, u.location from Searches se, Users u where se.user_id=u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id) order by rand()");
         $q->execute(array(':user_id' => $user_id));
         $response->results = $q->fetchAll();
         $response->message = "Friends returned in results field.";
@@ -332,7 +332,7 @@
       $user_id = $_SESSION['user_id'];
       // get a list of terms from current user
       try {
-        $q = $db->prepare("select c.name, c.venue, c.location, c.date from Concerts c, Users u where u.user_id=:user_id and c.location=u.location");
+        $q = $db->prepare("select c.name, c.venue, c.location, c.date from Concerts c, Users u where u.user_id=:user_id and c.location=u.location order by rand()");
         $q->execute(array(':user_id' => $user_id));
         $response->results = $q->fetchAll();
         $response->message = "Concerts returned in results field.";

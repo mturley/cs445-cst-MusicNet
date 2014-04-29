@@ -86,9 +86,9 @@ $(document).ready(function() {
       Util.repageSearch(0);
     },
     searchAjax: function(searchType, term, page, resultsElement, filters) {
-      if(!filters && window.searchFilters) {
-        filters = window.searchFilters;
-      }
+      //if(!filters && window.searchFilters) {
+      //  filters = window.searchFilters;
+      //}
       Util.startLoader();
       $.ajax({
         type: 'GET',
@@ -97,9 +97,9 @@ $(document).ready(function() {
           fn: 'search',
           searchType: searchType,
           term: term,
-          page: page,
-          filtered: !!filters,
-          filters: filters
+          page: page//,
+          //filtered: !!filters,
+          //filters: filters
         },
         success: function(response) {
           Util.stopLoader();

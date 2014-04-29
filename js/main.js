@@ -264,7 +264,7 @@ $(document).ready(function() {
       $ul = $("<ul>").appendTo($('#relsongs'));
       $.each(r.results, function(idx, song) {
         $('<li><strong>'+song.title+'</strong> by <strong>'+song.artist_name
-        + '</strong> on <strong>'song.album_name'</strong></li>').appendTo($ul);
+        + '</strong> on <strong>'+song.album_name+'</strong></li>').appendTo($ul);
       });
     },
     error: function(error) {

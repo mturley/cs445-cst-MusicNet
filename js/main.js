@@ -61,13 +61,13 @@ $(document).ready(function() {
 
 
   var Util = {
-      searchAjax: function(type, term, page, resultsElement) {
+      searchAjax: function(searchType, term, page, resultsElement) {
         $.ajax({
           type: 'GET',
           url: 'backend.php',
           data: {
             fn: 'search',
-            type: type,
+            type: searchType,
             term: term,
             page: page
           },
@@ -77,7 +77,7 @@ $(document).ready(function() {
             $results.empty();
             $(resultsElement).find('.term').html(term);
             if(r.results.length == 0) {
-              $(".press-enter").html('No '+type+' found matching "'+term+'"').show();
+              $(".press-enter").html('No '+searchType+' found matching "'+term+'"').show();
             } else {
               $(".press-enter").hide();
               clearTimeout(window.enterTimer);

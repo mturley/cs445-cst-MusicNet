@@ -343,9 +343,9 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugFriends'));
         $.each(r.results, function(idx, friend) {
-          $li = $('<li><strong><a href="musicnet.php?page=user&user_id='+friend.user_id+'>'+friend.username+'</a></strong>, '+friend.age
-          + 'years old from '+friend.location+'</li>');
-          console.log($li);
+          $li = $('<li>');
+          $('<a>').appendTo($li).attr('href','musicnet.php?page=user&user_id='+friend.user_id).html(friend.username);
+          $('<span>').appendTo($li).html(', '+friend.age+' years old from '+friend.location);
           $li.appendTo($ul);
         });
       },

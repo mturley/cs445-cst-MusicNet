@@ -36,7 +36,6 @@
         <p>
           MusicNet is a simple PHP / MySQL WebApp built by Mike Turley, Eric Smith and Xian Chen for CS445 in Spring 2014.
           It provides user authentication and an interface to browse and query an extensive database of Music data.
-          We should write a better introductory blurb here. meow.
         </p>
         <h3>
           Ready to get started?&nbsp;&nbsp;

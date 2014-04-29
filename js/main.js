@@ -571,7 +571,7 @@ $(document).ready(function() {
       var resultsPage = 0;
       Util.startLoader();
       $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: 'backend.php',
         data: {
           fn: 'sql',

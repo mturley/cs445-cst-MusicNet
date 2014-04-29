@@ -150,7 +150,7 @@
               ." group by al.album_id";
       }
       $q = $db->prepare($sql);
-      $q->execute(array(':'.$type.'_id' => $_GET[$type.'_id']));s
+      $q->execute(array(':'.$type.'_id' => $_GET[$type.'_id']));
       $response = $q->fetchObject();
     } catch(PDOException $e) {
       $response->message = "Failed to Select the User with that user_id!";

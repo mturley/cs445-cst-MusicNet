@@ -7,11 +7,11 @@
       <strong class="album_name">...</strong>
       by
       <a href="#" class="artist_link">...</a>
+      <a class="btn btn-primary pull-right" href="musicnet.php?page=search">
+        <span class="glyphicon glyphicon-search"></span>
+        New Search
+      </a>
     </h2>
-    <a class="btn btn-primary pull-right" href="musicnet.php?page=search">
-      <span class="glyphicon glyphicon-search"></span>
-      New Search
-    </a>
   </div>
 </div>
 

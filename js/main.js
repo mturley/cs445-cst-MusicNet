@@ -482,7 +482,8 @@ $(document).ready(function() {
       data: {
         fn: 'sql',
       },
-    });// end of page-specific scripts
+    });
+  }// end of page-specific scripts
 
   $(".please-wait").show();
   // get the state of the current user and load ads.

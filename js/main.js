@@ -251,7 +251,7 @@ $(document).ready(function() {
           start_index: 1,
           max_results: 10,
           v: 2,
-          alt: json
+          alt: 'json'
         },
         success: function(response) {
           Util.stopLoader();

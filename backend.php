@@ -189,8 +189,8 @@
       $sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
             ." from Albums al, AlbumBy ab, Artists ar, SFrom sf"
             ." where al.album_id = ab.album_id and ab.artist_id = ar.artist_id"
-            ." and al.album_id = sf.album_id group by al.album_id"
-            ." and ab.artist_id = :artist_id";
+            ." and al.album_id = sf.album_id and ab.artist_id = :artist_id"
+            ." group by al.album_id";
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $q->execute(array(':artist_id' => $artist_id));
       $response->message = "Success! Albums returned in results field.";

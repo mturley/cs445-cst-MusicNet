@@ -278,6 +278,11 @@
     }
 
   }
+  else if($fn == 'sql') {
+
+    // TODO
+    
+    }
 
   // Output the response object as a JSON-encoded string
   echo json_encode($response);

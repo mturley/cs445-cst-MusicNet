@@ -89,6 +89,7 @@ $(document).ready(function() {
       if(!filters && window.searchFilters) {
         filters = window.searchFilters;
       }
+      if(!filters) filters = {};
       Util.startLoader();
       $.ajax({
         type: 'GET',

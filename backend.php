@@ -231,7 +231,7 @@
       $user_id = $_SESSION['user_id'];
       // get a list of terms from current user
 
-      $q = $db->prepare("select distinct u.username, u.age, u.location from Searches se, Users u where se.user_id=u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id)");
+      $q = $db->prepare("select distinct u.username, u.age, u.location from Searches se, Users u where se.user_id!=u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id)");
       $q->execute(array(':user_id' => $user_id));
       $response->results = $q->fetchAll();
       $response->message = "Friends returned in results field.";

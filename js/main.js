@@ -321,8 +321,8 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugFriends'));
         $.each(r.results, function(idx, friend) {
-          $('<li><strong>'+friend.username+'</strong>, '+song.age
-          + 'years old from '+song.location+'</li>').appendTo($ul);
+          $('<li><strong>'+friend.username+'</strong>, '+friend.age
+          + 'years old from '+friend.location+'</li>').appendTo($ul);
         });
       },
       error: function(error) {

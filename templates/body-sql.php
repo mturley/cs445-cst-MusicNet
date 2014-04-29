@@ -1,7 +1,7 @@
 <div class="container">
 <form role="form">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+    <label for="rawsql">Raw SQL Entry</label>
+    <input type="email" class="form-control" id="rawsql" placeholder="Enter SQL Query">
   </div>
-  </div>
+</div>

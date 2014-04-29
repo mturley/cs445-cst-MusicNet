@@ -257,7 +257,7 @@ $(document).ready(function() {
         $ul = $("<ul>").appendTo($('#sugConcertss'));
         $.each(r.results, function(idx, c) {
           $('<li><strong>'+c.name+'</strong> performing on '+c.date
-          + ' in '+c.date+'</li>').appendTo($ul);
+          + ' at '+c.venue+' in ' +c.location+ ' </li>').appendTo($ul);
         });
       },
       error: function(error) {

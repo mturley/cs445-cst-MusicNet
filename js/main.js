@@ -247,6 +247,10 @@ $(document).ready(function() {
     }
   });
 
+/*
+  // This is broken.. Xian what were you trying to do here?
+  // We need to create a backend function for get_songs if you want to do this.
+  // but this is a place for loading things that are on every page, like ads and the current user.
 
   $.ajax({
     type: 'GET',
@@ -266,5 +270,6 @@ $(document).ready(function() {
       console.log("ERROR: ", error);
     }
   });
+*/
 
 });

@@ -172,6 +172,32 @@ $(document).ready(function() {
         var page = $("#album-songs").data('page');
         page += pgdiff;
         Util.albumSongsAjax(urlParam('album_id'), page, '#album-songs');
+      },
+      artistAlbumsAjax: function(artist_id, page) {
+        $(".please-wait").show();
+        $.ajax({
+          type: 'GET',
+          url: 'backend.php',
+          data: {
+            fn: 'get_albums_by_artist',
+            artist_id: artist_id,
+            page: page
+          },
+          success: function(response) {
+            Util.renderResultsTable(response, "#artist-albums");
+          },
+          error: function(response) {
+            console.log("ERROR: ", response);
+          }
+        });
+      },
+      repageArtistAlbums: function(pgdiff) {
+        $(".please-wait").show();
+        $(".press-enter").hide();
+        clearTimeout(window.enterTimer);
+        var page = $("#artist-albums").data('page');
+        page += pgdiff;
+        Util.artistAlbumsAjax(urlParam('artist_id'), page, '#artist-albums');
       }
     };
 

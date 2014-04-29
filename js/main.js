@@ -123,10 +123,9 @@ $(document).ready(function() {
                 });
               });
               $(page_row_html).appendTo($tbody);
-              $("#search-results").slideDown(function() {
-                $("body").stop(); // stop scrolling if already scrolling
-                $.scrollTo("#search-results", 200, { offset: -60 });
-              });
+              $("#search-results").show();
+              $("body").stop(); // stop scrolling if already scrolling
+              $.scrollTo("#search-results", 200, { offset: -60 });
             }
             $(".please-wait").hide();
           },

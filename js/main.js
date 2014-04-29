@@ -255,7 +255,7 @@ $(document).ready(function() {
       success: function(response) {
         $("#sugConcerts").empty();
         var r = $.parseJSON(response);
-        $ul = $("<ul>").appendTo($('#sugConcertss'));
+        $ul = $("<ul>").appendTo($('#sugConcerts'));
         $.each(r.results, function(idx, c) {
           $('<li><strong>'+c.name+'</strong> performing on '+c.date
           + ' at '+c.venue+' in ' +c.location+ ' </li>').appendTo($ul);

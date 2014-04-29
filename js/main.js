@@ -165,7 +165,7 @@ $(document).ready(function() {
         var key = $(this).data('key');
         var type = key.replace('_name','');
         if(key == 'title') type = 'song';
-        $('<img src="'+window.resPath+'/img/'+type+'_icon.png" class="obj-icon" />').prependTo(this);
+        $('<img src="'+window.resPath+'/img/'+type+'_icon.png" class="obj-icon" />').prependTo($(this).find('a'));
       });
     },
     repageSearch : function(pgdiff) {

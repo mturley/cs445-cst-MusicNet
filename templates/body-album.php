@@ -11,10 +11,14 @@
 </div>
 
 <div class="container">
-	<table><tr><td width="250px">
-		<div id="album-info">
-			Loading...
-		</div>
-	</td></tr></table>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="album-info">
+        Loading...
+      </div>
+    </div>
+    <div class="col-md-6">
+      <table id="album-songs"></table>
+    </div>
+  </div>
 </div>
-<br><br>

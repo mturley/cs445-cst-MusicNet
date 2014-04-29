@@ -74,65 +74,59 @@ $(document).ready(function() {
             page: page
           },
           success: function(response) {
-            var r = $.parseJSON(response);
-            var $results = $(resultsElement).find('.results');
-            $results.empty();
-            $(resultsElement).find('.type').html(toTitleCase(searchType));
-            $(resultsElement).find('.term').html(term);
-            if(r.results.length == 0) {
-              $(".press-enter").html('No '+searchType+' found matching "'+term+'"').show();
-            } else {
-              $(".press-enter").hide();
-              clearTimeout(window.enterTimer);
-              $(resultsElement).data('page', page);
-              var page_row_html = '<tr><th class="center" colspan="'+Object.keys(r.results[0]).length+'">';
-              if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
-              page_row_html += '<strong>Page '+(page - (-1))+'</strong>';
-              if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
-              page_row_html += '</th></tr>';
-              $(page_row_html).appendTo($results);
-              var $th_row = $("<tr>");
-              $.each(Object.keys(r.results[0]), function(idx, key) {
-                if(isNaN(key) && key.indexOf('_id') == -1) {
-                  var niceKey = toTitleCase(key.replace('_',' '));
-                  $("<th>"+niceKey+"</th>").appendTo($th_row);
-                }
-              });
-              $th_row.appendTo($results);
-              $tbody = $("<tbody>").appendTo($results);
-              $.each(r.results, function(idx, result) {
-                var $result_row = $("<tr>");
-                $.each(Object.keys(result), function(idx, key) {
-                  if(isNaN(key) && key.indexOf('_id') == -1) {
-                    $("<td data-key="+key+">"+result[key]+"</td>").appendTo($result_row);
-                  }
-                });
-                $result_row.appendTo($tbody);
-                $tbody.find('td[data-key*=_name]','td[data-key=title]').each(function() {
-                  var $td = $(this);
-                  var key = $td.data('key');
-                  var idkey = key.replace('_name','_id');
-                  if(key == 'title') idkey = 'song_id';
-                  if(result.hasOwnProperty(idkey)) {
-                    var id = result[idkey];
-                    var page = idkey.replace('_id','');
-                    var value = $td.html();
-                    $td.html('<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
-                  }
-                });
-              });
-              $(page_row_html).appendTo($tbody);
-              $("#search-results").show();
-              $("body").stop(); // stop scrolling if already scrolling
-              $.scrollTo("#search-results", 200, { offset: -60 });
-            }
-            $(".please-wait").hide();
+            Util.renderResultsTable(response, $(resultsElement).find('.results'));
           },
           error: function(response) {
             $(".press-enter").html('Search Failed!  Check PHP error logs...').show();
             console.log("AJAX ERROR: ",response);
           }
         });
+      },
+      renderResultsTable : function(response, table) {
+        var r = $.parseJSON(response);
+        $results = $(table);
+        $results.empty();
+        var page_row_html = '<tr><th class="center" colspan="'+Object.keys(r.results[0]).length+'">';
+        if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
+        page_row_html += '<strong>Page '+(page - (-1))+'</strong>';
+        if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
+        page_row_html += '</th></tr>';
+        $(page_row_html).appendTo($results);
+        var $th_row = $("<tr>");
+        $.each(Object.keys(r.results[0]), function(idx, key) {
+          if(isNaN(key) && key.indexOf('_id') == -1) {
+            var niceKey = toTitleCase(key.replace('_',' '));
+            $("<th>"+niceKey+"</th>").appendTo($th_row);
+          }
+        });
+        $th_row.appendTo($results);
+        $tbody = $("<tbody>").appendTo($results);
+        $.each(r.results, function(idx, result) {
+          var $result_row = $("<tr>");
+          $.each(Object.keys(result), function(idx, key) {
+            if(isNaN(key) && key.indexOf('_id') == -1) {
+              $("<td data-key="+key+">"+result[key]+"</td>").appendTo($result_row);
+            }
+          });
+          $result_row.appendTo($tbody);
+          $tbody.find('td[data-key*=_name]','td[data-key=title]').each(function() {
+            var $td = $(this);
+            var key = $td.data('key');
+            var idkey = key.replace('_name','_id');
+            if(key == 'title') idkey = 'song_id';
+            if(result.hasOwnProperty(idkey)) {
+              var id = result[idkey];
+              var page = idkey.replace('_id','');
+              var value = $td.html();
+              $td.html('<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
+            }
+          });
+        });
+        $(page_row_html).appendTo($tbody);
+        $(table).show();
+        $("body").stop(); // stop scrolling if already scrolling
+        $.scrollTo($(table), 200, { offset: -60 });
+        $(".please-wait").hide();
       },
       repageSearch : function(pgdiff) {
         $(".please-wait").show();
@@ -143,6 +137,24 @@ $(document).ready(function() {
         var page = $("#search-results").data('page');
         page += pgdiff;
         Util.searchAjax(type, term, page, '#search-results');
+      },
+      albumSongsAjax: function(album_id, page) {
+        $(".please-wait").show();
+        $.ajax({
+          type: 'GET',
+          url: 'backend.php',
+          data: {
+            fn: 'get_songs_by_album',
+            album_id: album_id,
+            page: page
+          },
+          success: function(response) {
+            Util.renderResultsTable(response, "#album-songs");
+          },
+          error: function(response) {
+            console.log("ERROR: ", response);
+          }
+        });
       }
     };
 
@@ -423,6 +435,7 @@ $(document).ready(function() {
 
   } else if(page == 'album') {
 
+    // get the album object itself.
     $(".please-wait").show();
     $.ajax({
       type: 'GET',
@@ -448,6 +461,9 @@ $(document).ready(function() {
       }
     });
 
+    // get the songs in the album.
+    Util.albumSongsAjax(urlParam('album_id'), 0);
+
   } else if(page == 'artist') {
 
     $(".please-wait").show();
@@ -472,7 +488,7 @@ $(document).ready(function() {
         console.log("ERROR: ", response);
       }
     });
-  } 
+  }
   else if(page == 'sql') {
 
     $(".please-wait").show();

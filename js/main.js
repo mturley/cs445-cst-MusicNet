@@ -348,7 +348,7 @@ $(document).ready(function() {
 
     window.enterTimer = setTimeout(function() {
       $(".press-enter").fadeIn();
-    }, 1000);
+    }, 2000);
 
 
   } else if(page == 'concerts') {
@@ -416,7 +416,7 @@ $(document).ready(function() {
 
     window.enterTimer = setTimeout(function() {
       $(".press-enter").fadeIn();
-    }, 1000);
+    }, 2000);
 
 
   } else if(page == 'friends') {
@@ -483,7 +483,7 @@ $(document).ready(function() {
 
     window.enterTimer = setTimeout(function() {
       $(".press-enter").fadeIn();
-    }, 1000);
+    }, 2000);
 
   } else if(page == 'song') {
 

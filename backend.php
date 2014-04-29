@@ -218,26 +218,26 @@
               ." where title like :term and s.song_id = sf.song_id"
               ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
               ." and ab.artist_id = ar.artist_id";
-        if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
-          $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
-        }
+        //if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
+        //  $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
+        //}
       } else if($type == 'artists') {
         $sql = "select ar.artist_id, ar.artist_name, count(ab.album_id) as album_count"
               ." from Artists ar, AlbumBy ab"
               ." where ar.artist_name like :term"
               ." and ab.artist_id = ar.artist_id";
-        if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
-          $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
-        }
+        //if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
+        //  $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
+        //}
         $sql .= " group by ar.artist_id";
       } else if($type == 'albums') {
         $sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
               ." from Albums al, SFrom sf, AlbumBy ab, Artists ar"
               ." where album_name like :term and al.album_id = ab.album_id"
               ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id";
-        if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
-          $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
-        }
+        //if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
+        //  $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
+        //}
         $sql .= " group by al.album_id";
       } else if($type == 'concert-artist') {
         $sql = "select * from Concerts where name like :term";
@@ -253,17 +253,17 @@
 
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $arr = array(':term' => $term);
-      if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
-        $arr[':yearlow'] = $_GET['filters']['yearLow'];
-        $arr[':yearhigh'] = $_GET['filters']['yearHigh'];
-      }
+      //if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
+      //  $arr[':yearlow'] = $_GET['filters']['yearLow'];
+      //  $arr[':yearhigh'] = $_GET['filters']['yearHigh'];
+      //}
       $q->execute($arr);
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->type = $_GET['searchType'];
       $response->term = $_GET['term'];
-      $response->filtered = $_GET['filtered'];
-      $response->filters = $_GET['filters'];
+      //$response->filtered = $_GET['filtered'];
+      //$response->filters = $_GET['filters'];
       $response->results = $q->fetchAll();
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";

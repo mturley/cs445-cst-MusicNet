@@ -159,7 +159,6 @@ $(document).ready(function() {
         num_songs: 5
       },
       success: function(response) {
-        console.log(response);
         $("#relsongs").empty();
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#relsongs'));

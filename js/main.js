@@ -343,9 +343,10 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugFriends'));
         $.each(r.results, function(idx, friend) {
-          console.log("add li",arguments);
-          $('<li><strong><a href="musicnet.php?page=user&user_id='+friend.user_id+'>'+friend.username+'</a></strong>, '+friend.age
-          + 'years old from '+friend.location+'</li>').appendTo($ul);
+          $li = $('<li><strong><a href="musicnet.php?page=user&user_id='+friend.user_id+'>'+friend.username+'</a></strong>, '+friend.age
+          + 'years old from '+friend.location+'</li>');
+          console.log($li);
+          $li.appendTo($ul);
         });
       },
       error: function(error) {

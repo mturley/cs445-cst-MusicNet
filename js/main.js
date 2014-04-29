@@ -436,7 +436,7 @@ $(document).ready(function() {
       }
     });
 
-  } else if(page == 'artist')
+  } else if(page == 'artist') {
 
     $(".please-wait").show();
     $.ajax({

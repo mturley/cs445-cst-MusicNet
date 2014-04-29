@@ -122,8 +122,32 @@ $(document).ready(function() {
       }
     };
 
+  if(page == 'home') {
+    // Recommended Songs for every page?
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_suggested_songs',
+        num_songs: 5
+      },
+      success: function(response) {
+        $("#relsongs").empty();
+        var r = $.parseJSON(response);
+        $ul = $("<ul>").appendTo($('#relsongs'));
+        $.each(r.results, function(idx, song) {
+          $('<li>The song <strong>'+song.title+'</strong> by the Artist <strong>'+song.artist_name
+          + '</strong> on the Album <strong>'+song.album_name+'</strong></li>').appendTo($ul);
+        });
+      },
+      error: function(error) {
+        console.log("ERROR: ", error);
+      }
+    });
 
-  if(page == 'user') {
+
+  } else if(page == 'user') {
+
 
     $(".please-wait").show();
     $.ajax({
@@ -147,7 +171,9 @@ $(document).ready(function() {
       }
     });
 
+
   } else if(page == 'logout') {
+
 
     $.ajax({
       type: 'POST',
@@ -161,7 +187,9 @@ $(document).ready(function() {
       }
     });
 
+
   } else if(page == 'search') {
+
 
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
@@ -202,7 +230,9 @@ $(document).ready(function() {
       $(".press-enter").fadeIn();
     }, 5000);
 
+
   } else if(page == 'concerts') {
+
 
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
@@ -218,7 +248,10 @@ $(document).ready(function() {
       $("#searchinput").val('').focus();
     });
 
-  } else if(page == 'friends') { // friendsss
+
+  } else if(page == 'friends') {
+
+
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');
@@ -230,7 +263,9 @@ $(document).ready(function() {
       }
       $("#searchinput").val('').focus();
     });
-  }
+
+
+  } // end of page-specific scripts
 
   // Ads for every page
   $.ajax({
@@ -253,28 +288,5 @@ $(document).ready(function() {
       console.log("ERROR: ", error);
     }
   });
-
-  // Recommended Songs for every page?
-  $.ajax({
-    type: 'GET',
-    url: 'backend.php',
-    data: {
-      fn: 'get_suggested_songs',
-      num_songs: 5
-    },
-    success: function(response) {
-      $("#relsongs").empty();
-      var r = $.parseJSON(response);
-      $ul = $("<ul>").appendTo($('#relsongs'));
-      $.each(r.results, function(idx, song) {
-        $('<li>The song <strong>'+song.title+'</strong> by the Artist <strong>'+song.artist_name
-        + '</strong> on the Album <strong>'+song.album_name+'</strong></li>').appendTo($ul);
-      });
-    },
-    error: function(error) {
-      console.log("ERROR: ", error);
-    }
-  });
-
 
 });

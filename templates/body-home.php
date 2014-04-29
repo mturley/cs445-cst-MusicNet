@@ -24,9 +24,19 @@
           </a>
         </div>
       </div>
-    </div><br><br>
+    </div><br>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h2>Music Suggestions</h2>
+        <div id="relsongs">Loading Suggestions...</div>
+      </div>
+    </div>
+    <br>
 <?php
+    // logged in above
   } else {
+    // logged out below
 ?>
     <div class="jumbotron">
       <div class="container">

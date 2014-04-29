@@ -220,7 +220,7 @@
               ." where title like :term and s.song_id = sf.song_id"
               ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
               ." and ab.artist_id = ar.artist_id";
-        if($_GET['filtered'] && isset($_GET['filters']->yearLow)) {
+        if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
           $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
         }
       } else if($type == 'artists') {
@@ -228,7 +228,7 @@
               ." from Artists ar, AlbumBy ab"
               ." where ar.artist_name like :term"
               ." and ab.artist_id = ar.artist_id";
-        if($_GET['filtered'] && isset($_GET['filters']->yearLow)) {
+        if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
           $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
         }
         $sql .= " group by ar.artist_id";
@@ -237,7 +237,7 @@
               ." from Albums al, SFrom sf, AlbumBy ab, Artists ar"
               ." where album_name like :term and al.album_id = ab.album_id"
               ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id";
-        if($_GET['filtered'] && isset($_GET['filters']->yearLow)) {
+        if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
           $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
         }
         $sql .= " group by al.album_id";
@@ -254,7 +254,12 @@
       }
 
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
-      $q->execute(array(':term' => $term));
+      $arr = array(':term' => $term);
+      if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
+        $arr[':yearlow'] = $_GET['filters']['yearLow'];
+        $arr[':yearhigh'] = $_GET['filters']['yearHigh'];
+      }
+      $q->execute($arr);
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->type = $_GET['searchType'];

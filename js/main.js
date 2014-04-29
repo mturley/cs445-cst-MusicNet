@@ -62,7 +62,9 @@ $(document).ready(function() {
 
   var Util = {
       searchAjax: function(searchType, term, page, resultsElement) {
-        console.log("Searching on term: ",term);
+        $(".please-wait").show();
+        $(".press-enter").html('Searching...').show();
+        console.log("Searchtype: "+searchType);
         $.ajax({
           type: 'GET',
           url: 'backend.php',
@@ -215,8 +217,6 @@ $(document).ready(function() {
     // SEARCH SUBMIT FUNCTION
     $("#search-form").on('submit', function(e) {
       e.preventDefault();
-      $(".please-wait").show();
-      $(".press-enter").html('Searching...').show();
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
       var page = 0;

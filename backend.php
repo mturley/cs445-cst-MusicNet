@@ -128,19 +128,10 @@
       // WHAT'S THE DEAL HERE?
       // Warning: PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
       $q = $db->prepare("select song_id, title, year, duration, loudness from Songs where title like :term limit $results_per_page offset $offset");
-      $q->bindParam(':term', $term);
       $q->execute(array(':term' => $term));
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
-      $response->results = array();
-      $response->row = $q->fetchObject();
-      $row = -1;
-      $i = 0;
-      while($row != NULL) {
-        $row = $q->fetchObject();
-        $response->results[$i] = $row;
-        $i++;
-      }
+      $response->results = $q->fetchAll();
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";
       $response->details = $e->getMessage();

@@ -96,7 +96,7 @@ $(document).ready(function() {
         $results.empty();
         var page_row_html = '<tr><th class="center" colspan="'+Object.keys(r.results[0]).length+'">';
         if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
-        page_row_html += '<strong>Page '+(page - (-1))+'</strong>';
+        page_row_html += '<strong>Page '+(r.page - (-1))+'</strong>';
         if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
         page_row_html += '</th></tr>';
         $(page_row_html).appendTo($results);

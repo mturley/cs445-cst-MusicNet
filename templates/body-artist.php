@@ -6,10 +6,14 @@
 </div>
 
 <div class="container">
-	<table><tr><td width="250px">
-		<div id="artist-info">
-			Loading...
-		</div>
-	</td></tr></table>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="artist-info">
+        Loading...
+      </div>
+    </div>
+    <div class="col-md-6">
+      <table id="artist-albums"></table>
+    </div>
+  </div>
 </div>
-<br><br>

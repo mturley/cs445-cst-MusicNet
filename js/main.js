@@ -567,7 +567,7 @@ $(document).ready(function() {
         Util.youtubeSearch(r.artist_name+' '+r.title, function(videoURL) {
           $("#song-player").empty();
           //$("#song-player").html('<iframe id="ytplayer" type="text/html" width="640" height="390" src="'+videoURL+'" frameborder="0"/>');
-          $("#song-player").find('.btn.play').attr('href', videoURL).show();
+          $("#song-player").find('.btn.play').show().attr('href', videoURL);
         });
       },
       error: function(response) {

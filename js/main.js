@@ -105,11 +105,11 @@ $(document).ready(function() {
                 $.each(Object.keys(result), function(idx, key) {
                   if(isNaN(key)) $("<td data-key="+key+">"+result[key]+"</td>").appendTo($result_row);
                 });
+                $result_row.appendTo($tbody);
                 $tbody.find('td[data-key*=_name]').each(function() {
                   var $td = $(this);
                   var key = $td.data('key');
                   var idkey = key.replace('_name','_id');
-                  console.log(this, key, idkey);
                   if(result.hasOwnProperty(idkey)) {
                     var id = result[idkey];
                     var page = idkey.replace('_id','');
@@ -117,7 +117,6 @@ $(document).ready(function() {
                     $td.html('<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
                   }
                 });
-                $result_row.appendTo($tbody);
               });
               $(page_row_html).appendTo($tbody);
               $("#search-results").slideDown();

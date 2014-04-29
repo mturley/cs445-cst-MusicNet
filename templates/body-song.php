@@ -14,9 +14,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div id="song-info">
-        Loading...
+        Loading Song Details...
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="song-player">
+        Loading Player...
       </div>
     </div>
   </div>

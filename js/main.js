@@ -190,7 +190,7 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         if($("#user-info").is(':visible')) {
           $("#user-info").empty();
-          for(var key in r) $("<h4>"+key+":&nbsp;</strong>&nbsp;"+r[key]).appendTo("#user-info");
+          for(var key in r) $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
     
         }
       },

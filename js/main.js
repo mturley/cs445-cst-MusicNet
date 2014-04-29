@@ -99,7 +99,7 @@ $(document).ready(function() {
         page_row_html += '<strong>Page '+(r.page - (-1))+'</strong>';
         if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
         page_row_html += '</th></tr>';
-        $(page_row_html).appendTo($results);
+        if(r.page != 0 || r.results.length >= 50) $(page_row_html).appendTo($results);
         var $th_row = $("<tr>");
         $.each(Object.keys(r.results[0]), function(idx, key) {
           if(isNaN(key) && key.indexOf('_id') == -1) {
@@ -130,7 +130,7 @@ $(document).ready(function() {
             }
           });
         });
-        $(page_row_html).appendTo($tbody);
+        if(r.page != 0 || r.results.length >= 50) $(page_row_html).appendTo($tbody);
         $(table).show();
         $("body").stop(); // stop scrolling if already scrolling
         $("#search-results").show();

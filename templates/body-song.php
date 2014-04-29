@@ -2,8 +2,12 @@
 <div class="jumbotron slim">
   <div class="container">
     <h2>
-      <img src="<?php echo RES_PATH; ?>/img/song_icon.png" class="obj-icon-lg" />
+      <span class="glyphicon glyphicon-headphones"></span>&nbsp;
       View Song: <strong class="song-title">...</strong>
+      <a class="btn btn-primary pull-right" href="musicnet.php?page=search">
+        <span class="glyphicon glyphicon-search"></span>
+        New Search
+      </a>
     </h2>
   </div>
 </div>

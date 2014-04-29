@@ -148,7 +148,6 @@
       $r = $db->query("select FOUND_ROWS() as totalrows");
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
-      $response->rows = $r->fetchObject()->totalrows;
       $response->results = $q->fetchAll();
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";

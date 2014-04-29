@@ -103,9 +103,25 @@
     unset($_SESSION['user_id']); // remove the user_id session token to logout.
     $response->message = "Logout complete";
 
+  } else if($fn == 'get_current_user') {
+
+    if(isset($_SESSION['user_id'])) {
+      try {
+        $q = $db->prepare("select * from Users where user_id = :user_id");
+        $q->execute(array(':user_id' => $_SESSION['user_id']));
+        $response->logged_in = true;
+        $response = $q->fetchObject();
+      } catch(PDOException $e) {
+        $response->logged_in = false;
+        $response->message = "Failed to Select the User with that user_id!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
+    } else {
+      $response->logged_in = false;
+    }
 
   } else if($fn == 'get_user_by_id') {
-
 
     try {
       $q = $db->prepare("select * from Users where user_id = :user_id");

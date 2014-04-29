@@ -298,25 +298,48 @@ $(document).ready(function() {
 
   } // end of page-specific scripts
 
-  // Ads for every page
+  $(".please-wait").show();
+  // get the state of the current user and load ads.
   $.ajax({
     type: 'GET',
     url: 'backend.php',
     data: {
-      fn: 'get_ads',
-      num_ads: 2
+      fn: 'get_current_user'
     },
     success: function(response) {
-      $("#ads").empty();
+      $(".please-wait").hide();
       var r = $.parseJSON(response);
-      $.each(r.results, function(ad) {
-        $('<a href="'+ad.ad_link_href+'" target="_blank">'
-         +'<img class="ad" src="'+this.ad_img_src+'" />'
-         +'</a>').appendTo($('#ads'));
-      });
+      window.logged_in = r.logged_in;
+      if(logged_in) {
+        $(".data-username").html(r.username);
+        // Load user-targeted ads
+        $(".please-wait").show();
+        $.ajax({
+          type: 'GET',
+          url: 'backend.php',
+          data: {
+            fn: 'get_ads',
+            num_ads: 2
+          },
+          success: function(response) {
+            $(".please-wait").hide();
+            $("#ads").empty();
+            var r = $.parseJSON(response);
+            $.each(r.results, function(ad) {
+              $('<a href="'+ad.ad_link_href+'" target="_blank">'
+               +'<img class="ad" src="'+this.ad_img_src+'" />'
+               +'</a>').appendTo($('#ads'));
+            });
+          },
+          error: function(error) {
+            console.log("ERROR: ", error);
+          }
+        });
+      }
     },
-    error: function(error) {
-      console.log("ERROR: ", error);
+    error: function(response) {
+      $(".please-wait").hide();
+      bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
     }
   });
 

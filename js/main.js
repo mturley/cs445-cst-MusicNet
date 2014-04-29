@@ -74,6 +74,10 @@ $(document).ready(function() {
     },
     setSearchFilters: function(filters) {
       window.searchFilters = filters;
+      $(".filters").show();
+      var desc = '';
+      if(!!filters.yearLow) desc = "by Year ("+filters.yearLow+(filters.yearHigh == filters.yearLow ? "-"+filters.yearHigh : "")+")";
+      $(".filter-description").html(desc);
     },
     searchAjax: function(searchType, term, page, resultsElement, filters) {
       if(!filters && window.searchFilters) {
@@ -111,9 +115,6 @@ $(document).ready(function() {
       }
       if(r.filtered) {
         $(".filters").show();
-        var desc = '';
-        if(!!r.filters.yearLow) desc = "by Year ("+r.filters.yearLow+(r.filters.yearHigh == r.filters.yearLow ? "-"+r.filters.yearHigh : "")+")";
-        $(".filter-description").html(desc);
       } else {
         $(".filters").hide();
       }

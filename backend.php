@@ -165,7 +165,7 @@
     $results_per_page = 50;
     $offset = $page*$results_per_page;
     try {
-      $sql = "select s.song_id, s.title, al.album_id, al.album_name, s.year, s.duration, s.loudness"
+      $sql = "select s.song_id, s.title, al.album_id, al.album_name, ar.artist_id, ar.artist_name, s.year, s.duration, s.loudness"
             ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
             ." where s.song_id = sf.song_id and sf.album_id = al.album_id"
             ." and al.album_id = ab.album_id and ab.artist_id = ar.artist_id"

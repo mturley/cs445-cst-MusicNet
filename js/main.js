@@ -114,7 +114,6 @@ $(document).ready(function() {
       });
     },
     renderResultsTable : function(response, table, nopaging) {
-      console.log(response);
       var r = $.parseJSON(response);
       if(r.hasOwnProperty('type') && r.hasOwnProperty('term')) {
         $(".search-type").html(toTitleCase(r.type));

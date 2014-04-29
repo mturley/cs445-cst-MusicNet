@@ -181,7 +181,8 @@ $(document).ready(function() {
       type: 'GET',
       url: 'backend.php',
       data: {
-        fn: 'get_user_by_id',
+        fn: 'get_object_by_id',
+        type: 'user',
         user_id: urlParam('user_id')
       },
       success: function(response) {

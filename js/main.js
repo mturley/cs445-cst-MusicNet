@@ -78,6 +78,7 @@ $(document).ready(function() {
               $(".press-enter").html('No '+type+' found matching "'+term+'"').show();
             } else {
               $(".press-enter").hide();
+              clearTimeout(window.enterTimer);
               $(resultsElement).data('page', page);
               var page_row_html = '<tr><th class="center" colspan="'+Object.keys(r.results[0]).length+'">';
               if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
@@ -104,7 +105,7 @@ $(document).ready(function() {
             $(".please-wait").hide();
           },
           error: function(response) {
-            $(".press-enter").html('Search Failed!  Check PHP error logs...');
+            $(".press-enter").html('Search Failed!  Check PHP error logs...').show();
             console.log("AJAX ERROR: ",response);
           }
         });
@@ -112,6 +113,7 @@ $(document).ready(function() {
       repageSearch : function(pgdiff) {
         $(".please-wait").show();
         $(".press-enter").hide();
+        clearTimeout(window.enterTimeout);
         var type = $("#search-type").find('.btn-primary').data('searchType');
         var term = $("#searchinput").val();
         var page = $("#search-results").data('page');
@@ -196,7 +198,7 @@ $(document).ready(function() {
       Util.repageSearch(1);
     });
 
-    setTimeout(function() {
+    window.enterTimer = setTimeout(function() {
       $(".press-enter").fadeIn();
     }, 5000);
 

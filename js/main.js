@@ -307,6 +307,7 @@ $(document).ready(function() {
       fn: 'get_current_user'
     },
     success: function(response) {
+      console.log("CURRENT USER RESPONSE: ",response);
       $(".please-wait").hide();
       var r = $.parseJSON(response);
       window.logged_in = r.logged_in;

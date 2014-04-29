@@ -105,8 +105,7 @@
 
   } else if($fn == 'get_current_user') {
 
-    echo "SESSION USER ID: ".$_SESSION['user_id'];
-
+    session_start();
     if(isset($_SESSION['user_id'])) {
       try {
         $q = $db->prepare("select * from Users where user_id = :user_id");

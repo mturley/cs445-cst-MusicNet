@@ -66,7 +66,8 @@ $(document).ready(function() {
           type: 'GET',
           url: 'backend.php',
           data: {
-            fn: 'search_'+type,
+            fn: 'search',
+            type: type,
             term: term,
             page: page
           },
@@ -124,8 +125,11 @@ $(document).ready(function() {
       }
     };
 
+  // page-specific scripts below:
+
   if(page == 'home') {
-    // Recommended Songs for every page?
+
+
     $.ajax({
       type: 'GET',
       url: 'backend.php',

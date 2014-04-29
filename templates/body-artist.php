@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <table id="artist-albums"></table>
+      <table id="artist-albums" class="table"></table>
     </div>
   </div>
 </div>

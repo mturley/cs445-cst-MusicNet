@@ -77,6 +77,7 @@ $(document).ready(function() {
               $(".press-enter").html('No '+type+' found matching "'+term+'"').show();
             } else {
               $(".press-enter").hide();
+              $(resultsElement).data('page', page);
               var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
               if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
               page_row_html += '<strong>Page '+(page - (-1))+'</strong>';
@@ -171,7 +172,8 @@ $(document).ready(function() {
 
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
-      if(term != "") Util.searchAjax(type, term, 0, '#search-results');
+      var page = 0;
+      if(term != "") Util.searchAjax(type, term, page, '#search-results');
     });
 
     $("body").on('click', '.search-prev', function(e) {

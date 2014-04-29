@@ -335,13 +335,37 @@ $(document).ready(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');
       var type = $(this).data('searchType');
-      if(type == "username") {
+      if(type == "friends-username") {
         $("#searchinput").attr('placeholder','Search by Username');
-      } else if(type == "location") {
+      } else if(type == "friends-location") {
         $("#searchinput").attr('placeholder','Search by Location');
       }
       $("#searchinput").val('').focus();
     });
+
+    // SEARCH SUBMIT FUNCTION
+    $("#search-form").on('submit', function(e) {
+      e.preventDefault();
+      $(".press-enter").html('Searching...').show();
+      var type = $("#search-type").find('.btn-primary').data('searchType');
+      var term = $("#searchinput").val();
+      var page = 0;
+      if(term != "") Util.searchAjax(type, term, page, '#search-results');
+    });
+
+    $("body").on('click', '.search-prev', function(e) {
+      e.preventDefault();
+      Util.repageSearch(-1);
+    });
+
+    $("body").on('click', '.search-next', function(e) {
+      e.preventDefault();
+      Util.repageSearch(1);
+    });
+
+    window.enterTimer = setTimeout(function() {
+      $(".press-enter").fadeIn();
+    }, 5000);
 
 
   } // end of page-specific scripts

@@ -483,7 +483,7 @@ $(document).ready(function() {
 
     window.enterTimer = setTimeout(function() {
       $(".press-enter").fadeIn();
-    }, 5000);
+    }, 1000);
 
   } else if(page == 'song') {
 
@@ -628,7 +628,7 @@ $(document).ready(function() {
           url: 'backend.php',
           data: {
             fn: 'get_ads',
-            num_ads: 2
+            num_ads: 3
           },
           success: function(response) {
             Util.stopLoader();

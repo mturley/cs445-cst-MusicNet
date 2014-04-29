@@ -622,7 +622,7 @@ $(document).ready(function() {
           url: 'backend.php',
           data: {
             fn: 'get_ads',
-            num_ads: 2
+            num_ads: 3
           },
           success: function(response) {
             Util.stopLoader();

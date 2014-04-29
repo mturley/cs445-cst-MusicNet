@@ -23,7 +23,11 @@
       </div>
       <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
       <div id="search-results" style="display: none;">
-        <h2><span class="type">...</span> matching your search: "<span class="term"></span>":</h2>
+        <h2>
+          <span class="type">...</span>
+          matching your search: "<span class="term"></span>":
+          <a class="btn pull-right btn-normal clear-search" href="#">New Search</a>
+        </h2>
         <table class="results table"></table>
       </div>
     </div>

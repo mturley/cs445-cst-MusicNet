@@ -221,6 +221,11 @@ $(document).ready(function() {
 
   } else if(page == 'search') {
 
+    $(".clear-search").click(function(e) {
+      e.preventDefault();
+      $("#searchinput").val('').focus();
+      $.scrollTo(0, 200);
+    });
 
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');

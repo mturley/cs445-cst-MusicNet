@@ -493,6 +493,7 @@ $(document).ready(function() {
         $.each(Object.keys(r), function(idx, key) {
           $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#song-info");
         });
+        $(".song-title").html(r.title);
       },
       error: function(response) {
         Util.stopLoader();

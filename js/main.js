@@ -628,9 +628,9 @@ $(document).ready(function() {
             Util.stopLoader();
             $("#ads").empty();
             var r = $.parseJSON(response);
-            $.each(r.results, function(ad) {
+            $.each(r.results, function(idx, ad) {
               $('<a href="'+ad.ad_link_href+'" target="_blank">'
-               +'<img class="ad" src="'+this.ad_img_src+'" />'
+               +'<img class="ad" src="'+ad.ad_img_src+'" />'
                +'</a>').appendTo($('#ads'));
             });
           },

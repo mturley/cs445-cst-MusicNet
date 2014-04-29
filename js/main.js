@@ -188,11 +188,10 @@ $(document).ready(function() {
       success: function(response) {
         $(".please-wait").hide();
         var r = $.parseJSON(response);
-        if($("#user-info").is(':visible')) {
-          $("#user-info").empty();
-          for(var key in r) $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
-
-        }
+        $("#user-info").empty();
+        $.each(Object.keys(r), function(idx, key) {
+          $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
+        });
       },
       error: function(response) {
         $(".please-wait").hide();
@@ -203,7 +202,7 @@ $(document).ready(function() {
 
   } else if(page == 'logout') {
 
-
+    $(".please-wait").show();
     $.ajax({
       type: 'POST',
       url: 'backend.php',
@@ -383,9 +382,77 @@ $(document).ready(function() {
       $(".press-enter").fadeIn();
     }, 5000);
 
+  } else if(page == 'song') {
+
+    $(".please-wait").show();
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_object_by_id',
+        type: 'song',
+        song_id: urlParam('song_id')
+      },
+      success: function(response) {
+        $(".please-wait").hide();
+        var r = $.parseJSON(response);
+        $("#song-info").empty();
+        $.each(Object.keys(r), function(idx, key) {
+          $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#song-info");
+        });
+      },
+      error: function(response) {
+        console.log("ERROR: ", response);
+      }
+    });
+
   } else if(page == 'album') {
 
-    
+    $(".please-wait").show();
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_object_by_id',
+        type: 'album',
+        album_id: urlParam('album_id')
+      },
+      success: function(response) {
+        $(".please-wait").hide();
+        var r = $.parseJSON(response);
+        $("#album-info").empty();
+        $.each(Object.keys(r), function(idx, key) {
+          $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#album-info");
+        });
+      },
+      error: function(response) {
+        console.log("ERROR: ", response);
+      }
+    });
+
+  } else if(page == 'artist')
+
+    $(".please-wait").show();
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_object_by_id',
+        type: 'artist',
+        artist_id: urlParam('artist_id')
+      },
+      success: function(response) {
+        $(".please-wait").hide();
+        var r = $.parseJSON(response);
+        $("#artist-info").empty();
+        $.each(Object.keys(r), function(idx, key) {
+          $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#artist-info");
+        });
+      },
+      error: function(response) {
+        console.log("ERROR: ", response);
+      }
+    });
 
   } // end of page-specific scripts
 

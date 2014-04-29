@@ -137,7 +137,7 @@
               ." from Albums where album_name like :term";
       }
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
-      $response->sql = $sql;
+      $response->term = $term;
       $q->execute(array(':term' => $term));
       $response->message = "Search Successful";
       $response->page = $_GET['page'];

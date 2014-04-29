@@ -89,8 +89,8 @@ $(document).ready(function() {
           $(".search-type").html(toTitleCase(r.type));
           $(".search-term").html(r.term);
         }
+        clearTimeout(window.enterTimer);
         $(".press-enter").hide();
-        clearTimeout(window.enterTimeout);
         $results = $(table);
         $results.data('page',r.page);
         $results.empty();
@@ -139,7 +139,7 @@ $(document).ready(function() {
       repageSearch : function(pgdiff) {
         $(".please-wait").show();
         $(".press-enter").hide();
-        clearTimeout(window.enterTimeout);
+        clearTimeout(window.enterTimer);
         var type = $("#search-type").find('.btn-primary').data('searchType');
         var term = $("#searchinput").val();
         var page = $('#search-results').find('table').data('page')
@@ -167,7 +167,7 @@ $(document).ready(function() {
       repageAlbumSongs: function(pgdiff) {
         $(".please-wait").show();
         $(".press-enter").hide();
-        clearTimeout(window.enterTimeout);
+        clearTimeout(window.enterTimer);
         var page = $("#album-songs").data('page');
         page += pgdiff;
         Util.albumSongsAjax(urlParam('album_id'), page, '#album-songs');
@@ -276,8 +276,8 @@ $(document).ready(function() {
       $(".press-enter").html('Searching...').show();
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
-      var page = 0;
-      Util.searchAjax(type, term, page, $('#search-results').find('table'));
+      var resultsPage = 0;
+      Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
     });
 
     $("body").on('click', '.search-prev', function(e) {
@@ -345,8 +345,8 @@ $(document).ready(function() {
       $(".press-enter").html('Searching...').show();
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
-      var page = 0;
-      Util.searchAjax(type, term, page, $('#search-results').find('table'));
+      var resultsPage = 0;
+      Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
     });
 
     $("body").on('click', '.search-prev', function(e) {
@@ -411,8 +411,8 @@ $(document).ready(function() {
       $(".press-enter").html('Searching...').show();
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
-      var page = 0;
-      Util.searchAjax(type, term, page, $('#search-results').find('table'));
+      var resultsPage = 0;
+      Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
     });
 
     $("body").on('click', '.search-prev', function(e) {

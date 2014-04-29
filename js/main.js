@@ -79,8 +79,8 @@ $(document).ready(function() {
               $(".press-enter").hide();
               var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
               if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
-              page_row_html += '<strong>Page '+(page - (-1))+'</strong>&nbsp;|&nbsp;';
-              page_row_html += '<a href="#" class="search-next">Next &raquo;</a>';
+              page_row_html += '<strong>Page '+(page - (-1))+'</strong>';
+              if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
               page_row_html += '</td></tr>';
               $(page_row_html).appendTo($results);
               var $th_row = $("<tr>");

@@ -13,6 +13,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
+      <div id="album-art">
+        <img src="<?php echo RES_PATH; ?>/img/album_placeholder.png" />
+      </div>
       <div id="album-info">
         Loading...
       </div>

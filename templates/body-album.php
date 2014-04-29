@@ -2,6 +2,7 @@
 <div class="jumbotron slim">
   <div class="container">
     <h2>
+      <img src="<?php echo RES_PATH; ?>/img/album_icon.png" class="obj-icon-lg" />
       View Album:
       <strong class="album_name">...</strong>
       by

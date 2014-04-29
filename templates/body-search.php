@@ -8,7 +8,7 @@
     </div>
     <h2 class="floatleft">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Filter Results:&nbsp;&nbsp;&nbsp;
+      Filter Results:&nbsp;
       <a class="btn btn-info filter-by-year">by Year</a>
     </h2>
   </div>

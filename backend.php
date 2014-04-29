@@ -130,12 +130,14 @@
         $sql = "select song_id, title, year, duration, loudness"
               ." from Songs where title like :term";
       } else if($type == 'artists') {
-        $sql = "select artist_id, artist_name from Artists where artist_name like :term";
+        $sql = "select artist_id, artist_name"
+              ." from Artists where artist_name like :term";
       } else if($type == 'albums') {
         $sql = "select album_id, album_name"
               ." from Albums where album_name like :term";
       }
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
+      $response->sql = $sql;
       $q->execute(array(':term' => $term));
       $response->message = "Search Successful";
       $response->page = $_GET['page'];

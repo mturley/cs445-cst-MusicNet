@@ -62,6 +62,7 @@ $(document).ready(function() {
 
   var Util = {
       searchAjax: function(searchType, term, page, resultsElement) {
+        console.log("Searching on term: ",term);
         $.ajax({
           type: 'GET',
           url: 'backend.php',

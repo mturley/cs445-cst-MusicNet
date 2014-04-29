@@ -108,7 +108,7 @@
     session_start();
     if(isset($_SESSION['user_id'])) {
       try {
-        $q = $db->prepare("select username, age, gender, location from Users where user_id = :user_id");
+        $q = $db->prepare("select * from Users where user_id = :user_id");
         $q->execute(array(':user_id' => $_SESSION['user_id']));
         $response->logged_in = true;
         $response->user = $q->fetchObject();
@@ -128,7 +128,7 @@
     try {
       $sql = "";
       if($type == 'user') {
-        $sql = "select user_id, username, age, gender, location, super_user"
+        $sql = "select user_id, username, age, gender, location"
               ." from Users where user_id = :user_id";
       } else if($type == 'song') {
         $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar_artist_name"

@@ -76,10 +76,11 @@ $(document).ready(function() {
             if(r.results.length == 0) {
               $(".press-enter").html('No '+type+' found matching "'+term+'"').show();
             } else {
+              $(".press-enter").hide();
               var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
               if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
               page_row_html += '<strong>Page '+(page - (-1))+'</strong>&nbsp;|&nbsp;';
-              page_row_html += '<a href="#" class="search-next">&raquo; Next</a>';
+              page_row_html += '<a href="#" class="search-next">Next &raquo;</a>';
               page_row_html += '</td></tr>';
               $(page_row_html).appendTo($results);
               var $th_row = $("<tr>");
@@ -87,9 +88,7 @@ $(document).ready(function() {
                 if(isNaN(key)) $("<th>"+key+"</th>").appendTo($th_row);
               });
               $th_row.appendTo($results);
-              console.log(r.results);
               $.each(r.results, function(idx, result) {
-                console.log(result);
                 var $result_row = $("<tr>");
                 $.each(Object.keys(result), function(idx, key) {
                   if(isNaN(key)) $("<td>"+result[key]+"</td>").appendTo($result_row);

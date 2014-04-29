@@ -92,7 +92,10 @@ $(document).ready(function() {
               $(page_row_html).appendTo($results);
               var $th_row = $("<tr>");
               $.each(Object.keys(r.results[0]), function(idx, key) {
-                if(isNaN(key)) $("<th>"+key+"</th>").appendTo($th_row);
+                if(isNaN(key)) {
+                  var niceKey = toTitleCase(key.replace('_',' '));
+                  $("<th>"+niceKey+"</th>").appendTo($th_row);
+                }
               });
               $th_row.appendTo($results);
               $tbody = $("<tbody>").appendTo($results);

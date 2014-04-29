@@ -108,6 +108,7 @@ $(document).ready(function() {
               });
               $(page_row_html).appendTo($tbody);
               $("#search-results").slideDown();
+              $("body").stop(); // stop scrolling if already scrolling
               $.scrollTo("#search-results", 800, { offset: -80 });
             }
             $(".please-wait").hide();

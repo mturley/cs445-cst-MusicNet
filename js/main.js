@@ -108,6 +108,8 @@ $(document).ready(function() {
         });
       },
       repageSearch : function(pgdiff) {
+        $(".please-wait").show();
+        $(".press-enter").hide();
         var type = $("#search-type").find('.btn-primary').data('searchType');
         var term = $("#searchinput").val();
         var page = $("#search-results").data('page');
@@ -176,7 +178,6 @@ $(document).ready(function() {
       e.preventDefault();
       $(".please-wait").show();
       $(".press-enter").html('Searching...').show();
-
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
       var page = 0;

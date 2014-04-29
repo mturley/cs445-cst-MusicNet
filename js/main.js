@@ -86,9 +86,11 @@ $(document).ready(function() {
       renderResultsTable : function(response, table) {
         var r = $.parseJSON(response);
         if(r.hasOwnProperty('type') && r.hasOwnProperty('term')) {
-          $(".search-type").html(r.type);
+          $(".search-type").html(toTitleCase(r.type));
           $(".search-term").html(r.term);
         }
+        $(".press-enter").hide();
+        clearTimeout(window.enterTimeout);
         $results = $(table);
         $results.data('page',r.page);
         $results.empty();

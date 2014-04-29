@@ -74,7 +74,8 @@ $(document).ready(function() {
             page: page
           },
           success: function(response) {
-            Util.renderResultsTable(response, $(resultsElement).find('.results'));
+            Util.renderResultsTable(response, $(resultsElement));
+            $("#search-results").show();
           },
           error: function(response) {
             $(".press-enter").html('Search Failed!  Check PHP error logs...').show();

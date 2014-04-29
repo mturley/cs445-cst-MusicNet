@@ -35,7 +35,7 @@
       <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
       <div id="search-results" style="display: none;">
         <h2>Search results for: "<span class="term"></span>":</h2>
-        <table class="results">
+        <table class="results table">
         </table>
       </div>
     </div>

@@ -161,6 +161,11 @@ $(document).ready(function() {
         $("body").stop(); // stop scrolling if already scrolling
         $.scrollTo($("#search-results"), 200, { offset: -60 });
       }
+      $(table).find('td[data-key*=_name]').each(function() {
+        var key = $(this).data('key');
+        var type = key.replace('_name','');
+        $('<img src="'+window.resPath+'/img/'+type+'_icon.png" class="obj-icon" />').prependTo(this);
+      });
     },
     repageSearch : function(pgdiff) {
       $(".press-enter").hide();

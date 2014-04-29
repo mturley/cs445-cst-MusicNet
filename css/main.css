@@ -68,6 +68,10 @@
   border-right: 0;
 }
 
+.obj-icon {
+  height: 16px;
+}
+
 #searchinput {
   font-size: 48px;
   height: 78px;

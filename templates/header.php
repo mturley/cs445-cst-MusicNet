@@ -22,6 +22,7 @@
       <link rel="stylesheet" href="<?php echo RES_PATH; ?>/css/main.css">
 
       <script src="<?php echo RES_PATH; ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+      <script> window.resPath = "<?php echo RES_PATH; ?>"; </script>
   </head>
   <body>
     <!--[if lt IE 7]>

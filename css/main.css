@@ -2,6 +2,9 @@
    Author's custom styles
    ========================================================================== */
 
+#album-art img {
+  width: 370px;
+}
 .ad{
   margin: 10px;
   width: 300px;

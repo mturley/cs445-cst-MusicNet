@@ -6,11 +6,11 @@
       <button type="button" class="btn btn-default" data-search-type="artists">Search Artists</button>
       <button type="button" class="btn btn-default" data-search-type="albums">Search Albums</button>
     </div>
-    <h2 class="floatleft">
+    <!--<h2 class="floatleft">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       Filter Results:&nbsp;
       <a class="btn btn-info filter-by-year">by Year</a>
-    </h2>
+    </h2>-->
   </div>
 </div>
 

@@ -263,8 +263,8 @@ $(document).ready(function() {
       var r = $.parseJSON(response);
       $ul = $("<ul>").appendTo($('#relsongs'));
       $.each(r.results, function(idx, song) {
-        $('<li><strong>'+song.title+'</strong> by <strong>'+song.artist_name
-        + '</strong> on <strong>'+song.album_name+'</strong></li>').appendTo($ul);
+        $('<li>The song <strong>'+song.title+'</strong> by the Artist <strong>'+song.artist_name
+        + '</strong> on the Album <strong>'+song.album_name+'</strong></li>').appendTo($ul);
       });
     },
     error: function(error) {

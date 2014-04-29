@@ -166,7 +166,7 @@
       } else if($type == 'concert-location') {
         $sql = "select * from Concerts where location like :term";
       } else if($type == 'concert-date') {
-        $sql = "select * fron Concerts where date like :term";
+        $sql = "select * from Concerts where date like :term";
       }
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $response->term = $term;

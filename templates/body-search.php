@@ -13,17 +13,6 @@
   <form id="search-form" class="form-horizontal">
   <fieldset>
 
-  <!-- Search input-->
-  <!--
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="searchinput"><span class="glyphicon glyphicon-search bigicon"></span></label>
-    <div class="col-md-6">
-      <input id="searchinput" name="searchinput" type="search" placeholder="placeholder" class="form-control input-md">
-
-    </div>
-  </div>
--->
-
   <!-- Prepended text-->
   <div class="form-group">
     <label class="col-md-2 control-label" for="prependedtext"></label>
@@ -34,7 +23,7 @@
       </div>
       <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
       <div id="search-results" style="display: none;">
-        <h2>Search results for: "<span class="term"></span>":</h2>
+        <h2><span class="type">...</span> matching your search: "<span class="term"></span>":</h2>
         <table class="results table"></table>
       </div>
     </div>

@@ -535,6 +535,10 @@ $(document).ready(function() {
         console.log("ERROR: ", response);
       }
     });
+
+    // get the albums by this artist.
+    Util.artistAlbumsAjax(urlParam('artist_id'), 0);
+
   }
   else if(page == 'sql') {
 

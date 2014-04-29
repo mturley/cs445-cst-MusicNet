@@ -133,6 +133,7 @@ $(document).ready(function() {
         $(page_row_html).appendTo($tbody);
         $(table).show();
         $("body").stop(); // stop scrolling if already scrolling
+        $("#search-results").show();
         $.scrollTo($("#search-results"), 200, { offset: -60 });
         $(".please-wait").hide();
       },

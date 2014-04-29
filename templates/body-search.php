@@ -26,10 +26,10 @@
         <span class="input-group-addon addonborder"><span class="glyphicon glyphicon-search bigicon"></span></span>
         <input id="searchinput" name="prependedtext" class=."form-control" placeholder="Search for a Song" type="text">
       </div>
-      <h3 class="filters" style="display: none;">
+      <!--<h3 class="filters" style="display: none;">
         Filtering search <span class="filter-description">...</span>
         <a class="btn btn-default clear-filters" href="#">Remove Filter</a>
-      </h3>
+      </h3>-->
       <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
       <div id="search-results" style="display: none;">
         <h2>

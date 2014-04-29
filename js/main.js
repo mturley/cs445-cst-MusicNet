@@ -109,7 +109,7 @@ $(document).ready(function() {
                   var $td = $(this);
                   var key = $td.data('key');
                   var idkey = key.replace('_name','_id');
-                  console.log(this);
+                  console.log(this, key, idkey);
                   if(result.hasOwnProperty(idkey)) {
                     var id = result[idkey];
                     var page = idkey.replace('_id','');

@@ -131,7 +131,7 @@
         $sql = "select user_id, username, age, gender, location"
               ." from Users where user_id = :user_id";
       } else if($type == 'song') {
-        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar_artist_name"
+        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
               ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
               ." where s.song_id = sf.song_id and sf.album_id = al.album_id"
               ." and al.album_id = ab.album_id and ab.artist_id = ar.artist_id"

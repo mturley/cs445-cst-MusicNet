@@ -110,7 +110,7 @@
         $q = $db->prepare("select * from Users where user_id = :user_id");
         $q->execute(array(':user_id' => $_SESSION['user_id']));
         $response->logged_in = true;
-        $response = $q->fetchObject();
+        $response->user = $q->fetchObject();
       } catch(PDOException $e) {
         $response->logged_in = false;
         $response->message = "Failed to Select the User with that user_id!";

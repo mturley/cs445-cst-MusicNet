@@ -309,10 +309,9 @@ $(document).ready(function() {
     success: function(response) {
       $(".please-wait").hide();
       var r = $.parseJSON(response);
-      console.log(r);
       window.logged_in = r.logged_in;
       if(logged_in) {
-        $(".data-username").html(r.username);
+        $(".data-username").html(r.user.username);
         // Load user-targeted ads
         $(".please-wait").show();
         $.ajax({

@@ -125,7 +125,7 @@
   } else if($fn == 'get_user_by_id') {
 
     try {
-      $q = $db->prepare("select username, age, gender, location from Users where user_id = :user_id");
+      $q = $db->prepare("select * from Users where user_id = :user_id");
       $q->execute(array(':user_id' => $_GET['user_id']));
       $response = $q->fetchObject();
     } catch(PDOException $e) {
@@ -144,19 +144,19 @@
     try {
       $sql = "";
       if($type == 'songs') {
-        $sql = "select s.title, s.year, s.duration, s.loudness, al.album_name, ar.artist_name"
+        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
               ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
               ." where title like :term and s.song_id = sf.song_id"
               ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
               ." and ab.artist_id = ar.artist_id";
       } else if($type == 'artists') {
-        $sql = "select ar.artist_name, count(ab.album_id) as album_count"
+        $sql = "select ar.artist_id, ar.artist_name, count(ab.album_id) as album_count"
               ." from Artists ar, AlbumBy ab"
               ." where ar.artist_name like :term"
               ." and ab.artist_id = ar.artist_id"
               ." group by ar.artist_id";
       } else if($type == 'albums') {
-        $sql = "select al.album_name, ar.artist_name, count(sf.song_id) as song_count"
+        $sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
               ." from Albums al, SFrom sf, AlbumBy ab, Artists ar"
               ." where album_name like :term and al.album_id = ab.album_id"
               ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id"
@@ -171,7 +171,7 @@
         $sql = "select * from Users where username like :term";
       } else if($type == 'friends-location') {
         $sql = "select * from Users where location like :term";
-      } 
+      }
 
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $response->term = $term;
@@ -231,7 +231,7 @@
       $user_id = $_SESSION['user_id'];
       // get a list of terms from current user
 
-      $q = $db->prepare("select distinct u.username, u.age, u.location from Searches se, Users u where se.user_id<>u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id)");
+      $q = $db->prepare("select distinct u.username, u.age, u.location from Searches se, Users u where se.user_id=u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id)");
       $q->execute(array(':user_id' => $user_id));
       $response->results = $q->fetchAll();
       $response->message = "Friends returned in results field.";

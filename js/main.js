@@ -93,7 +93,7 @@ $(document).ready(function() {
               $(page_row_html).appendTo($results);
               var $th_row = $("<tr>");
               $.each(Object.keys(r.results[0]), function(idx, key) {
-                if(isNaN(key)) {
+                if(isNaN(key) && key.indexOf('_id') == -1) {
                   var niceKey = toTitleCase(key.replace('_',' '));
                   $("<th>"+niceKey+"</th>").appendTo($th_row);
                 }
@@ -103,18 +103,20 @@ $(document).ready(function() {
               $.each(r.results, function(idx, result) {
                 var $result_row = $("<tr>");
                 $.each(Object.keys(result), function(idx, key) {
-                  if(isNaN(key)) $("<td data-key="+key+">"+result[key]+"</td>").appendTo($result_row);
+                  if(isNaN(key) && key.indexOf('_id') == -1) {
+                    $("<td data-key="+key+">"+result[key]+"</td>").appendTo($result_row);
+                  }
                 });
                 $result_row.appendTo($tbody);
-                $tbody.find('td[data-key*=_name]').each(function() {
+                $tbody.find('td[data-key*=_name]','td[data-key*=title]').each(function() {
                   var $td = $(this);
                   var key = $td.data('key');
                   var idkey = key.replace('_name','_id');
+                  if(key == 'title') idkey = 'song_id';
                   if(result.hasOwnProperty(idkey)) {
                     var id = result[idkey];
                     var page = idkey.replace('_id','');
                     var value = $td.html();
-                    console.log("happening?");
                     $td.html('<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
                   }
                 });

@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   var page = urlParam('page');
+  if(page == '') page = 'home';
 
   $("#registration-form").submit(function(e) {
     // submit the registration form data via ajax

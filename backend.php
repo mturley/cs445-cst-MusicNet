@@ -162,11 +162,11 @@
               ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id"
               ." group by al.album_id";
       } else if($type == 'concert-artist') {
-        $sql = "select * from Concerts where name=:term";
+        $sql = "select * from Concerts where name like :term";
       } else if($type == 'concert-location') {
-        $sql = "select * from Concerts where location=:term";
+        $sql = "select * from Concerts where location like :term";
       } else if($type == 'concert-date') {
-        $sql = "select * fron Concerts where date=:term";
+        $sql = "select * fron Concerts where date like :term";
       }
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $response->term = $term;

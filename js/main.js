@@ -579,7 +579,7 @@ $(document).ready(function() {
         },
         success: function(response) {
           Util.stopLoader();
-          Util.renderResultsTable(response, '#sql-results', false);
+          Util.renderResultsTable(response, '#sql-results', true);
         },
         error: function(response) {
           Util.stopLoader();

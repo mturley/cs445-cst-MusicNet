@@ -42,7 +42,9 @@
             All the Music.&nbsp;&nbsp;
             <span class="glyphicon glyphicon-globe"></span>
             All the Net.
-            <span class="btn btn-primary">Home</a>
+            <?php if($page != "home") { ?>
+              <span class="btn btn-primary">Home</a>
+            <?php } ?>
           </a>
           <div class="please-wait" id="floatingBarsG" style="display: none;">
             <div class="blockG" id="rotateG_01">

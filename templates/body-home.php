@@ -82,7 +82,7 @@
   if($logged_in) {
 ?>
     <br /><br />
-    <div class="jumbotron">
+    <div class="jumbotron slim">
       <div class="container">
         <h2>Music Suggestions</h2>
         <div id="relsongs">Loading Suggestions...</div>

@@ -98,7 +98,7 @@ $(document).ready(function() {
                 });
                 $result_row.appendTo($tbody);
               });
-              $(page_row_html).appendTo($results);
+              $(page_row_html).appendTo($tbody);
               $("#search-results").slideDown();
             }
             $(".please-wait").hide();

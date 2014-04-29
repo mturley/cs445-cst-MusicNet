@@ -262,6 +262,28 @@ $(document).ready(function() {
   } else if(page == 'friends') {
 
 
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_suggested_friends',
+        num_songs: 5
+      },
+      success: function(response) {
+        $("#sugFriends").empty();
+        var r = $.parseJSON(response);
+        $ul = $("<ul>").appendTo($('#sugFriends'));
+        $.each(r.results, function(idx, friend) {
+          $('<li><strong>'+friend.username+'</strong>, '+song.age
+          + 'years old from '+song.location+'</li>').appendTo($ul);
+        });
+      },
+      error: function(error) {
+        console.log("ERROR: ", error);
+      }
+    });
+
+
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');

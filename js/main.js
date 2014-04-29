@@ -72,7 +72,13 @@ $(document).ready(function() {
       window.loaders--;
       if(window.loaders == 0) $(".please-wait").hide();
     },
+    setSearchFilters: function(filters) {
+      window.searchFilters = filters;
+    }
     searchAjax: function(searchType, term, page, resultsElement, filters) {
+      if(!filters && window.searchFilters) {
+        filters = window.searchFilters;
+      }
       Util.startLoader();
       $.ajax({
         type: 'GET',
@@ -102,6 +108,14 @@ $(document).ready(function() {
       if(r.hasOwnProperty('type') && r.hasOwnProperty('term')) {
         $(".search-type").html(toTitleCase(r.type));
         $(".search-term").html(r.term);
+      }
+      if(r.filtered) {
+        $(".filters").show();
+        var desc = '';
+        if(!!r.filters.yearLow) desc = "by Year ("+r.filters.yearLow+(r.filters.yearHigh == r.filters.yearLow ? "-"+r.filters.yearHigh : "")+")";
+        $(".filter-description").html(desc);
+      } else {
+        $(".filters").hide();
       }
       clearTimeout(window.enterTimer);
       $(".press-enter").hide();
@@ -322,11 +336,6 @@ $(document).ready(function() {
       e.preventDefault();
       bootbox.prompt("Please enter a year or year range (eg. 1998 or 1994-2002)", function(value) {
         if(value == null) return;
-        $("#search-results").hide();
-        $(".press-enter").html('Searching...').show();
-        var type = $("#search-type").find('.btn-primary').data('searchType');
-        var term = $("#searchinput").val();
-        var resultsPage = 0;
         var low = 0;
         var high = 0;
         if(value.indexOf('-') != -1) {
@@ -339,7 +348,7 @@ $(document).ready(function() {
           low = value;
           high = value;
         }
-        Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'), { yearLow: low, yearHigh: high });
+        Util.setSearchFilters({ yearLow: low, yearHigh: high });
       });
     });
 

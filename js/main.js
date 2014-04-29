@@ -74,7 +74,7 @@ $(document).ready(function() {
     },
     setSearchFilters: function(filters) {
       window.searchFilters = filters;
-    }
+    },
     searchAjax: function(searchType, term, page, resultsElement, filters) {
       if(!filters && window.searchFilters) {
         filters = window.searchFilters;

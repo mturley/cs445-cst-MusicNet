@@ -110,6 +110,9 @@
 /* ---------------------------------------- */
 
 #floatingBarsG{
+float: right;
+top: 13px;
+left: 10px;
 position:relative;
 width:18px;
 height:22px}

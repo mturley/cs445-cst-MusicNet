@@ -498,6 +498,7 @@ $(document).ready(function() {
           var niceKey = toTitleCase(key.replace('_',' '));
           $('<h4 data-key="'+key+'">'+niceKey+':&nbsp;'+r[key]+'</h4>').appendTo("#song-info");
         });
+        console.log("song title", r.title, r);
         $(".song-title").html(r.title);
         Util.linkify('#song-info', r);
       },

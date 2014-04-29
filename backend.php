@@ -198,7 +198,13 @@
     } else {
       $num_songs = $_GET['num_songs'];
       $user_id = $_SESSION['user_id'];
-      $q = $db->prepare("select d.song_id, so.title, al.album_name, ar.artist_name from Searches se, Describes d, Songs so, SFrom sf, Albums al, AlbumBy ab, Artists ar where se.user_id=:user_id and se.term_id=d.term_id and d.song_id = so.song_id and sf.song_id = so.song_id and sf.album_id = al.album_id and al.album_id = ab.album_id and ab.artist_id = ar.artist_id limit $num_songs");
+      // THIS QUERY IS A F**KING MONSTER.  But it works??
+      $q = $db->prepare("select d.song_id, so.title, al.album_name, ar.artist_name"
+                       ." from Searches se, Describes d, Songs so, SFrom sf, Albums al, AlbumBy ab, Artists ar"
+                       ." where se.user_id=:user_id and se.term_id=d.term_id"
+                       ." and d.song_id = so.song_id and sf.song_id = so.song_id"
+                       ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
+                       ." and ab.artist_id = ar.artist_id limit $num_songs");
       $q->execute(array(':user_id' => $user_id));
       $response->results = $q->fetchAll();
       $response->message = "Songs returned in results field.";

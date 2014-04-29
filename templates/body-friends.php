@@ -28,13 +28,9 @@
 </div>
 
 
-<div class="jumbotron">
-<div class="container">
-	<h2>Friend Suggestions</h2>
-	user_name, age, location...<br>
-	user_name, age, location...<br>
-	user_name, age, location...<br>
-	user_name, age, location...<br>
-	user_name, age, location...<br>
-</div>
-</div>
+<div class="jumbotron slim">
+      <div class="container">
+        <h2>Friend Suggestions</h2>
+        <div id="sugFriends">Loading Suggestions...</div>
+      </div>
+    </div>

@@ -228,6 +228,7 @@ $(document).ready(function() {
     });
   }
 
+  // Ads for every page
   $.ajax({
     type: 'GET',
     url: 'backend.php',
@@ -249,29 +250,26 @@ $(document).ready(function() {
     }
   });
 
-/*
-  // This is broken.. Xian what were you trying to do here?
-  // We need to create a backend function for get_songs if you want to do this.
-  // but this is a place for loading things that are on every page, like ads and the current user.
-
+  // Recommended Songs for every page?
   $.ajax({
     type: 'GET',
     url: 'backend.php',
     data: {
       fn: 'get_songs',
-      num_ads: 5
+      num_songs: 5
     },
     success: function(response) {
       $("#relsongs").empty();
       var r = $.parseJSON(response);
-      $.each(r.results, function(s) {
-        $('s').appendTo($('#relsongs'));
+      $ul = $("<ul>").appendTo($('#relsongs'));
+      $.each(r.results, function(idx, s) {
+        $('<li>'+s+'</li>').appendTo($ul);
       });
     },
     error: function(error) {
       console.log("ERROR: ", error);
     }
   });
-*/
+
 
 });

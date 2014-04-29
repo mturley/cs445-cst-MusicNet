@@ -371,10 +371,14 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugFriends'));
         $.each(r.results, function(idx, friend) {
+<<<<<<< HEAD
+          $('<li><strong><a href="musicnet.php?page=user&user_id='+friend.user_id+'>'+friend.username+'</a></strong>, '+friend.age+ ' years old '+friend.age+' from'+friend.location+'</li>').appendTo($ul);
+=======
           $li = $('<li>');
           $('<a>').appendTo($li).attr('href','musicnet.php?page=user&user_id='+friend.user_id).html(friend.username);
           $('<span>').appendTo($li).html(', '+friend.age+' years old from '+friend.location);
           $li.appendTo($ul);
+>>>>>>> 3b6c98a9d95bcd60c1540573b8c0d94fd3ae5e85
         });
       },
       error: function(error) {

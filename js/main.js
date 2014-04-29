@@ -236,7 +236,7 @@ $(document).ready(function() {
           var id = result[idkey];
           var page = idkey.replace('_id','');
           var value = $t.html();
-          $t.html('<img src="'+window.resPath+'/img/'+type+'_icon.png" class="obj-icon" /><a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
+          $t.html('<img src="'+window.resPath+'/img/'+page+'_icon.png" class="obj-icon" /><a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
         }
       });
     }

@@ -6,8 +6,13 @@
 </div>
 
 <div class="container">
-  <div id="user-info">
-    Loading...
-  </div>
+	<table><tr><td>
+		INFO
+		<div id="user-info">
+			Loading...
+		</div>
+		</td><td>
+		USER ACTIVITY FEED HERE
+	</td></tr></table>
 </div>
 <br><br>

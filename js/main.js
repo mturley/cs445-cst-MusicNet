@@ -64,7 +64,6 @@ $(document).ready(function() {
   var Util = {
       searchAjax: function(searchType, term, page, resultsElement) {
         $(".please-wait").show();
-        $("#search-results").hide();
         $.ajax({
           type: 'GET',
           url: 'backend.php',
@@ -123,9 +122,9 @@ $(document).ready(function() {
                 });
               });
               $(page_row_html).appendTo($tbody);
-              $("#search-results").slideDown();
+              $("#search-results").show();
               $("body").stop(); // stop scrolling if already scrolling
-              $.scrollTo("#search-results", 400, { offset: -60 });
+              $.scrollTo("#search-results", 200, { offset: -60 });
             }
             $(".please-wait").hide();
           },
@@ -221,6 +220,12 @@ $(document).ready(function() {
 
   } else if(page == 'search') {
 
+    $(".clear-search").click(function(e) {
+      e.preventDefault();
+      $("#search-results").slideUp();
+      $("#searchinput").val('').focus();
+      $.scrollTo(0, 200);
+    });
 
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
@@ -239,6 +244,7 @@ $(document).ready(function() {
     // SEARCH SUBMIT FUNCTION
     $("#search-form").on('submit', function(e) {
       e.preventDefault();
+      $("#search-results").hide();
       $(".press-enter").html('Searching...').show();
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
@@ -343,8 +349,10 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugFriends'));
         $.each(r.results, function(idx, friend) {
-          $('<li><strong><a href="musicnet.php?page=user&user_id='+friend.user_id+'>'+friend.username+'</a></strong>, '+friend.age
-          + 'years old from '+friend.location+'</li>').appendTo($ul);
+          $li = $('<li>');
+          $('<a>').appendTo($li).attr('href','musicnet.php?page=user&user_id='+friend.user_id).html(friend.username);
+          $('<span>').appendTo($li).html(', '+friend.age+' years old from '+friend.location);
+          $li.appendTo($ul);
         });
       },
       error: function(error) {

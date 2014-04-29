@@ -158,6 +158,50 @@
       error(500,"Internal Server Error");
     }
 
+  } else if($fn == 'get_songs_by_album') {
+
+    $album_id = $_GET['album_id'];
+    $page = $_GET['page'];
+    $results_per_page = 50;
+    $offset = $page*$results_per_page;
+    try {
+      $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness"
+            ." from Songs s, SFrom sf where s.song_id = sf.song_id"
+            ." and sf.album_id = :album_id";
+      $q = $db->prepare($sql." limit $results_per_page offset $offset");
+      $q->execute(array(':album_id' => $album_id));
+      $response->message = "Success! Songs returned in results field.";
+      $response->page = $_GET['page'];
+      $response->results = $q->fetchAll();
+    } catch(PDOException $e) {
+      $response->message = "Failed to Select from the Songs table!";
+      $response->details = $e->getMessage();
+      error(500,"Internal Server Error");
+    }
+
+  } else if($fn == 'get_albums_by_artist') {
+
+    $artist_id = $_GET['artist_id'];
+    $page = $_GET['page'];
+    $results_per_page = 50;
+    $offset = $page*$results_per_page;
+    try {
+      $sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
+            ." from Albums al, AlbumBy ab, Artists ar, SFrom sf"
+            ." where al.album_id = ab.album_id and ab.artist_id = ar.artist_id"
+            ." and al.album_id = sf.album_id group by al.album_id"
+            ." and ab.artist_id = :artist_id";
+      $q = $db->prepare($sql." limit $results_per_page offset $offset");
+      $q->execute(array(':artist_id' => $artist_id));
+      $response->message = "Success! Albums returned in results field.";
+      $response->page = $_GET['page'];
+      $response->results = $q->fetchAll();
+    } catch(PDOException $e) {
+      $response->message = "Failed to Select from the Albums table!";
+      $response->details = $e->getMessage();
+      error(500,"Internal Server Error");
+    }
+
   } else if($fn == 'search') {
 
     $type = $_GET['searchType'];
@@ -198,11 +242,11 @@
       }
 
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
-      $response->term = $term;
       $q->execute(array(':term' => $term));
-      $r = $db->query("select FOUND_ROWS() as totalrows");
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
+      $response->type = $_GET['searchType'];
+      $response->term = $_GET['term'];
       $response->results = $q->fetchAll();
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";
@@ -280,7 +324,7 @@
   else if($fn == 'sql') {
 
     // TODO
-    
+
     }
 
   // Output the response object as a JSON-encoded string

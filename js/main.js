@@ -74,7 +74,8 @@ $(document).ready(function() {
             page: page
           },
           success: function(response) {
-            Util.renderResultsTable(response, $(resultsElement).find('.results'));
+            Util.renderResultsTable(response, $(resultsElement));
+            $("#search-results").show();
           },
           error: function(response) {
             $(".press-enter").html('Search Failed!  Check PHP error logs...').show();
@@ -84,11 +85,18 @@ $(document).ready(function() {
       },
       renderResultsTable : function(response, table) {
         var r = $.parseJSON(response);
+        if(r.hasOwnProperty('type') && r.hasOwnProperty('term')) {
+          $(".search-type").html(toTitleCase(r.type));
+          $(".search-term").html(r.term);
+        }
+        clearTimeout(window.enterTimer);
+        $(".press-enter").hide();
         $results = $(table);
+        $results.data('page',r.page);
         $results.empty();
         var page_row_html = '<tr><th class="center" colspan="'+Object.keys(r.results[0]).length+'">';
-        if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
-        page_row_html += '<strong>Page '+(page - (-1))+'</strong>';
+        if(r.page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
+        page_row_html += '<strong>Page '+(r.page - (-1))+'</strong>';
         if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
         page_row_html += '</th></tr>';
         $(page_row_html).appendTo($results);
@@ -125,18 +133,19 @@ $(document).ready(function() {
         $(page_row_html).appendTo($tbody);
         $(table).show();
         $("body").stop(); // stop scrolling if already scrolling
-        $.scrollTo($(table), 200, { offset: -60 });
+        $("#search-results").show();
+        $.scrollTo($("#search-results"), 200, { offset: -60 });
         $(".please-wait").hide();
       },
       repageSearch : function(pgdiff) {
         $(".please-wait").show();
         $(".press-enter").hide();
-        clearTimeout(window.enterTimeout);
+        clearTimeout(window.enterTimer);
         var type = $("#search-type").find('.btn-primary').data('searchType');
         var term = $("#searchinput").val();
-        var page = $("#search-results").data('page');
+        var page = $('#search-results').find('table').data('page')
         page += pgdiff;
-        Util.searchAjax(type, term, page, '#search-results');
+        Util.searchAjax(type, term, page, $('#search-results').find('table'));
       },
       albumSongsAjax: function(album_id, page) {
         $(".please-wait").show();
@@ -159,7 +168,7 @@ $(document).ready(function() {
       repageAlbumSongs: function(pgdiff) {
         $(".please-wait").show();
         $(".press-enter").hide();
-        clearTimeout(window.enterTimeout);
+        clearTimeout(window.enterTimer);
         var page = $("#album-songs").data('page');
         page += pgdiff;
         Util.albumSongsAjax(urlParam('album_id'), page, '#album-songs');
@@ -268,8 +277,8 @@ $(document).ready(function() {
       $(".press-enter").html('Searching...').show();
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
-      var page = 0;
-      Util.searchAjax(type, term, page, '#search-results');
+      var resultsPage = 0;
+      Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
     });
 
     $("body").on('click', '.search-prev', function(e) {
@@ -337,8 +346,8 @@ $(document).ready(function() {
       $(".press-enter").html('Searching...').show();
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
-      var page = 0;
-      Util.searchAjax(type, term, page, '#search-results');
+      var resultsPage = 0;
+      Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
     });
 
     $("body").on('click', '.search-prev', function(e) {
@@ -403,8 +412,8 @@ $(document).ready(function() {
       $(".press-enter").html('Searching...').show();
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
-      var page = 0;
-      Util.searchAjax(type, term, page, '#search-results');
+      var resultsPage = 0;
+      Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
     });
 
     $("body").on('click', '.search-prev', function(e) {

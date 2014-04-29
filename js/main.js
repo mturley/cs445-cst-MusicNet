@@ -155,6 +155,14 @@ $(document).ready(function() {
             console.log("ERROR: ", response);
           }
         });
+      },
+      repageAlbumSongs: function(pgdiff) {
+        $(".please-wait").show();
+        $(".press-enter").hide();
+        clearTimeout(window.enterTimeout);
+        var page = $("#album-songs").data('page');
+        page += pgdiff;
+        Util.albumSongsAjax(urlParam('album_id'), page, '#album-songs');
       }
     };
 
@@ -266,7 +274,9 @@ $(document).ready(function() {
 
     $("body").on('click', '.search-prev', function(e) {
       e.preventDefault();
-      Util.repageSearch(-1);
+      var $table = $(this).closest('table');
+      if($table.is('#search-results')) Util.repageSearch(-1);
+      if($table.is('#'))
     });
 
     $("body").on('click', '.search-next', function(e) {

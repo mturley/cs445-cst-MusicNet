@@ -285,7 +285,7 @@
       $num_songs = $_GET['num_songs'];
       $user_id = $_SESSION['user_id'];
       try {
-        $q = $db->prepare("select d.song_id, so.title, al.album_name, ar.artist_name"
+        $q = $db->prepare("select d.song_id, so.title, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
                          ." from Searches se, Describes d, Songs so, SFrom sf, Albums al, AlbumBy ab, Artists ar"
                          ." where se.user_id=:user_id and se.term_id=d.term_id"
                          ." and d.song_id = so.song_id and sf.song_id = so.song_id"

@@ -1,15 +1,16 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron slim">
   <div class="container">
-    <h2>View Concert: <?php echo $_GET['concert_name']; ?></h2>
+    <h2>View Concert: <strong class="concert-name">...</strong></h2>
   </div>
 </div>
 
 <div class="container">
-	<table><tr><td width="250px">
-		<div id="concert-info">
-			Loading...
-		</div>
-	</td></tr></table>
+  <div class="row">
+    <div class="col-md-4">
+      <div id="concert-info">
+        Loading...
+      </div>
+    </div>
+  </div>
 </div>
-<br><br>

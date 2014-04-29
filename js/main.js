@@ -203,11 +203,12 @@ $(document).ready(function() {
       Util.artistAlbumsAjax(urlParam('artist_id'), page, '#artist-albums');
     },
     linkify: function(element, result) {
-      $(element).find('[data-key*=_name], [data-key=title]').each(function() {
+      $(element).find('[data-key*=_name], [data-key=title], [data-key=username]').each(function() {
         var $t = $(this);
         var key = $t.data('key');
         var idkey = key.replace('_name','_id');
         if(key == 'title') idkey = 'song_id';
+        if(key == 'username') idkey = 'user_id';
         if(result.hasOwnProperty(idkey)) {
           var id = result[idkey];
           var page = idkey.replace('_id','');
@@ -236,8 +237,10 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#relsongs'));
         $.each(r.results, function(idx, song) {
-          $('<li>The song <strong>'+song.title+'</strong> by the Artist <strong>'+song.artist_name
-          + '</strong> on the Album <strong>'+song.album_name+'</strong></li>').appendTo($ul);
+          var $li = $('<li>The song <strong data-key="title">'+song.title+'</strong> by the Artist <strong data-key="artist_name">'+song.artist_name
+          + '</strong> on the Album <strong data-key="album_name">'+song.album_name+'</strong></li>');
+          $li.appendTo($ul);
+          Util.linkify($li, song);
         });
       },
       error: function(error) {
@@ -364,8 +367,10 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugConcerts'));
         $.each(r.results, function(idx, c) {
-          $('<li><strong>'+c.name+'</strong> performing on '+c.date
-          + ' at '+c.venue+' in ' +c.location+ ' </li>').appendTo($ul);
+          var $li = $('<li><strong data-key="concert_name">'+c.name+'</strong> performing on '+c.date
+          + ' at '+c.venue+' in ' +c.location+ ' </li>');
+          $li.appendTo($ul);
+          Util.linkify($li, c);
         });
       },
       error: function(error) {
@@ -431,8 +436,9 @@ $(document).ready(function() {
         $ul = $("<ul>").appendTo($('#sugFriends'));
         $.each(r.results, function(idx, friend) {
           $li = $('<li>');
-          $('<a>').appendTo($li).attr('href','musicnet.php?page=user&user_id='+friend.user_id).html(friend.username);
+          $('<strong data-key="username">').appendTo($li).html(friend.username);
           $('<span>').appendTo($li).html(', '+friend.age+' years old from '+friend.location);
+          Util.linkify($li, friend);
           $li.appendTo($ul);
         });
       },

@@ -72,7 +72,7 @@ $(document).ready(function() {
       window.loaders--;
       if(window.loaders == 0) $(".please-wait").hide();
     },
-    searchAjax: function(searchType, term, page, resultsElement) {
+    searchAjax: function(searchType, term, page, resultsElement, filters) {
       Util.startLoader();
       $.ajax({
         type: 'GET',
@@ -81,7 +81,9 @@ $(document).ready(function() {
           fn: 'search',
           searchType: searchType,
           term: term,
-          page: page
+          page: page,
+          filtered: !!filters,
+          filters: filters
         },
         success: function(response) {
           Util.stopLoader();
@@ -315,6 +317,31 @@ $(document).ready(function() {
 
 
   } else if(page == 'search') {
+
+    $(".filter-by-year").click(function(e) {
+      e.preventDefault();
+      bootbox.prompt("Please enter a year or year range (eg. 1998 or 1994-2002)", function(value) {
+        if(value == null) return;
+        $("#search-results").hide();
+        $(".press-enter").html('Searching...').show();
+        var type = $("#search-type").find('.btn-primary').data('searchType');
+        var term = $("#searchinput").val();
+        var resultsPage = 0;
+        var low = 0;
+        var high = 0;
+        if(value.indexOf('-') != -1) {
+          // year range
+          var split = value.replace(' ','').split('-');
+          low = split[0];
+          high = split[1];
+        } else {
+          // single year
+          low = value;
+          high = value;
+        }
+        Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'), { yearLow: low, yearHigh: high });
+      });
+    });
 
     $(".clear-search").click(function(e) {
       e.preventDefault();

@@ -218,18 +218,27 @@
               ." where title like :term and s.song_id = sf.song_id"
               ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
               ." and ab.artist_id = ar.artist_id";
+        if($_GET['filtered'] && isset($_GET['filters']->yearLow)) {
+          $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
+        }
       } else if($type == 'artists') {
         $sql = "select ar.artist_id, ar.artist_name, count(ab.album_id) as album_count"
               ." from Artists ar, AlbumBy ab"
               ." where ar.artist_name like :term"
-              ." and ab.artist_id = ar.artist_id"
-              ." group by ar.artist_id";
+              ." and ab.artist_id = ar.artist_id";
+        if($_GET['filtered'] && isset($_GET['filters']->yearLow)) {
+          $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
+        }
+        $sql .= " group by ar.artist_id";
       } else if($type == 'albums') {
         $sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
               ." from Albums al, SFrom sf, AlbumBy ab, Artists ar"
               ." where album_name like :term and al.album_id = ab.album_id"
-              ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id"
-              ." group by al.album_id";
+              ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id";
+        if($_GET['filtered'] && isset($_GET['filters']->yearLow)) {
+          $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
+        }
+        $sql .= " group by al.album_id";
       } else if($type == 'concert-artist') {
         $sql = "select * from Concerts where name like :term";
       } else if($type == 'concert-location') {

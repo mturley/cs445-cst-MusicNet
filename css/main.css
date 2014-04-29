@@ -2,6 +2,9 @@
    Author's custom styles
    ========================================================================== */
 
+.filters h1, .filters h2, .filters h3 {
+  text-align: center;
+}
 #album-art img {
   width: 370px;
 }

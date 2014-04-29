@@ -257,6 +257,8 @@
       $response->page = $_GET['page'];
       $response->type = $_GET['searchType'];
       $response->term = $_GET['term'];
+      $response->filtered = $_GET['filtered'];
+      $response->filters = $_GET['filters'];
       $response->results = $q->fetchAll();
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";

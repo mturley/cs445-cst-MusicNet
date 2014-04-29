@@ -125,7 +125,7 @@
   } else if($fn == 'get_user_by_id') {
 
     try {
-      $q = $db->prepare("select * from Users where user_id = :user_id");
+      $q = $db->prepare("select username, age, gender, location from Users where user_id = :user_id");
       $q->execute(array(':user_id' => $_GET['user_id']));
       $response = $q->fetchObject();
     } catch(PDOException $e) {

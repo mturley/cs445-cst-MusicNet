@@ -64,7 +64,6 @@ $(document).ready(function() {
   var Util = {
       searchAjax: function(searchType, term, page, resultsElement) {
         $(".please-wait").show();
-        $("#search-results").hide();
         $.ajax({
           type: 'GET',
           url: 'backend.php',
@@ -245,6 +244,7 @@ $(document).ready(function() {
     // SEARCH SUBMIT FUNCTION
     $("#search-form").on('submit', function(e) {
       e.preventDefault();
+      $("#search-results").hide();
       $(".press-enter").html('Searching...').show();
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();

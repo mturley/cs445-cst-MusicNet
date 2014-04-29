@@ -430,6 +430,9 @@ $(document).ready(function() {
         $.each(Object.keys(r), function(idx, key) {
           $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#album-info");
         });
+        $(".album_name").html(r.album_name);
+        $(".artist_link").html(r.artist_name);
+        $(".artist_link").attr('href','musicnet.php?page=artist&artist_id='+r.artist_id);
       },
       error: function(response) {
         console.log("ERROR: ", response);

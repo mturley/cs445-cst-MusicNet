@@ -20,11 +20,10 @@
 
   <!-- Prepended text-->
   <div class="form-group">
-    <label class="col-md-1 control-label" for="prependedtext"></label>
     <div class="col-md-10">
       <div class="input-group search-group">
         <span class="input-group-addon addonborder"><span class="glyphicon glyphicon-search bigicon"></span></span>
-        <input id="searchinput" name="prependedtext" class=."form-control" placeholder="Search for a Song" type="text">
+        <input id="searchinput" name="prependedtext" class="form-control" placeholder="Search for a Song" type="text">
       </div>
       <!--<h3 class="filters" style="display: none;">
         Filtering search <span class="filter-description">...</span>

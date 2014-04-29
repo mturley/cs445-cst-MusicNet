@@ -99,7 +99,7 @@ $(document).ready(function() {
         page_row_html += '<strong>Page '+(r.page - (-1))+'</strong>';
         if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
         page_row_html += '</th></tr>';
-        $(page_row_html).appendTo($results);
+        if(r.page != 0 || r.results.length >= 50) $(page_row_html).appendTo($results);
         var $th_row = $("<tr>");
         $.each(Object.keys(r.results[0]), function(idx, key) {
           if(isNaN(key) && key.indexOf('_id') == -1) {
@@ -130,10 +130,11 @@ $(document).ready(function() {
             }
           });
         });
-        $(page_row_html).appendTo($tbody);
+        if(r.page != 0 || r.results.length >= 50) $(page_row_html).appendTo($tbody);
         $(table).show();
         $("body").stop(); // stop scrolling if already scrolling
-        $.scrollTo($(table), 200, { offset: -60 });
+        $("#search-results").show();
+        $.scrollTo($("#search-results"), 200, { offset: -60 });
         $(".please-wait").hide();
       },
       repageSearch : function(pgdiff) {
@@ -171,6 +172,32 @@ $(document).ready(function() {
         var page = $("#album-songs").data('page');
         page += pgdiff;
         Util.albumSongsAjax(urlParam('album_id'), page, '#album-songs');
+      },
+      artistAlbumsAjax: function(artist_id, page) {
+        $(".please-wait").show();
+        $.ajax({
+          type: 'GET',
+          url: 'backend.php',
+          data: {
+            fn: 'get_albums_by_artist',
+            artist_id: artist_id,
+            page: page
+          },
+          success: function(response) {
+            Util.renderResultsTable(response, "#artist-albums");
+          },
+          error: function(response) {
+            console.log("ERROR: ", response);
+          }
+        });
+      },
+      repageArtistAlbums: function(pgdiff) {
+        $(".please-wait").show();
+        $(".press-enter").hide();
+        clearTimeout(window.enterTimer);
+        var page = $("#artist-albums").data('page');
+        page += pgdiff;
+        Util.artistAlbumsAjax(urlParam('artist_id'), page, '#artist-albums');
       }
     };
 
@@ -508,6 +535,10 @@ $(document).ready(function() {
         console.log("ERROR: ", response);
       }
     });
+
+    // get the albums by this artist.
+    Util.artistAlbumsAjax(urlParam('artist_id'), 0);
+
   }
   else if(page == 'sql') {
 

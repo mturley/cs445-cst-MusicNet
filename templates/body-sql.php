@@ -5,4 +5,5 @@
     <input class="form-control input-lg" rows="3" id="rawsql" placeholder="Enter SQL Query">
   </div>
   <table class="results table"></table>
+</form>
 </div>

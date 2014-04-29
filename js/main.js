@@ -79,6 +79,10 @@ $(document).ready(function() {
       if(!!filters.yearLow) desc = "by Year ("+filters.yearLow+(filters.yearHigh == filters.yearLow ? "-"+filters.yearHigh : "")+")";
       $(".filter-description").html(desc);
     },
+    clearSearchFilters: function() {
+      window.searchFilters = null;
+      $(".filters").hide();
+    },
     searchAjax: function(searchType, term, page, resultsElement, filters) {
       if(!filters && window.searchFilters) {
         filters = window.searchFilters;
@@ -351,6 +355,11 @@ $(document).ready(function() {
         }
         Util.setSearchFilters({ yearLow: low, yearHigh: high });
       });
+    });
+
+    $(".clear-filters").click(function(e) {
+      e.preventDefault();
+      Util.clearSearchFilters();
     });
 
     $(".clear-search").click(function(e) {

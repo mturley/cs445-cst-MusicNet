@@ -212,6 +212,8 @@
     $offset = $page*$results_per_page;
     try {
       $sql = "";
+      echo "FILTERED? ".$_GET['filtered']." and FILTERS: ";
+      var_dump($_GET['filters']);
       if($type == 'songs') {
         $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
               ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"

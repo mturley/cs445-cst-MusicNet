@@ -76,7 +76,7 @@ $(document).ready(function() {
       window.searchFilters = filters;
       $(".filters").show();
       var desc = '';
-      if(!!filters.yearLow) desc = "by Year ("+filters.yearLow+(filters.yearHigh == filters.yearLow ? "-"+filters.yearHigh : "")+")";
+      if(!!filters.yearLow) desc = "by Year ("+filters.yearLow+(filters.yearHigh != filters.yearLow ? "-"+filters.yearHigh : "")+")";
       $(".filter-description").html(desc);
     },
     clearSearchFilters: function() {

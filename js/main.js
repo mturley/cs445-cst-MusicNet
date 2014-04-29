@@ -161,12 +161,6 @@ $(document).ready(function() {
         $("body").stop(); // stop scrolling if already scrolling
         $.scrollTo($("#search-results"), 200, { offset: -60 });
       }
-      $(table).find('td[data-key*=_name], td[data-key=title]').each(function() {
-        var key = $(this).data('key');
-        var type = key.replace('_name','');
-        if(key == 'title') type = 'song';
-        $('<img src="'+window.resPath+'/img/'+type+'_icon.png" class="obj-icon" />').prependTo($(this).find('a'));
-      });
     },
     repageSearch : function(pgdiff) {
       $(".press-enter").hide();
@@ -242,7 +236,7 @@ $(document).ready(function() {
           var id = result[idkey];
           var page = idkey.replace('_id','');
           var value = $t.html();
-          $t.html('<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
+          $t.html('<img src="'+window.resPath+'/img/'+type+'_icon.png" class="obj-icon" /><a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
         }
       });
     }

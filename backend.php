@@ -103,9 +103,26 @@
     unset($_SESSION['user_id']); // remove the user_id session token to logout.
     $response->message = "Logout complete";
 
+  } else if($fn == 'get_current_user') {
+
+    session_start();
+    if(isset($_SESSION['user_id'])) {
+      try {
+        $q = $db->prepare("select * from Users where user_id = :user_id");
+        $q->execute(array(':user_id' => $_SESSION['user_id']));
+        $response->logged_in = true;
+        $response->user = $q->fetchObject();
+      } catch(PDOException $e) {
+        $response->logged_in = false;
+        $response->message = "Failed to Select the User with that user_id!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
+    } else {
+      $response->logged_in = false;
+    }
 
   } else if($fn == 'get_user_by_id') {
-
 
     try {
       $q = $db->prepare("select * from Users where user_id = :user_id");
@@ -127,8 +144,11 @@
     try {
       $sql = "";
       if($type == 'songs') {
-        $sql = "select song_id, title, year, duration, loudness"
-              ." from Songs where title like :term";
+        $sql = "select s.title, s.year, s.duration, s.loudness, al.album_name, ar.artist_name"
+              ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
+              ." where title like :term and s.song_id = sf.song_id"
+              ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
+              ." and ab.artist_id = ar.artist_id";
       } else if($type == 'artists') {
         $sql = "select ar.artist_name, count(ab.album_id) as album_count"
               ." from Artists ar, AlbumBy ab"
@@ -136,18 +156,18 @@
               ." and ab.artist_id = ar.artist_id"
               ." group by ar.artist_id";
       } else if($type == 'albums') {
-        $sql = "select al.album_name, ar.artist_name"
-              ." from Albums al, AlbumBy ab, Artists ar"
-              ." where album_name like :term"
-              ." and al.album_id = ab.album_id"
-              ." and ab.artist_id = ar.artist_id";
+        $sql = "select al.album_name, ar.artist_name, count(sf.song_id) as song_count"
+              ." from Albums al, SFrom sf, AlbumBy ab, Artists ar"
+              ." where album_name like :term and al.album_id = ab.album_id"
+              ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id"
+              ." group by al.album_id";
       }
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $response->term = $term;
       $q->execute(array(':term' => $term));
+      $r = $db->query("select FOUND_ROWS() as totalrows");
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
-      $response->rowCount = $q->rowCount();
       $response->results = $q->fetchAll();
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";

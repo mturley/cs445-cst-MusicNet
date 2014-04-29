@@ -145,10 +145,10 @@
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $response->term = $term;
       $q->execute(array(':term' => $term));
-      $r = $db->query("select FOUND_ROWS()");
+      $r = $db->query("select FOUND_ROWS() as totalrows");
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
-      $response->rows = $r->fetchObject();
+      $response->rows = $r->fetchObject()->totalrows;
       $response->results = $q->fetchAll();
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";

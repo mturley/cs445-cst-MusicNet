@@ -77,6 +77,7 @@ $(document).ready(function() {
             var r = $.parseJSON(response);
             var $results = $(resultsElement).find('.results');
             $results.empty();
+            $(resultsElement).find('.type').html(toTitleCase(searchType));
             $(resultsElement).find('.term').html(term);
             if(r.results.length == 0) {
               $(".press-enter").html('No '+searchType+' found matching "'+term+'"').show();

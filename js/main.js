@@ -457,6 +457,7 @@ $(document).ready(function() {
         $.each(Object.keys(r), function(idx, key) {
           $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#artist-info");
         });
+        $(".artist_name").html(r.artist_name);
       },
       error: function(response) {
         console.log("ERROR: ", response);

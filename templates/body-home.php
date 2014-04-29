@@ -24,15 +24,7 @@
           </a>
         </div>
       </div>
-    </div><br>
-
-    <div class="jumbotron">
-      <div class="container">
-        <h2>Music Suggestions</h2>
-        <div id="relsongs">Loading Suggestions...</div>
-      </div>
-    </div>
-    <br>
+    </div><br><br>
 <?php
     // logged in above
   } else {
@@ -85,3 +77,17 @@
     </div>
   </div>
 </div> <!-- /container -->
+
+<?php
+  if($logged_in) {
+?>
+    <div class="jumbotron">
+      <div class="container">
+        <h2>Music Suggestions</h2>
+        <div id="relsongs">Loading Suggestions...</div>
+      </div>
+    </div>
+    <br>
+<?php
+  }
+?>

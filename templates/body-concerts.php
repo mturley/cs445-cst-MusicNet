@@ -26,13 +26,9 @@
 </p>
 </div>
 
-<div class="jumbotron">
-<div class="container">
-  	<h2>Concerts Near You</h2>
-  	Venue name, location, band playing...<br>
-  	Venue name, location, band playing...<br>
-  	Venue name, location, band playing...<br>
-  	Venue name, location, band playing...<br>
-  	Venue name, location, band playing...<br>
-</div>
-</div>
+<div class="jumbotron slim">
+      <div class="container">
+        <h2>Concerts Near You</h2>
+        <div id="sugConcerts">Loading Suggestions...</div>
+      </div>
+    </div>

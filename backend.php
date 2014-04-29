@@ -226,6 +226,22 @@
       $response->message = "Songs returned in results field.";
     }
 
+  } else if($fn == 'get_suggested_friends') {
+
+    session_start();
+    if(!isset($_GET['num_concerts'])) {
+      $response->message = "No num_concerts field specified.  Number of songs to return is a required field.";
+    } else {
+      $num_concerts = $_GET['num_concerts'];
+      $user_id = $_SESSION['user_id'];
+      // get a list of terms from current user
+
+      $q = $db->prepare("select c.name, c.location, c.date from Concerts c, Users u where u.user_id=:user_id and c.location=u.location");
+      $q->execute(array(':user_id' => $user_id));
+      $response->results = $q->fetchAll();
+      $response->message = "Concerts returned in results field.";
+    }
+
   }
 
   // Output the response object as a JSON-encoded string

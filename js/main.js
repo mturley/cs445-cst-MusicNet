@@ -245,6 +245,27 @@ $(document).ready(function() {
 
   } else if(page == 'concerts') {
 
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_suggested_concerts',
+        num_songs: 5
+      },
+      success: function(response) {
+        $("#sugConcerts").empty();
+        var r = $.parseJSON(response);
+        $ul = $("<ul>").appendTo($('#sugConcertss'));
+        $.each(r.results, function(idx, c) {
+          $('<li><strong>'+c.name+'</strong> performing on '+c.date
+          + ' in '+c.date+'</li>').appendTo($ul);
+        });
+      },
+      error: function(error) {
+        console.log("ERROR: ", error);
+      }
+    });
+
 
     $("#search-type").find('button').click(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');

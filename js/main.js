@@ -564,29 +564,28 @@ $(document).ready(function() {
   }
   else if(page == 'sql') {
 
-    Util.startLoader();
-    $.ajax({
-      type: 'GET',
-      url: 'backend.php',
-      data: {
-        fn: 'sql',
-        sql: 'SOME SQL HERE'
-      },
-      success: function(response) {
-
-      },
-      error: function(response) {
-
-      }
-    });
-
     $("#sql-form").on('submit', function(e) {
       e.preventDefault();
       $("#sql-results").hide();
-      $(".press-enter").html('Searching...').show();
-      var term = $("#rawsql").val();
+      var rawSql = $("#rawsql").val();
       var resultsPage = 0;
-      Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
+      Util.startLoader();
+      $.ajax({
+        type: 'GET',
+        url: 'backend.php',
+        data: {
+          fn: 'sql',
+          sql: rawSql
+        },
+        success: function(response) {
+          Util.stopLoader();
+          Util.renderResultsTable(response, '#sql-results');
+        },
+        error: function(response) {
+          Util.stopLoader();
+          console.log("ERROR: ", response);
+        }
+      });
     });
   }// end of page-specific scripts
 

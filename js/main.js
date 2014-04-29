@@ -346,7 +346,7 @@ $(document).ready(function() {
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
       var page = 0;
-      Util.searchAjax(type, term, page, '#search-results');
+      Util.searchAjax(type, term, page, $('#search-results').find('table'));
     });
 
     $("body").on('click', '.search-prev', function(e) {
@@ -412,7 +412,7 @@ $(document).ready(function() {
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
       var page = 0;
-      Util.searchAjax(type, term, page, '#search-results');
+      Util.searchAjax(type, term, page, $('#search-results').find('table'));
     });
 
     $("body").on('click', '.search-prev', function(e) {

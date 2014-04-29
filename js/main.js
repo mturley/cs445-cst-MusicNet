@@ -264,6 +264,7 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $("#user-info").empty();
         $.each(Object.keys(r), function(idx, key) {
+          var niceKey = toTitleCase(key.replace('_',' '));
           $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
         });
       },
@@ -495,7 +496,7 @@ $(document).ready(function() {
         $("#song-info").empty();
         $.each(Object.keys(r), function(idx, key) {
           var niceKey = toTitleCase(key.replace('_',' '));
-          $('<h4 data-key="key">'+niceKey+':&nbsp;'+r[key]+'</h4>').appendTo("#song-info");
+          $('<h4 data-key="'+key+'">'+niceKey+':&nbsp;'+r[key]+'</h4>').appendTo("#song-info");
         });
         $(".song-title").html(r.title);
         Util.linkify('#song-info', r);
@@ -523,7 +524,8 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $("#album-info").empty();
         $.each(Object.keys(r), function(idx, key) {
-          $('<h4 data-key="'+key+'">'+key+':&nbsp;'+r[key]+'</h4>').appendTo("#album-info");
+          var niceKey = toTitleCase(key.replace('_',' '));
+          $('<h4 data-key="'+key+'">'+niceKey+':&nbsp;'+r[key]+'</h4>').appendTo("#album-info");
         });
         $(".album_name").html(r.album_name);
         $(".artist_link").html(r.artist_name);
@@ -555,7 +557,8 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $("#artist-info").empty();
         $.each(Object.keys(r), function(idx, key) {
-          $('<h4 data-key="'+key+'">'+key+':&nbsp;'+r[key]+'</h4>').appendTo("#artist-info");
+          var niceKey = toTitleCase(key.replace('_',' '));
+          $('<h4 data-key="'+key+'">'+niceKey+':&nbsp;'+r[key]+'</h4>').appendTo("#artist-info");
         });
         $(".artist_name").html(r.artist_name);
         Util.linkify('#artist-info', r);

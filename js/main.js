@@ -64,7 +64,6 @@ $(document).ready(function() {
       searchAjax: function(searchType, term, page, resultsElement) {
         $(".please-wait").show();
         $(".press-enter").html('Searching...').show();
-        console.log("Searchtype: "+searchType);
         $.ajax({
           type: 'GET',
           url: 'backend.php',
@@ -75,7 +74,6 @@ $(document).ready(function() {
             page: page
           },
           success: function(response) {
-            console.log("SEARCH RESPONSE",response);
             var r = $.parseJSON(response);
             var $results = $(resultsElement).find('.results');
             $results.empty();

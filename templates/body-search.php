@@ -35,7 +35,9 @@
         <h2>
           <span class="search-type">...</span>
           matching your search: "<span class="search-term"></span>":
-          <a class="btn pull-right btn-default clear-search" href="#">New Search</a>
+          <a class="btn pull-right btn-primary clear-search" href="#">
+            <span class="glyphicon glyphicon-search"></span> New Search
+          </a>
         </h2>
         <table class="results table"></table>
       </div>

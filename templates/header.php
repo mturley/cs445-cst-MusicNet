@@ -43,7 +43,7 @@
             <span class="glyphicon glyphicon-globe"></span>
             All the Net.
           </a>
-          <a href="musicnet.php" class="btn btn-primary navbar">Home</a>
+          <a href="musicnet.php" class="btn btn-primary navbar-left">Home</a>
           <div class="please-wait" id="floatingBarsG" style="display: none;">
             <div class="blockG" id="rotateG_01">
             </div>

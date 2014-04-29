@@ -85,6 +85,7 @@ $(document).ready(function() {
       renderResultsTable : function(response, table) {
         var r = $.parseJSON(response);
         $results = $(table);
+        $results.data('page',r.page);
         $results.empty();
         var page_row_html = '<tr><th class="center" colspan="'+Object.keys(r.results[0]).length+'">';
         if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
@@ -134,9 +135,9 @@ $(document).ready(function() {
         clearTimeout(window.enterTimeout);
         var type = $("#search-type").find('.btn-primary').data('searchType');
         var term = $("#searchinput").val();
-        var page = $("#search-results").data('page');
+        var page = $('#search-results').find('table').data('page')
         page += pgdiff;
-        Util.searchAjax(type, term, page, '#search-results');
+        Util.searchAjax(type, term, page, $('#search-results').find('table'));
       },
       albumSongsAjax: function(album_id, page) {
         $(".please-wait").show();
@@ -269,7 +270,7 @@ $(document).ready(function() {
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
       var page = 0;
-      Util.searchAjax(type, term, page, '#search-results');
+      Util.searchAjax(type, term, page, $('#search-results').find('table'));
     });
 
     $("body").on('click', '.search-prev', function(e) {

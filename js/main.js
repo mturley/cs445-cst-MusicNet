@@ -108,7 +108,7 @@ $(document).ready(function() {
                   }
                 });
                 $result_row.appendTo($tbody);
-                $result_row.find('td[data-key*=_name]','td[data-key=title]').each(function() {
+                $tbody.find('td[data-key*=_name]','td[data-key*=title]').each(function() {
                   var $td = $(this);
                   var key = $td.data('key');
                   var idkey = key.replace('_name','_id');
@@ -191,6 +191,7 @@ $(document).ready(function() {
         if($("#user-info").is(':visible')) {
           $("#user-info").empty();
           for(var key in r) $("<h4><strong>"+key+":&nbsp;</strong>&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
+          //for(var key in r) $("<u>"+key+":&nbsp;</u>&nbsp;"+r[key]+"").appendTo("#user-info");
         }
       },
       error: function(response) {
@@ -336,8 +337,8 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugFriends'));
         $.each(r.results, function(idx, friend) {
-          $('<li><strong><a href="musicnet.php?page=user&user_id='+friend.user_id+'>'+friend.username+'</a></strong>, '+friend.age
-          + 'years old from '+friend.location+'</li>').appendTo($ul);
+          $("<li><strong><a href='musicnet.php?page=user&user_id="+friend.user_id+">"+friend.username+"</a></strong>, "+friend.age
+          + "years old from "+friend.location+"</li>").appendTo($ul);
         });
       },
       error: function(error) {

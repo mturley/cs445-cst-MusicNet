@@ -73,28 +73,30 @@ $(document).ready(function() {
             var r = $.parseJSON(response);
             var $results = $(resultsElement).find('.results');
             $results.empty();
+            $(resultsElement).find('.term').html(term);
             if(r.results.length == 0) {
               $(".press-enter").html('No '+type+' found matching "'+term+'"').show();
             } else {
               $(".press-enter").hide();
               $(resultsElement).data('page', page);
-              var page_row_html = '<tr><td colspan="'+Object.keys(r.results[0]).length+'">';
+              var page_row_html = '<tr><th colspan="'+Object.keys(r.results[0]).length+'">';
               if(page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
               page_row_html += '<strong>Page '+(page - (-1))+'</strong>';
               if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
-              page_row_html += '</td></tr>';
+              page_row_html += '</th></tr>';
               $(page_row_html).appendTo($results);
               var $th_row = $("<tr>");
               $.each(Object.keys(r.results[0]), function(idx, key) {
                 if(isNaN(key)) $("<th>"+key+"</th>").appendTo($th_row);
               });
               $th_row.appendTo($results);
+              $tbody = $("<tbody>").appendTo($results);
               $.each(r.results, function(idx, result) {
                 var $result_row = $("<tr>");
                 $.each(Object.keys(result), function(idx, key) {
                   if(isNaN(key)) $("<td>"+result[key]+"</td>").appendTo($result_row);
                 });
-                $result_row.appendTo($results);
+                $result_row.appendTo($tbody);
               });
               $(page_row_html).appendTo($results);
               $("#search-results").slideDown();

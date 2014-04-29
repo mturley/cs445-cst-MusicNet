@@ -124,7 +124,7 @@
 
   } else if($fn == 'get_object_by_id') {
 
-    $type = $_GET['type']
+    $type = $_GET['type'];
     try {
       $sql = "";
       if($type == 'user') {

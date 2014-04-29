@@ -122,12 +122,35 @@
       $response->logged_in = false;
     }
 
-  } else if($fn == 'get_user_by_id') {
+  } else if($fn == 'get_object_by_id') {
 
+    $type = $_GET['type'];
     try {
-      $q = $db->prepare("select user_id, username, age, gender, location, super_user"
-                       ." from Users where user_id = :user_id");
-      $q->execute(array(':user_id' => $_GET['user_id']));
+      $sql = "";
+      if($type == 'user') {
+        $sql = "select user_id, username, age, gender, location, super_user"
+              ." from Users where user_id = :user_id";
+      } else if($type == 'song') {
+        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar_artist_name"
+              ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
+              ." where s.song_id = sf.song_id and sf.album_id = al.album_id"
+              ." and al.album_id = ab.album_id and ab.artist_id = ar.artist_id"
+              ." and s.song_id = :song_id";
+      } else if($type == 'artist') {
+        $sql = "select ar.artist_id, ar.artist_name, count(ab.album_id) as album_count"
+              ." from Artists ar, AlbumBy ab"
+              ." where ar.artist_id = :artist_id"
+              ." and ab.artist_id = ar.artist_id"
+              ." group by ar.artist_id";
+      } else if($type == 'album') {
+        $sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
+              ." from Albums al, SFrom sf, AlbumBy ab, Artists ar"
+              ." where al.album_id = :album_id and al.album_id = ab.album_id"
+              ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id"
+              ." group by al.album_id";
+      }
+      $q = $db->prepare($sql);
+      $q->execute(array(':'.$type.'_id' => $_GET[$type.'_id']));
       $response = $q->fetchObject();
     } catch(PDOException $e) {
       $response->message = "Failed to Select the User with that user_id!";

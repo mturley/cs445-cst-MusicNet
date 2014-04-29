@@ -276,12 +276,14 @@ $(document).ready(function() {
       e.preventDefault();
       var $table = $(this).closest('table');
       if($table.is('#search-results')) Util.repageSearch(-1);
-      if($table.is('#'))
+      if($table.is('#album-songs')) Util.repageAlbumSongs(-1);
     });
 
     $("body").on('click', '.search-next', function(e) {
       e.preventDefault();
-      Util.repageSearch(1);
+      var $table = $(this).closest('table');
+      if($table.is('#search-results')) Util.repageSearch(1);
+      if($table.is('#album-songs')) Util.repageAlbumSongs(1);
     });
 
     window.enterTimer = setTimeout(function() {

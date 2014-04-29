@@ -14,7 +14,7 @@
 	<form class="form-horizontal">
   	<fieldset>
 	  <div class="form-group">
-      <label class="col-md-2 control-label" for="prependedtext"></label>
+      <label class="col-md-1 control-label" for="prependedtext"></label>
 	    <div class="col-md-8">
         <div class="input-group search-group">
              <span class="input-group-addon addonborder"><span class="glyphicon glyphicon-search bigicon"></span></span>

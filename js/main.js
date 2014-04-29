@@ -271,15 +271,39 @@ $(document).ready(function() {
       $(this).siblings().removeClass('btn-primary').addClass('btn-default');
       $(this).removeClass('btn-default').addClass('btn-primary');
       var type = $(this).data('searchType');
-      if(type == "artist") {
+      if(type == "concert-artist") {
         $("#searchinput").attr('placeholder','Search by Artist');
-      } else if(type == "location") {
+      } else if(type == "concert-location") {
         $("#searchinput").attr('placeholder','Search by Location');
-      } else if(type == "date") {
+      } else if(type == "concert-date") {
         $("#searchinput").attr('placeholder','Search by Date');
       }
       $("#searchinput").val('').focus();
     });
+
+    // SEARCH SUBMIT FUNCTION
+    $("#search-form").on('submit', function(e) {
+      e.preventDefault();
+      $(".press-enter").html('Searching...').show();
+      var type = $("#search-type").find('.btn-primary').data('searchType');
+      var term = $("#searchinput").val();
+      var page = 0;
+      if(term != "") Util.searchAjax(type, term, page, '#search-results');
+    });
+
+    $("body").on('click', '.search-prev', function(e) {
+      e.preventDefault();
+      Util.repageSearch(-1);
+    });
+
+    $("body").on('click', '.search-next', function(e) {
+      e.preventDefault();
+      Util.repageSearch(1);
+    });
+
+    window.enterTimer = setTimeout(function() {
+      $(".press-enter").fadeIn();
+    }, 5000);
 
 
   } else if(page == 'friends') {

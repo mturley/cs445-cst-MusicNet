@@ -26,7 +26,7 @@
         <h2>
           <span class="type">...</span>
           matching your search: "<span class="term"></span>":
-          <a class="btn pull-right btn-normal clear-search" href="#">New Search</a>
+          <a class="btn pull-right btn-default clear-search" href="#">New Search</a>
         </h2>
         <table class="results table"></table>
       </div>

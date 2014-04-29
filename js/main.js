@@ -191,7 +191,7 @@ $(document).ready(function() {
         if($("#user-info").is(':visible')) {
           $("#user-info").empty();
           for(var key in r) $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
-    
+
         }
       },
       error: function(response) {
@@ -383,6 +383,9 @@ $(document).ready(function() {
       $(".press-enter").fadeIn();
     }, 5000);
 
+  } else if(page == 'album') {
+
+    
 
   } // end of page-specific scripts
 

@@ -1,18 +1,13 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron slim">
   <div class="container">
-    <h2>
-      View Album:
-      <strong class="album_name">...</strong>
-      by
-      <a href="#" class="artist_link">...</a>
-    </h2>
+    <h2>View Artist: <?php echo $_GET['artist_name']; ?></h2>
   </div>
 </div>
 
 <div class="container">
 	<table><tr><td width="250px">
-		<div id="album-info">
+		<div id="artist-info">
 			Loading...
 		</div>
 	</td></tr></table>

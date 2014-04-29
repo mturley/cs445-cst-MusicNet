@@ -24,7 +24,7 @@
           </a>
         </div>
       </div>
-    </div><br />
+    </div>
 <?php
     // logged in above
   } else {
@@ -81,7 +81,7 @@
 <?php
   if($logged_in) {
 ?>
-    <br />
+    <br /><br />
     <div class="jumbotron">
       <div class="container">
         <h2>Music Suggestions</h2>

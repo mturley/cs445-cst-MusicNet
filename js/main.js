@@ -189,6 +189,7 @@ $(document).ready(function() {
       var term = $("#searchinput").val();
       var page = $("#search-results").data('page');
       page++;
+      console.log("type, term, page", type, term, page);
       if(term != "") Util.searchAjax(type, term, page, '#search-results');
     });
 

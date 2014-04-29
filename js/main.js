@@ -78,10 +78,12 @@ $(document).ready(function() {
       var desc = '';
       if(!!filters.yearLow) desc = "by Year ("+filters.yearLow+(filters.yearHigh != filters.yearLow ? "-"+filters.yearHigh : "")+")";
       $(".filter-description").html(desc);
+      Util.repageSearch(0);
     },
     clearSearchFilters: function() {
       window.searchFilters = null;
       $(".filters").hide();
+      Util.repageSearch(0);
     },
     searchAjax: function(searchType, term, page, resultsElement, filters) {
       if(!filters && window.searchFilters) {

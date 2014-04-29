@@ -1,7 +1,7 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron slim">
   <div class="container">
-    <h2>View Song: <?php echo $_GET['song_id']; ?></h2>
+    <h2>View Song: <?php echo $_GET['title']; ?></h2>
   </div>
 </div>
 

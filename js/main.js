@@ -337,8 +337,8 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugFriends'));
         $.each(r.results, function(idx, friend) {
-          $("<li><strong><a href='musicnet.php?page=user&user_id="+friend.user_id+">"+friend.username+"</a></strong>, "+friend.age
-          + "years old from "+friend.location+"</li>").appendTo($ul);
+          $('<li><strong><a href="musicnet.php?page=user&user_id='+friend.user_id+'>'+friend.username+'</a></strong>, '+friend.age
+          + 'years old from '+friend.location+'</li>').appendTo($ul);
         });
       },
       error: function(error) {

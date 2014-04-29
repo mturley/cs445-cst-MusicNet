@@ -14,7 +14,9 @@
     </div>
     <div class="col-md-6">
       <h3>Albums by this Artist:</h3>
-      <table id="artist-albums" class="table"></table>
+      <table id="artist-albums" class="table">
+        <tr><td>Loading...</td></tr>
+      </table>
     </div>
   </div>
 </div>

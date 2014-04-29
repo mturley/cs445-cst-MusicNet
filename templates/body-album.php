@@ -19,7 +19,9 @@
     </div>
     <div class="col-md-6">
       <h3>Songs on this Album:</h3>
-      <table id="album-songs" class="table"></table>
+      <table id="album-songs" class="table">
+        <tr><td>Loading...</td></tr>
+      </table>
     </div>
   </div>
 </div>

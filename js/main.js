@@ -151,6 +151,7 @@ $(document).ready(function() {
   if(page == 'home') {
 
 
+    $(".please-wait").show();
     $.ajax({
       type: 'GET',
       url: 'backend.php',
@@ -159,6 +160,7 @@ $(document).ready(function() {
         num_songs: 5
       },
       success: function(response) {
+        $(".please-wait").hide();
         $("#relsongs").empty();
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#relsongs'));
@@ -260,6 +262,7 @@ $(document).ready(function() {
 
   } else if(page == 'concerts') {
 
+    $(".please-wait").show();
     $.ajax({
       type: 'GET',
       url: 'backend.php',
@@ -268,6 +271,7 @@ $(document).ready(function() {
         num_concerts: 5
       },
       success: function(response) {
+        $(".please-wait").hide();
         $("#sugConcerts").empty();
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugConcerts'));
@@ -324,6 +328,7 @@ $(document).ready(function() {
   } else if(page == 'friends') {
 
 
+    $(".please-wait").show();
     $.ajax({
       type: 'GET',
       url: 'backend.php',
@@ -332,6 +337,7 @@ $(document).ready(function() {
         num_friends: 5
       },
       success: function(response) {
+        $(".please-wait").hide();
         $("#sugFriends").empty();
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#sugFriends'));

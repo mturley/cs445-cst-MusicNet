@@ -6,5 +6,8 @@
     <input class="form-control input-lg" rows="3" id="rawsql" placeholder="Enter SQL Query">
   </div>
   </fieldset>
-  <table class="results table"></table>
+  <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
+      <div id="sql-results" style="display: none;">
+      	<table class="results table"></table>
+      </div>
 </div>

@@ -575,6 +575,15 @@ $(document).ready(function() {
 
       }
     });
+
+    $("#sql-form").on('submit', function(e) {
+      e.preventDefault();
+      $("#sql-results").hide();
+      $(".press-enter").html('Searching...').show();
+      var term = $("#rawsql").val();
+      var resultsPage = 0;
+      Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
+    });
   }// end of page-specific scripts
 
   Util.startLoader();

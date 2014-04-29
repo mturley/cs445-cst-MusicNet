@@ -472,8 +472,18 @@ $(document).ready(function() {
         console.log("ERROR: ", response);
       }
     });
+  } 
+  else if(page == 'sql') {
 
-  } // end of page-specific scripts
+    $(".please-wait").show();
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'sql',
+      },
+    });
+  }// end of page-specific scripts
 
   $(".please-wait").show();
   // get the state of the current user and load ads.

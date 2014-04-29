@@ -1,7 +1,10 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron slim">
   <div class="container">
-    <h2>View Artist: <strong class="artist_name">...</strong></h2>
+    <h2>
+      <img src="<?php echo RES_PATH; ?>/img/artist_icon.png" class="obj-icon-lg" />
+      View Artist: <strong class="artist_name">...</strong>
+    </h2>
   </div>
 </div>
 

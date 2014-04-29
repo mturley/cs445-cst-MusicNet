@@ -131,7 +131,7 @@
         $sql = "select user_id, username, age, gender, location"
               ." from Users where user_id = :user_id";
       } else if($type == 'song') {
-        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar_artist_name"
+        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
               ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
               ." where s.song_id = sf.song_id and sf.album_id = al.album_id"
               ." and al.album_id = ab.album_id and ab.artist_id = ar.artist_id"
@@ -165,9 +165,11 @@
     $results_per_page = 50;
     $offset = $page*$results_per_page;
     try {
-      $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness"
-            ." from Songs s, SFrom sf where s.song_id = sf.song_id"
-            ." and sf.album_id = :album_id";
+      $sql = "select s.song_id, s.title, al.album_id, al.album_name, ar.artist_id, ar.artist_name, s.year, s.duration, s.loudness"
+            ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
+            ." where s.song_id = sf.song_id and sf.album_id = al.album_id"
+            ." and al.album_id = ab.album_id and ab.artist_id = ar.artist_id"
+            ." and al.album_id = :album_id";
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $q->execute(array(':album_id' => $album_id));
       $response->message = "Success! Songs returned in results field.";
@@ -186,11 +188,10 @@
     $results_per_page = 50;
     $offset = $page*$results_per_page;
     try {
-      $sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
-            ." from Albums al, AlbumBy ab, Artists ar, SFrom sf"
-            ." where al.album_id = ab.album_id and ab.artist_id = ar.artist_id"
-            ." and al.album_id = sf.album_id group by al.album_id"
-            ." and ab.artist_id = :artist_id";
+      $sql = "select al.album_id, al.album_name, count(sf.song_id) as song_count"
+            ." from Albums al, AlbumBy ab, SFrom sf"
+            ." where al.album_id = ab.album_id and al.album_id = sf.album_id"
+            ." and ab.artist_id = :artist_id group by al.album_id";
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $q->execute(array(':artist_id' => $artist_id));
       $response->message = "Success! Albums returned in results field.";

@@ -95,7 +95,7 @@ $(document).ready(function() {
         }
       });
     },
-    renderResultsTable : function(response, table) {
+    renderResultsTable : function(response, table, nopaging) {
       var r = $.parseJSON(response);
       if(r.hasOwnProperty('type') && r.hasOwnProperty('term')) {
         $(".search-type").html(toTitleCase(r.type));
@@ -111,7 +111,7 @@ $(document).ready(function() {
       page_row_html += '<strong>Page '+(r.page - (-1))+'</strong>';
       if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
       page_row_html += '</th></tr>';
-      if(r.page != 0 || r.results.length >= 50) $(page_row_html).appendTo($results);
+      if(!nopaging && (r.page != 0 || r.results.length >= 50)) $(page_row_html).appendTo($results);
       var $th_row = $("<tr>");
       $.each(Object.keys(r.results[0]), function(idx, key) {
         if(isNaN(key) && key.indexOf('_id') == -1) {
@@ -129,20 +129,9 @@ $(document).ready(function() {
           }
         });
         $result_row.appendTo($tbody);
-        $tbody.find('td[data-key*=_name]','td[data-key=title]').each(function() {
-          var $td = $(this);
-          var key = $td.data('key');
-          var idkey = key.replace('_name','_id');
-          if(key == 'title') idkey = 'song_id';
-          if(result.hasOwnProperty(idkey)) {
-            var id = result[idkey];
-            var page = idkey.replace('_id','');
-            var value = $td.html();
-            $td.html('<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
-          }
-        });
+        Util.linkify($result_row, result);
       });
-      if(r.page != 0 || r.results.length >= 50) $(page_row_html).appendTo($tbody);
+      if(!nopaging && (r.page != 0 || r.results.length >= 50)) $(page_row_html).appendTo($tbody);
       $(table).show();
       $("#search-results").show();
       if($("#search-results").length != 0) {
@@ -212,6 +201,20 @@ $(document).ready(function() {
       var page = $("#artist-albums").data('page');
       page += pgdiff;
       Util.artistAlbumsAjax(urlParam('artist_id'), page, '#artist-albums');
+    },
+    linkify: function(element, result) {
+      $(element).find('[data-key*=_name], [data-key=title]').each(function() {
+        var $t = $(this);
+        var key = $t.data('key');
+        var idkey = key.replace('_name','_id');
+        if(key == 'title') idkey = 'song_id';
+        if(result.hasOwnProperty(idkey)) {
+          var id = result[idkey];
+          var page = idkey.replace('_id','');
+          var value = $t.html();
+          $t.html('<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
+        }
+      });
     }
   };
 
@@ -261,6 +264,7 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $("#user-info").empty();
         $.each(Object.keys(r), function(idx, key) {
+          var niceKey = toTitleCase(key.replace('_',' '));
           $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
         });
       },
@@ -491,8 +495,12 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $("#song-info").empty();
         $.each(Object.keys(r), function(idx, key) {
-          $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#song-info");
+          var niceKey = toTitleCase(key.replace('_',' '));
+          $('<h4 data-key="'+key+'">'+niceKey+':&nbsp;'+r[key]+'</h4>').appendTo("#song-info");
         });
+        console.log("song title", r.title, r);
+        $(".song-title").html(r.title);
+        Util.linkify('#song-info', r);
       },
       error: function(response) {
         Util.stopLoader();
@@ -517,11 +525,13 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $("#album-info").empty();
         $.each(Object.keys(r), function(idx, key) {
-          $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#album-info");
+          var niceKey = toTitleCase(key.replace('_',' '));
+          $('<h4 data-key="'+key+'">'+niceKey+':&nbsp;'+r[key]+'</h4>').appendTo("#album-info");
         });
         $(".album_name").html(r.album_name);
         $(".artist_link").html(r.artist_name);
         $(".artist_link").attr('href','musicnet.php?page=artist&artist_id='+r.artist_id);
+        Util.linkify('#album-info', r);
       },
       error: function(response) {
         Util.stopLoader();
@@ -548,9 +558,11 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $("#artist-info").empty();
         $.each(Object.keys(r), function(idx, key) {
-          $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#artist-info");
+          var niceKey = toTitleCase(key.replace('_',' '));
+          $('<h4 data-key="'+key+'">'+niceKey+':&nbsp;'+r[key]+'</h4>').appendTo("#artist-info");
         });
         $(".artist_name").html(r.artist_name);
+        Util.linkify('#artist-info', r);
       },
       error: function(response) {
         Util.stopLoader();
@@ -579,7 +591,7 @@ $(document).ready(function() {
         },
         success: function(response) {
           Util.stopLoader();
-          Util.renderResultsTable(response, '#sql-results');
+          Util.renderResultsTable(response, '#sql-results', true);
         },
         error: function(response) {
           Util.stopLoader();

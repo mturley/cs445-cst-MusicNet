@@ -7,12 +7,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div id="artist-info">
         Loading...
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <h3>Albums by this Artist:</h3>
       <table id="artist-albums" class="table">
         <tr><td>Loading...</td></tr>

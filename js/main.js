@@ -106,6 +106,14 @@ $(document).ready(function() {
             console.log("AJAX ERROR: ",response);
           }
         });
+      },
+      repageSearch : function(pgdiff) {
+        e.preventDefault();
+        var type = $("#search-type").find('.btn-primary').data('searchType');
+        var term = $("#searchinput").val();
+        var page = $("#search-results").data('page');
+        page += pgdiff;
+        if(term != "") Util.searchAjax(type, term, page, '#search-results');
       }
     };
 
@@ -177,22 +185,11 @@ $(document).ready(function() {
     });
 
     $("body").on('click', '.search-prev', function(e) {
-      e.preventDefault();
-      var type = $("#search-type").find('.btn-primary').data('searchType');
-      var term = $("#searchinput").val();
-      var page = $("#search-results").data('page');
-      page--;
-      if(term != "") Util.searchAjax(type, term, page, '#search-results');
+      Util.repageSearch(-1);
     });
 
     $("body").on('click', '.search-next', function(e) {
-      e.preventDefault();
-      var type = $("#search-type").find('.btn-primary').data('searchType');
-      var term = $("#searchinput").val();
-      var page = $("#search-results").data('page');
-      page++;
-      console.log("type, term, page", type, term, page);
-      if(term != "") Util.searchAjax(type, term, page, '#search-results');
+      Util.repageSearch(1);
     });
 
     setTimeout(function() {

@@ -74,6 +74,7 @@ $(document).ready(function() {
           },
           success: function(response) {
             var r = $.parseJSON(response);
+            console.log(r);
             var $results = $(resultsElement).find('.results');
             $results.empty();
             $(resultsElement).find('.term').html(term);

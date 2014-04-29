@@ -263,6 +263,7 @@ $(document).ready(function() {
       var r = $.parseJSON(response);
       $ul = $("<ul>").appendTo($('#relsongs'));
       $.each(r.results, function(idx, s) {
+        console.log(s);
         $('<li>'+s+'</li>').appendTo($ul);
       });
     },

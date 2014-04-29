@@ -85,6 +85,10 @@ $(document).ready(function() {
       },
       renderResultsTable : function(response, table) {
         var r = $.parseJSON(response);
+        if(r.hasOwnProperty('type') && r.hasOwnProperty('term')) {
+          $(".search-type").html(r.type);
+          $(".search-term").html(r.term);
+        }
         $results = $(table);
         $results.data('page',r.page);
         $results.empty();

@@ -108,7 +108,7 @@ $(document).ready(function() {
                   }
                 });
                 $result_row.appendTo($tbody);
-                $tbody.find('td[data-key*=_name]','td[data-key*=title]').each(function() {
+                $result_row.find('td[data-key*=_name]','td[data-key=title]').each(function() {
                   var $td = $(this);
                   var key = $td.data('key');
                   var idkey = key.replace('_name','_id');

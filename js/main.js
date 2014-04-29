@@ -250,7 +250,7 @@ $(document).ready(function() {
       url: 'backend.php',
       data: {
         fn: 'get_suggested_concerts',
-        num_songs: 5
+        num_concerts: 5
       },
       success: function(response) {
         $("#sugConcerts").empty();
@@ -290,7 +290,7 @@ $(document).ready(function() {
       url: 'backend.php',
       data: {
         fn: 'get_suggested_friends',
-        num_songs: 5
+        num_friends: 5
       },
       success: function(response) {
         $("#sugFriends").empty();

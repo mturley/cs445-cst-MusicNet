@@ -6,12 +6,12 @@
 </div>
 
 <div class="container">
-	<table><tr><td width="250px">
+	<table widht="90%"><tr><td width="250px">
 		<div id="user-info">
 			Loading...
 		</div>
 		if user = me. Allow editing of information
-		</td><td align="top">
+		</td><td valign="top">
 		User Activity
 		<hr>
 		USER ACTIVITY FEED HERE...<br>

@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+#user-info{
+  font-size: 12pt;
+}
+
 .jumbotron.slim {
   padding-top: 0;
   padding-bottom: 10px;

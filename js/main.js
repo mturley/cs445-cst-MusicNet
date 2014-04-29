@@ -64,6 +64,7 @@ $(document).ready(function() {
   var Util = {
       searchAjax: function(searchType, term, page, resultsElement) {
         $(".please-wait").show();
+        $("#search-results").hide();
         $.ajax({
           type: 'GET',
           url: 'backend.php',
@@ -307,7 +308,7 @@ $(document).ready(function() {
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
       var page = 0;
-      if(term != "") Util.searchAjax(type, term, page, '#search-results');
+      Util.searchAjax(type, term, page, '#search-results');
     });
 
     $("body").on('click', '.search-prev', function(e) {
@@ -371,7 +372,7 @@ $(document).ready(function() {
       var type = $("#search-type").find('.btn-primary').data('searchType');
       var term = $("#searchinput").val();
       var page = 0;
-      if(term != "") Util.searchAjax(type, term, page, '#search-results');
+      Util.searchAjax(type, term, page, '#search-results');
     });
 
     $("body").on('click', '.search-prev', function(e) {

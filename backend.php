@@ -190,7 +190,7 @@
       $response->message = "Ads returned in results field.";
     }
 
-  } else if($fn == 'get_songs') {
+  } else if($fn == 'get_suggested_songs') {
 
     session_start();
     if(!isset($_GET['num_songs'])) {

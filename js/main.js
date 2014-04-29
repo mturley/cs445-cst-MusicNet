@@ -255,7 +255,7 @@ $(document).ready(function() {
     type: 'GET',
     url: 'backend.php',
     data: {
-      fn: 'get_songs',
+      fn: 'get_suggested_songs',
       num_songs: 5
     },
     success: function(response) {

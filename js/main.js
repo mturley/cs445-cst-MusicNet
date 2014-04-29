@@ -223,6 +223,7 @@ $(document).ready(function() {
 
     $(".clear-search").click(function(e) {
       e.preventDefault();
+      $("#search-results").slideUp();
       $("#searchinput").val('').focus();
       $.scrollTo(0, 200);
     });

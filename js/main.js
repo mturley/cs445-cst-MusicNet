@@ -102,7 +102,7 @@ $(document).ready(function() {
               });
               $(page_row_html).appendTo($tbody);
               $("#search-results").slideDown();
-              $.scrollTo("#search-results", 800);
+              $.scrollTo("#search-results", 800, { offset: -50 });
             }
             $(".please-wait").hide();
           },

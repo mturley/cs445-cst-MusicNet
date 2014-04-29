@@ -345,6 +345,8 @@ $(document).ready(function() {
 
   } else if(page == 'search') {
 
+    $("#searchinput").focus();
+
     $(".filter-by-year").click(function(e) {
       e.preventDefault();
       bootbox.prompt("Please enter a year or year range (eg. 1998 or 1994-2002)", function(value) {

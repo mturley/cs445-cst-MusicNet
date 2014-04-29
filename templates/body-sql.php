@@ -7,7 +7,6 @@
   </div>
   </fieldset>
   <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
-      <div id="sql-results" style="display: none;">
-      	<table class="results table"></table>
-      </div>
+  <table id="sql-results" class="table" style="display: none;">
+  </table>
 </div>

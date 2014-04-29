@@ -125,7 +125,7 @@ $(document).ready(function() {
               $(page_row_html).appendTo($tbody);
               $("#search-results").slideDown();
               $("body").stop(); // stop scrolling if already scrolling
-              $.scrollTo("#searchinput", 400, { offset: -70 });
+              $.scrollTo("#search-results", 400, { offset: -60 });
             }
             $(".please-wait").hide();
           },

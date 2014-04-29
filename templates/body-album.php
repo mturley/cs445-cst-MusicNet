@@ -12,12 +12,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div id="album-info">
         Loading...
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <h3>Songs on this Album:</h3>
       <table id="album-songs" class="table">
         <tr><td>Loading...</td></tr>

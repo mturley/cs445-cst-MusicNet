@@ -165,9 +165,10 @@
     $results_per_page = 50;
     $offset = $page*$results_per_page;
     try {
-      $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness"
-            ." from Songs s, SFrom sf where s.song_id = sf.song_id"
-            ." and sf.album_id = :album_id";
+      $sql = "select s.song_id, s.title, al.album_id, al.album_name, s.year, s.duration, s.loudness"
+            ." from Songs s, SFrom sf, Albums al"
+            ." where s.song_id = sf.song_id and sf.album_id = al.album_id"
+            ." and al.album_id = :album_id";
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $q->execute(array(':album_id' => $album_id));
       $response->message = "Success! Songs returned in results field.";

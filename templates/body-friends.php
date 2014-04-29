@@ -10,7 +10,7 @@
 
 <div class="container">
 	<p>
-	<form class="form-horizontal">
+	<form class="form-horizontal" id="search-form">
   	<fieldset>
 	  <div class="form-group">
       <div class="col-md-1"></div>
@@ -24,9 +24,8 @@
           <h2><span class="type">...</span> matching your search: "<span class="term"></span>":</h2>
           <table class="results table"></table>
         </div>
-        
+
 	    </div>
-      <div class="col-md-1"></div>
 	  </div>
 	</fieldset>
   </form>

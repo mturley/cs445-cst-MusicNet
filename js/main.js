@@ -104,8 +104,8 @@ $(document).ready(function() {
       clearTimeout(window.enterTimer);
       $(".press-enter").hide();
       $results = $(table);
-      $results.data('page',r.page);
       $results.empty();
+      $results.data('page',r.page);
       var page_row_html = '<tr><th class="center" colspan="'+Object.keys(r.results[0]).length+'">';
       if(r.page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
       page_row_html += '<strong>Page '+(r.page - (-1))+'</strong>';
@@ -461,16 +461,6 @@ $(document).ready(function() {
       var term = $("#searchinput").val();
       var resultsPage = 0;
       Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
-    });
-
-    $("body").on('click', '.search-prev', function(e) {
-      e.preventDefault();
-      Util.repageSearch(-1);
-    });
-
-    $("body").on('click', '.search-next', function(e) {
-      e.preventDefault();
-      Util.repageSearch(1);
     });
 
     window.enterTimer = setTimeout(function() {

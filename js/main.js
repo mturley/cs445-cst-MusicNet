@@ -170,9 +170,11 @@ $(document).ready(function() {
           page: page
         },
         success: function(response) {
+          Util.stopLoader();
           Util.renderResultsTable(response, "#album-songs");
         },
         error: function(response) {
+          Util.stopLoader();
           console.log("ERROR: ", response);
         }
       });
@@ -195,9 +197,11 @@ $(document).ready(function() {
           page: page
         },
         success: function(response) {
+          Util.stopLoader();
           Util.renderResultsTable(response, "#artist-albums");
         },
         error: function(response) {
+          Util.stopLoader();
           console.log("ERROR: ", response);
         }
       });

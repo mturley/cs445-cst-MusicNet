@@ -103,7 +103,18 @@ $(document).ready(function() {
               $.each(r.results, function(idx, result) {
                 var $result_row = $("<tr>");
                 $.each(Object.keys(result), function(idx, key) {
-                  if(isNaN(key)) $("<td>"+result[key]+"</td>").appendTo($result_row);
+                  if(isNaN(key)) $("<td data-key="+key+">"+result[key]+"</td>").appendTo($result_row);
+                });
+                $tbody.find('td[data-key*=_name]').each(function() {
+                  var $td = $(this);
+                  var key = $td.data('key');
+                  var idkey = key.replace('_name','_id');
+                  if(result.hasOwnProperty(idkey)) {
+                    var id = result[idkey];
+                    var page = idkey.replace('_id','');
+                    var value = $td.html();
+                    $td.html('<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
+                  }
                 });
                 $result_row.appendTo($tbody);
               });

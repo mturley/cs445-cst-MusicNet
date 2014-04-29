@@ -260,6 +260,7 @@ $(document).ready(function() {
     },
     success: function(response) {
       $("#relsongs").empty();
+      console.log(response);
       var r = $.parseJSON(response);
       $ul = $("<ul>").appendTo($('#relsongs'));
       $.each(r.results, function(idx, s) {

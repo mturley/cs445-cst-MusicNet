@@ -477,7 +477,7 @@ $(document).ready(function() {
 
     window.enterTimer = setTimeout(function() {
       $(".press-enter").fadeIn();
-    }, 3000);
+    }, 1000);
 
   } else if(page == 'song') {
 

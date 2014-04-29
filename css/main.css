@@ -84,10 +84,10 @@
   margin: 20px;
 }
 
-.navbar-brand {
+.navbar-brand.nothome {
   margin-top: -5px;
 }
-.navbar-brand .btn {
+.navbar-brand.nothome .btn {
   position: relative;
   top: -2px;
   left: 10px;

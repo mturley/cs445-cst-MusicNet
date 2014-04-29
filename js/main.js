@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   var page = urlParam('page');
   if(page == '') page = 'home';
+  if(page != 'home') $(".navbar-brand").addClass('nothome');
 
   $("#registration-form").submit(function(e) {
     // submit the registration form data via ajax

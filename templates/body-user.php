@@ -6,8 +6,8 @@
 </div>
 
 <div class="container">
-  <h2>User Profile Information:</h2>
   <div id="user-info">
     Loading...
   </div>
 </div>
+<br><br>

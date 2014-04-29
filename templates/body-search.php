@@ -21,7 +21,7 @@
   <!-- Prepended text-->
   <div class="form-group">
     <div class="col-md-12">
-      <div class="input-group search-group">
+      <div class="input-group search-group col-md-10">
         <span class="input-group-addon addonborder"><span class="glyphicon glyphicon-search bigicon"></span></span>
         <input id="searchinput" name="prependedtext" class="form-control" placeholder="Search for a Song" type="text">
       </div>

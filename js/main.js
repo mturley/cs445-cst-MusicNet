@@ -219,6 +219,22 @@ $(document).ready(function() {
     }
   };
 
+  $("body").on('click', '.search-prev', function(e) {
+    e.preventDefault();
+    var $table = $(this).closest('table');
+    if($table.is('#search-results')) Util.repageSearch(-1);
+    if($table.is('#album-songs')) Util.repageAlbumSongs(-1);
+    if($table.is('#artist-albums')) Util.repageArtistAlbums(-1);
+  });
+
+  $("body").on('click', '.search-next', function(e) {
+    e.preventDefault();
+    var $table = $(this).closest('table');
+    if($table.is('#search-results')) Util.repageSearch(1);
+    if($table.is('#album-songs')) Util.repageAlbumSongs(1);
+    if($table.is('#artist-albums')) Util.repageArtistAlbums(1);
+  });
+
   // page-specific scripts below:
 
   if(page == 'home') {
@@ -332,20 +348,6 @@ $(document).ready(function() {
       Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
     });
 
-    $("body").on('click', '.search-prev', function(e) {
-      e.preventDefault();
-      var $table = $(this).closest('table');
-      if($table.is('#search-results')) Util.repageSearch(-1);
-      if($table.is('#album-songs')) Util.repageAlbumSongs(-1);
-    });
-
-    $("body").on('click', '.search-next', function(e) {
-      e.preventDefault();
-      var $table = $(this).closest('table');
-      if($table.is('#search-results')) Util.repageSearch(1);
-      if($table.is('#album-songs')) Util.repageAlbumSongs(1);
-    });
-
     window.enterTimer = setTimeout(function() {
       $(".press-enter").fadeIn();
     }, 2000);
@@ -402,16 +404,6 @@ $(document).ready(function() {
       var term = $("#searchinput").val();
       var resultsPage = 0;
       Util.searchAjax(type, term, resultsPage, $('#search-results').find('table'));
-    });
-
-    $("body").on('click', '.search-prev', function(e) {
-      e.preventDefault();
-      Util.repageSearch(-1);
-    });
-
-    $("body").on('click', '.search-next', function(e) {
-      e.preventDefault();
-      Util.repageSearch(1);
     });
 
     window.enterTimer = setTimeout(function() {

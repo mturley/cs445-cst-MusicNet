@@ -566,8 +566,7 @@ $(document).ready(function() {
         // now that we have song info, try to find the song and play it on youtube.
         Util.youtubeSearch(r.artist_name+' '+r.title, function(videoURL) {
           $("#song-player").empty();
-          $("#song-player").html('<iframe id="ytplayer" type="text/html" width="640" height="390"
-  src="'+videoURL+'" frameborder="0"/>');
+          $("#song-player").html('<iframe id="ytplayer" type="text/html" width="640" height="390" src="'+videoURL+'" frameborder="0"/>');
         });
       },
       error: function(response) {

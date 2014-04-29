@@ -239,6 +239,30 @@ $(document).ready(function() {
           $t.html('<img src="'+window.resPath+'/img/'+page+'_icon.png" class="obj-icon" /><a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
         }
       });
+    },
+    youtubeSearch: function(query, callback) {
+      Util.startLoader();
+      $.ajax({
+        type: 'GET',
+        url: 'https://gdata.youtube.com/feeds/api/videos',
+        data: {
+          q: query,
+          orderby: 'relevance',
+          start-index: 1,
+          max_results: 10,
+          v: 2,
+          alt: json
+        },
+        success: function(response) {
+          Util.stopLoader();
+          var results = response.feed.entry;
+          if(results[0]) callback(results[0].link[0].href);
+        },
+        error: function() {
+          Util.stopLoader();
+          console.log("Error searching youtube!");
+        }
+      });
     }
   };
 
@@ -536,9 +560,15 @@ $(document).ready(function() {
           var niceKey = toTitleCase(key.replace('_',' '));
           $('<h4 data-key="'+key+'">'+niceKey+':&nbsp;'+r[key]+'</h4>').appendTo("#song-info");
         });
-        console.log("song title", r.title, r);
         $(".song-title").html(r.title);
         Util.linkify('#song-info', r);
+
+        // now that we have song info, try to find the song and play it on youtube.
+        Util.youtubeSearch(r.artist_name+' '+r.title, function(videoURL) {
+          $("#song-player").empty();
+          $("#song-player").html('<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="'+videoURL+'" frameborder="0"/>');
+        });
       },
       error: function(response) {
         Util.stopLoader();

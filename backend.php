@@ -263,10 +263,16 @@
     } else {
       $num_ads = $_GET['num_ads'];
       $user_id = $_SESSION['user_id'];
-      $q = $db->prepare("select * from Ads a, Searches s where (a.term_id=s.term_id) and (s.user_id=:user_id) limit $num_ads");
-      $q->execute(array(':user_id' => $user_id));
-      $response->results = $q->fetchAll();
-      $response->message = "Ads returned in results field.";
+      try {
+        $q = $db->prepare("select * from Ads a, Searches s where (a.term_id=s.term_id) and (s.user_id=:user_id) limit $num_ads");
+        $q->execute(array(':user_id' => $user_id));
+        $response->results = $q->fetchAll();
+        $response->message = "Ads returned in results field.";
+      } catch(PDOException $e) {
+        $response->message = "Failed to fetch ads!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
     }
 
   } else if($fn == 'get_suggested_songs') {
@@ -277,16 +283,21 @@
     } else {
       $num_songs = $_GET['num_songs'];
       $user_id = $_SESSION['user_id'];
-      // THIS QUERY IS A F**KING MONSTER.  But it works??
-      $q = $db->prepare("select d.song_id, so.title, al.album_name, ar.artist_name"
-                       ." from Searches se, Describes d, Songs so, SFrom sf, Albums al, AlbumBy ab, Artists ar"
-                       ." where se.user_id=:user_id and se.term_id=d.term_id"
-                       ." and d.song_id = so.song_id and sf.song_id = so.song_id"
-                       ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
-                       ." and ab.artist_id = ar.artist_id limit $num_songs");
-      $q->execute(array(':user_id' => $user_id));
-      $response->results = $q->fetchAll();
-      $response->message = "Songs returned in results field.";
+      try {
+        $q = $db->prepare("select d.song_id, so.title, al.album_name, ar.artist_name"
+                         ." from Searches se, Describes d, Songs so, SFrom sf, Albums al, AlbumBy ab, Artists ar"
+                         ." where se.user_id=:user_id and se.term_id=d.term_id"
+                         ." and d.song_id = so.song_id and sf.song_id = so.song_id"
+                         ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
+                         ." and ab.artist_id = ar.artist_id limit $num_songs");
+        $q->execute(array(':user_id' => $user_id));
+        $response->results = $q->fetchAll();
+        $response->message = "Songs returned in results field.";
+      } catch(PDOException $e) {
+        $response->message = "Failed to fetch suggested songs!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
     }
 
   } else if($fn == 'get_suggested_friends') {
@@ -298,10 +309,16 @@
       $num_friends = $_GET['num_friends'];
       $user_id = $_SESSION['user_id'];
       // get a list of terms from current user
-      $q = $db->prepare("select distinct u.user_id, u.username, u.age, u.gender, u.location from Searches se, Users u where se.user_id=u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id)");
-      $q->execute(array(':user_id' => $user_id));
-      $response->results = $q->fetchAll();
-      $response->message = "Friends returned in results field.";
+      try {
+        $q = $db->prepare("select distinct u.user_id, u.username, u.age, u.gender, u.location from Searches se, Users u where se.user_id=u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id)");
+        $q->execute(array(':user_id' => $user_id));
+        $response->results = $q->fetchAll();
+        $response->message = "Friends returned in results field.";
+      } catch(PDOException $e) {
+        $response->message = "Failed to fetch suggested friends!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
     }
 
   } else if($fn == 'get_suggested_concerts') {
@@ -313,19 +330,44 @@
       $num_concerts = $_GET['num_concerts'];
       $user_id = $_SESSION['user_id'];
       // get a list of terms from current user
-
-      $q = $db->prepare("select c.name, c.venue, c.location, c.date from Concerts c, Users u where u.user_id=:user_id and c.location=u.location");
-      $q->execute(array(':user_id' => $user_id));
-      $response->results = $q->fetchAll();
-      $response->message = "Concerts returned in results field.";
+      try {
+        $q = $db->prepare("select c.name, c.venue, c.location, c.date from Concerts c, Users u where u.user_id=:user_id and c.location=u.location");
+        $q->execute(array(':user_id' => $user_id));
+        $response->results = $q->fetchAll();
+        $response->message = "Concerts returned in results field.";
+      } catch(PDOException $e) {
+        $response->message = "Failed to fetch suggested concerts!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
     }
 
   }
   else if($fn == 'sql') {
 
-    // TODO
-
+    session_start();
+    if(isset($_SESSION['user_id'])) {
+      try {
+        $q = $db->prepare('select admin from Users where user_id = :user_id');
+        $q->execute(array(':user_id' => $_SESSION['user_id']));
+        $user = $q->fetchObject();
+        if($user->admin == 1) {
+          $q = $db->query($_POST['sql']);
+          $response->results = $q->fetchAll();
+          $response->message = "Success!";
+        } else {
+          throw new PDOException();
+        }
+      } catch(PDOException $e) {
+        $response->message = "Failed to execute the raw SQL statement!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
+    } else {
+      $response->message = "Failed to authenticate as an admin!";
     }
+
+  }
 
   // Output the response object as a JSON-encoded string
   echo json_encode($response);

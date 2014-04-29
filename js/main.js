@@ -248,7 +248,7 @@ $(document).ready(function() {
         data: {
           q: query,
           orderby: 'relevance',
-          start-index: 1,
+          start_index: 1,
           max_results: 10,
           v: 2,
           alt: json

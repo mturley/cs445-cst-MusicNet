@@ -114,6 +114,7 @@ $(document).ready(function() {
                     var id = result[idkey];
                     var page = idkey.replace('_id','');
                     var value = $td.html();
+                    console.log("happening?");
                     $td.html('<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
                   }
                 });

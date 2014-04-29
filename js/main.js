@@ -71,7 +71,7 @@ $(document).ready(function() {
     stopLoader: function() {
       window.loaders--;
       if(window.loaders == 0) $(".please-wait").hide();
-    }
+    },
     searchAjax: function(searchType, term, page, resultsElement) {
       Util.startLoader();
       $.ajax({

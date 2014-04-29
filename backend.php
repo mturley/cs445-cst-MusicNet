@@ -198,7 +198,7 @@
     } else {
       $num_songs = $_GET['num_songs'];
       $user_id = $_SESSION['user_id'];
-      $q = $db->prepare("select d.song_id from Searches s, Describes d where s.user_id=:user_id and s.term_id=d.term_id limit $num_songs");
+      $q = $db->prepare("select d.song_id, g.title from Searches s, Describes d. Songs g where s.user_id=:user_id and s.term_id=d.term_id and d.song_id = g.song_id limit $num_songs");
       $q->execute(array(':user_id' => $user_id));
       $response->results = $q->fetchAll();
       $response->message = "Songs returned in results field.";

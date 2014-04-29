@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <table id="album-songs"></table>
+      <table id="album-songs" class="table"></table>
     </div>
   </div>
 </div>

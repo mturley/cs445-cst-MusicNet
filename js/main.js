@@ -144,9 +144,11 @@ $(document).ready(function() {
       });
       if(r.page != 0 || r.results.length >= 50) $(page_row_html).appendTo($tbody);
       $(table).show();
-      $("body").stop(); // stop scrolling if already scrolling
       $("#search-results").show();
-      $.scrollTo($("#search-results"), 200, { offset: -60 });
+      if($("#search-results").length != 0) {
+        $("body").stop(); // stop scrolling if already scrolling
+        $.scrollTo($("#search-results"), 200, { offset: -60 });
+      }
     },
     repageSearch : function(pgdiff) {
       $(".press-enter").hide();

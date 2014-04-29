@@ -6,7 +6,7 @@
 </div>
 
 <div class="container">
-	<table widht="90%"><tr><td width="250px">
+	<table width="90%"><tr><td width="250px">
 		<div id="user-info">
 			Loading...
 		</div>

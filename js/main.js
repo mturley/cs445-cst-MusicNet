@@ -70,11 +70,12 @@ $(document).ready(function() {
           url: 'backend.php',
           data: {
             fn: 'search',
-            type: searchType,
+            searchType: searchType,
             term: term,
             page: page
           },
           success: function(response) {
+            console.log("SEARCH RESPONSE",response);
             var r = $.parseJSON(response);
             var $results = $(resultsElement).find('.results');
             $results.empty();

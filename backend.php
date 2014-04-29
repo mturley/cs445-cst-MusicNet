@@ -119,7 +119,7 @@
 
   } else if($fn == 'search') {
 
-    $type = $_GET['type'];
+    $type = $_GET['searchType'];
     $term = "'%".$_GET['term']."%'";
     $results_per_page = 50;
     $page = $_GET['page'];

@@ -166,8 +166,13 @@
       } else if($type == 'concert-location') {
         $sql = "select * from Concerts where location like :term";
       } else if($type == 'concert-date') {
-        $sql = "select * fron Concerts where date like :term";
-      }
+        $sql = "select * from Concerts where date like :term";
+      }else if($type == 'friends-username') {
+        $sql = "select * from Users where username like :term";
+      } else if($type == 'friends-location') {
+        $sql = "select * from Users where location like :term";
+      } 
+
       $q = $db->prepare($sql." limit $results_per_page offset $offset");
       $response->term = $term;
       $q->execute(array(':term' => $term));
@@ -226,10 +231,10 @@
       $user_id = $_SESSION['user_id'];
       // get a list of terms from current user
 
-      $q = $db->prepare("select u.username, u.age, u.location from Searches se, Users u where se.user_id=u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id)");
+      $q = $db->prepare("select distinct u.username, u.age, u.location from Searches se, Users u where se.user_id=u.user_id and se.term_id IN (select s.term_id from Searches s where s.user_id=:user_id)");
       $q->execute(array(':user_id' => $user_id));
       $response->results = $q->fetchAll();
-      $response->message = "Songs returned in results field.";
+      $response->message = "Friends returned in results field.";
     }
 
   } else if($fn == 'get_suggested_concerts') {

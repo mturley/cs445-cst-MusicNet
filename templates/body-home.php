@@ -52,6 +52,10 @@
       </div>
     </div>
 
+    <div id="topimg">
+      HAI
+    </div>
+
 <?php
   }
 ?>

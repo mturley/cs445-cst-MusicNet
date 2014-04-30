@@ -5,6 +5,13 @@
 .filters {
   text-align: center;
 }
+
+#topimg{
+  max-width: 100%;
+  background: #fff url('http://aphedia.com/musicnet.php') no-repeat fixed center;
+  vertical-align: center;
+}
+
 #album-art img {
   width: 370px;
 }

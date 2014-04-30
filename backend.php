@@ -215,7 +215,7 @@
       if($type == 'songs') {
         $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, s.album_id, s.album_name, s.artist_id, s.artist_name"
               ." from Music s"
-              ." where s.title like :term ";
+              ." where s.title like :term; insert ignore into table Searches values (:user_id,:term) ";
         /*$sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
               ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
               ." where title like :term and s.song_id = sf.song_id"

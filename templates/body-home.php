@@ -4,7 +4,8 @@
 
     <div class="jumbotron slim">
       <div class="container">
-        <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! <? include(dropdown.php);?></div></h3>
+        <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! 
+        <div id="drop" style="float: right; v-align:top"> dropdown&nbsp; link &nbsp;link</div></h3>
       </div>
     </div>
 

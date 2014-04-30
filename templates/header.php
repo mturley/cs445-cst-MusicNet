@@ -96,3 +96,6 @@
         </div><!--/.navbar-collapse -->
       </div>
     </div>
+    <div id="topimg">
+        HAI
+      </div>

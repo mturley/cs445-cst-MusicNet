@@ -234,13 +234,11 @@
         //}
         $sql .= " group by ar.artist_id";
       } else if($type == 'albums') {
-        $sql = "select m.album_id, m.album_name, m.artist_id, m.artist_name, count(m.song_id) as song_count"
-              ." from Music m"
-              ." where m.album_name like :term";
-        /*$sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
+        //$sql = "select m.album_id, m.album_name, m.artist_id, m.artist_name, count(m.song_id) as song_count from Music m,  where m.album_name like :term";
+        $sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
               ." from Albums al, SFrom sf, AlbumBy ab, Artists ar"
               ." where album_name like :term and al.album_id = ab.album_id"
-              ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id";*/
+              ." and al.album_id = sf.album_id and ab.artist_id = ar.artist_id";
         //if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
         //  $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
         //}

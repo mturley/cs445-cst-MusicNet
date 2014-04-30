@@ -10,8 +10,8 @@
   padding-top:140px;
   max-width: 100%;
   background: #fff url('http://massedmc.com/wp-content/uploads/2013/09/weekly-forecast1.jpg') no-repeat fixed center;
+  background-size:100%;
   text-align: center;
-  height:350px;
 }
 
 #album-art img {

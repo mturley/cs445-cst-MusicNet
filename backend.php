@@ -261,11 +261,11 @@
 
       //adding to terms
       session_start();
+      echo "adding into searches"
       $user_id = "%".$_SESSION['user_id']."%";
-      $q2 = $db->prepare("insert ignore into table Searches values (:user_id,:term)");
-      $arr2 = array(':term' => $term);
-      $q2->execute($arr2);
-
+      $query = "insert ignore into table Searches values (:user_id,:term)";
+      $doEET = $db->query($query);
+      echo "done adding"
 
       $response->message = "Search Successful";
       $response->page = $_GET['page'];

@@ -2,7 +2,9 @@
  <div id="topimg">
       HAI
     </div>
-    <div class="dropdown">
+
+ <div class="container">
+ <div class="dropdown">
   <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
     Dropdown
     <span class="caret"></span>
@@ -14,6 +16,7 @@
     <li role="presentation" class="divider"></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
   </ul>
+</div>
 </div>
 
 <div class="jumbotron slim">

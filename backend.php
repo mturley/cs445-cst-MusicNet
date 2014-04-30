@@ -259,13 +259,13 @@
       //}
       $q->execute($arr);
 
-      //adding to terms
-      session_start();
+      //adding to terms. not sure why this isn't working. 
+      /*session_start();
       echo "adding into searches"
       $user_id = "%".$_SESSION['user_id']."%";
       $query = "insert ignore into table Searches values (:user_id,:term)";
       $doEET = $db->query($query);
-      echo "done adding"
+      echo "done adding"*/
 
       $response->message = "Search Successful";
       $response->page = $_GET['page'];

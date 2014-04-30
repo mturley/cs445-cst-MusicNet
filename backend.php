@@ -258,6 +258,15 @@
       //  $arr[':yearhigh'] = $_GET['filters']['yearHigh'];
       //}
       $q->execute($arr);
+
+      //adding to terms
+      session_start();
+      $user_id = "%".$_SESSION['user_id']."%";
+      $q2 = $db->prepare("insert ignore into table Searches values (:user_id,:term)");
+      $arr2 = array(':term' => $term);
+      $q2->execute($arr2);
+
+
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->type = $_GET['searchType'];

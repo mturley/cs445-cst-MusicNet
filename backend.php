@@ -213,11 +213,14 @@
     try {
       $sql = "";
       if($type == 'songs') {
-        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
+        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, s.album_id, s.album_name, s.artist_id, s.artist_name"
+              ." from Music s"
+              ." where s.title like :term ";
+        /*$sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
               ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
               ." where title like :term and s.song_id = sf.song_id"
               ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
-              ." and ab.artist_id = ar.artist_id";
+              ." and ab.artist_id = ar.artist_id";*/
         //if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
         //  $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
         //}

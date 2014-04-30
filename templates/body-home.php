@@ -5,10 +5,11 @@
       <div class="container">
         <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
       </div>
+        <div id="topimg">
+        HAI
+      </div>
     </div>
-    <div id="topimg">
-      HAI
-    </div>
+
     <div class="container">
       <div class="row feature-buttons">
         <div class="col-md-4">

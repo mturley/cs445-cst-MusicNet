@@ -340,6 +340,7 @@ $(document).ready(function() {
       }
     });
 
+        Util.startLoader();
         $.ajax({
           type: 'GET',
           url: 'backend.php',
@@ -353,8 +354,12 @@ $(document).ready(function() {
             var r = $.parseJSON(response);
             $.each(r.results, function(idx, activity) {
               $('<li>'+activity.user_id+': '
-               +activity.activity);
+               +activity.activity+'</li>');
             });
+          },
+          error: function(response) {
+            Util.stopLoader();
+            bootbox.alert("Failed to load user activity!  Error Message: "+$.parseJSON(response.responseText).message);
           }
         });
 

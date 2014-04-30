@@ -15,12 +15,13 @@
 		<div id="user-info">
 			Loading...
 		</div>
-		if user = me. Allow editing of information
 		</td><td valign="top">
 		User Activity
 		<hr>
-		USER ACTIVITY FEED HERE...<br>
-		USER ACTIVITY FEED HERE...<br>
+		<div id="userActivity">
+			USER ACTIVITY FEED HERE...<br>
+			USER ACTIVITY FEED HERE...<br>
+		</div>
 	</td></tr></table>
 </div>
 <br><br>

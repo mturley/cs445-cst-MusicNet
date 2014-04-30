@@ -266,10 +266,11 @@
       $q->execute($arr);
 
       //adding to terms. not sure why this isn't working. 
-      session_start();
+      /*session_start();
       $user_id = "%".$_SESSION['user_id']."%";
       $query = "insert ignore into table Searches values (:user_id,:term)";
-      $doEET = $db->query($query);
+      $doEET = $db->query($query);*/
+
 
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
@@ -305,7 +306,27 @@
       }
     }
 
-  } else if($fn == 'get_suggested_songs') {
+  } else if($fn == 'get_userActivity') {
+
+    session_start();
+    if(!isset($_GET['num_activity'])) {
+      $response->message = "No num_activity field specified.  Number of ads to return is a required field.";
+    } else {
+      $num_ads = $_GET['num_activity'];
+      $user_id = $_SESSION['user_id'];
+      try {
+        $q = $db->prepare("select * from UserActivity where user_id=:user_id order by date limit $num_activity");
+        $q->execute(array(':user_id' => $user_id));
+        $response->results = $q->fetchAll();
+        $response->message = "User Acitivy returned in results field.";
+      } catch(PDOException $e) {
+        $response->message = "Failed to fetch ads!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
+    }
+
+  }  else if($fn == 'get_suggested_songs') {
 
     session_start();
     if(!isset($_GET['num_songs'])) {

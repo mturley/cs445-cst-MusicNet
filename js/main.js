@@ -340,6 +340,24 @@ $(document).ready(function() {
       }
     });
 
+        $.ajax({
+          type: 'GET',
+          url: 'backend.php',
+          data: {
+            fn: 'get_userActivity',
+            num_activity: 10
+          },
+          success: function(response) {
+            Util.stopLoader();
+            $("#userActivity").empty();
+            var r = $.parseJSON(response);
+            $.each(r.results, function(idx, activity) {
+              $('<li>'+activity.user_id+': '
+               +activity.activity);
+            });
+          }
+        });
+
 
   } else if(page == 'logout') {
 

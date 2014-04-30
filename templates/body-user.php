@@ -19,7 +19,7 @@
     <h2>
       <span class="glyphicon glyphicon-search"></span>&nbsp;
       View User: <?php echo $_GET['user_id']; ?>
-      <div id="drop" style="float: right; v-align:top"> drop down&nbsp; link &nbsp;link</div>
+      <? include(dropdown.php);?></div>
     </h2>
   </div>
 </div>

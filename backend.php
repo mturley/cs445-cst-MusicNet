@@ -308,7 +308,7 @@
 
     session_start();
     if(!isset($_GET['num_activity'])) {
-      $response->message = "No num_activity field specified.  Number of ads to return is a required field.";
+      $response->message = "No num_activity field specified.  Number of activities to return is a required field.";
     } else {
       $num_activity = $_GET['num_activity'];
       $user_id = $_SESSION['user_id'];

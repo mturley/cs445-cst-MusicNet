@@ -1,9 +1,4 @@
-<!-- Main jumbotron for a primary marketing message or call to action -->
- <div id="topimg">
-      HAI
-    </div>
-
- <div class="container">
+<div class="container">
  <div class="dropdown">
   <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
     Dropdown

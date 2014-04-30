@@ -351,6 +351,7 @@ $(document).ready(function() {
           success: function(response) {
             Util.stopLoader();
             $("#userActivity").empty();
+            console.log(response);
             var r = $.parseJSON(response);
             $.each(r.results, function(idx, activity) {
               $('<li>'+activity.user_id+': '

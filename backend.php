@@ -274,13 +274,13 @@
 
 
 
-
       //adding to userActivity. not sure why this isn't working.
     
-        $insertAct = "is searching for ".$term;
+       /* $insertAct = "is searching for ".$term;
         $user_id = $_SESSION['user_id'];
         $q = $db->prepare("insert ignore into UserActivity (user_id, activity, date) values (:user_id,:insertAct, now())");
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':insertAct' => $_GET['insertAct']));
+        */
   
 
     } catch(PDOException $e) {

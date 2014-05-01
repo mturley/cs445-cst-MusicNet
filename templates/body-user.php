@@ -14,6 +14,7 @@
 		<div id="user-info">
 			Loading...
 		</div>
+		</table>
 
     <button id="add_friend" class="btn btn-success">
       <span class="glyphicon glyphicon-plus"></span>

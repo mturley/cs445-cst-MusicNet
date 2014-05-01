@@ -397,9 +397,9 @@ $(document).ready(function() {
               Util.stopLoader();
               $("#userActivity").empty();
               var r = $.parseJSON(response);
-              $ul = $("<ul>").appendTo($('#userActivity'));
+              $ul = $("<table width='100%''>").appendTo($('#userActivity'));
               $.each(r.results, function(idx, activity) {
-                var $li = $('<li><a href="?page=user&user_id='+activity.user_id+'">'+activity.user_id+'</a> '+activity.activity+' at <i>'+activity.date+'</i></li>');
+                var $li = $('<tr><td><a href="?page=user&user_id='+activity.user_id+'">'+activity.user_id+'</a> '+activity.activity+'</td><td> at <i>'+activity.date+'</i></td></tr>');
                 $li.appendTo($ul);
                 Util.linkify($li, activity);
               });

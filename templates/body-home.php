@@ -1,6 +1,4 @@
-<div id="topimg">
-  HAI
-</div>
+<div id="topimg"></div>
       <?php
   if($logged_in) {
 ?>
@@ -34,7 +32,7 @@
   } else {
     // logged out below
 ?>
-  
+
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to MusicNet!</h1>

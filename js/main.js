@@ -366,6 +366,9 @@ $(document).ready(function() {
         }
       });
 
+
+
+//user activity
           Util.startLoader();
           $.ajax({
             type: 'GET',

@@ -124,12 +124,20 @@
 
   } else if($fn == 'get_object_by_id') {
 
+    session_start();
     $type = $_GET['type'];
     try {
       $sql = "";
       if($type == 'user') {
-        $sql = "select user_id, username, age, gender, location"
-              ." from Users where user_id = :user_id";
+        if(isset($_SESSION['user_id'])) {
+          $sql = "select u.user_id, u.username, u.age, u.gender, u.location, count(i.user_id) as isFriends"
+                ." from Users u, isFriends i where u.user_id = :user_id"
+                ." and ((i.user_id = u.user_id and i.friend_id = '".$_SESSION['user_id']."')"
+                ." or (i.user_id = '".$_SESSION['user_id']."' and i.friend_id = u.user_id)";
+        } else {
+          $sql = "select user_id, username, age, gender, location"
+                ." from Users where user_id = :user_id";
+        }
       } else if($type == 'song') {
         $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
               ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"

@@ -692,21 +692,17 @@ $(document).ready(function() {
         }
       });
     });
-  }// end of page-specific scripts
 
 
+  } else if(page == 'shop') {
 
-
-
-  //SHOP
-  else if(page == 'shop') {
 
    Util.startLoader();
     $.ajax({
       type: 'GET',
       url: 'backend.php',
       data: {
-        fn: 'get_Shop',
+        fn: 'get_shop',
         num_shops: 5
       },
       success: function(response) {
@@ -725,7 +721,9 @@ $(document).ready(function() {
         console.log("ERROR: ", error);
       }
     });
-  }// end of page-specific scripts
+
+  } // end of page-specific scripts
+
 
   Util.startLoader();
   // get the state of the current user and load ads.
@@ -736,6 +734,7 @@ $(document).ready(function() {
       fn: 'get_current_user'
     },
     success: function(response) {
+      console.log(response);
       Util.stopLoader();
       var r = $.parseJSON(response);
       window.logged_in = r.logged_in;

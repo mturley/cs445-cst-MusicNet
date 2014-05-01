@@ -734,6 +734,7 @@ $(document).ready(function() {
       fn: 'get_current_user'
     },
     success: function(response) {
+      console.log(response);
       Util.stopLoader();
       var r = $.parseJSON(response);
       window.logged_in = r.logged_in;

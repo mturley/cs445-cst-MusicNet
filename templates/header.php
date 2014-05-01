@@ -69,12 +69,10 @@
           <?php
             if($logged_in) {
           ?>
-
               <div class="navbar-form navbar-right logged-in-nav">
                 <a href="#" class="btn btn-primary floatleft" href="musicnet.php">Home</a>
                 <div class="dropdown floatleft">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Search <span class="caret"></span>
-                  </a>
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Search <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li role="presentation" class="dropdown-header"><a href="?page=search">Music</a></li>
                     <li role="presentation" class="dropdown-header"><a href="?page=friends">People</a></li>

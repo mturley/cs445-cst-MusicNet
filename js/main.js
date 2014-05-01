@@ -713,7 +713,7 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#shopList'));
         $.each(r.results, function(idx, shop) {
-          var $li = $('<li>'+shop.store_name+'</li>');
+          var $li = $('<li><a href="'+shop.store_link+'"><img src="'+shop.store_img+'"></a></li>');
           $li.appendTo($ul);
           Util.linkify($li, c);
         });
@@ -723,7 +723,6 @@ $(document).ready(function() {
         console.log("ERROR: ", error);
       }
     });
-
   } // end of page-specific scripts
 
 

@@ -426,7 +426,7 @@
       $num_shops = $_GET['num_shops'];
       // get a list of terms from current user
       try {
-        $q = $db->query("select store_name from Stores");
+        $q = $db->query("select * from Stores");
         $response->results = $q->fetchAll();
         $response->message = "Success!";
       } catch(PDOException $e) {

@@ -747,6 +747,8 @@ $(document).ready(function() {
 
   else if(page == 'sql') {
 
+    $("#rawsql").focus();
+
     $("#sql-form").on('submit', function(e) {
       e.preventDefault();
       $("#sql-results").hide();

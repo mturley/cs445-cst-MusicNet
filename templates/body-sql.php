@@ -9,7 +9,8 @@
   <fieldset>
   <div class="form-group">
     <label for="rawsql">Enter a raw SQL query string:</label>
-    <input class="form-control input-xlg" rows="3" id="rawsql" placeholder="Enter SQL Query">
+    <textarea class="form-control input-xlg" rows="3" id="rawsql" placeholder="Enter SQL Query">
+    </textarea>
   </div>
   </fieldset>
   <h2 class="press-enter" style="display: none;">(press enter to execute query)</h2>

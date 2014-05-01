@@ -32,7 +32,9 @@
   } else {
     // logged out below
 ?>
-    <h1 class="floating">Welcome to MusicNet!</h1>
+    <div class="floating container">
+      <h1>Welcome to MusicNet!</h1>
+    </div>
     <div class="jumbotron">
       <div class="container">
         <p>

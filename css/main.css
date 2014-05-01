@@ -10,6 +10,10 @@ li{
   list-style: none;
 }
 
+.red {
+  color: red;
+}
+
 .floating {
   z-index: 999;
   position:absolute;

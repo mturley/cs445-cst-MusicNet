@@ -7,9 +7,10 @@
 
 <div class="container">
 	<table><tr><td width="250px">
-		<div id="shopList">
+		<table><div id="shopList">
 			Loading...
 		</div>
+	</table>
 	</td></tr></table>
 </div>
 <br><br>

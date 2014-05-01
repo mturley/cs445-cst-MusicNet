@@ -65,6 +65,10 @@
   -webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
 }
 
+.feature-buttons {
+  margin-top: 20px;
+}
+
 .feature-buttons .btn-block {
   font-size: 24px;
   padding-top: 15px;

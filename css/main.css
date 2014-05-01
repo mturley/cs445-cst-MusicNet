@@ -88,9 +88,10 @@ li{
 
 .feature-buttons-container {
   position: absolute;
-  top: 184;
+  top: 184px;
   left: 0;
   width: 100%;
+  margin: 0 8%;
 }
 
 .feature-buttons .btn-block {

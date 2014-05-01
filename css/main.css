@@ -55,11 +55,12 @@
 }
 
 .logged-in-nav .floatleft {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .logged-in-nav big {
   margin-top: 5px;
+  margin-right: 10px;
 }
 
 .jumbotron.slim {

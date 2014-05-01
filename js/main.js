@@ -336,7 +336,7 @@ $(document).ready(function() {
         },
         error: function(response) {
           Util.stopLoader();
-          // bootbox.alert($.parseJSON(response.responseText).message);
+          bootbox.alert($.parseJSON(response.responseText).message);
         }
       });
     });
@@ -381,9 +381,9 @@ $(document).ready(function() {
               Util.stopLoader();
               $("#userActivity").empty();
               var r = $.parseJSON(response);
-              $ul = $("<ul>").appendTo($('#user-info'));
+              $ul = $("<ul>").appendTo($('#userActivity'));
               $.each(r.results, function(idx, activity) {
-                var $li = $('<li>'+activity.user_id+': Rated</li>');
+                var $li = $('<li>'+activity.user_id+': '+activity.activity+'</li>');
                 $li.appendTo($ul);
                 Util.linkify($li, activity);
               });

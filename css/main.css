@@ -50,6 +50,10 @@
   font-size: 12pt;
 }
 
+.withicon .glyphicon {
+  margin-right: 5px;
+}
+
 .logged-in-nav .floatleft {
   margin-left: 10px;
 }

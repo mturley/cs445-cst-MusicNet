@@ -378,8 +378,11 @@ $(document).ready(function() {
             Util.stopLoader();
             $("#userActivity").empty();
             var r = $.parseJSON(response);
+            $ul = $("<ul>").appendTo($('#user-info'));
             $.each(r.results, function(idx, activity) {
               $('<li>'+activity.user_id+': Rated</li>');
+              $li.appendTo($ul);
+              Util.linkify($li, c);
             });
           },
           error: function(response) {

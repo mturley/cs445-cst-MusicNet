@@ -308,8 +308,13 @@
   } else if($fn == 'get_userActivity') {
 
     session_start();
+    if(!isset($_GET['num_activity'])) {
+      $response->message = "No num_activity field specified.  Number of activities to return is a required field.";
+    } else {
+      $num_activity = $_GET['num_activity'];
+      $user_id = $_SESSION['user_id'];
       try {
-        $q = $db->prepare("select r.user_id from Ratings r where r.user_id=:user_id order by date limit 5;");
+        $q = $db->prepare("select r.user_id from Ratings r where r.user_id=:user_id order by date limit $num_activity");
         $q->execute(array(':user_id' => $user_id));
         $response->results = $q->fetchAll();
         $response->message = "User Acitivy returned in results field.";

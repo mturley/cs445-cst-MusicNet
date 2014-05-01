@@ -18,9 +18,11 @@
   width: 100%;
 }
 .floating h1 {
-  display: inline-block;
   font-size: 63px;
   padding: 0 0 0 100px;
+  color: #111;
+}
+.floating h2, .floating h3, .floating h4, .floating h5, .floating h6 {
   color: #111;
 }
 

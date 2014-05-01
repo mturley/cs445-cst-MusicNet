@@ -2,7 +2,8 @@
   <div class="container">
     <h3>
       <span class="glyphicon glyphicon-search"></span>&nbsp;
-      View User: <?php echo $_GET['user_id']; ?>/h3>
+      View User: <?php echo $_GET['user_id']; ?>
+    </h3>
   </div>
 </div>
 

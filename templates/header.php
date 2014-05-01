@@ -70,8 +70,7 @@
             if($logged_in) {
           ?>
               <div class="navbar-form navbar-right logged-in-nav">
-                <big class="floatleft">User: </big>
-                <big class="floatleft"><a class="data-username" href="musicnet.php?page=user&user_id=<?php echo $_SESSION['user_id']; ?>">...</a></big>
+                <big class="floatleft"><a class="data-username withicon" href="musicnet.php?page=user&user_id=<?php echo $_SESSION['user_id']; ?>">...</a></big>
                 <a href="#" class="btn btn-default floatleft" href="musicnet.php">Home</a>
                 <div class="dropdown floatleft">
                   <a class="dropdown-toggle btn btn-primary" data-toggle="dropdown" href="#">

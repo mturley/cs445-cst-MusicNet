@@ -740,6 +740,7 @@ $(document).ready(function() {
       window.logged_in = r.logged_in;
       if(logged_in) {
         $(".data-username").html(r.user.username);
+        $('<span class="glyphicon glyphicon-user"></span>').prependTo($(".data-username.withicon"));
         // Load user-targeted ads
         Util.startLoader();
         $.ajax({

@@ -15,10 +15,14 @@
 			Loading...
 		</div>
 
-		<form id="FriendForm" method="post">
-		<input type="hidden" value="<?php echo $_GET['user_id']; ?>" name="friend_id" id="friend_id">
-		<input type="submit" name="add_friend" value="Add Friend" />
-		</form>
+		<button id="add-friend" class="btn btn-success">
+      <span class="glyphicon glyphicon-plus"></span>
+      Add Friend
+    </button>
+    <button id="remove-friend" class="btn btn-danger" style="display: none;">
+      <span class="glyphicon glyphicon-minus"></span>
+      Remove Friend
+    </button>
 
 		</td><td valign="top">
 		User Activity

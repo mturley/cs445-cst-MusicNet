@@ -326,23 +326,25 @@ $(document).ready(function() {
   } else if(page == 'user') {
 
     //add friend
-  $("#FriendForm").submit(function(e) {
+  $("#add-friend").click(function(e) {
     e.preventDefault();
-    var postdata = $("#FriendForm").serializeObject();
     postdata.fn = 'add_friend';
     Util.startLoader();
     $.ajax({
       type: 'POST',
       url: 'backend.php',
-      data: postdata,
+      data: {
+        fn: 'add_friend',
+        friend_id: urlParam('user_id')
+      },
       success: function(response) {
         Util.stopLoader();
-         bootbox.alert($.parseJSON(response).message);
-        document.location = 'musicnet.php'; // reload
+        bootbox.alert($.parseJSON(response).message, function() {
+          document.location = 'musicnet.php?page=user&user_id='+urlParam('user_id'); // reload
+        });
       },
       error: function(response) {
         Util.stopLoader();
-        console.log(response);
         bootbox.alert($.parseJSON(response.responseText).message);
       }
     });
@@ -364,8 +366,15 @@ $(document).ready(function() {
         $("#user-info").empty();
         $.each(Object.keys(r), function(idx, key) {
           var niceKey = toTitleCase(key.replace('_',' '));
-          $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
+          if(key != 'isFriends') {
+            $("<h4>"+niceKey+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
+          }
         });
+        if(r.isFriends != 0) {
+          // todo change button to remove friend
+        } else {
+          // todo change button to add friend
+        }
       },
       error: function(response) {
         Util.stopLoader();

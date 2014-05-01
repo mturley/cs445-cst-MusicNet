@@ -1,9 +1,9 @@
 <div class="jumbotron slim">
   <div class="container">
-    <h2>
+    <h3>
       <span class="glyphicon glyphicon-search"></span>&nbsp;
-      View User: <?php echo $_GET['user_id']; ?></h2>
-       <?php include("templates/dropdown.php") ?>
+      View User: <?php echo $_GET['user_id']; ?>
+       <?php include("templates/dropdown.php") ?></h3>
   </div>
 </div>
 

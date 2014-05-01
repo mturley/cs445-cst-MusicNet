@@ -419,7 +419,8 @@ $(document).ready(function() {
             url: 'backend.php',
             data: {
               fn: 'get_userActivity',
-              num_activity: 50
+              num_activity: 50,
+              user_id: urlParam('user_id')
             },
             success: function(response) {
               Util.stopLoader();

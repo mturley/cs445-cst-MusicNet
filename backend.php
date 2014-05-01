@@ -420,8 +420,12 @@
 
 
 
+<<<<<<< HEAD
   //SHOPS hello? 
 
+=======
+  //SHOPS hello?
+>>>>>>> e6fd91b5ad6528f326b88a35cf1d18b09d4ea7ca
 
   else if($fn == 'get_Shop') {
 
@@ -440,6 +444,10 @@
         error(500,"Internal Server Error");
       }
     }
+<<<<<<< HEAD
+=======
+  }
+>>>>>>> e6fd91b5ad6528f326b88a35cf1d18b09d4ea7ca
 
   // Output the response object as a JSON-encoded string
   echo json_encode($response);

@@ -2,9 +2,9 @@
       <?php
   if($logged_in) {
 ?>
-    <div class="jumbotron slim">
+    <div class="jumbotron floating">
       <div class="container">
-        <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! </h3>
+        <h3>Welcome back, <span class="data-username">...</span>! </h3>
       </div>
     </div>
 
@@ -32,10 +32,11 @@
   } else {
     // logged out below
 ?>
-
+    <div class="floating container">
+      <h1>Welcome to MusicNet!</h1>
+    </div>
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome to MusicNet!</h1>
         <p>
           MusicNet is a simple PHP / MySQL WebApp built by Mike Turley, Eric Smith and Xian Chen for CS445 in Spring 2014.
           It provides user authentication and an interface to browse and query an extensive database of Music data.

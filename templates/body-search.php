@@ -1,4 +1,5 @@
-<div class="jumbotron slim">
+<div id="topimg"></div>
+<div class="jumbotron slim floating">
   <div class="container">
     <h2 class="floatleft">Search for Music</h2>
     <div id="search-type" class="btn-group btn-group-lg floatleft">
@@ -29,21 +30,22 @@
         Filtering search <span class="filter-description">...</span>
         <a class="btn btn-default clear-filters" href="#">Remove Filter</a>
       </h3>-->
-      <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
-      <div id="search-results" style="display: none;">
-        <h2>
-          <span class="search-type">...</span>
-          matching your search: "<span class="search-term"></span>":
-          <a class="btn pull-right btn-primary clear-search" href="#">
-            <span class="glyphicon glyphicon-search"></span> New Search
-          </a>
-        </h2>
-        <table class="results table"></table>
-      </div>
     </div>
   </div>
 
   </fieldset>
   </form>
+
+  <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
+  <div id="search-results" style="display: none;">
+    <h2>
+      <span class="search-type">...</span>
+      matching your search: "<span class="search-term"></span>":
+      <a class="btn pull-right btn-primary clear-search" href="#">
+        <span class="glyphicon glyphicon-search"></span> New Search
+      </a>
+    </h2>
+    <table class="results table"></table>
+  </div>
 
 </div><br><br><br>

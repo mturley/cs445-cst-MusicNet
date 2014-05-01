@@ -699,7 +699,11 @@ $(document).ready(function() {
 
 
   //SHOP
+<<<<<<< HEAD
   else if(page == 'Shop') {
+=======
+  else if(page == 'shop') {
+>>>>>>> e6fd91b5ad6528f326b88a35cf1d18b09d4ea7ca
 
    Util.startLoader();
     $.ajax({
@@ -715,7 +719,11 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#shopList'));
         $.each(r.results, function(idx, shop) {
+<<<<<<< HEAD
           var $li = $('<li>'+shop.store_name+'</strong></li>');
+=======
+          var $li = $('<li>'+shop.store_name+'</li>');
+>>>>>>> e6fd91b5ad6528f326b88a35cf1d18b09d4ea7ca
           $li.appendTo($ul);
           Util.linkify($li, c);
         });

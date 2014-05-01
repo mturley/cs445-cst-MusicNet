@@ -327,7 +327,9 @@
   }  else if($fn == 'get_suggested_songs') {
 
     session_start();
-    if(!isset($_GET['num_songs'])) {
+    if(!isset($_SESSION['user_id'])) {
+      $response->message = "Must be signed in for that function!";
+    } else if(!isset($_GET['num_songs'])) {
       $response->message = "No num_songs field specified.  Number of songs to return is a required field.";
     } else {
       $num_songs = $_GET['num_songs'];
@@ -417,7 +419,7 @@
     }
 
   } else if($fn == 'get_shop') {
-    
+
     if(!isset($_GET['num_shops'])) {
       $response->message = "No num_shops field specified.  Number of shops to return is a required field.";
     } else {

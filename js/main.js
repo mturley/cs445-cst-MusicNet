@@ -339,6 +339,7 @@ $(document).ready(function() {
           // bootbox.alert($.parseJSON(response.responseText).message);
         }
       });
+    });
 
 
       Util.startLoader();
@@ -363,7 +364,7 @@ $(document).ready(function() {
           Util.stopLoader();
           bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
         }
-      });
+      }); //end ajax
 
 
 
@@ -391,7 +392,7 @@ $(document).ready(function() {
               Util.stopLoader();
               bootbox.alert("Failed to load user activity!  Error Message: "+$.parseJSON(response.responseText).message);
             }
-          });
+          }); //end ajax
 
 
   } else if(page == 'logout') {

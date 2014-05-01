@@ -457,6 +457,11 @@
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':friend_id' => $friend_id));
         $user = $q->fetchObject();
         $response->message = "friend added";
+
+        $insertAct = "is friends with ".$friend_id;
+        $q = $db->prepare("insert ignore into UserActivity (user_id, activity, date) values (:user_id,:insertAct, now())");
+        $q->execute(array(':user_id' => $_SESSION['user_id'], ':insertAct' => $insertAct));
+
      } catch(PDOException $e) {
         $response->message = "Failed to add frinds!";
         $response->details = $e->getMessage();

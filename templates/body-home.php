@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container feature-buttons-container">
       <div class="row feature-buttons">
         <div class="col-md-4">
           <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">

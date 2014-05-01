@@ -110,6 +110,7 @@ $(document).ready(function() {
           Util.stopLoader();
           $(".press-enter").html('Search Failed!  Check PHP error logs...').show();
           console.log("AJAX ERROR: ",response);
+          console.log("PARSED:",$.parseJSON(response.responseText));
         }
       });
     },
@@ -376,7 +377,6 @@ $(document).ready(function() {
           success: function(response) {
             Util.stopLoader();
             $("#userActivity").empty();
-            console.log(response);
             var r = $.parseJSON(response);
             $.each(r.results, function(idx, activity) {
               $('<li>'+activity.user_id+': '

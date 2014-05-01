@@ -274,7 +274,7 @@
       //adding to terms. not sure why this isn't working.
       if(isset($_SESSION['user_id'])) {
         $q = $db->prepare("insert ignore into table Searches values (:user_id,:term)");
-        $q->execute(array(':user_id' => $_SESSION['user_id'], ':term' => $term));
+        $q->execute(array(':user_id' => $_SESSION['user_id'], ':term' => $_GET['term']));
       }
 
     } catch(PDOException $e) {
@@ -313,7 +313,7 @@
       $num_activity = $_GET['num_activity'];
       $user_id = $_SESSION['user_id'];
       try {
-        $q = $db->prepare("select * from UserActivity where user_id=:user_id order by date limit $num_activity");
+        $q = $db->prepare("select * from Users u, Ratings r where u.user_id = r.user_id, order by date limit $num_activity");
         $q->execute(array(':user_id' => $user_id));
         $response->results = $q->fetchAll();
         $response->message = "User Acitivy returned in results field.";
@@ -455,8 +455,8 @@
         $response->details = $e->getMessage();
         error(500,"Internal Server Error");
       }
-    } 
-  } 
+    }
+  }
 
   // Output the response object as a JSON-encoded string
   echo json_encode($response);

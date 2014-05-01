@@ -133,7 +133,7 @@
           $sql = "select u.user_id, u.username, u.age, u.gender, u.location, count(i.user_id) as isFriends"
                 ." from Users u, isFriends i where u.user_id = :user_id"
                 ." and ((i.user_id = u.user_id and i.friend_id = '".$_SESSION['user_id']."')"
-                ." or (i.user_id = '".$_SESSION['user_id']."' and i.friend_id = u.user_id)";
+                ." or (i.user_id = '".$_SESSION['user_id']."' and i.friend_id = u.user_id))";
         } else {
           $sql = "select user_id, username, age, gender, location"
                 ." from Users where user_id = :user_id";

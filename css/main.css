@@ -116,6 +116,13 @@
   padding: 0 10px 0 0;
 }
 
+#search-form {
+  position: absolute;
+  z-index: 999;
+  top: 168px;
+  left: 0;
+}
+
 #searchinput {
   font-size: 48px;
   height: 78px;
@@ -132,7 +139,8 @@
 }
 
 .search-group {
-  left: 60px;
+  left: 8%;
+  width: 80%;
 }
 
 .press-enter {

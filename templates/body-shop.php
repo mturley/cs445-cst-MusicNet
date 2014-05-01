@@ -6,7 +6,6 @@
 </div>
 
 <div class="container">
-	<table width="100%">
 		<div id="shopList">
 			Loading...
 		</div>

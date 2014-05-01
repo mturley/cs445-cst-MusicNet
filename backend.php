@@ -440,6 +440,7 @@
         error(500,"Internal Server Error");
       }
     }
+  }
 
   // Output the response object as a JSON-encoded string
   echo json_encode($response);

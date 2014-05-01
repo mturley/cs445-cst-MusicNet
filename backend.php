@@ -416,16 +416,9 @@
       $response->message = "Failed to authenticate as an admin!";
     }
 
-<<<<<<< HEAD
-  }
-
 //SHOPS hello?
 
   else if($fn == 'get_Shop') {
-=======
-  } else if($fn == 'get_shop') {
-
->>>>>>> 1384adf2c399115074ed5923c165aacdab82c124
     if(!isset($_GET['num_shops'])) {
       $response->message = "No num_shops field specified.  Number of shops to return is a required field.";
     } else {
@@ -440,15 +433,8 @@
         $response->details = $e->getMessage();
         error(500,"Internal Server Error");
       }
-<<<<<<< HEAD
       }
     }  
-  
-=======
-    }
-
-  }
->>>>>>> 1384adf2c399115074ed5923c165aacdab82c124
 
   // Output the response object as a JSON-encoded string
   echo json_encode($response);

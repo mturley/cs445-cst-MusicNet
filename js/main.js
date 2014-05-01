@@ -716,9 +716,9 @@ $(document).ready(function() {
         Util.stopLoader();
         $("#shopList").empty();
         var r = $.parseJSON(response);
-        $ul = $("<ul>").appendTo($('#shopList'));
+        $ul = $("<table>").appendTo($('#shopList'));
         $.each(r.results, function(idx, shop) {
-          var $li = $('<a href="'+shop.store_link+'"><img src="'+shop.store_img+'" class="ad"></a><font size="24pt"><strong>'+shop.store_name+'</strong></font><br>');
+          var $li = $('<tr><td><a href="'+shop.store_link+'"><img src="'+shop.store_img+'" class="ad"></a></td><td><font size="24pt"><strong>'+shop.store_name+'</strong></font></td></tr>');
           $li.appendTo($ul);
           Util.linkify($li, shop);
         });

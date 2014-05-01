@@ -6,10 +6,6 @@
   text-align: center;
 }
 
-li{
-  list-style: none;
-}
-
 .floating {
   z-index: 999;
   position:absolute;

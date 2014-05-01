@@ -454,6 +454,8 @@ $(document).ready(function() {
 
   } else if(page == 'concerts') {
 
+    $("#searchinput").focus();
+
     Util.startLoader();
     $.ajax({
       type: 'GET',
@@ -511,6 +513,8 @@ $(document).ready(function() {
 
 
   } else if(page == 'friends') {
+
+    $("#searchinput").focus();
 
     Util.startLoader();
     $.ajax({

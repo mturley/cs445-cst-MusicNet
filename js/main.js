@@ -341,6 +341,7 @@ $(document).ready(function() {
       },
       error: function(response) {
         Util.stopLoader();
+        console.log(response);
         bootbox.alert($.parseJSON(response.responseText).message);
       }
     });

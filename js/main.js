@@ -336,7 +336,7 @@ $(document).ready(function() {
         },
         error: function(response) {
           Util.stopLoader();
-          bootbox.alert($.parseJSON(response.responseText).message);
+          // bootbox.alert($.parseJSON(response.responseText).message);
         }
       });
     });

@@ -777,6 +777,7 @@ $(document).ready(function() {
         error: function(response) {
           Util.stopLoader();
           console.log("ERROR: ", response);
+          $("#sql-results").html('<h3 class="red">'+$.parseJSON(response.responseText).details+'</h3>').show();
         }
       });
     });

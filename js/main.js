@@ -235,7 +235,9 @@ $(document).ready(function() {
           var id = result[idkey];
           var page = idkey.replace('_id','');
           var value = $t.html();
-          $t.html('<img src="'+window.resPath+'/img/'+page+'_icon.png" class="obj-icon" /><a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
+          var icon = '<img src="'+window.resPath+'/img/'+page+'_icon.png" class="obj-icon" />';
+          if(page == 'user') icon = '<span class="glyphicon glyphicon-user"></span>&nbsp;';
+          $t.html(icon+'<a href="musicnet.php?page='+page+'&'+idkey+'='+id+'">'+value+'</a>');
         }
       });
     },

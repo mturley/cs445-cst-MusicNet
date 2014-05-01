@@ -69,7 +69,7 @@
           ?>
               <div class="navbar-form navbar-right logged-in-nav">
                 <big class="floatleft"><a class="data-username withicon" href="musicnet.php?page=user&user_id=<?php echo $_SESSION['user_id']; ?>">...</a></big>
-                <a class="btn btn-default floatleft" href="musicnet.php">Home</a>
+                <?php if($page != 'home') { ?><a class="btn btn-default floatleft" href="musicnet.php">Home</a><?php } ?>
                 <div class="dropdown floatleft">
                   <a class="dropdown-toggle btn btn-primary" data-toggle="dropdown" href="#">
                     <span class="glyphicon glyphicon-search"></span>

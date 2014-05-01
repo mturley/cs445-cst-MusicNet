@@ -120,47 +120,53 @@ $(document).ready(function() {
         $(".search-type").html(toTitleCase(r.type));
         $(".search-term").html(r.term);
       }
-      if(r.filtered) {
-        $(".filters").show();
-      } else {
-        $(".filters").hide();
-      }
-      clearTimeout(window.enterTimer);
-      $(".press-enter").hide();
-      $results = $(table);
-      $results.empty();
-      $results.data('page',r.page);
-      var page_row_html = '<tr><th class="center" colspan="'+Object.keys(r.results[0]).length+'">';
-      if(r.page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
-      page_row_html += '<strong>Page '+(r.page - (-1))+'</strong>';
-      if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
-      page_row_html += '</th></tr>';
-      if(!nopaging && (r.page != 0 || r.results.length >= 50)) $(page_row_html).appendTo($results);
-      var $th_row = $("<tr>");
-      $.each(Object.keys(r.results[0]), function(idx, key) {
-        if(isNaN(key) && key.indexOf('_id') == -1) {
-          var niceKey = toTitleCase(key.replace('_',' '));
-          $("<th>"+niceKey+"</th>").appendTo($th_row);
+      if(r.results.length >= 1) {
+        if(r.filtered) {
+          $(".filters").show();
+        } else {
+          $(".filters").hide();
         }
-      });
-      $th_row.appendTo($results);
-      $tbody = $("<tbody>").appendTo($results);
-      $.each(r.results, function(idx, result) {
-        var $result_row = $("<tr>");
-        $.each(Object.keys(result), function(idx, key) {
+        clearTimeout(window.enterTimer);
+        $(".press-enter").hide();
+        $results = $(table);
+        $results.empty();
+        $results.data('page',r.page);
+        var page_row_html = '<tr><th class="center" colspan="'+Object.keys(r.results[0]).length+'">';
+        if(r.page != 0) page_row_html += '<a href="#" class="search-prev">&laquo; Prev</a>&nbsp;|&nbsp;';
+        page_row_html += '<strong>Page '+(r.page - (-1))+'</strong>';
+        if(r.results.length >= 50) page_row_html += '&nbsp;|&nbsp;<a href="#" class="search-next">Next &raquo;</a>';
+        page_row_html += '</th></tr>';
+        if(!nopaging && (r.page != 0 || r.results.length >= 50)) $(page_row_html).appendTo($results);
+        var $th_row = $("<tr>");
+        $.each(Object.keys(r.results[0]), function(idx, key) {
           if(isNaN(key) && key.indexOf('_id') == -1) {
-            $("<td data-key="+key+">"+result[key]+"</td>").appendTo($result_row);
+            var niceKey = toTitleCase(key.replace('_',' '));
+            $("<th>"+niceKey+"</th>").appendTo($th_row);
           }
         });
-        $result_row.appendTo($tbody);
-        Util.linkify($result_row, result);
-      });
-      if(!nopaging && (r.page != 0 || r.results.length >= 50)) $(page_row_html).appendTo($tbody);
-      $(table).show();
-      $("#search-results").show();
-      if($("#search-results").length != 0) {
-        $("body").stop(); // stop scrolling if already scrolling
-        $.scrollTo($("#search-results"), 200, { offset: -60 });
+        $th_row.appendTo($results);
+        $tbody = $("<tbody>").appendTo($results);
+        $.each(r.results, function(idx, result) {
+          var $result_row = $("<tr>");
+          $.each(Object.keys(result), function(idx, key) {
+            if(isNaN(key) && key.indexOf('_id') == -1) {
+              $("<td data-key="+key+">"+result[key]+"</td>").appendTo($result_row);
+            }
+          });
+          $result_row.appendTo($tbody);
+          Util.linkify($result_row, result);
+        });
+        if(!nopaging && (r.page != 0 || r.results.length >= 50)) $(page_row_html).appendTo($tbody);
+        $(table).show();
+        $("#search-results").show();
+        if($("#search-results").length != 0) {
+          $("body").stop(); // stop scrolling if already scrolling
+          $.scrollTo($("#search-results"), 200, { offset: -60 });
+        }
+      } else {
+        $("#search-results").hide();
+        $(table).hide();
+        $(".press-enter").html("No Search Results").show();
       }
     },
     repageSearch : function(pgdiff) {

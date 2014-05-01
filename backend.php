@@ -313,7 +313,7 @@
       $num_activity = $_GET['num_activity'];
       $user_id = $_SESSION['user_id'];
       try {
-        $q = $db->prepare("select * from UserActivity where user_id=:user_id order by date limit $num_activity");
+        $q = $db->prepare("select * from Users u, Ratings r where u.user_id = r.user_id, order by date limit "num_activity");
         $q->execute(array(':user_id' => $user_id));
         $response->results = $q->fetchAll();
         $response->message = "User Acitivy returned in results field.";

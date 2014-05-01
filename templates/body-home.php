@@ -26,7 +26,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a class="btn btn-block btn-default" href="musicnet.php?page=concerts" role="button">
+          <a class="btn btn-block btn-warning" href="musicnet.php?page=concerts" role="button">
             <span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;Find Concerts
           </a>
         </div>

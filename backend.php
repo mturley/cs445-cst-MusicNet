@@ -273,7 +273,7 @@
 
       //adding to terms. not sure why this isn't working.
       if(isset($_SESSION['user_id'])) {
-        $q = $db->prepare("insert ignore into table Searches values (:user_id,:term)");
+        $q = $db->prepare("insert into table Searches values (:user_id,:term)");
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':term' => $_GET['term']));
       }
 

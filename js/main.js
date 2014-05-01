@@ -382,7 +382,7 @@ $(document).ready(function() {
               $.each(r.results, function(idx, activity) {
                 var $li = $('<li>'+activity.user_id+': Rated</li>');
                 $li.appendTo($ul);
-                Util.linkify($li, c);
+                Util.linkify($li, activity);
               });
             },
             error: function(response) {

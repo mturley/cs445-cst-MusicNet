@@ -44,7 +44,7 @@
             <span class="glyphicon glyphicon-globe"></span>
             All the Net.
             <?php if($page != "home") { ?>
-              <span class="btn btn-primary">Home</a>
+              <?php include("templates/dropdown.php") ?>
             <?php } ?>
           </a>
           <div class="please-wait" id="floatingBarsG" style="display: none;">

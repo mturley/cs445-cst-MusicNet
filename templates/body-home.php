@@ -6,8 +6,7 @@
 ?>
     <div class="jumbotron slim">
       <div class="container">
-        <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! 
-        <?php include("templates/dropdown.php") ?></h3>
+        <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! </h3>
       </div>
     </div>
 
@@ -36,9 +35,6 @@
     // logged out below
 ?>
   
-    <div id="topimg">
-        HAI
-      </div>
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to MusicNet!</h1>

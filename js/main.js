@@ -699,7 +699,7 @@ $(document).ready(function() {
 
 
   //SHOP
-  else if(page == 'Shop') {
+  else if(page == 'shop') {
 
    Util.startLoader();
     $.ajax({

@@ -2,7 +2,7 @@
 <div class="jumbotron slim floating">
   <div class="container">
     <h2 class="floatleft">
-      <span class="glyphicon glyphicon-comment"></span>
+      <span class="glyphicon glyphicon-comment"></span>&nbsp;
       Find Friends
     </h2>
     <div id="search-type" class="btn-group btn-group-lg floatleft">

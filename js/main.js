@@ -43,31 +43,6 @@ $(document).ready(function() {
 
 
 
-
-//add friend
-  $("#FriendForm").submit(function(e) {
-    e.preventDefault();
-    var postdata = $("#FriendForm").serializeObject();
-    postdata.fn = 'add_friend';
-    Util.startLoader();
-    $.ajax({
-      type: 'POST',
-      url: 'backend.php',
-      data: postdata,
-      success: function(response) {
-        Util.stopLoader();
-        document.location = 'musicnet.php'; // reload
-      },
-      error: function(response) {
-        Util.stopLoader();
-        bootbox.alert($.parseJSON(response.responseText).message);
-      }
-    });
-  });
-
-  $()
-
-
   var Util = {
     startLoader: function() {
       window.loaders++;
@@ -323,6 +298,27 @@ $(document).ready(function() {
 
 
   } else if(page == 'user') {
+
+    //add friend
+  $("#FriendForm").submit(function(e) {
+    e.preventDefault();
+    var postdata = $("#FriendForm").serializeObject();
+    postdata.fn = 'add_friend';
+    Util.startLoader();
+    $.ajax({
+      type: 'POST',
+      url: 'backend.php',
+      data: postdata,
+      success: function(response) {
+        Util.stopLoader();
+        document.location = 'musicnet.php'; // reload
+      },
+      error: function(response) {
+        Util.stopLoader();
+        bootbox.alert($.parseJSON(response.responseText).message);
+      }
+    });
+  });
 
 
     Util.startLoader();

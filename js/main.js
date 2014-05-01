@@ -380,7 +380,7 @@ $(document).ready(function() {
             url: 'backend.php',
             data: {
               fn: 'get_userActivity',
-              num_activity: 10
+              num_activity: 50
             },
             success: function(response) {
               Util.stopLoader();

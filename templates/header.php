@@ -72,29 +72,42 @@
                 <?php if($page != 'home') { ?><a class="btn btn-default floatleft" href="musicnet.php">Home</a><?php } ?>
                 <div class="dropdown floatleft">
                   <a class="dropdown-toggle btn btn-primary" data-toggle="dropdown" href="#">
-                    <span class="glyphicon glyphicon-search"></span>
-                    Search <span class="caret"></span>
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                    Menu <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li role="presentation" class="dropdown-header"><a href="?page=search">
-                      <span class="glyphicon glyphicon-headphones"></span>&nbsp;
-                      Search for Music
-                    </a></li>
-                    <li role="presentation" class="dropdown-header"><a href="?page=friends">
-                      <span class="glyphicon glyphicon-comment"></span>&nbsp;
-                      Search for Friends
-                    </a></li>
-                    <li role="presentation" class="dropdown-header"><a href="?page=concerts">
-                      <span class="glyphicon glyphicon-tag"></span>&nbsp;
-                      Search for Concerts
-                    </a></li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=search">
+                        <span class="glyphicon glyphicon-headphones"></span>&nbsp;
+                        Find Music
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=shop">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;
+                        Buy Music
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=friends">
+                        <span class="glyphicon glyphicon-comment"></span>&nbsp;
+                        Find Friends
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=concerts">
+                        <span class="glyphicon glyphicon-tag"></span>&nbsp;
+                        Find Concerts
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=logout">
+                        <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                        Sign Out
+                      </a>
+                    </li>
                   </ul>
                 </div>
-                <a href="musicnet.php?page=shop" class="btn btn-info floatleft">
-                  <span class="glyphicon glyphicon-shopping-cart"></span>
-                  Shop
-                </a>
-                <a href="musicnet.php?page=logout" class="btn btn-info floatleft">Sign Out</a>
               </div>
 
           <?php

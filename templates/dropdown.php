@@ -1,5 +1,5 @@
 <div id="drop" style="float: right; v-align:top; margin-right:30px">
-<ul class="nav nav-pills">
+<ul class="nav">
 	<li class="active"><a href="#">Home</a></li>
   <li class="dropdown">
    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Search <span class="caret"></span>

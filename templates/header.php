@@ -80,7 +80,7 @@
                       <span class="glyphicon glyphicon-headphones"></span>&nbsp;
                       Find Music
                     </a></li>
-                    <li role="presentation" class="dropdown-header"><a href="?page=search">
+                    <li role="presentation" class="dropdown-header"><a href="?page=shop">
                       <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;
                       Buy Music
                     </a></li>
@@ -92,13 +92,12 @@
                       <span class="glyphicon glyphicon-tag"></span>&nbsp;
                       Find Concerts
                     </a></li>
+                    <li role="presentation" class="dropdown-header"><a href="?page=logout">
+                      <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                      Sign Out
+                    </a></li>
                   </ul>
                 </div>
-                <a href="musicnet.php?page=shop" class="btn btn-info floatleft">
-                  <span class="glyphicon glyphicon-shopping-cart"></span>
-                  Shop
-                </a>
-                <a href="musicnet.php?page=logout" class="btn btn-info floatleft">Sign Out</a>
               </div>
 
           <?php

@@ -437,6 +437,33 @@
       }
     }
 
+
+
+//add friend
+    else if($fn == 'add_friend') {
+
+    session_start();
+    $friend_id = $_GET['friend_id'];
+    if(isset($_SESSION['user_id'])) {
+      try {
+        $q = $db->prepare('insert ignore into table isFriend values (:user_id,:friend_id)');
+        $q->execute(array(':user_id' => $_SESSION['user_id'], ':friend_id' => $friend_id));
+        $user = $q->fetchObject();
+        if($user->admin == 1) {
+          $q = $db->query($_POST['sql']);
+          $response->results = $q->fetchAll();
+          $response->message = "Success!";
+        } else {
+          throw new PDOException();
+        }
+      } catch(PDOException $e) {
+        $response->message = "Failed to execute the raw SQL statement!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
+    } 
+  } 
+
   // Output the response object as a JSON-encoded string
   echo json_encode($response);
 

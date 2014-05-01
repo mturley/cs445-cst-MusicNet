@@ -14,9 +14,9 @@
 		<div id="user-info">
 			Loading...
 		</div>
-		
-		<form method="post">
-		<input type="hidden" value="<?php echo $_GET['user_id']; ?>" name="friend_id">
+
+		<form id="FriendForm" method="post">
+		<input type="hidden" value="<?php echo $_GET['user_id']; ?>" name="friend_id" id="friend_id">
 		<input type="submit" name="add_friend" value="Add Friend" />
 		</form>
 

@@ -41,10 +41,14 @@ $(document).ready(function() {
     document.location = 'musicnet.php'; // go home
   });
 
-  $("#login-form").submit(function(e) {
+
+
+
+//add friend
+  $("#FriendForm").submit(function(e) {
     e.preventDefault();
-    var postdata = $("#login-form").serializeObject();
-    postdata.fn = 'user_login';
+    var postdata = $("#FriendForm").serializeObject();
+    postdata.fn = 'add_friend';
     Util.startLoader();
     $.ajax({
       type: 'POST',
@@ -60,6 +64,8 @@ $(document).ready(function() {
       }
     });
   });
+
+  $()
 
 
   var Util = {

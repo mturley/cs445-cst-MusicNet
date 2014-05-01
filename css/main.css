@@ -64,6 +64,10 @@
   float: left;
 }
 
+.floatright {
+  float: right;
+}
+
 .jumbotron.slim .btn-group {
   padding: 14px 0 0 25px;
 }

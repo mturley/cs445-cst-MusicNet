@@ -422,7 +422,7 @@ $(document).ready(function() {
               Util.stopLoader();
               $("#userActivity").empty();
               var r = $.parseJSON(response);
-              $ul = $("<table width='100%''>").appendTo($('#userActivity'));
+              $ul = $("<table width='100%'>").appendTo($('#userActivity'));
               $.each(r.results, function(idx, activity) {
                 var $li = $('<tr><td><a href="?page=user&user_id='+activity.user_id+'">'+activity.user_id+'</a> '+activity.activity+'</td><td> at <i>'+activity.date+'</i></td></tr>');
                 $li.appendTo($ul);

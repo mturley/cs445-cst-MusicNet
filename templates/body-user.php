@@ -11,6 +11,7 @@
 	<table width="90%"><tr><td width="250px" valign="top">
 		User Information
 		<hr>
+		
 		<div id="user-info">
 			Loading...
 		</div>

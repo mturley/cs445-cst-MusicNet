@@ -369,6 +369,7 @@ $(document).ready(function() {
       },
       error: function(response) {
         Util.stopLoader();
+        console.log(response.responseText);
         bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
       }
     });
@@ -774,6 +775,7 @@ $(document).ready(function() {
     },
     success: function(response) {
       Util.stopLoader();
+      console.log(response);
       var r = $.parseJSON(response);
       window.logged_in = r.logged_in;
       if(logged_in) {

@@ -63,7 +63,7 @@ $(document).ready(function() {
 
 
 
-  var Util = {
+  window.Util = {
     startLoader: function() {
       window.loaders++;
       $(".please-wait").show();

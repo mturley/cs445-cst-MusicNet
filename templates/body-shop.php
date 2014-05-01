@@ -6,11 +6,10 @@
 </div>
 
 <div class="container">
-	<table><tr><td width="250px">
-		<table><div id="shopList">
+	<table width="100%">
+		<div id="shopList">
 			Loading...
 		</div>
 	</table>
-	</td></tr></table>
 </div>
 <br><br>

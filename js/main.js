@@ -104,7 +104,6 @@ $(document).ready(function() {
         success: function(response) {
           Util.stopLoader();
           Util.renderResultsTable(response, $(resultsElement));
-          $("#search-results").show();
         },
         error: function(response) {
           Util.stopLoader();

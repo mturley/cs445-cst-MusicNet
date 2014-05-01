@@ -164,9 +164,9 @@ $(document).ready(function() {
           $.scrollTo($("#search-results"), 200, { offset: -60 });
         }
       } else {
+        $(".press-enter").html("No Search Results").show();
         $("#search-results").hide();
         $(table).hide();
-        $(".press-enter").html("No Search Results").show();
       }
     },
     repageSearch : function(pgdiff) {

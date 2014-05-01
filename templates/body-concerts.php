@@ -22,16 +22,19 @@
              <span class="input-group-addon addonborder"><span class="glyphicon glyphicon-search bigicon"></span></span>
 	             <input id="searchinput" name="searchinput" type="search" placeholder="Search by Artist" class="form-control input-md">
         </div>
-        <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
-        <div id="search-results" style="display: none;">
-          <h2><span class="type">...</span> matching your search: "<span class="term"></span>":</h2>
-          <table class="results table"></table>
-        </div>
 	    </div>
 	  </div>
 	</fieldset>
   </form>
 </p>
+</div>
+
+<div class="container">
+  <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
+  <div id="search-results" style="display: none;">
+    <h2><span class="type">...</span> matching your search: "<span class="term"></span>":</h2>
+    <table class="results table"></table>
+  </div>
 </div>
 
 <div class="jumbotron slim">

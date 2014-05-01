@@ -51,7 +51,7 @@
 }
 
 .logged-in-nav .floatleft {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .jumbotron.slim {
@@ -155,15 +155,6 @@
   text-align: center;
   margin: 20px;
   padding-right: 100px;
-}
-
-.navbar-brand.nothome {
-  margin-top: -5px;
-}
-.navbar-brand.nothome .btn {
-  position: relative;
-  top: -3px;
-  left: 10px;
 }
 
 .center { text-align: center; }

@@ -69,7 +69,7 @@
           <?php
             if($logged_in) {
           ?>
-              <div id="drop" style="float: right; v-align:top; margin-right:30px">
+          
               <div class="navbar-form navbar-right">
                 <a href="#" class="btn btn-primary" href="musicnet.php">Home</a>
                 <div class="dropdown floatright">

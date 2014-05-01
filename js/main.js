@@ -749,6 +749,11 @@ $(document).ready(function() {
 
     $("#rawsql").focus();
 
+    $("#rawsql").on('keyup', function(e) {
+      if(e.keyCode == 0) return;
+      console.log(e.keyCode);
+    });
+
     $("#sql-form").on('submit', function(e) {
       e.preventDefault();
       $("#sql-results").hide();

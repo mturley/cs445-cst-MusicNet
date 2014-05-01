@@ -14,6 +14,12 @@
   height:350px;
   text-align: center;
 }
+.suggest{
+  background-color: #eee;
+}
+.suggest:nth-child(2n+2) {
+  background-color: #fbf9f4;
+}
 
 #album-art img {
   width: 370px;

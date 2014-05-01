@@ -41,6 +41,26 @@ $(document).ready(function() {
     document.location = 'musicnet.php'; // go home
   });
 
+   $("#login-form").submit(function(e) {
+    e.preventDefault();
+    var postdata = $("#login-form").serializeObject();
+    postdata.fn = 'user_login';
+    Util.startLoader();
+    $.ajax({
+      type: 'POST',
+      url: 'backend.php',
+      data: postdata,
+      success: function(response) {
+        Util.stopLoader();
+        document.location = 'musicnet.php'; // reload
+      },
+      error: function(response) {
+        Util.stopLoader();
+        bootbox.alert($.parseJSON(response.responseText).message);
+      }
+    });
+  });
+
 
 
   var Util = {

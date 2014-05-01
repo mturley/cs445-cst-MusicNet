@@ -449,13 +449,9 @@
         $response->details = $e->getMessage();
         error(500,"Internal Server Error");
       }
-      }
     }
 
-
-
-//add friend
-    else if($fn == 'add_friend') {
+  } else if($fn == 'add_friend') {
 
     session_start();
     $friend_id = $_POST['friend_id'];
@@ -475,6 +471,29 @@
         error(500,"Internal Server Error");
       }
     }
+
+  } else if($fn == 'remove_friend') {
+
+    session_start();
+    $friend_id = $_POST['friend_id'];
+    if(isset($_SESSION['user_id'])) {
+      try {
+        $q = $db->prepare('delete from isFriends where (user_id = :user_id and friend_id = :friend_id)'
+                         .' or (user_id = :friend_id and friend_id = :user_id)');
+        $q->execute(array(':user_id' => $_SESSION['user_id'], ':friend_id' => $friend_id));
+        if($q->rowCount() >= 1) $response->message = $friend_id." is successfully removed";
+
+        $insertAct = "is no longer friends with ".$friend_id;
+        $q = $db->prepare("insert ignore into UserActivity (user_id, activity, date) values (:user_id,:insertAct, now())");
+        $q->execute(array(':user_id' => $_SESSION['user_id'], ':insertAct' => $insertAct));
+
+      } catch(PDOException $e) {
+        $response->message = "Failed to remove friends!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
+    }
+
   }
 
   // Output the response object as a JSON-encoded string

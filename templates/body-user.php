@@ -16,9 +16,13 @@
 		</div>
 		</table>
 
-    <button id="add_friend" class="btn btn-success">
+    <button id="add-friend" class="btn btn-success">
       <span class="glyphicon glyphicon-plus"></span>
       Add Friend
+    </button>
+    <button id="remove-friend" class="btn btn-danger" style="display: none;">
+      <span class="glyphicon glyphicon-minus"></span>
+      Remove Friend
     </button>
 
 		</td><td valign="top">

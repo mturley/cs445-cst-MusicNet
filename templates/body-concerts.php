@@ -1,7 +1,10 @@
 <div id="topimg"></div>
 <div class="jumbotron slim floating">
   <div class="container">
-    <h2 class="floatleft">Find Concerts</h2>
+    <h2 class="floatleft">
+      <span class="glyphicon glyphicon-tag"></span>
+      Find Concerts
+    </h2>
     <div id="search-type" class="btn-group btn-group-lg floatleft">
       <button type="button" class="btn btn-primary" data-search-type="concert-artist">Search by Artist</button>
       <button type="button" class="btn btn-default" data-search-type="concert-location">Search by Location</button>

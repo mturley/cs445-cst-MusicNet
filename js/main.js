@@ -339,7 +339,6 @@ $(document).ready(function() {
           bootbox.alert($.parseJSON(response.responseText).message);
         }
       });
-    });
 
 
       Util.startLoader();

@@ -4,8 +4,8 @@
 
     <div class="jumbotron slim">
       <div class="container">
-        <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! </h3>
-        <?php include("templates/dropdown.php") ?>
+        <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! 
+        <?php include("templates/dropdown.php") ?></h3>
       </div>
     </div>
 

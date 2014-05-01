@@ -388,6 +388,7 @@ $(document).ready(function() {
       },
       success: function(response) {
         Util.stopLoader();
+        console.log("USERGET ",response);
         var r = $.parseJSON(response);
         $("#user-info").empty();
         $.each(Object.keys(r), function(idx, key) {

@@ -3,7 +3,7 @@
     <h2>
       <span class="glyphicon glyphicon-search"></span>&nbsp;
       View User: <?php echo $_GET['user_id']; ?>
-       <?php include(RES_PATH+"/templates/dropdown.php") ?>
+       <?php include("templates/dropdown.php") ?>
     </h2>
   </div>
 </div>

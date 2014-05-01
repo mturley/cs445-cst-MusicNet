@@ -44,7 +44,6 @@
             <span class="glyphicon glyphicon-globe"></span>
             All the Net.
             <?php if($page != "home") { ?>
-              <?php include("templates/dropdown.php") ?>
             <?php } ?>
           </a>
           <div class="please-wait" id="floatingBarsG" style="display: none;">
@@ -72,6 +71,7 @@
           ?>
             <div class="navbar-form navbar-right" style="color: white;">
               <big>
+                <?php include("templates/dropdown.php") ?>
                 Signed In As:&nbsp;
                 <a class="data-username" href="musicnet.php?page=user&user_id=<?php echo $_SESSION['user_id']; ?>">...</a>
               </big>&nbsp;&nbsp;

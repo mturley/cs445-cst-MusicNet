@@ -10,5 +10,7 @@
     	<li role="presentation" class="dropdown-header"><a href="?page=concerts">Events</a></li>
     </ul>
   </li>
+<li><a href="#"><a href="musicnet.php?page=user&user_id=<?php echo $_SESSION['user_id']; ?>">...</a></li>
+<li><a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a></li>
 </ul>
 </div>

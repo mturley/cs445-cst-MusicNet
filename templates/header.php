@@ -78,9 +78,18 @@
                     Search <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li role="presentation" class="dropdown-header"><a href="?page=search">Search for Music</a></li>
-                    <li role="presentation" class="dropdown-header"><a href="?page=friends">Search for Friends</a></li>
-                    <li role="presentation" class="dropdown-header"><a href="?page=concerts">Search for Concerts</a></li>
+                    <li role="presentation" class="dropdown-header"><a href="?page=search">
+                      <span class="glyphicon glyphicon-headphones"></span>
+                      Search for Music
+                    </a></li>
+                    <li role="presentation" class="dropdown-header"><a href="?page=friends">
+                      <span class="glyphicon glyphicon-comment"></span>
+                      Search for Friends
+                    </a></li>
+                    <li role="presentation" class="dropdown-header"><a href="?page=concerts">
+                      <span class="glyphicon glyphicon-tag"></span>
+                      Search for Concerts
+                    </a></li>
                   </ul>
                 </div>
                 <a href="musicnet.php?page=logout" class="btn btn-info floatleft">Sign Out</a>

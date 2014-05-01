@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <div class="container feature-buttons-container">
+    <div class="container">
       <div class="row feature-buttons">
         <div class="col-md-4">
           <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
@@ -62,7 +62,6 @@
 ?>
 
 <div class="container">
-  <br />
   <!-- Example row of columns -->
   <div class="row">
     <div class="col-md-4">

@@ -86,12 +86,8 @@ li{
   -webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
 }
 
-.feature-buttons-container {
-  position: absolute;
-  top: 184px;
-  left: 0;
-  width: 86%;
-  margin: 0 7%;
+.feature-buttons {
+  margin-top: 30px;
 }
 
 .feature-buttons .btn-block {

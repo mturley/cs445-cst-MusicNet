@@ -5,10 +5,10 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container"><center>
 		<div id="shopList">
 			Loading...
 		</div>
-	</table>
+	</table></center>
 </div>
 <br><br>

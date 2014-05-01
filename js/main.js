@@ -716,7 +716,7 @@ $(document).ready(function() {
         Util.stopLoader();
         $("#shopList").empty();
         var r = $.parseJSON(response);
-        $ul = $("<table width='100%'>").appendTo($('#shopList'));
+        $ul = $("<table max-width='100%'>").appendTo($('#shopList'));
         $.each(r.results, function(idx, shop) {
           var $li = $('<tr><td width="35%"><a href="'+shop.store_link+'"><img src="'+shop.store_img+'" class="ad"></a></td><td><b><u>'+shop.store_name+'</b></u><br>blahblah blah blah blahblahblah blah<br>blah blahblahblah balh balh blah<br>blah</td></tr>');
           $li.appendTo($ul);

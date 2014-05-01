@@ -72,6 +72,10 @@ li{
   padding-bottom: 10px;
 }
 
+.jumbotron.slim .btn-group {
+  padding: 16px 0 0 25px;
+}
+
 #please-wait h3 {
   padding: 10px 20px 20px 20px;
 }
@@ -108,11 +112,6 @@ li{
 .floatright {
   float: right;
 }
-
-.jumbotron.slim .btn-group {
-  padding: 14px 0 0 25px;
-}
-
 
 .bigicon {
   font-size: 48px;

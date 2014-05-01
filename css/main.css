@@ -11,8 +11,12 @@
   position:absolute;
   top: 100px;
   left: 100px;
-  background-color: red;
+  background-color: rgba(238,238,238,0.4);
   display: inline-block;
+}
+.floating h1 {
+  display: inline-block;
+  font-size: 63px;
 }
 
 #topimg{

@@ -41,7 +41,7 @@
 
   <div class="container">
     <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
-    <div id="search-results" style="display: none;">
+    <div id="search-results" class="results-container" style="display: none;">
       <h2>
         <span class="search-type">...</span>
         matching your search: "<span class="search-term"></span>":

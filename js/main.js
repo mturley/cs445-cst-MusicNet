@@ -127,6 +127,7 @@ $(document).ready(function() {
         }
         clearTimeout(window.enterTimer);
         $(".press-enter").hide();
+        if(!$(table).is('table')) table = $(table).find('table');
         $results = $(table);
         $results.empty();
         $results.data('page',r.page);
@@ -277,6 +278,7 @@ $(document).ready(function() {
   $("body").on('click', '.search-prev', function(e) {
     e.preventDefault();
     var $table = $(this).closest('table');
+    if($table.is('.results') $table = $table.closests('.results-container');
     if($table.is('#search-results')) Util.repageSearch(-1);
     if($table.is('#album-songs')) Util.repageAlbumSongs(-1);
     if($table.is('#artist-albums')) Util.repageArtistAlbums(-1);
@@ -285,6 +287,7 @@ $(document).ready(function() {
   $("body").on('click', '.search-next', function(e) {
     e.preventDefault();
     var $table = $(this).closest('table');
+    if($table.is('.results') $table = $table.closests('.results-container');
     if($table.is('#search-results')) Util.repageSearch(1);
     if($table.is('#album-songs')) Util.repageAlbumSongs(1);
     if($table.is('#artist-albums')) Util.repageArtistAlbums(1);

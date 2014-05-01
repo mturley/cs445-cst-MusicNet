@@ -380,7 +380,7 @@ $(document).ready(function() {
             url: 'backend.php',
             data: {
               fn: 'get_userActivity',
-              num_activity: 10
+              num_activity: 50
             },
             success: function(response) {
               Util.stopLoader();
@@ -388,7 +388,7 @@ $(document).ready(function() {
               var r = $.parseJSON(response);
               $ul = $("<ul>").appendTo($('#userActivity'));
               $.each(r.results, function(idx, activity) {
-                var $li = $('<li>'+activity.date+': '+activity.user_id+' '+activity.activity+'</li>');
+                var $li = $('<li>'+activity.date+': <a href="?page=user&user_id='+activity.user_id+'">'+activity.user_id+'</a> '+activity.activity+'</li>');
                 $li.appendTo($ul);
                 Util.linkify($li, activity);
               });

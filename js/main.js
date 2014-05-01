@@ -297,6 +297,7 @@ $(document).ready(function() {
       success: function(response) {
         Util.stopLoader();
         $("#relsongs").empty();
+        console.log(response);
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#relsongs'));
         $.each(r.results, function(idx, song) {
@@ -734,7 +735,6 @@ $(document).ready(function() {
       fn: 'get_current_user'
     },
     success: function(response) {
-      console.log(response);
       Util.stopLoader();
       var r = $.parseJSON(response);
       window.logged_in = r.logged_in;

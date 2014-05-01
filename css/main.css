@@ -8,10 +8,8 @@
 
 .floating {
   z-index: 999;
-  position:absolute;
-  top: 40px;
-  left: 20px;
   background-color: red;
+  display: inline-block;
 }
 
 #topimg{

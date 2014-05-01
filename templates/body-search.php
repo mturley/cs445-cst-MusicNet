@@ -39,16 +39,18 @@
   </fieldset>
   </form>
 
-  <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
-  <div id="search-results" style="display: none;">
-    <h2>
-      <span class="search-type">...</span>
-      matching your search: "<span class="search-term"></span>":
-      <a class="btn pull-right btn-primary clear-search" href="#">
-        <span class="glyphicon glyphicon-search"></span> New Search
-      </a>
-    </h2>
-    <table class="results table"></table>
+  <div class="container">
+    <h2 class="press-enter" style="display: none;">(press enter to search)</h2>
+    <div id="search-results" style="display: none;">
+      <h2>
+        <span class="search-type">...</span>
+        matching your search: "<span class="search-term"></span>":
+        <a class="btn pull-right btn-primary clear-search" href="#">
+          <span class="glyphicon glyphicon-search"></span> New Search
+        </a>
+      </h2>
+      <table class="results table"></table>
+    </div>
   </div>
 
 </div><br><br><br>

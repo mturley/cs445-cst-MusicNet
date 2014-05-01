@@ -326,7 +326,8 @@
       $response->message = "No num_activity field specified.  Number of activities to return is a required field.";
     } else {
       $num_activity = $_GET['num_activity'];
-      $user_id = $_SESSION['user_id'];
+      $user_id = $_GET['user_id'];
+      //$user_id = $_SESSION['user_id'];
       try {
         $q = $db->prepare("select * from UserActivity where user_id in(select f.friend_id from isFriends f where f.user_id=:user_id) or user_id=:user_id order by date desc limit $num_activity;");
         $q->execute(array(':user_id' => $user_id));

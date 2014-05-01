@@ -278,7 +278,7 @@ $(document).ready(function() {
   $("body").on('click', '.search-prev', function(e) {
     e.preventDefault();
     var $table = $(this).closest('table');
-    if($table.is('.results') $table = $table.closest('.results-container');
+    if($table.is('.results')) $table = $table.closest('.results-container');
     if($table.is('#search-results')) Util.repageSearch(-1);
     if($table.is('#album-songs')) Util.repageAlbumSongs(-1);
     if($table.is('#artist-albums')) Util.repageArtistAlbums(-1);
@@ -287,7 +287,7 @@ $(document).ready(function() {
   $("body").on('click', '.search-next', function(e) {
     e.preventDefault();
     var $table = $(this).closest('table');
-    if($table.is('.results') $table = $table.closest('.results-container');
+    if($table.is('.results')) $table = $table.closest('.results-container');
     if($table.is('#search-results')) Util.repageSearch(1);
     if($table.is('#album-songs')) Util.repageAlbumSongs(1);
     if($table.is('#artist-albums')) Util.repageArtistAlbums(1);

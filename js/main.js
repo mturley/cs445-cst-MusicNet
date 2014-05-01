@@ -296,16 +296,17 @@ $(document).ready(function() {
       },
       success: function(response) {
         Util.stopLoader();
-        $("#relsongs").empty();
-        console.log(response);
         var r = $.parseJSON(response);
-        $ul = $("<ul>").appendTo($('#relsongs'));
-        $.each(r.results, function(idx, song) {
-          var $li = $('<li class="sugest"><strong data-key="title">'+song.title+'</strong> by the Artist <strong data-key="artist_name">'+song.artist_name
-          + '</strong> on the Album <strong data-key="album_name">'+song.album_name+'</strong></li>');
-          $li.appendTo($ul);
-          Util.linkify($li, song);
-        });
+        if(r.hasOwnProperty('results')) {
+          $("#relsongs").empty();
+          $ul = $("<ul>").appendTo($('#relsongs'));
+          $.each(r.results, function(idx, song) {
+            var $li = $('<li class="sugest"><strong data-key="title">'+song.title+'</strong> by the Artist <strong data-key="artist_name">'+song.artist_name
+            + '</strong> on the Album <strong data-key="album_name">'+song.album_name+'</strong></li>');
+            $li.appendTo($ul);
+            Util.linkify($li, song);
+          });
+        }
       },
       error: function(error) {
         Util.stopLoader();

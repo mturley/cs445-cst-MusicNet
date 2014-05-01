@@ -6,6 +6,7 @@
       <button type="button" class="btn btn-default" data-search-type="concert-location">Search by Location</button>
       <button type="button" class="btn btn-default" data-search-type="concert-date">Search by Date</button>
     </div>
+    <?php include("templates/dropdown.php") ?>
   </div>
 </div>
 

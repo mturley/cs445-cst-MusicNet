@@ -300,7 +300,7 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#relsongs'));
         $.each(r.results, function(idx, song) {
-          var $li = $('<li>The song <strong data-key="title">'+song.title+'</strong> by the Artist <strong data-key="artist_name">'+song.artist_name
+          var $li = $('<li class="sugest"><strong data-key="title">'+song.title+'</strong> by the Artist <strong data-key="artist_name">'+song.artist_name
           + '</strong> on the Album <strong data-key="album_name">'+song.album_name+'</strong></li>');
           $li.appendTo($ul);
           Util.linkify($li, song);
@@ -339,6 +339,30 @@ $(document).ready(function() {
         bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
       }
     });
+
+        Util.startLoader();
+        $.ajax({
+          type: 'GET',
+          url: 'backend.php',
+          data: {
+            fn: 'get_userActivity',
+            num_activity: 10
+          },
+          success: function(response) {
+            Util.stopLoader();
+            $("#userActivity").empty();
+            console.log(response);
+            var r = $.parseJSON(response);
+            $.each(r.results, function(idx, activity) {
+              $('<li>'+activity.user_id+': '
+               +activity.activity+'</li>');
+            });
+          },
+          error: function(response) {
+            Util.stopLoader();
+            bootbox.alert("Failed to load user activity!  Error Message: "+$.parseJSON(response.responseText).message);
+          }
+        });
 
 
   } else if(page == 'logout') {

@@ -1,11 +1,16 @@
 <?php
   if($logged_in) {
 ?>
+    <div id="topimg">
+        HAI
+      </div>
     <div class="jumbotron slim">
       <div class="container">
-        <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>!</h3>
+        <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! 
+        <?php include("templates/dropdown.php") ?></h3>
       </div>
     </div>
+
     <div class="container">
       <div class="row feature-buttons">
         <div class="col-md-4">
@@ -30,6 +35,10 @@
   } else {
     // logged out below
 ?>
+  
+    <div id="topimg">
+        HAI
+      </div>
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to MusicNet!</h1>
@@ -51,6 +60,7 @@
 
       </div>
     </div>
+
 
 <?php
   }

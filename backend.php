@@ -213,11 +213,14 @@
     try {
       $sql = "";
       if($type == 'songs') {
-        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
+        $sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, s.album_id, s.album_name, s.artist_id, s.artist_name"
+              ." from Music s"
+              ." where s.title like :term";
+        /*$sql = "select s.song_id, s.title, s.year, s.duration, s.loudness, al.album_id, al.album_name, ar.artist_id, ar.artist_name"
               ." from Songs s, SFrom sf, Albums al, AlbumBy ab, Artists ar"
               ." where title like :term and s.song_id = sf.song_id"
               ." and sf.album_id = al.album_id and al.album_id = ab.album_id"
-              ." and ab.artist_id = ar.artist_id";
+              ." and ab.artist_id = ar.artist_id";*/
         //if($_GET['filtered'] && isset($_GET['filters']['yearLow'])) {
         //  $sql .= " and s.year >= :yearlow and s.year <= :yearhigh";
         //}
@@ -231,6 +234,7 @@
         //}
         $sql .= " group by ar.artist_id";
       } else if($type == 'albums') {
+        //$sql = "select m.album_id, m.album_name, m.artist_id, m.artist_name, count(m.song_id) as song_count from Music m,  where m.album_name like :term";
         $sql = "select al.album_id, al.album_name, ar.artist_id, ar.artist_name, count(sf.song_id) as song_count"
               ." from Albums al, SFrom sf, AlbumBy ab, Artists ar"
               ." where album_name like :term and al.album_id = ab.album_id"
@@ -258,6 +262,14 @@
       //  $arr[':yearhigh'] = $_GET['filters']['yearHigh'];
       //}
       $q->execute($arr);
+
+      //adding to terms. not sure why this isn't working. 
+      /*session_start();
+      $user_id = "%".$_SESSION['user_id']."%";
+      $query = "insert ignore into table Searches values (:user_id,:term)";
+      $doEET = $db->query($query);*/
+
+
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->type = $_GET['searchType'];
@@ -292,7 +304,27 @@
       }
     }
 
-  } else if($fn == 'get_suggested_songs') {
+  } else if($fn == 'get_userActivity') {
+
+    session_start();
+    if(!isset($_GET['num_activity'])) {
+      $response->message = "No num_activity field specified.  Number of activities to return is a required field.";
+    } else {
+      $num_activity = $_GET['num_activity'];
+      $user_id = $_SESSION['user_id'];
+      try {
+        $q = $db->prepare("select * from UserActivity where user_id=:user_id order by date limit $num_activity");
+        $q->execute(array(':user_id' => $user_id));
+        $response->results = $q->fetchAll();
+        $response->message = "User Acitivy returned in results field.";
+      } catch(PDOException $e) {
+        $response->message = "Failed to fetch ads!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
+    }
+
+  }  else if($fn == 'get_suggested_songs') {
 
     session_start();
     if(!isset($_GET['num_songs'])) {

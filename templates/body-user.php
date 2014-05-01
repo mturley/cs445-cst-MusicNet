@@ -1,10 +1,9 @@
-<!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron slim">
   <div class="container">
-    <h2>
+    <h3>
       <span class="glyphicon glyphicon-search"></span>&nbsp;
       View User: <?php echo $_GET['user_id']; ?>
-    </h2>
+       <?php include("templates/dropdown.php") ?></h3>
   </div>
 </div>
 
@@ -15,12 +14,13 @@
 		<div id="user-info">
 			Loading...
 		</div>
-		if user = me. Allow editing of information
 		</td><td valign="top">
 		User Activity
 		<hr>
-		USER ACTIVITY FEED HERE...<br>
-		USER ACTIVITY FEED HERE...<br>
+		<div id="userActivity">
+			USER ACTIVITY FEED HERE...<br>
+			USER ACTIVITY FEED HERE...<br>
+		</div>
 	</td></tr></table>
 </div>
 <br><br>

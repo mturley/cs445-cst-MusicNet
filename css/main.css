@@ -5,6 +5,25 @@
 .filters {
   text-align: center;
 }
+.dropdown-header{
+  font-size: 18px;
+}
+
+#topimg{
+  padding-top:170px;
+  max-width: 100%;
+  background: #fff url('http://massedmc.com/wp-content/uploads/2013/09/weekly-forecast1.jpg') no-repeat fixed center;
+  background-size:100%;
+  height:350px;
+  text-align: center;
+}
+.suggest{
+  background-color: #eee;
+}
+.suggest:nth-child(2n+2) {
+  background-color: #fbf9f4;
+}
+
 #album-art img {
   width: 370px;
 }

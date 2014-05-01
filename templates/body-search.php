@@ -5,6 +5,7 @@
       <button type="button" class="btn btn-primary" data-search-type="songs">Search Songs</button>
       <button type="button" class="btn btn-default" data-search-type="artists">Search Artists</button>
       <button type="button" class="btn btn-default" data-search-type="albums">Search Albums</button>
+      <?php include("templates/dropdown.php") ?>
     </div>
     <!--<h2 class="floatleft">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -24,8 +24,7 @@
 		User Activity
 		<hr>
 		<div id="userActivity">
-			USER ACTIVITY FEED HERE...<br>
-			USER ACTIVITY FEED HERE...<br>
+			loading...
 		</div>
 	</td></tr></table>
 </div>

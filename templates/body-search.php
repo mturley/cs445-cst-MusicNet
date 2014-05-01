@@ -1,4 +1,5 @@
-<div class="jumbotron slim">
+<div id="topimg"></div>
+<div class="jumbotron floating">
   <div class="container">
     <h2 class="floatleft">Search for Music</h2>
     <div id="search-type" class="btn-group btn-group-lg floatleft">

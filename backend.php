@@ -453,17 +453,16 @@
     $friend_id = $_POST['friend_id'];
     if(isset($_SESSION['user_id'])) {
       try {
-        $q = $db->prepare('insert ignore into isFriends values (user_id, friend_id) values (:user_id,:friend_id, now())');
+        $q = $db->prepare('insert ignore into isFriends (user_id, friend_id, date) values (:user_id,:friend_id, now())');
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':friend_id' => $friend_id));
-        $user = $q->fetchObject();
-        $response->message = "friend added";
+        if($q->rowCount() == 1) $response->message = "friend added";
 
         $insertAct = "is friends with ".$friend_id;
         $q = $db->prepare("insert ignore into UserActivity (user_id, activity, date) values (:user_id,:insertAct, now())");
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':insertAct' => $insertAct));
 
-     } catch(PDOException $e) {
-        $response->message = "Failed to add frinds!";
+      } catch(PDOException $e) {
+        $response->message = "Failed to add friends!";
         $response->details = $e->getMessage();
         error(500,"Internal Server Error");
       }

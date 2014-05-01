@@ -379,8 +379,7 @@ $(document).ready(function() {
             $("#userActivity").empty();
             var r = $.parseJSON(response);
             $.each(r.results, function(idx, activity) {
-              $('<li>'+activity.user_id+': '
-               +activity.activity+'</li>');
+              $('<li>'+activity.user_id+': Rated</li>');
             });
           },
           error: function(response) {

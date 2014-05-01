@@ -314,12 +314,12 @@
       $num_activity = $_GET['num_activity'];
       $user_id = $_SESSION['user_id'];
       try {
-        $q = $db->prepare("select * from Users u, Ratings r where u.user_id = :user_id, order by date limit $num_activity");
+        $q = $db->prepare("select u.user_id from Users u, Ratings r where u.user_id = :user_id and r.user_id=:user_id order by date limit $num_activity");
         $q->execute(array(':user_id' => $user_id));
         $response->results = $q->fetchAll();
         $response->message = "User Acitivy returned in results field.";
       } catch(PDOException $e) {
-        $response->message = "Failed to fetch ads!";
+        $response->message = "Failed to fetch activity!";
         $response->details = $e->getMessage();
         error(500,"Internal Server Error");
       }

@@ -463,7 +463,7 @@
       try {
         $q = $db->prepare('insert ignore into isFriends (user_id, friend_id, date) values (:user_id,:friend_id, now())');
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':friend_id' => $friend_id));
-        if($q->rowCount() == 1) $response->message = "friend added";
+        if($q->rowCount() == 1) $response->message = $friend_id." is successfully added";
 
         $insertAct = "is friends with ".$friend_id;
         $q = $db->prepare("insert ignore into UserActivity (user_id, activity, date) values (:user_id,:insertAct, now())");

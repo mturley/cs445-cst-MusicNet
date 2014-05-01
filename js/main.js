@@ -337,7 +337,7 @@ $(document).ready(function() {
       data: postdata,
       success: function(response) {
         Util.stopLoader();
-        bootbox.alert("friend is sucessfully added");
+         bootbox.alert($.parseJSON(response).message);
         document.location = 'musicnet.php'; // reload
       },
       error: function(response) {

@@ -4,7 +4,7 @@
 ?>
     <div class="jumbotron floating">
       <div class="container">
-        <h3>Welcome back, <span class="data-username">...</span>! </h3>
+        <h2>Welcome back, <span class="data-username">...</span>!</h2>
       </div>
     </div>
 

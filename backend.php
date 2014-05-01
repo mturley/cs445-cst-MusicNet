@@ -456,6 +456,9 @@
         error(500,"Internal Server Error");
       }
     }
+    else {
+      $response->message = "Failed to add friend!";
+    }
   }
 
   // Output the response object as a JSON-encoded string

@@ -750,8 +750,10 @@ $(document).ready(function() {
     $("#rawsql").focus();
 
     $("#rawsql").on('keyup', function(e) {
-      if(e.keyCode == 0) return;
-      console.log(e.keyCode);
+      if(e.keyCode == 13) {
+        e.preventDefault();
+        $("#sql-form").trigger('submit');
+      }
     });
 
     $("#sql-form").on('submit', function(e) {

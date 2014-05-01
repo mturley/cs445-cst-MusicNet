@@ -9,7 +9,7 @@
 .floating {
   z-index: 999;
   position:absolute;
-  top: 50px;
+  top: 45px;
   left: 0;
   background-color: rgba(238,238,238,0.4);
   display: inline-block;

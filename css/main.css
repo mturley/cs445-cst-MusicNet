@@ -138,6 +138,9 @@
   height: 0px;
 }
 
+#search-form .form-group {
+  margin: 0;
+}
 .search-group {
   left: 8%;
   width: 80%;

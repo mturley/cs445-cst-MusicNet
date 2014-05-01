@@ -749,10 +749,11 @@ $(document).ready(function() {
 
     $("#rawsql").focus();
 
-    $("#rawsql").on('keyup', function(e) {
+    $("#rawsql").keydown(function(e) {
       if(e.keyCode == 13) {
         e.preventDefault();
-        $("#sql-form").trigger('submit');
+        $("#sql-form").submit();
+        return false;
       }
     });
 

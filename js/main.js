@@ -692,18 +692,10 @@ $(document).ready(function() {
         }
       });
     });
-  }// end of page-specific scripts
 
 
+  } else if(page == 'shop') {
 
-
-
-  //SHOP
-<<<<<<< HEAD
-  else if(page == 'Shop') {
-=======
-  else if(page == 'shop') {
->>>>>>> e6fd91b5ad6528f326b88a35cf1d18b09d4ea7ca
 
    Util.startLoader();
     $.ajax({
@@ -733,7 +725,9 @@ $(document).ready(function() {
         console.log("ERROR: ", error);
       }
     });
+
   }// end of page-specific scripts
+
 
   Util.startLoader();
   // get the state of the current user and load ads.

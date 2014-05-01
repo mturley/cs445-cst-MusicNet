@@ -205,6 +205,7 @@
 
   } else if($fn == 'search') {
 
+    session_start();
     $type = $_GET['searchType'];
     $term = "%".$_GET['term']."%";
     $results_per_page = 50;
@@ -262,14 +263,6 @@
       //  $arr[':yearhigh'] = $_GET['filters']['yearHigh'];
       //}
       $q->execute($arr);
-
-      //adding to terms. not sure why this isn't working.
-      /*session_start();
-      $user_id = "%".$_SESSION['user_id']."%";
-      $query = "insert ignore into table Searches values (:user_id,:term)";
-      $doEET = $db->query($query);*/
-
-
       $response->message = "Search Successful";
       $response->page = $_GET['page'];
       $response->type = $_GET['searchType'];
@@ -277,6 +270,13 @@
       //$response->filtered = $_GET['filtered'];
       //$response->filters = $_GET['filters'];
       $response->results = $q->fetchAll();
+
+      //adding to terms. not sure why this isn't working.
+      if(isset($_SESSION['user_id'])) {
+        $q = $db->prepare("insert ignore into table Searches values (:user_id,:term)");
+        $q->execute(array(':user_id' => $_SESSION['user_id'], ':term' => $term));
+      }
+
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";
       $response->details = $e->getMessage();

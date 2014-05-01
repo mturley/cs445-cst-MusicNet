@@ -368,6 +368,7 @@ $(document).ready(function() {
       },
       error: function(response) {
         Util.stopLoader();
+        console.log(response.responseText);
         bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
       }
     });

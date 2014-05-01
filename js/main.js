@@ -771,6 +771,10 @@ $(document).ready(function() {
       });
     });
 
+    window.enterTimer = setTimeout(function() {
+      $(".press-enter").fadeIn();
+    }, 2000);
+
 
   } else if(page == 'shop') {
 

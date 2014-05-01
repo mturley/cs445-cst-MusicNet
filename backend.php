@@ -271,11 +271,17 @@
       //$response->filters = $_GET['filters'];
       $response->results = $q->fetchAll();
 
-      //adding to terms. not sure why this isn't working.
-      if(isset($_SESSION['user_id'])) {
-        $q = $db->prepare("insert ignore into Searches (user_id, term_id) values (:user_id,:term)");
-        $q->execute(array(':user_id' => $_SESSION['user_id'], ':term' => $_GET['term']));
-      }
+
+
+
+
+      //adding to userActivity. not sure why this isn't working.
+    
+        $insertAct = "is searching for ".$term;
+        $user_id = $_SESSION['user_id'];
+        $q = $db->prepare("insert ignore into UserActivity (user_id, activity, date) values (:user_id,:insertAct, now())");
+        $q->execute(array(':user_id' => $_SESSION['user_id'], ':insertAct' => $_GET['insertAct']));
+  
 
     } catch(PDOException $e) {
       $response->message = "Failed to Select from the Songs table!";

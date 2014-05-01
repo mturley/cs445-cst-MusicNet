@@ -1,7 +1,9 @@
 <?php
   if($logged_in) {
 ?>
-
+    <div id="topimg">
+        HAI
+      </div>
     <div class="jumbotron slim">
       <div class="container">
         <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! 
@@ -33,6 +35,10 @@
   } else {
     // logged out below
 ?>
+  
+    <div id="topimg">
+        HAI
+      </div>
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to MusicNet!</h1>

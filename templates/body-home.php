@@ -16,12 +16,12 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a class="btn btn-block btn-default" href="musicnet.php?page=shop" role="button">
+          <a class="btn btn-block btn-info" href="musicnet.php?page=shop" role="button">
             <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;Buy Music
           </a>
         </div>
         <div class="col-md-3">
-          <a class="btn btn-block btn-default" href="musicnet.php?page=friends" role="button">
+          <a class="btn btn-block btn-success" href="musicnet.php?page=friends" role="button">
             <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Find Friends
           </a>
         </div>

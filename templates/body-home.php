@@ -10,17 +10,22 @@
 
     <div class="container ">
       <div class="row feature-buttons">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <a class="btn btn-block btn-primary" href="musicnet.php?page=search" role="button">
             <span class="glyphicon glyphicon-headphones"></span>&nbsp;&nbsp;Search for Music
           </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
+          <a class="btn btn-block btn-default" href="musicnet.php?page=shop" role="button">
+            <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;Shop for Music
+          </a>
+        </div>
+        <div class="col-md-3">
           <a class="btn btn-block btn-default" href="musicnet.php?page=friends" role="button">
             <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Make Friends
           </a>
-       </div>
-        <div class="col-md-4">
+        </div>
+        <div class="col-md-3">
           <a class="btn btn-block btn-default" href="musicnet.php?page=concerts" role="button">
             <span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;Find Concerts
           </a>
@@ -64,17 +69,22 @@
 <div class="container">
   <!-- Example row of columns -->
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <h2>Endless Music</h2>
       <p>Search of huge library of music by song, artist or album. MusicNet will help to find even the most obscure music using search by terms.</p>
       <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
+      <h2>Shop for Music</h2>
+      <p>Browse various digital music stores and view the libraries they offer.  When searching for music, songs available for purchase will have a "Buy" button.</p>
+      <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+    </div>
+    <div class="col-md-3">
       <h2>Find Friends</h2>
       <p>MusicNet has thousands of other users like you! Find friends with similar music taste and who go to the same shows you do!  </p>
       <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
    </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <h2>Find Concerts</h2>
       <p>Is your favorite artist in town? MusicNet has the latest concert information for artists in your area! </p>
       <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->

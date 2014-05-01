@@ -90,7 +90,10 @@
                     </a></li>
                   </ul>
                 </div>
-                <a href="musicnet.php?page=shop" class="btn btn-info floatleft">Shop</a>
+                <a href="musicnet.php?page=shop" class="btn btn-info floatleft">
+                  <span class="glyphicon glyphicon-shopping-cart"></span>
+                  Shop
+                </a>
                 <a href="musicnet.php?page=logout" class="btn btn-info floatleft">Sign Out</a>
               </div>
 

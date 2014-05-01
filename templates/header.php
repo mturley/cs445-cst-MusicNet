@@ -76,26 +76,36 @@
                     Menu <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li role="presentation" class="dropdown-header"><a href="?page=search">
-                      <span class="glyphicon glyphicon-headphones"></span>&nbsp;
-                      Find Music
-                    </a></li>
-                    <li role="presentation" class="dropdown-header"><a href="?page=shop">
-                      <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;
-                      Buy Music
-                    </a></li>
-                    <li role="presentation" class="dropdown-header"><a href="?page=friends">
-                      <span class="glyphicon glyphicon-comment"></span>&nbsp;
-                      Find Friends
-                    </a></li>
-                    <li role="presentation" class="dropdown-header"><a href="?page=concerts">
-                      <span class="glyphicon glyphicon-tag"></span>&nbsp;
-                      Find Concerts
-                    </a></li>
-                    <li role="presentation" class="dropdown-header"><a href="?page=logout">
-                      <span class="glyphicon glyphicon-log-out"></span>&nbsp;
-                      Sign Out
-                    </a></li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=search">
+                        <span class="glyphicon glyphicon-headphones"></span>&nbsp;
+                        Find Music
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=shop">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;
+                        Buy Music
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=friends">
+                        <span class="glyphicon glyphicon-comment"></span>&nbsp;
+                        Find Friends
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=concerts">
+                        <span class="glyphicon glyphicon-tag"></span>&nbsp;
+                        Find Concerts
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" href="?page=logout">
+                        <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                        Sign Out
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>

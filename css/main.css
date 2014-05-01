@@ -6,6 +6,14 @@
   text-align: center;
 }
 
+h1.floating {
+  z-index: 999;
+  position:absolute;
+  top: 40px;
+  left: 20px;
+  background-color: red;
+}
+
 #topimg{
   padding-top:170px;
   max-width: 100%;

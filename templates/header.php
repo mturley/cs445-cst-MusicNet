@@ -69,10 +69,10 @@
           <?php
             if($logged_in) {
           ?>
-          
-              <div class="navbar-form navbar-right">
-                <a href="#" class="btn btn-primary" href="musicnet.php">Home</a>
-                <div class="dropdown floatright">
+
+              <div class="navbar-form navbar-right logged-in-nav">
+                <a href="#" class="btn btn-primary floatleft" href="musicnet.php">Home</a>
+                <div class="dropdown floatleft">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Search <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
@@ -81,8 +81,8 @@
                     <li role="presentation" class="dropdown-header"><a href="?page=concerts">Events</a></li>
                   </ul>
                 </div>
-                <a class="data-username" href="musicnet.php?page=user&user_id=<?php echo $_SESSION['user_id']; ?>">...</a>
-                <a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a>
+                <big class="floatleft"><a class="data-username" href="musicnet.php?page=user&user_id=<?php echo $_SESSION['user_id']; ?>">...</a></big>
+                <a href="musicnet.php?page=logout" class="btn btn-info floatleft">Sign Out</a>
               </div>
 
           <?php

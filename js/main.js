@@ -712,9 +712,9 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#shopList'));
         $.each(r.results, function(idx, shop) {
-          var $li = $('<li><a href="'+shop.store_link+'"><img src="'+shop.store_img+'"></a></li>');
+          var $li = $('<li><a href="'+shop.store_link+'"><img src="'+shop.store_img+'"class="ad"></a></li>');
           $li.appendTo($ul);
-          Util.linkify($li, c);
+          Util.linkify($li, shop);
         });
       },
       error: function(error) {

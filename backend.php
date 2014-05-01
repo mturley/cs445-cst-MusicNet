@@ -271,11 +271,11 @@
       //$response->filters = $_GET['filters'];
       $response->results = $q->fetchAll();
 
-      //adding to terms. not sure why this isn't working.
+      //adding to useractivity. not sure why this isn't working.
       if(isset($_SESSION['user_id'])) {
         $date = new DateTime();
         $datetime=$date->getTimestamp();
-        $string="user searched for".$_GET['term'].
+        $string="user searched for".$_GET['term'];
         $q = $db->prepare("insert ignore into UserActivity (user_id, term_id) values (:user_id,:string,:datetime)");
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':string' => $_GET['string'], ':datetime' => $_GET['datetime']));
       }

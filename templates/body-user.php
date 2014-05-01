@@ -15,15 +15,20 @@
 			Loading...
 		</div>
 
-		<button id="add-friend" class="btn btn-success">
-      <span class="glyphicon glyphicon-plus"></span>
-      Add Friend
-    </button>
-    <button id="remove-friend" class="btn btn-danger" style="display: none;">
-      <span class="glyphicon glyphicon-minus"></span>
-      Remove Friend
-    </button>
-
+    <?php
+      if($logged_in && $_GET['user_id'] != $_SESSION['user_id']) {
+    ?>
+    		<button id="add-friend" class="btn btn-success">
+          <span class="glyphicon glyphicon-plus"></span>
+          Add Friend
+        </button>
+        <button id="remove-friend" class="btn btn-danger" style="display: none;">
+          <span class="glyphicon glyphicon-minus"></span>
+          Remove Friend
+        </button>
+    <?php
+      }
+    ?>
 		</td><td valign="top">
 		User Activity
 		<hr>

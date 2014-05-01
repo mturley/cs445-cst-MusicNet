@@ -326,52 +326,29 @@ $(document).ready(function() {
   } else if(page == 'user') {
 
     //add friend
-    $("#add-friend").click(function(e) {
-      e.preventDefault();
-      Util.startLoader();
-      $.ajax({
-        type: 'POST',
-        url: 'backend.php',
-        data: {
-          fn: 'add_friend',
-          friend_id: urlParam('user_id')
-        },
-        success: function(response) {
-          Util.stopLoader();
-          bootbox.alert($.parseJSON(response).message, function() {
-            document.location = 'musicnet.php?page=user&user_id='+urlParam('user_id'); // reload
-          });
-        },
-        error: function(response) {
-          Util.stopLoader();
-          bootbox.alert($.parseJSON(response.responseText).message);
-        }
-      });
+  $("#add-friend").click(function(e) {
+    e.preventDefault();
+    postdata.fn = 'add_friend';
+    Util.startLoader();
+    $.ajax({
+      type: 'POST',
+      url: 'backend.php',
+      data: {
+        fn: 'add_friend',
+        friend_id: urlParam('user_id')
+      },
+      success: function(response) {
+        Util.stopLoader();
+        bootbox.alert($.parseJSON(response).message, function() {
+          document.location = 'musicnet.php?page=user&user_id='+urlParam('user_id'); // reload
+        });
+      },
+      error: function(response) {
+        Util.stopLoader();
+        bootbox.alert($.parseJSON(response.responseText).message);
+      }
     });
-
-    //remove friend
-    $("#remove-friend").click(function(e) {
-      e.preventDefault();
-      Util.startLoader();
-      $.ajax({
-        type: 'POST',
-        url: 'backend.php',
-        data: {
-          fn: 'remove_friend',
-          friend_id: urlParam('user_id')
-        },
-        success: function(response) {
-          Util.stopLoader();
-          bootbox.alert($.parseJSON(response).message, function() {
-            document.location = 'musicnet.php?page=user&user_id='+urlParam('user_id'); // reload
-          });
-        },
-        error: function(response) {
-          Util.stopLoader();
-          bootbox.alert($.parseJSON(response.responseText).message);
-        }
-      });
-    });
+  });
 
 
     Util.startLoader();
@@ -394,11 +371,9 @@ $(document).ready(function() {
           }
         });
         if(r.isFriends != 0) {
-          $("#add-friend").hide();
-          $("#remove-friend").show();
+          // todo change button to remove friend
         } else {
-          $("#add-friend").show();
-          $("#remove-friend").hide();
+          // todo change button to add friend
         }
       },
       error: function(response) {
@@ -422,9 +397,9 @@ $(document).ready(function() {
               Util.stopLoader();
               $("#userActivity").empty();
               var r = $.parseJSON(response);
-              $ul = $("<table width='100%'>").appendTo($('#userActivity'));
+              $ul = $("<ul>").appendTo($('#userActivity'));
               $.each(r.results, function(idx, activity) {
-                var $li = $('<tr><td><a href="?page=user&user_id='+activity.user_id+'">'+activity.user_id+'</a> '+activity.activity+'</td><td> at <i>'+activity.date+'</i></td></tr>');
+                var $li = $('<li><a href="?page=user&user_id='+activity.user_id+'">'+activity.user_id+'</a> '+activity.activity+' &nbsp;&nbsp;at <i>'+activity.date+'</i></li>');
                 $li.appendTo($ul);
                 Util.linkify($li, activity);
               });

@@ -10,7 +10,7 @@
       <button type="button" class="btn btn-default" data-search-type="artists">Search Artists</button>
       <button type="button" class="btn btn-default" data-search-type="albums">Search Albums</button>
     </div>
-    <h2 class="floatleft">
+    <h2 class="pull-right">
       <a class="btn btn-info advanced-search">Advanced Search</a>
     </h2>
   </div>

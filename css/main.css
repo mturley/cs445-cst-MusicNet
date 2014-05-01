@@ -10,7 +10,7 @@
   z-index: 999;
   position:absolute;
   top: 50px;
-  left: 100px;
+  left: 0;
   background-color: rgba(238,238,238,0.4);
   display: inline-block;
   margin: 0;
@@ -19,7 +19,7 @@
 .floating h1 {
   display: inline-block;
   font-size: 63px;
-  padding: 20px;
+  padding: 20px 20px 20px 120px;
 }
 
 #topimg{

@@ -1,3 +1,7 @@
+<div class="jumbotron slim">
+  <h2>SQL Admin Panel</h2>
+</div>
+
 <div class="container">
 <form id="sql-form" class="form-horizontal">
   <fieldset>

@@ -100,6 +100,18 @@
                         Find Concerts
                       </a>
                     </li>
+                    <?php
+                      if($logged_in && $_SESSION['user_id'] == 'admin') {
+                    ?>
+                        <li role="presentation">
+                          <a role="menuitem" href="?page=sql">
+                            <span class="glyphicon glyphicon-wrench"></span>&nbsp;
+                            SQL Admin Panel
+                          </a>
+                        </li>
+                    <?php
+                      }
+                    ?>
                     <li role="presentation">
                       <a role="menuitem" href="?page=logout">
                         <span class="glyphicon glyphicon-log-out"></span>&nbsp;

@@ -14,12 +14,13 @@
   background-color: rgba(238,238,238,0.4);
   display: inline-block;
   margin: 0;
+  padding: 20px;
   width: 100%;
 }
 .floating h1 {
   display: inline-block;
   font-size: 63px;
-  padding: 20px 20px 20px 120px;
+  padding: 0 0 0 100px;
   color: #111;
 }
 

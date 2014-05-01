@@ -1,9 +1,9 @@
-<?php
+<div id="topimg">
+  HAI
+</div>
+      <?php
   if($logged_in) {
 ?>
-    <div id="topimg">
-        HAI
-      </div>
     <div class="jumbotron slim">
       <div class="container">
         <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! 

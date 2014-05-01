@@ -6,7 +6,6 @@
   text-align: center;
 }
 
-
 #topimg{
   padding-top:170px;
   max-width: 100%;
@@ -14,12 +13,6 @@
   background-size:100%;
   height:350px;
   text-align: center;
-}
-.suggest{
-  background-color: #eee;
-}
-.suggest:nth-child(2n+2) {
-  background-color: #fbf9f4;
 }
 
 #album-art img {

@@ -5,7 +5,7 @@
     <div class="jumbotron slim">
       <div class="container">
         <h3>Welcome back, <?php echo $_SESSION['user_id']; ?>! 
-        <?php include("http://cs445.cs.umass.edu/php-wrapper/cst/templates/dropdown.php") ?>
+        <div id="drop" style="float: right; v-align:top"> dropdown&nbsp; link &nbsp;link</div></h3>
       </div>
     </div>
 

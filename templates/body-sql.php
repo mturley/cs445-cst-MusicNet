@@ -1,5 +1,7 @@
 <div class="jumbotron slim">
-  <h2>SQL Admin Panel</h2>
+  <div class="container">
+    <h2>SQL Admin Panel</h2>
+  </div>
 </div>
 
 <div class="container">

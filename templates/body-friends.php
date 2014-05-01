@@ -1,7 +1,10 @@
 <div id="topimg"></div>
 <div class="jumbotron slim floating">
   <div class="container">
-     <h2 class="floatleft">Find Friends</h2>
+    <h2 class="floatleft">
+      <span class="glyphicon glyphicon-comment"></span>
+      Find Friends
+    </h2>
     <div id="search-type" class="btn-group btn-group-lg floatleft">
     <button type="button" class="btn btn-primary" data-search-type="friends-username">Search by Username</button>
     <button type="button" class="btn btn-default" data-search-type="friends-location">Search by Location</button>

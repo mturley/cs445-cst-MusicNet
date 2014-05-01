@@ -718,7 +718,7 @@ $(document).ready(function() {
         var r = $.parseJSON(response);
         $ul = $("<ul>").appendTo($('#shopList'));
         $.each(r.results, function(idx, shop) {
-          var $li = $('<a href="'+shop.store_link+'"><img src="'+shop.store_img+'" class="ad" align="left"></a><font size="24pt">'+shop.store_name+'</font>');
+          var $li = $('<a href="'+shop.store_link+'"><img src="'+shop.store_img+'" class="ad"></a><font size="24pt">'+shop.store_name+'</font>');
           $li.appendTo($ul);
           Util.linkify($li, shop);
         });

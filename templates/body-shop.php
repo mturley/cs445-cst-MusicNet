@@ -7,7 +7,7 @@
 
 <div class="container">
 	<table><tr><td width="250px">
-		<div id="shop-info">
+		<div id="shopList">
 			Loading...
 		</div>
 	</td></tr></table>

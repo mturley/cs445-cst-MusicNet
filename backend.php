@@ -418,6 +418,29 @@
 
   }
 
+
+
+  //SHOPS hello? 
+
+
+  else if($fn == 'get_Shop') {
+
+    if(!isset($_GET['num_shops'])) {
+      $response->message = "No num_shops field specified.  Number of shops to return is a required field.";
+    } else {
+      $num_shops = $_GET['num_shops'];
+      // get a list of terms from current user
+      try {
+        $q = $db->prepare("select store_name from Stores");
+        $response->results = $q->fetchAll();
+        $response->message = "Stores returned in results field.";
+      } catch(PDOException $e) {
+        $response->message = "Failed to fetch suggested stores!";
+        $response->details = $e->getMessage();
+        error(500,"Internal Server Error");
+      }
+    }
+
   // Output the response object as a JSON-encoded string
   echo json_encode($response);
 

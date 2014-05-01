@@ -443,7 +443,7 @@
     else if($fn == 'add_friend') {
 
     session_start();
-    $friend_id = $_GET['friend_id'];
+    $friend_id = $_POST['friend_id'];
     if(isset($_SESSION['user_id'])) {
       try {
         $q = $db->prepare('insert into isFriend values (:user_id,:friend_id)');

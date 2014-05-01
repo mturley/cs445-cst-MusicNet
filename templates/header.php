@@ -70,12 +70,7 @@
             if($logged_in) {
           ?>
             <div class="navbar-form navbar-right" style="color: white;">
-              <big>
                 <?php include("templates/dropdown.php") ?>
-                Signed In As:&nbsp;
-                <a class="data-username" href="musicnet.php?page=user&user_id=<?php echo $_SESSION['user_id']; ?>">...</a>
-              </big>&nbsp;&nbsp;
-              <a href="musicnet.php?page=logout" class="btn btn-info">Sign Out</a>
             </div>
           <?php
             } else {

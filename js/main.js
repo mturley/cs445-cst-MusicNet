@@ -714,7 +714,7 @@ $(document).ready(function() {
         $.each(r.results, function(idx, shop) {
           var $li = $('<li><a href="'+shop.store_link+'"><img src="'+shop.store_img+'"></a></li>');
           $li.appendTo($ul);
-          Util.linkify($li, c);
+          Util.linkify($li, shop);
         });
       },
       error: function(error) {

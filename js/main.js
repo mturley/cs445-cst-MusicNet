@@ -666,6 +666,7 @@ $(document).ready(function() {
     Util.artistAlbumsAjax(urlParam('artist_id'), 0);
 
   }
+
   else if(page == 'sql') {
 
     $("#sql-form").on('submit', function(e) {
@@ -690,6 +691,39 @@ $(document).ready(function() {
           console.log("ERROR: ", response);
         }
       });
+    });
+  }// end of page-specific scripts
+
+
+
+
+
+  //SHOP
+  else if(page == 'Shop') {
+
+   Util.startLoader();
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_Shop',
+        num_shops: 5
+      },
+      success: function(response) {
+        Util.stopLoader();
+        $("#shopList").empty();
+        var r = $.parseJSON(response);
+        $ul = $("<ul>").appendTo($('#shopList'));
+        $.each(r.results, function(idx, shop) {
+          var $li = $('<li>'+shop.store_name+'</strong></li>');
+          $li.appendTo($ul);
+          Util.linkify($li, c);
+        });
+      },
+      error: function(error) {
+        Util.stopLoader();
+        console.log("ERROR: ", error);
+      }
     });
   }// end of page-specific scripts
 

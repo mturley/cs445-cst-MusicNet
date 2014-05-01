@@ -453,7 +453,8 @@
     $friend_id = $_POST['friend_id'];
     if(isset($_SESSION['user_id'])) {
       try {
-        $q = $db->prepare("INSERT INTO isFriends (user_id, friend_id, date) VALUES (:userid, :friend_id, now());");
+        $response->message = "friend ".$friend_id;
+        $q = $db->prepare("insert into isFriends (user_id, friend_id, date) values (:user_id, :friend_id, now());");
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':friend_id' => $friend_id));
         $user = $q->fetchObject();
         $response->message = "friend added";

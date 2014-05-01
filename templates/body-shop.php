@@ -5,12 +5,10 @@
   </div>
 </div>
 
-<div class="container">
-	<table><tr><td width="250px">
-		<table><div id="shopList">
+<div class="container"><center>
+		<div id="shopList">
 			Loading...
 		</div>
-	</table>
-	</td></tr></table>
+	</table></center>
 </div>
 <br><br>

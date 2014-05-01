@@ -774,6 +774,7 @@ $(document).ready(function() {
     },
     success: function(response) {
       Util.stopLoader();
+      console.log(response);
       var r = $.parseJSON(response);
       window.logged_in = r.logged_in;
       if(logged_in) {

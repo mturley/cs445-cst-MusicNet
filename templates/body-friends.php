@@ -5,6 +5,7 @@
     <button type="button" class="btn btn-primary" data-search-type="friends-username">Search by Username</button>
     <button type="button" class="btn btn-default" data-search-type="friends-location">Search by Location</button>
     </div>
+    <?php include("templates/dropdown.php") ?>
   </div>
 </div>
 

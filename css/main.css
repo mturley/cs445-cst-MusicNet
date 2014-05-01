@@ -119,7 +119,7 @@
 #search-form {
   position: absolute;
   z-index: 999;
-  top: 200px;
+  top: 168px;
   left: 0;
 }
 
@@ -139,7 +139,7 @@
 }
 
 .search-group {
-  left: 60px;
+  
 }
 
 .press-enter {

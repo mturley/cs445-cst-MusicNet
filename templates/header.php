@@ -79,15 +79,15 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li role="presentation" class="dropdown-header"><a href="?page=search">
-                      <span class="glyphicon glyphicon-headphones"></span>
+                      <span class="glyphicon glyphicon-headphones"></span>&nbsp;
                       Search for Music
                     </a></li>
                     <li role="presentation" class="dropdown-header"><a href="?page=friends">
-                      <span class="glyphicon glyphicon-comment"></span>
+                      <span class="glyphicon glyphicon-comment"></span>&nbsp;
                       Search for Friends
                     </a></li>
                     <li role="presentation" class="dropdown-header"><a href="?page=concerts">
-                      <span class="glyphicon glyphicon-tag"></span>
+                      <span class="glyphicon glyphicon-tag"></span>&nbsp;
                       Search for Concerts
                     </a></li>
                   </ul>

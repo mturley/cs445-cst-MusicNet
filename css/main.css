@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-h1.floating {
+.floating {
   z-index: 999;
   position:absolute;
   top: 40px;

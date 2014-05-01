@@ -702,7 +702,7 @@ $(document).ready(function() {
       type: 'GET',
       url: 'backend.php',
       data: {
-        fn: 'get_Shop',
+        fn: 'get_shop',
         num_shops: 5
       },
       success: function(response) {

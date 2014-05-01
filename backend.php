@@ -263,7 +263,7 @@
       //}
       $q->execute($arr);
 
-      //adding to terms. not sure why this isn't working. 
+      //adding to terms. not sure why this isn't working.
       /*session_start();
       $user_id = "%".$_SESSION['user_id']."%";
       $query = "insert ignore into table Searches values (:user_id,:term)";
@@ -416,18 +416,7 @@
       $response->message = "Failed to authenticate as an admin!";
     }
 
-  }
-
-
-
-<<<<<<< HEAD
-  //SHOPS hello? 
-
-=======
-  //SHOPS hello?
->>>>>>> e6fd91b5ad6528f326b88a35cf1d18b09d4ea7ca
-
-  else if($fn == 'get_Shop') {
+  } else if($fn == 'get_shop') {
 
     if(!isset($_GET['num_shops'])) {
       $response->message = "No num_shops field specified.  Number of shops to return is a required field.";
@@ -444,10 +433,8 @@
         error(500,"Internal Server Error");
       }
     }
-<<<<<<< HEAD
-=======
+
   }
->>>>>>> e6fd91b5ad6528f326b88a35cf1d18b09d4ea7ca
 
   // Output the response object as a JSON-encoded string
   echo json_encode($response);

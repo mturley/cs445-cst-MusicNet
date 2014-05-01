@@ -2,7 +2,8 @@
 <div class="jumbotron slim floating">
   <div class="container">
     <h2 class="floatleft">
-      <span class="glyphicon glyphicon-comment"></span>&nbsp; Friends
+      <span class="glyphicon glyphicon-comment"></span>&nbsp;
+      Search for Friends
     </h2>
     <div id="search-type" class="btn-group btn-group-lg floatleft">
     <button type="button" class="btn btn-primary" data-search-type="friends-username">Search by Username</button>
@@ -16,7 +17,7 @@
 	<form class="form-horizontal" id="search-form">
   	<fieldset>
 	  <div class="form-group">
-	    <div class="col-md-10">
+	    <div class="col-md-12">
 	    	<div class="input-group search-group">
 	       		 <span class="input-group-addon addonborder"><span class="glyphicon glyphicon-search bigicon"></span></span>
 		      <input id="searchinput" name="searchinput" type="search" placeholder="Search by Username" class="form-control input-md">

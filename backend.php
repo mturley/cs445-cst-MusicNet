@@ -271,13 +271,10 @@
       //$response->filters = $_GET['filters'];
       $response->results = $q->fetchAll();
 
-      //adding to useractivity. not sure why this isn't working.
+      //adding to terms. not sure why this isn't working.
       if(isset($_SESSION['user_id'])) {
-        $date = new DateTime();
-        $datetime=$date->getTimestamp();
-        $string="user searched for".$_GET['term'];
-        $q = $db->prepare("insert ignore into UserActivity (user_id, term_id) values (:user_id,:string,:datetime)");
-        $q->execute(array(':user_id' => $_SESSION['user_id'], ':string' => $_GET['string'], ':datetime' => $_GET['datetime']));
+        $q = $db->prepare("insert ignore into Searches (user_id, term_id) values (:user_id,:term)");
+        $q->execute(array(':user_id' => $_SESSION['user_id'], ':term' => $_GET['term']));
       }
 
     } catch(PDOException $e) {
@@ -327,7 +324,7 @@
       }
     }
 
-  }  else if($fn == 'get_suggested_songs') {
+  }   else if($fn == 'get_suggested_songs') {
 
     session_start();
     if(!isset($_SESSION['user_id'])) {
@@ -441,14 +438,15 @@
     }
 
 
+
 //add friend
     else if($fn == 'add_friend') {
 
     session_start();
-    $friend_id = $_POST['friend_id'];
+    $friend_id = $_GET['friend_id'];
     if(isset($_SESSION['user_id'])) {
       try {
-        $q = $db->prepare('insert into isFriend values (:user_id,:friend_id)');
+        $q = $db->prepare('insert ignore into isFriend values (:user_id,:friend_id)');
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':friend_id' => $friend_id));
         $user = $q->fetchObject();
         $response->message = "friend added";
@@ -457,9 +455,6 @@
         $response->details = $e->getMessage();
         error(500,"Internal Server Error");
       }
-    }
-    else {
-      $response->message = "Failed to add friend!";
     }
   }
 

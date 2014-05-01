@@ -321,55 +321,54 @@ $(document).ready(function() {
   } else if(page == 'user') {
 
     //add friend
-    $("#FriendForm").submit(function(e) {
-      e.preventDefault();
-      var postdata = $("#FriendForm").serializeObject();
-      postdata.fn = 'add_friend';
-      Util.startLoader();
-      $.ajax({
-        type: 'POST',
-        url: 'backend.php',
-        data: postdata,
-        success: function(response) {
-          Util.stopLoader();
-          document.location = 'musicnet.php'; // reload
-        },
-        error: function(response) {
-          Util.stopLoader();
-          bootbox.alert($.parseJSON(response.responseText).message);
-        }
-      });
+  $("#FriendForm").submit(function(e) {
+    e.preventDefault();
+    var postdata = $("#FriendForm").serializeObject();
+    postdata.fn = 'add_friend';
+    Util.startLoader();
+    $.ajax({
+      type: 'POST',
+      url: 'backend.php',
+      data: postdata,
+      success: function(response) {
+        Util.stopLoader();
+        document.location = 'musicnet.php'; // reload
+      },
+      error: function(response) {
+        Util.stopLoader();
+        bootbox.alert($.parseJSON(response.responseText).message);
+      }
+    });
+  });
+
+
+    Util.startLoader();
+    $.ajax({
+      type: 'GET',
+      url: 'backend.php',
+      data: {
+        fn: 'get_object_by_id',
+        type: 'user',
+        user_id: urlParam('user_id')
+      },
+      success: function(response) {
+        Util.stopLoader();
+        var r = $.parseJSON(response);
+        $("#user-info").empty();
+        $.each(Object.keys(r), function(idx, key) {
+          var niceKey = toTitleCase(key.replace('_',' '));
+          $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
+        });
+      },
+      error: function(response) {
+        Util.stopLoader();
+        bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
+      }
     });
 
 
-      Util.startLoader();
-      $.ajax({
-        type: 'GET',
-        url: 'backend.php',
-        data: {
-          fn: 'get_object_by_id',
-          type: 'user',
-          user_id: urlParam('user_id')
-        },
-        success: function(response) {
-          Util.stopLoader();
-          var r = $.parseJSON(response);
-          $("#user-info").empty();
-          $.each(Object.keys(r), function(idx, key) {
-            var niceKey = toTitleCase(key.replace('_',' '));
-            $("<h4>"+key+":&nbsp;"+r[key]+"</h4>").appendTo("#user-info");
-          });
-        },
-        error: function(response) {
-          Util.stopLoader();
-          bootbox.alert("Failed to load user data!  Error Message: "+$.parseJSON(response.responseText).message);
-        }
-      }); //end ajax
-
-
-
 //user activity
-          Util.startLoader();
+        Util.startLoader();
           $.ajax({
             type: 'GET',
             url: 'backend.php',

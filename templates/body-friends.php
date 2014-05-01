@@ -1,4 +1,5 @@
-<div class="jumbotron slim">
+<div id="topimg"></div>
+<div class="jumbotron slim floating">
   <div class="container">
      <h2 class="floatleft">Find Friends</h2>
     <div id="search-type" class="btn-group btn-group-lg floatleft">

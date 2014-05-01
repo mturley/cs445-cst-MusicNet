@@ -3,7 +3,7 @@
   <div class="container">
     <h2 class="floatleft">
       <span class="glyphicon glyphicon-comment"></span>&nbsp;
-      Find Friends
+      Search for Friends
     </h2>
     <div id="search-type" class="btn-group btn-group-lg floatleft">
     <button type="button" class="btn btn-primary" data-search-type="friends-username">Search by Username</button>

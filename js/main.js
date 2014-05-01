@@ -4,7 +4,6 @@ $(document).ready(function() {
 
   var page = urlParam('page');
   if(page == '') page = 'home';
-  if(page != 'home') $(".navbar-brand").addClass('nothome');
 
   $("#registration-form").submit(function(e) {
     // submit the registration form data via ajax
@@ -740,6 +739,7 @@ $(document).ready(function() {
       window.logged_in = r.logged_in;
       if(logged_in) {
         $(".data-username").html(r.user.username);
+        $('<span class="glyphicon glyphicon-user"></span>').prependTo($(".data-username.withicon"));
         // Load user-targeted ads
         Util.startLoader();
         $.ajax({

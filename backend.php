@@ -129,7 +129,7 @@
     try {
       $sql = "";
       if($type == 'user') {
-        if(isset($_SESSION['user_id'])) {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_id'] != $_GET['user_id']) {
           $sql = "select u.user_id, u.username, u.age, u.gender, u.location, count(i.user_id) as isFriends"
                 ." from Users u, isFriends i where u.user_id = :user_id"
                 ." and ((i.user_id = u.user_id and i.friend_id = '".$_SESSION['user_id']."')"

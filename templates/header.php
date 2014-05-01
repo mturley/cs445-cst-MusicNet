@@ -72,7 +72,7 @@
                 <?php if($page != 'home') { ?><a class="btn btn-default floatleft" href="musicnet.php">Home</a><?php } ?>
                 <div class="dropdown floatleft">
                   <a class="dropdown-toggle btn btn-primary" data-toggle="dropdown" href="#">
-                    <span class="glyphicon glyphicon-list"></span>
+                    <span class="glyphicon glyphicon-align-justify"></span>
                     Menu <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">

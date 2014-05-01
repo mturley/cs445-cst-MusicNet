@@ -446,7 +446,7 @@
     $friend_id = $_GET['friend_id'];
     if(isset($_SESSION['user_id'])) {
       try {
-        $q = $db->prepare('insert into table isFriend values (:user_id,:friend_id)');
+        $q = $db->prepare('insert ignore into isFriend values (:user_id,:friend_id)');
         $q->execute(array(':user_id' => $_SESSION['user_id'], ':friend_id' => $friend_id));
         $user = $q->fetchObject();
         $response->message = "friend added";

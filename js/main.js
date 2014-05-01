@@ -399,7 +399,7 @@ $(document).ready(function() {
               var r = $.parseJSON(response);
               $ul = $("<ul>").appendTo($('#userActivity'));
               $.each(r.results, function(idx, activity) {
-                var $li = $('<li><a href="?page=user&user_id='+activity.user_id+'">'+activity.user_id+'</a> '+activity.activity+' &nbsp;&nbsp;at <i>'+activity.date+'</i></li>');
+                var $li = $('<li><a href="?page=user&user_id='+activity.user_id+'">'+activity.user_id+'</a> '+activity.activity+' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at <i>'+activity.date+'</i></li>');
                 $li.appendTo($ul);
                 Util.linkify($li, activity);
               });
